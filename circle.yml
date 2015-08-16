@@ -1,0 +1,10 @@
+machine:
+  timezone:
+    Africa/Lagos
+
+  php:
+    version: 5.6.5
+
+test:
+  override:
+    - composer install --prefer-source --no-interaction --no-dev
