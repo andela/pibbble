@@ -4,6 +4,7 @@
 /.settings
 /.idea
 .env
+.env.example
 .env.testing
 Homestead.yaml
 .gitignore.idea
