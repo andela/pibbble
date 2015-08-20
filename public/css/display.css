@@ -1,0 +1,15 @@
+.hide {
+  display: none;
+}
+.tab {
+  height:50;
+  cursor: pointer;
+  display: inline-block;
+  border-style: solid;
+  border-width: thin;
+  border-color: gray;
+  padding: 5px;
+}
+.space {
+  margin: 2px;
+}
