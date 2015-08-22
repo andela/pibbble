@@ -39,6 +39,7 @@
         <div class="container">
             <div class="content">
                 <div class="title">Laravel 5</div>
+                <a href="/auth/github">Github Login</a>
             </div>
         </div>
     </body>
