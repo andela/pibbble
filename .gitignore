@@ -4,10 +4,12 @@
 /.settings
 /.idea
 .env
+.env.example
 .env.testing
 Homestead.yaml
 .gitignore.idea
 
 
 
+tests/_output/*
 tests/_output/*
