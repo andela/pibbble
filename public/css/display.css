@@ -11,5 +11,13 @@
   padding: 5px;
 }
 .space {
-  margin: 2px;
+  margin: 20px;
+}
+.borderGray {
+  border-style: solid;
+  border-width: thin;
+  border-color: #E0E0E0;
+}
+.bgWhite {
+  background-color: white;
 }

@@ -9,54 +9,55 @@
           <img src="http://placehold.it/600x250">
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 borderGray bgWhite">
         <!--        -->
         <div>
           <div>
             <div>
-              <div>
-                <div class="space">
-                  <div class="tab" id="signUp">Sign up</div>
-                  <div class="tab" id="logIn">Log in</div>
-                </div>
-              </div>
-              <div>
+              <div >
                 <!-- signup form start -->
                 <div id="signUpForm">
+                  <h4 class="space">Sign up</h4>
                   <div>
                     <div>
                       <form>
                         <div class="space">
-                          <input placeholder="Email" size="30" tabindex="1" type="text">
+                          <input class="form-control" placeholder="Email" size="30" type="text">
                         </div>
                         <div class="space">
-                          <input placeholder="Username" size="30" tabindex="2" type="text">
+                          <input class="form-control" placeholder="Username" size="30" type="text">
                         </div>
                         <div class="space">
-                          <input placeholder="Password" size="30" tabindex="3" type="password">
+                          <input class="form-control" placeholder="Password" size="30" type="password">
                         </div>
-                        <input type="submit" value="Get started!" class="space">
+                        <div class="space">
+                          <input class="form-control" type="submit" value="Create Account" class="space">
+                        </div>
                         <div class="space">
                           <div>
-                            <small>Or sign up with:</small>
+                            Or sign up with:
+                            <a href="#">
+                              <div class="tab">
+                                <img src="{!! asset('img/GitHub-Mark-32px.png') !!}" height="16" width="16">
+                              </div>
+                            </a>
+                            <a href="#">
+                              <div class="tab">
+                                <img src="{!! asset('img/TwitterLogo55acee.png') !!}" height="16" width="16">
+                              </div>
+                            </a>
+                            <a>
+                              <div class="tab">
+                                <img src="{!! asset('img/logo_Linkedin.png') !!}" height="16" width="16">
+                              </div>
+                            </a>
                           </div>
                         </div>
-                        <div class="space">
-                          <a href="#">
-                            <div class="tab">
-                              <img src="{!! asset('img/GitHub-Mark-32px.png') !!}" height="32" width="32">
-                            </div>
-                          </a>
-                          <a href="#">
-                            <div class="tab">
-                              <img src="{!! asset('img/TwitterLogo55acee.png') !!}" height="32" width="32">
-                            </div>
-                          </a>
-                          <a>
-                            <div class="tab">
-                              <img src="{!! asset('img/logo_Linkedin.png') !!}" height="32" width="32">
-                            </div>
-                          </a>
+                        <div>
+                          <div class="space">
+                            Already have an account?
+                            <a id="logIn">Log in</a>
+                          </div>
                         </div>
                         <div class="space">
                           <div>
@@ -73,43 +74,49 @@
                 <!-- signup form end -->
                 <!-- login form start-->
                 <div id="logInForm">
+                  <h4 class="space">Log in</h4>
                   <div>
                     <div>
                       <form>
                         <div class="space">
-                          <input placeholder="Email or username" size="30" tabindex="1" type="text">
+                          <input class="form-control" placeholder="Email" size="30" type="text">
                         </div>
                         <div class="space">
-                          <input placeholder="Password" size="30" tabindex="2" type="password">
+                          <input class="form-control" placeholder="Password" size="30" type="password">
                         </div>
                         <div class="space">
                           <small>
-                            <input type="checkbox">
-                            <label>Remember me</label>
+                            <input type="checkbox"> Remember me
                           </small>
                         </div>
-                        <input type="submit" value="Login" class="space">
                         <div class="space">
-                          <div>
-                            <small>Or login with:</small>
-                          </div>
+                          <input class="form-control" type="submit" value="Log In" class="space">
                         </div>
                         <div class="space">
-                          <a href="#">
-                            <div class="tab">
-                              <img src="{!! asset('img/GitHub-Mark-32px.png') !!}" height="32" width="32">
-                            </div>
-                          </a>
-                          <a href="#">
-                            <div class="tab">
-                              <img src="{!! asset('img/TwitterLogo55acee.png') !!}" height="32" width="32">
-                            </div>
-                          </a>
-                          <a>
-                            <div class="tab">
-                              <img src="{!! asset('img/logo_Linkedin.png') !!}" height="32" width="32">
-                            </div>
-                          </a>
+                          <div>
+                            Or log in with:
+                            <a href="#">
+                              <div class="tab">
+                                <img src="{!! asset('img/GitHub-Mark-32px.png') !!}" height="16" width="16">
+                              </div>
+                            </a>
+                            <a href="#">
+                              <div class="tab">
+                                <img src="{!! asset('img/TwitterLogo55acee.png') !!}" height="16" width="16">
+                              </div>
+                            </a>
+                            <a>
+                              <div class="tab">
+                                <img src="{!! asset('img/logo_Linkedin.png') !!}" height="16" width="16">
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                        <div>
+                          <div class="space">
+                            Don't have an account?
+                            <a id="signUp">Sign up</a>
+                          </div>
                         </div>
                         <div class="space">
                           <div>
