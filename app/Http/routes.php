@@ -14,8 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('users/register', 'Auth\AuthController@getRegister');
-Route::post('users/register', 'Auth\AuthController@postRegister');
-Route::get('users/logout', 'Auth\AuthController@getLogout');
-Route::get('users/login', 'Auth\AuthController@getLogin');
-Route::post('users/login', 'Auth\AuthController@postLogin');
+// Authentication routes...
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+// Registration routes...
+Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+// Password controller
+Route::controllers(['password' => 'Auth\PasswordController',]);
