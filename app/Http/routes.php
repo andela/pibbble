@@ -19,10 +19,6 @@ Route::get('social', function () {
     return view('social_auth_success');
 });
 
-// Route::get('social', array('as' => 'social', 'uses' => function(){
-//   return view('social_auth_success');
-// }));
-
 Route::get('auth/{github}', 'Auth\AuthController@redirectToProvider');
 Route::get('auth/{github}/callback', 'Auth\AuthController@handleProviderCallback');
 

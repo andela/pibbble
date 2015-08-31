@@ -42,7 +42,6 @@
                 <a style="margin-right:15px;" href="/auth/github">Github Login</a>
                 <a style="margin-right:15px;" href="/auth/twitter">Twitter Login</a>
                 <a style="margin-right:15px;" href="/auth/linkedin">LinkedIn Login</a>
-                <!--<a style="margin-right:15px;" href="/auth/google">Google Login</a>-->
             </div>
         </div>
     </body>
