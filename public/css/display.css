@@ -1,23 +1,10 @@
 .hide {
   display: none;
 }
-.tab {
-  height:50;
-  cursor: pointer;
-  display: inline-block;
-  border-style: solid;
-  border-width: thin;
-  border-color: gray;
-  padding: 5px;
+.mui-tabs>li.mui-active>a {
+  color: #009688;
 }
-.space {
-  margin: 20px;
-}
-.borderGray {
-  border-style: solid;
-  border-width: thin;
-  border-color: #E0E0E0;
-}
-.bgWhite {
+.mui-tabs>li.mui-active {
+  border-bottom: 2px solid #009688;
   background-color: white;
 }

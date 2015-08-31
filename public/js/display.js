@@ -1,6 +1,6 @@
 $(document).ready(function() {
   //hide log in
-  $("#logInForm").addClass("hide");
+  //$("#logInForm").addClass("hide");
   var toggleDisplay = function(first, second) {
     $(first).addClass("hide");
     $(second).removeClass("hide");

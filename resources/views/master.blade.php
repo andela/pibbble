@@ -3,6 +3,9 @@
 <html lang="en">
   <head>
     <title> @yield('title') </title>
+
+    <link href="//cdn.muicss.com/mui-0.1.21/css/mui.min.css" rel="stylesheet" type="text/css" />
+
     <!-- Include bootstrap.css -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Include roboto.css to use the Roboto web font, material.css to include the theme and ripples.css to style the ripple effect -->
@@ -23,6 +26,9 @@
     <!-- Include ripples.js and material.js -->
     <script src="/js/ripples.min.js"></script>
     <script src="/js/material.min.js"></script>
+
+    <script src="//cdn.muicss.com/mui-0.1.21/js/mui.min.js"></script>
+
     <script type="text/javascript" src="{!! asset('js/display.js') !!}"></script>
     <script>
       $(document).ready(function() {
