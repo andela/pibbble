@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Socialite;
+use Auth;
+use Redirect;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-use Laravel\Socialite\Facades\Socialite;
+
 
 class AuthController extends Controller
 {
@@ -24,6 +27,7 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
+    protected $redirectPath = '/social';
     /**
      * Create a new authentication controller instance.
      *
@@ -65,52 +69,54 @@ class AuthController extends Controller
     }
 
     /**
-     * Redirect the user to the GitHub authentication page.
+     * Redirect the user to the provider's authentication page.
      *
      * @return Response
      */
-    public function redirectToProvider()
+    public function redirectToProvider($provider)
     {
-        return Socialite::driver('github')->redirect();
+        return Socialite::driver($provider)->redirect();
     }
 
     /**
-     * Obtain the user information from GitHub.
+     * Obtain the user information from the provider.
      *
      * @return Response
      */
-    public function handleProviderCallback()
+    public function handleProviderCallback($provider)
     {
         try {
-            $user = Socialite::driver('github')->user();
+            $user = Socialite::driver($provider)->user();
         } catch (Exception $e) {
-            return Redirect::to('auth/github');
+            return Redirect::to('auth/'.$provider);
         }
 
-        $authUser = $this->findOrCreateUser($user);
+        $authUser = $this->findOrCreateUser($user, $provider);
 
         Auth::login($authUser, true);
-
-        return Redirect::to('home');
+        return Redirect::to('social');
     }
 
     /**
      * Return user if exists; create and return if doesn't
      *
-     * @param $githubUser
+     * @param $theUser
      * @return User
      */
-    private function findOrCreateUser($githubUser)
+    private function findOrCreateUser($theUser, $provider)
     {
-        if ($authUser = User::where('github_id', $githubUser->id)->first()) {
+        $authUser = User::where('provider_id', $theUser->id)->first();
+
+        if ($authUser){
             return $authUser;
         }
 
         return User::create([
-            'name' => $githubUser->name,
-            'email' => $githubUser->email,
-            'github_id' => $githubUser->id,
-            'avatar' => $githubUser->avatar
+            'provider' => $provider,
+            'provider_id' => $theUser->id,
+            'name' => $theUser->name,
+            'email' => $theUser->email,
+            'avatar' => $theUser->avatar
         ]);
     }
 }
