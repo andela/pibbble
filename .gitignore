@@ -1,14 +1,12 @@
+
 .DS_Store
 /vendor
 /node_modules
 /.settings
 /.idea
 .env
+.env.example
 .env.testing
 Homestead.yaml
 .gitignore.idea
-.env.example
-
-
-
 tests/_output/*
