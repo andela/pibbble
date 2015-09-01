@@ -1,6 +1,4 @@
 $(document).ready(function() {
-  //hide log in
-  //$("#logInForm").addClass("hide");
   var toggleDisplay = function(first, second) {
     $(second).addClass("mui-active");
     $(first).removeClass("mui-active");
