@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 .DS_Store
 /vendor
 /node_modules
@@ -9,6 +9,4 @@
 .env.testing
 Homestead.yaml
 .gitignore.idea
-
 tests/_output/*
-
