@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8">
-      <img src="{!! asset('img/writing-code.jpg') !!}" >
+      <img src="https://placehold.it/720x400" >
     </div>
     <div class="col-md-4">
       <ul class="mui-tabs">

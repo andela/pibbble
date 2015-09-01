@@ -9,6 +9,6 @@
   background-color: white;
 }
 .mui-btn {
-  background-color: #B2DFDB;
-  color: #26A69A;
+  border: 1px solid #009688;
+  color: #009688;
 }
