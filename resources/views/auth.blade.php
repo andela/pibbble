@@ -28,13 +28,13 @@
             </div>
             <div class="mui-form-group">
               <span>Or sign up with:</span>
-              <a href="#" class="mui-btn mui-btn-default mui-btn-raised">
+              <a href="#" class="imgBtn mui-btn mui-btn-default mui-btn-raised">
                 <img src="{!! asset('img/GitHub-Mark-32px.png') !!}" height="16" width="16">
               </a>
-              <a href="#" class="mui-btn mui-btn-default mui-btn-raised">
+              <a href="#" class="imgBtn mui-btn mui-btn-default mui-btn-raised">
                 <img src="{!! asset('img/TwitterLogo55acee.png') !!}" height="16" width="16">
               </a>
-              <a href="#" class="mui-btn mui-btn-default mui-btn-raised">
+              <a href="#" class="imgBtn mui-btn mui-btn-default mui-btn-raised">
                 <img src="{!! asset('img/logo_Linkedin.png') !!}" height="16" width="16">
               </a>
             </div>
@@ -66,13 +66,13 @@
             </div>
             <div class="mui-form-group">
               Or log in with:
-              <a href="#" class="mui-btn mui-btn-default mui-btn-raised">
+              <a href="#" class="imgBtn mui-btn mui-btn-default mui-btn-raised">
                 <img src="{!! asset('img/GitHub-Mark-32px.png') !!}" height="16" width="16">
               </a>
-              <a href="#" class="mui-btn mui-btn-default mui-btn-raised">
+              <a href="#" class="imgBtn mui-btn mui-btn-default mui-btn-raised">
                 <img src="{!! asset('img/TwitterLogo55acee.png') !!}" height="16" width="16">
               </a>
-              <a href="#" class="mui-btn mui-btn-default mui-btn-raised">
+              <a href="#" class="imgBtn mui-btn mui-btn-default mui-btn-raised">
                 <img src="{!! asset('img/logo_Linkedin.png') !!}" height="16" width="16">
               </a>
             </div>
