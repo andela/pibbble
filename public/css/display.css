@@ -1,10 +1,20 @@
-.hide {
-  display: none;
-}
 .mui-tabs>li.mui-active>a {
   color: #009688;
 }
 .mui-tabs>li.mui-active {
   border-bottom: 2px solid #009688;
   background-color: white;
+}
+.mui-btn {
+  border: 1px solid #009688;
+  color: #009688;
+}
+.mui-form-control:focus {
+  border-color: #009688;
+}
+.imgBtn {
+  padding: 0 13px;
+}
+.mui-panel {
+  padding: 40px 40px 40px 40px;
 }
