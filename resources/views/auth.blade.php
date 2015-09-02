@@ -24,7 +24,7 @@
               <input type="password" class="mui-form-control" id="pwd" placeholder="Password">
             </div>
             <div class="mui-form-group">
-              <button type="submit" class="mui-btn mui-btn-default mui-btn-raised">Creat Account</button>
+              <button type="submit" class="mui-btn mui-btn-default mui-btn-raised">Create Account</button>
             </div>
             <div class="mui-form-group">
               <span>Or sign up with:</span>
