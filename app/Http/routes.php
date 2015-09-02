@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('social', function () {
+Route::get('dashboard', function () {
     return view('social_auth_success');
 });
 

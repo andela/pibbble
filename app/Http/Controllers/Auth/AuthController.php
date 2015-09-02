@@ -27,7 +27,7 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
-    protected $redirectPath = '/social';
+    protected $redirectPath = '/dashboard';
     /**
      * Create a new authentication controller instance.
      *
@@ -94,7 +94,7 @@ class AuthController extends Controller
         $authUser = $this->findOrCreateUser($user, $provider);
 
         Auth::login($authUser, true);
-        return Redirect::to('social');
+        return Redirect::to('dashboard');
     }
 
     /**
