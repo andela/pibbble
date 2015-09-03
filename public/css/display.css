@@ -1,0 +1,10 @@
+.hide {
+  display: none;
+}
+.mui-tabs>li.mui-active>a {
+  color: #009688;
+}
+.mui-tabs>li.mui-active {
+  border-bottom: 2px solid #009688;
+  background-color: white;
+}
