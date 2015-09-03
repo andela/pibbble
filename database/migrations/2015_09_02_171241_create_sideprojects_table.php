@@ -12,15 +12,14 @@ class CreateSideprojectsTable extends Migration
    */
   public function up()
   {
-    Schema::create('sideprojects', function (Blueprint $table) {
-      $table->increments('sideproject_id');
+    Schema::create('projects', function (Blueprint $table) {
+      $table->increments('project_id');
       $table->integer('user_id')->unsigned();
       $table->string('projectname');
       $table->string('description');
       $table->string('url');
       $table->string('technologies');
       $table->timestamps();
-
       $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade')->onUpdate('cascade');
     });
   }
@@ -32,6 +31,6 @@ class CreateSideprojectsTable extends Migration
    */
   public function down()
   {
-    Schema::drop('sideprojects');
+    Schema::drop('projects');
   }
 }

@@ -12,15 +12,14 @@ class CreateSideprojectCommentsTable extends Migration
    */
   public function up()
   {
-    Schema::create('sideprojectcomments', function (Blueprint $table) {
+    Schema::create('project_comments', function (Blueprint $table) {
       $table->increments('comment_id');
       $table->string('comment');
       $table->integer('user_id')->unsigned();
-      $table->integer('sideproject_id')->unsigned();
+      $table->integer('project_id')->unsigned();
       $table->timestamps();
-
       $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-      $table->foreign('sideproject_id')->references('sideproject_id')->on('sideprojects')->onDelete('cascade')->onUpdate('cascade');
+      $table->foreign('project_id')->references('project_id')->on('projects')->onDelete('cascade')->onUpdate('cascade');
     });
   }
 
@@ -31,6 +30,6 @@ class CreateSideprojectCommentsTable extends Migration
    */
   public function down()
   {
-    Schema::drop('sideprojectcomments');
+    Schema::drop('project_comments');
   }
 }
