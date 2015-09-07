@@ -8,11 +8,11 @@
     </div>
     <div class="col-md-4">
       <ul class="mui-tabs">
-        <li id="signUpTab" class="mui-active"><a data-mui-toggle="tab" data-mui-controls="pane-default-1">Sign Up</a></li>
-        <li id="logInTab"><a data-mui-toggle="tab" data-mui-controls="pane-default-2">Log In</a></li>
+        <li id="signUpTab" class="lineTab mui-active"><a data-mui-toggle="tab" data-mui-controls="pane-default-1">Sign Up</a></li>
+        <li id="logInTab" class="lineTab"><a data-mui-toggle="tab" data-mui-controls="pane-default-2">Log In</a></li>
       </ul>
       <div class="mui-tab-content">
-        <div class="signUpForm mui-tab-pane mui-active mui-panel" id="pane-default-1">
+        <div class="signUpForm mui-tab-pane mui-active mui-panel pad40" id="pane-default-1">
           <form>
             <div class="mui-form-group">
               <input type="email" class="mui-form-control" id="email" placeholder="Email">
@@ -22,6 +22,9 @@
             </div>
             <div class="mui-form-group">
               <input type="password" class="mui-form-control" id="pwd" placeholder="Password">
+            </div>
+            <div class="mui-form-group">
+              <input type="password" class="mui-form-control" id="pwdCnf" placeholder="Confirm Password">
             </div>
             <div class="mui-form-group">
               <button type="submit" class="mui-btn mui-btn-default mui-btn-raised">Create Account</button>
