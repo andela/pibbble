@@ -8,7 +8,6 @@
 Homestead.yaml
 .gitignore.idea
 .env.example
-public/components
 
 
 
