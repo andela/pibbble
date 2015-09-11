@@ -12,7 +12,7 @@
         <li id="logInTab" class="lineTab"><a data-mui-toggle="tab" data-mui-controls="pane-default-2">Log In</a></li>
       </ul>
       <div class="mui-tab-content">
-        <div class="signUpForm mui-tab-pane mui-active mui-panel pad40" id="pane-default-1">
+        <div class="signUpForm mui-tab-pane mui-active mui-panel pad40borderGrey" id="pane-default-1">
           <form>
             <div class="mui-form-group">
               <input type="email" class="mui-form-control" id="email" placeholder="Email">
@@ -53,7 +53,7 @@
             </div>
           </form>
         </div>
-        <div class="logInForm mui-tab-pane mui-panel" id="pane-default-2">
+        <div class="logInForm mui-tab-pane mui-panel pad40borderGrey" id="pane-default-2">
           <form>
             <div class="mui-form-group">
               <input class="mui-form-control" placeholder="Email" type="email">

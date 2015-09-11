@@ -1,0 +1,29 @@
+/**
+ * MUI Grid module
+ */
+
+// row
+.mui-row {
+  @include make-row;
+}
+
+// columns
+@include make-grid-columns;
+
+// extra small grid
+@include make-grid(xs);
+
+// small grid
+@media (min-width: $mui-screen-sm-min) {
+  @include make-grid(sm);
+}
+
+// medium grid
+@media (min-width: $mui-screen-md-min) {
+  @include make-grid(md);
+}
+
+// large grid
+@media (min-width: $mui-screen-lg-min) {
+  @include make-grid(lg);
+}
