@@ -40,4 +40,20 @@ class PagesController extends Controller {
   {
     return view('terms');
   }
+
+  /**
+   * @return help.blade.php
+   */
+  public function help()
+  {
+    return view('help');
+  }
+
+  /**
+   * @return privacy.blade.php
+   */
+  public function privacy()
+  {
+    return view('privacy');
+  }
 }
