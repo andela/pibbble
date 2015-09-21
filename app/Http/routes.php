@@ -16,7 +16,8 @@ Route::get('/auth', 'PagesController@auth');
 Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
 Route::get('/terms', 'PagesController@terms');
-
+Route::get('/privacy', 'PagesController@privacy');
+Route::get('/help', 'PagesController@help');
 Route::get('/', function () {
     return view('welcome');
 });
@@ -38,3 +39,4 @@ Route::get('auth/{google}', 'Auth\AuthController@redirectToProvider');
 Route::get('auth/{google}/callback', 'Auth\AuthController@handleProviderCallback');
 
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
