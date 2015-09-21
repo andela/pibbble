@@ -11,7 +11,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
-
 class AuthController extends Controller
 {
     /*
@@ -28,6 +27,7 @@ class AuthController extends Controller
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
     protected $redirectPath = '/dashboard';
+
     /**
      * Create a new authentication controller instance.
      *
@@ -94,11 +94,12 @@ class AuthController extends Controller
         $authUser = $this->findOrCreateUser($user, $provider);
 
         Auth::login($authUser, true);
+
         return Redirect::to('dashboard');
     }
 
     /**
-     * Return user if exists; create and return if doesn't
+     * Return user if exists; create and return if doesn't.
      *
      * @param $theUser
      * @return User
@@ -107,7 +108,7 @@ class AuthController extends Controller
     {
         $authUser = User::where('provider_id', $theUser->id)->first();
 
-        if ($authUser){
+        if ($authUser) {
             return $authUser;
         }
 
@@ -116,7 +117,7 @@ class AuthController extends Controller
             'provider_id' => $theUser->id,
             'name' => $theUser->name,
             'email' => $theUser->email,
-            'avatar' => $theUser->avatar
+            'avatar' => $theUser->avatar,
         ]);
     }
 }

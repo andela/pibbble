@@ -5,14 +5,14 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateSideprojectCommentsTable extends Migration
 {
-  /**
+    /**
    * Run the migrations.
    *
    * @return void
    */
   public function up()
   {
-    Schema::create('project_comments', function (Blueprint $table) {
+      Schema::create('project_comments', function (Blueprint $table) {
       $table->increments('comment_id');
       $table->string('comment');
       $table->integer('user_id')->unsigned();
@@ -30,6 +30,6 @@ class CreateSideprojectCommentsTable extends Migration
    */
   public function down()
   {
-    Schema::drop('project_comments');
+      Schema::drop('project_comments');
   }
 }
