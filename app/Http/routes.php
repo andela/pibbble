@@ -17,10 +17,6 @@ Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
 Route::get('/terms', 'PagesController@terms');
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('dashboard', function () {
     return view('social_auth_success');
 });
