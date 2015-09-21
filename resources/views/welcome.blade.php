@@ -2,7 +2,6 @@
 <html>
     <head>
         <title>Pibbble - For CodeWeavers</title>
-
         <link href="//fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
         <style>
@@ -43,4 +42,3 @@
         </div>
     </body>
 </html>
-

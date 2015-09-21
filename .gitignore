@@ -9,6 +9,7 @@
 .env.testing
 Homestead.yaml
 .gitignore.idea
+vendor.zips
 tests/_output/*
 phpintel/
 

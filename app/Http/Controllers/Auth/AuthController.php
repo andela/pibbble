@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Socialite;
+use Auth;
+use Redirect;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -24,43 +27,55 @@ class AuthController extends Controller
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
     /**
-     * Create a new authentication controller instance.
+     * Redirect the user to the provider's authentication page.
      *
-     * @return void
+     * @return Response
      */
-    public function __construct()
+    public function redirectToProvider($provider)
     {
-        $this->middleware('guest', ['except' => 'getLogout']);
+        return Socialite::driver($provider)->redirect();
     }
 
     /**
-     * Get a validator for an incoming registration request.
+     * Obtain the user information from the provider.
      *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
+     * @return Response
      */
-    protected function validator(array $data)
+    public function handleProviderCallback($provider)
     {
-        return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
-        ]);
+        try {
+            $user = Socialite::driver($provider)->user();
+        } catch (Exception $e) {
+            return Redirect::to('auth/'.$provider);
+        }
+
+        $authUser = $this->findOrCreateUser($user, $provider);
+
+        Auth::login($authUser, true);
+
+        return Redirect::to('dashboard');
     }
 
     /**
-     * Create a new user instance after a valid registration.
+     * Return user if exists; create and return if doesn't.
      *
-     * @param  array  $data
+     * @param $theUser
      * @return User
      */
-    protected function create(array $data)
+    private function findOrCreateUser($theUser, $provider)
     {
+        $authUser = User::where('provider_id', $theUser->id)->first();
+
+        if ($authUser) {
+            return $authUser;
+        }
+
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'provider' => $provider,
+            'provider_id' => $theUser->id,
+            'name' => $theUser->name,
+            'email' => $theUser->email,
+            'avatar' => $theUser->avatar,
         ]);
     }
 }
-
