@@ -15,16 +15,16 @@
         <div class="mui-tab-pane mui-active mui-panel" id="pane-default-1">
           <form id="signUpForm">
             <div class="mui-form-group">
-              <input type="email" class="mui-form-control" id="email" placeholder="Email">
+              <input type="email" class="mui-form-control" id="email" name="email" placeholder="Email">
             </div>
             <div class="mui-form-group">
-              <input type="text" class="mui-form-control" id="userName" placeholder="User name">
+              <input type="text" class="mui-form-control" id="userName" name="username" placeholder="Username">
             </div>
             <div class="mui-form-group">
-              <input type="password" class="mui-form-control" id="pwd" placeholder="Password">
+              <input type="password" class="mui-form-control" id="pwd" name="name" placeholder="Password">
             </div>
             <div class="mui-form-group">
-              <button type="submit" class="mui-btn mui-btn-default mui-btn-raised">Creat Account</button>
+              <button type="submit" class="mui-btn mui-btn-default mui-btn-raised">Create Account</button>
             </div>
             <div class="mui-form-group">
               <span>Or sign up with:</span>
@@ -53,10 +53,10 @@
         <div class="mui-tab-pane mui-panel" id="pane-default-2">
           <form id="logInForm">
             <div class="mui-form-group">
-              <input class="mui-form-control" placeholder="Email" type="email">
+              <input class="mui-form-control" placeholder="Email" name="email" type="email">
             </div>
             <div class="mui-form-group">
-              <input class="mui-form-control" placeholder="Password" type="password">
+              <input class="mui-form-control" placeholder="Password" name="password" type="password">
             </div>
             <div class="mui-checkbox">
               <label><input type="checkbox"> Remember me</label>

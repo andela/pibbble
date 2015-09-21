@@ -7,6 +7,7 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
+        "laravelcollective/html": "5.1.*",
         "codeception/codeception": "*"
     },
     "require-dev": {
