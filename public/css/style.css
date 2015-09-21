@@ -1,0 +1,170 @@
+body {
+    background-color: #eee;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #777;
+}
+
+a:hover {
+    color: #f05a5a;
+}
+
+.topmost-nav {
+    padding: 15px;
+}
+
+.navbar {
+    background-color: #f05a5a;
+    border: 0px solid gray;
+    border-radius: 0px;
+}
+
+.navbar a {
+    color: #fff;
+}
+
+.navbar-default .navbar-brand {
+    color: #fff;
+}
+
+.navbar-default:hover .navbar-brand:hover {
+    color:#fff;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+    color: #fff;
+}
+
+.navbar-default .navbar-nav>li>  a.proj-links {
+    color: #777;
+}
+
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a {
+        color: #fff;
+    }
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+    color: #fff;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+    background-color: #ff7d7d;
+    color: #fff;
+}
+
+.auth-btn {
+    background-color: #fff;
+    color: #f05a5a;
+    font-weight: bold;
+    border: 2px solid #f05a5a;
+}
+
+.auth-btn:hover {
+    background-color: #f05a5a;
+    color: #fff;
+    font-weight: bold;
+    border: 2px solid #fff;
+}
+
+.dropdown-menu {
+    background-color: #f05a5a;
+}
+
+@media (max-width: 767px) {
+    .dropdown-menu>li:hover{
+        background-color: #ff7d7d;
+    }
+}
+
+.dropdown-menu>li>a:hover {
+    background-color: #ff7d7d;
+}
+
+.projects-container {
+    border:0px solid red;
+    width: 220px;
+    max-height:230px;
+    margin:30px;
+    float:left;
+}
+
+.projects{
+    border: 1px solid gray;
+    width: 100%;
+    height:200px;
+    padding:7px;
+    margin-bottom: 8px;
+    border-radius:5px;
+    overflow: hidden;
+    border:3px solid #fff;
+    -moz-box-shadow:0 0 10px #aaa;
+    -webkit-box-shadow:0 0 10px #aaa;
+    box-shadow:0 0 10px #aaa;
+    color:black;
+    background-color: #fff;
+}
+
+.projects-name {
+    font-weight:bold;
+    font-size:12px;
+    color: gray;
+    margin-left: 10px;
+}
+
+.project-stats {
+    float: right;
+    color: gray;
+    font-size: 14px;
+    font-family: arial;
+    margin-left:15px;
+    padding:3px;
+}
+
+.pagination {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#lower-navbar a:hover { color:#f05a5a; }
+
+.footer {
+    border:0px solid red;
+    padding:25px;
+    width: 100%;
+    min-height:200px;
+    background-color: #fff;
+    color: gray;
+    font-size: 12px;
+    position: relative;
+    bottom: 0px;
+}
+
+.footer-sections {
+    border: 0px solid gray;
+    min-width: 200px;
+    max-width: 300px;
+    margin: 5px 25px 5px 0px;
+    float: left;
+}
+
+.footer-icons {
+    font-size: 2.5em;
+    padding-right: 10px;
+}
+
+.footer-icons:hover {
+    color: #f05a5a;
+}
+
+.blank-page {
+    min-height: 450px;
+}
