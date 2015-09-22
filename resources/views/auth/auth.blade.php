@@ -12,8 +12,13 @@
         <li><a data-mui-toggle="tab" data-mui-controls="pane-default-2">Log In</a></li>
       </ul>
       <div class="mui-tab-content">
-        <div class="mui-tab-pane mui-active mui-panel" id="pane-default-1">
-          <form id="signUpForm">
+        </ul>
+        </div>
+          <form id="signUpForm" action="/auth" method="post">
+                @foreach ($errors->all() as $error)
+                    <p class="alert alert-danger">{{ $error }}</p>
+                @endforeach
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="mui-form-group">
               <input type="email" class="mui-form-control" id="email" name="email" placeholder="Email">
             </div>
@@ -28,13 +33,13 @@
             </div>
             <div class="mui-form-group">
               <span>Or sign up with:</span>
-              <a href="/auth/github" class="mui-btn mui-btn-default mui-btn-raised">
+              <a href="#" class="mui-btn mui-btn-default mui-btn-raised">
                 <img src="{!! asset('img/GitHub-Mark-32px.png') !!}" height="16" width="16">
               </a>
-              <a href="/auth/twitter" class="mui-btn mui-btn-default mui-btn-raised">
+              <a href="#" class="mui-btn mui-btn-default mui-btn-raised">
                 <img src="{!! asset('img/TwitterLogo55acee.png') !!}" height="16" width="16">
               </a>
-              <a href="/auth/linkedin" class="mui-btn mui-btn-default mui-btn-raised">
+              <a href="#" class="mui-btn mui-btn-default mui-btn-raised">
                 <img src="{!! asset('img/logo_Linkedin.png') !!}" height="16" width="16">
               </a>
             </div>
@@ -51,7 +56,11 @@
           </form>
         </div>
         <div class="mui-tab-pane mui-panel" id="pane-default-2">
-          <form id="logInForm">
+          <form id="logInForm" method="post" action="/auth">
+                @foreach ($errors->all() as $error)
+                    <p class="alert alert-danger">{{ $error }}</p>
+                @endforeach
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="mui-form-group">
               <input class="mui-form-control" placeholder="Email" name="email" type="email">
             </div>
