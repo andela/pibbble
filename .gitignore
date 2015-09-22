@@ -13,3 +13,4 @@ vendor.zips
 tests/_output/*
 phpintel/
 
+.phpintel/*
