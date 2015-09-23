@@ -52,9 +52,9 @@
 </nav>
 <script>
   function sign_up_user() {
-    window.location.href = "/sign_up";
+    window.location.href = "/register";
   }
   function sign_in_user() {
-    window.location.href = "/sign_in";
+    window.location.href = "/login";
   }
 </script>
