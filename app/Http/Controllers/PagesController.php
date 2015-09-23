@@ -1,23 +1,30 @@
 <?php
 
 namespace App\Http\Controllers;
+class PagesController extends Controller {
 
-class PagesController extends Controller
-{
-    /**
+  /**
    * @return welcome.blade.php
    */
   public function home()
   {
-      return view('welcome');
+    return view('welcome');
   }
 
   /**
-   * @return auth.blade.php
+   * @return sign_up.blade.php
    */
-  public function auth()
+  public function sign_up()
   {
-      return view('auth');
+    return view('sign_up');
+  }
+
+  /**
+   * @return sign_in.blade.php
+   */
+  public function sign_in()
+  {
+    return view('sign_in');
   }
 
   /**
@@ -25,7 +32,7 @@ class PagesController extends Controller
    */
   public function about()
   {
-      return view('about');
+    return view('about');
   }
 
   /**
@@ -33,7 +40,7 @@ class PagesController extends Controller
    */
   public function contact()
   {
-      return view('contact');
+    return view('contact');
   }
 
   /**
@@ -41,6 +48,6 @@ class PagesController extends Controller
    */
   public function terms()
   {
-      return view('terms');
+    return view('terms');
   }
 }
