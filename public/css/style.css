@@ -185,6 +185,9 @@ a:hover {
     width: 900px;
     margin-left: 90px;
     text-align: justify;
+    background-color: #FFF;
+    padding: 19px;
+    margin-bottom: 20px;
 }
 
 .all .banner2 {
@@ -492,13 +495,14 @@ a:hover {
 
 .panel-info > .panel-heading h1 {
     font-size: 24px;
+    color: #fff;
 }
 
 .all h2.section {
     border-bottom: 1px solid #dddddd;
     color: #444444;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 700;
     line-height: 1;
     margin: 40px 0 15px;
     overflow: hidden;
@@ -517,6 +521,13 @@ a:hover {
 .all .panel-body p {
     text-align: left;
     text-align: justify;
+}
+
+.all .jumbotron p {
+    text-align: left;
+    text-align: justify;
+    margin-bottom: 15px;
+    font-size: 18px;
 }
 
 .all .panel-body ul {
