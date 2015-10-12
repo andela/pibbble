@@ -37,7 +37,7 @@
 
                   </div>
                   <div class="avatar">
-                      <img alt="" src="http://res.cloudinary.com/pibbble-com/image/upload/t_media_lib_thumb/v1444657038/150701_HS_005_kjoefu.jpg">
+                      <img alt="" src="http://i57.tinypic.com/102o854.jpg">
                   </div>
                   <div class="info">
                       <div class="title">
@@ -73,7 +73,7 @@
 
                 </div>
                 <div class="avatar">
-                    <img alt="" src="http://res.cloudinary.com/pibbble-com/image/upload/t_media_lib_thumb/v1444657040/150701_HS_010_ckvyan.jpg">
+                    <img alt="" src="http://i62.tinypic.com/15yam1t.jpg">
                 </div>
                 <div class="info">
                     <div class="title">
@@ -109,7 +109,7 @@
 
                 </div>
                 <div class="avatar">
-                    <img alt="" src="http://res.cloudinary.com/pibbble-com/image/upload/t_media_lib_thumb/v1444657039/150701_HS_011_tzxmhf.jpg">
+                    <img alt="" src="http://i58.tinypic.com/2m6tyr7.jpg">
                 </div>
                 <div class="info">
                     <div class="title">
@@ -145,7 +145,7 @@
 
                 </div>
                 <div class="avatar">
-                    <img alt="" src="http://res.cloudinary.com/pibbble-com/image/upload/t_media_lib_thumb/v1444656996/150701_HS_003_qtw0mx.jpg">
+                    <img alt="" src="http://i62.tinypic.com/rr11zc.jpg">
                 </div>
                 <div class="info">
                     <div class="title">
