@@ -5,42 +5,50 @@ namespace App\Http\Controllers;
 class PagesController extends Controller
 {
     /**
-   * @return welcome.blade.php
-   */
-  public function home()
-  {
-      return view('welcome');
-  }
+     * @return welcome.blade.php
+     */
+    public function home()
+    {
+        return view('welcome');
+    }
 
-  /**
-   * @return auth.blade.php
-   */
-  public function auth()
-  {
-      return view('auth');
-  }
+    /**
+     * @return sign_up.blade.php
+     */
+    public function sign_up()
+    {
+        return view('sign_up');
+    }
 
-  /**
-   * @return about.blade.php
-   */
-  public function about()
-  {
-      return view('about');
-  }
+    /**
+     * @return sign_in.blade.php
+     */
+    public function sign_in()
+    {
+        return view('sign_in');
+    }
 
-  /**
-   * @return contact.blade.php
-   */
-  public function contact()
-  {
-      return view('contact');
-  }
+    /**
+     * @return about.blade.php
+     */
+    public function about()
+    {
+        return view('about');
+    }
 
-  /**
-   * @return terms.blade.php
-   */
-  public function terms()
-  {
-      return view('terms');
-  }
+    /**
+     * @return contact.blade.php
+     */
+    public function contact()
+    {
+        return view('contact');
+    }
+
+    /**
+     * @return terms.blade.php
+     */
+    public function terms()
+    {
+        return view('terms');
+    }
 }

@@ -1,10 +1,29 @@
-.hide {
-  display: none;
+.width_400 {
+  width: 400px;
 }
-.mui-tabs>li.mui-active>a {
-  color: #009688;
+
+.padding_40 {
+  padding: 40px 40px 20px 40px;
 }
-.mui-tabs>li.mui-active {
-  border-bottom: 2px solid #009688;
-  background-color: white;
+
+.mui-form-group {
+  padding-top: 5px;
+  padding-bottom: 7px;
+}
+
+.mui-btn {
+  border: 2px #f05a5a solid;
+  background-color: #fff;
+  padding-left: 16px;
+  padding-right: 16px;
+  color: #f05a5a;
+}
+
+.mui-form-control:focus {
+    border-color: #f05a5a;
+    border-width: 2px;
+}
+
+.mui-btn:hover {
+    color: #f05a5a;
 }

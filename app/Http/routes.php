@@ -12,7 +12,8 @@
 */
 
 Route::get('/', 'PagesController@home');
-Route::get('/auth', 'PagesController@auth');
+Route::get('/register', 'PagesController@sign_up');
+Route::get('/login', 'PagesController@sign_in');
 Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
 Route::get('/terms', 'PagesController@terms');
