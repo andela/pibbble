@@ -30,7 +30,7 @@ return [
     ],
 
     'stripe' => [
-        'model'  => App\User::class,
+        'model'  => Pibbble\User::class,
         'key'    => '',
         'secret' => '',
     ],

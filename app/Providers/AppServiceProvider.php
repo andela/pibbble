@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Pibbble\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

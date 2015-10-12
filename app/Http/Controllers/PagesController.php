@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Pibbble\Http\Controllers;
 
 class PagesController extends Controller
 {

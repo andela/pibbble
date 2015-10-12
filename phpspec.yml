@@ -1,5 +1,5 @@
 suites:
     main:
-        namespace: App
-        psr4_prefix: App
+        namespace: Pibbble
+        psr4_prefix: Pibbble
         src_path: app

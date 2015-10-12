@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace Pibbble\Http\Controllers\Auth;
 
-use App\User;
+use Pibbble\User;
 use Socialite;
 use Auth;
 use Redirect;
 use Validator;
-use App\Http\Controllers\Controller;
+use Pibbble\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 

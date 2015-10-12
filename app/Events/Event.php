@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace Pibbble\Events;
 
 abstract class Event
 {
