@@ -2,6 +2,7 @@
 @section('title', 'About')
 
 @section('content')
+
 <div class="container-fluid all">
   <!-- <div class="row banner"></div> -->
 
