@@ -7,7 +7,9 @@
     <link href="/components/font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet" >
     <link href="/css/bootstrap-social.css" rel="stylesheet">
     <link href="/css/display.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
+    <!-- mobile first; proper rendering on several devices and touch zooming  -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
