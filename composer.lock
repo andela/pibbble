@@ -5,6 +5,7 @@
         "This file is @generated automatically"
     ],
     "hash": "b1b5ca0b9463be3b259f844c0d4a98e6",
+    "content-hash": "6aa245c14b5ff5849c8086cebc8a9157",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
