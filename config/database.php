@@ -70,7 +70,7 @@ return [
             'database' => env('DB_DATABASE', 'forge'),
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
-            'port'     => env('PORT', 33060),
+            'port'     => env('PORT', ''),
             'charset'  => 'utf8',
             'prefix'   => '',
             'schema'   => 'public',
