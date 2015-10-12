@@ -1,5 +1,4 @@
 <?php
-
 namespace Pibbble\Http\Controllers;
 
 class PagesController extends Controller
@@ -9,9 +8,8 @@ class PagesController extends Controller
      */
     public function home()
     {
-        return view('welcome');
+        return view('landing');
     }
-
     /**
      * @return sign_up.blade.php
      */
@@ -19,7 +17,6 @@ class PagesController extends Controller
     {
         return view('sign_up');
     }
-
     /**
      * @return sign_in.blade.php
      */
@@ -27,7 +24,6 @@ class PagesController extends Controller
     {
         return view('sign_in');
     }
-
     /**
      * @return about.blade.php
      */
@@ -35,7 +31,6 @@ class PagesController extends Controller
     {
         return view('about');
     }
-
     /**
      * @return contact.blade.php
      */
@@ -43,7 +38,6 @@ class PagesController extends Controller
     {
         return view('contact');
     }
-
     /**
      * @return terms.blade.php
      */
