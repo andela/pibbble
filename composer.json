@@ -38,7 +38,7 @@
             "php artisan clear-compiled"
         ],
         "post-update-cmd": [
-            "php artisan optimize"
+            "php artisan migrate"
         ],
         "post-root-package-install": [
             "php -r \"copy('.env.example', '.env');\""
