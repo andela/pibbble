@@ -40,8 +40,8 @@
         </li>
       </ul>
       <form class="navbar-form navbar-right" role="search">
-        <button type="button" class="btn auth-btn">Sign up</button>
-        <button type="button" class="btn auth-btn" style="margin-right:50px;">Sign in</button>
+        <button type="button" class="btn auth-btn" onclick="sign_up_user()">Sign up</button>
+        <button type="button" class="btn auth-btn" style="margin-right:50px;" onclick="sign_in_user()">Sign in</button>
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
         </div>
@@ -50,3 +50,11 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<script>
+  function sign_up_user() {
+    window.location.href = "/register";
+  }
+  function sign_in_user() {
+    window.location.href = "/login";
+  }
+</script>

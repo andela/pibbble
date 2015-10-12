@@ -13,11 +13,19 @@ class PagesController extends Controller
     }
 
     /**
-     * @return auth.blade.php
+     * @return sign_up.blade.php
      */
-    public function auth()
+    public function sign_up()
     {
-        return view('auth');
+        return view('sign_up');
+    }
+
+    /**
+     * @return sign_in.blade.php
+     */
+    public function sign_in()
+    {
+        return view('sign_in');
     }
 
     /**
@@ -42,21 +50,5 @@ class PagesController extends Controller
     public function terms()
     {
         return view('terms');
-    }
-
-    /**
-     * @return help.blade.php
-     */
-    public function help()
-    {
-        return view('help');
-    }
-
-    /**
-     * @return privacy.blade.php
-     */
-    public function privacy()
-    {
-        return view('privacy');
     }
 }
