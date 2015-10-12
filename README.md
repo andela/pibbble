@@ -22,4 +22,4 @@ NOTE: There must be Virtual Box on your machine. You must also have vagrant & co
 
 ### Contributors
 
-Oladipupo Isola, Wilson Opeyemi, Surajudeen Akande, Ogunjimi Opeyemi
+Oladipupo Isola, Wilson Omokoro, Surajudeen Akande, Ogunjimi Opeyemi
