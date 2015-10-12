@@ -51,6 +51,7 @@ class PagesController extends Controller
     {
         return view('terms');
     }
+
     /**
      * @return privacy.blade.php
      */
