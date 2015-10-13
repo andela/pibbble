@@ -20,10 +20,6 @@ Route::get('/terms', 'PagesController@terms');
 Route::get('/privacy', 'PagesController@privacy');
 Route::get('/help', 'PagesController@help');
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('dashboard', function () {
     return view('social_auth_success');
 });

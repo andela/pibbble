@@ -2,6 +2,7 @@
 @section('title', 'About')
 
 @section('content')
+
 <div class="container-fluid all">
   <!-- <div class="row banner"></div> -->
 
@@ -23,7 +24,6 @@
 
   <div class="row banner2">
     <div class="container">
-
       <div id="crew" class="crew">
         <h2><span>The Crew</span></h2>
       </div>
@@ -37,7 +37,7 @@
 
                   </div>
                   <div class="avatar">
-                      <img alt="" src="http://i57.tinypic.com/102o854.jpg">
+                      <img alt="Dipo Isola" src="https://res.cloudinary.com/unicodeveloper/image/upload/v1444711744/dipo_fbg3v7.jpg">
                   </div>
                   <div class="info">
                       <div class="title">
@@ -73,7 +73,7 @@
 
                 </div>
                 <div class="avatar">
-                    <img alt="" src="http://i62.tinypic.com/15yam1t.jpg">
+                    <img alt="Surajudeen Akande" src="https://res.cloudinary.com/unicodeveloper/image/upload/v1444711751/suraj_qebsvx.jpg">
                 </div>
                 <div class="info">
                     <div class="title">
@@ -109,7 +109,7 @@
 
                 </div>
                 <div class="avatar">
-                    <img alt="" src="http://i58.tinypic.com/2m6tyr7.jpg">
+                    <img alt="Wilson Omokoro" src="https://res.cloudinary.com/unicodeveloper/image/upload/v1444711748/wilson_spmyuz.jpg">
                 </div>
                 <div class="info">
                     <div class="title">
@@ -145,7 +145,7 @@
 
                 </div>
                 <div class="avatar">
-                    <img alt="" src="http://i62.tinypic.com/rr11zc.jpg">
+                    <img alt="Ope Ogunjimi" src="https://res.cloudinary.com/unicodeveloper/image/upload/v1444711753/opeyemi-ogunjimi_wovsal.jpg">
                 </div>
                 <div class="info">
                     <div class="title">
