@@ -7,9 +7,9 @@
       <div class="footer-sections">
         <p>INFORMATION<br />
         <a href="/about">About</a><br />
-        <a href="">Terms and Conditions</a><br />
-        <a href="">Privacy Policy</a><br />
-        <a href="">Help</a><br />
+        <a href="/terms">Terms and Conditions</a><br />
+        <a href="/privacy">Privacy Policy</a><br />
+        <a href="/help">Help</a><br />
         </p>
       </div>
       <div class="footer-sections">
