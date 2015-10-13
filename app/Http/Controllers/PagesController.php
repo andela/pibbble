@@ -11,6 +11,7 @@ class PagesController extends Controller
     {
         return view('landing');
     }
+
     /**
      * @return sign_up.blade.php
      */
@@ -18,6 +19,7 @@ class PagesController extends Controller
     {
         return view('sign_up');
     }
+
     /**
      * @return sign_in.blade.php
      */
@@ -25,6 +27,7 @@ class PagesController extends Controller
     {
         return view('sign_in');
     }
+
     /**
      * @return about.blade.php
      */
@@ -32,6 +35,7 @@ class PagesController extends Controller
     {
         return view('about');
     }
+
     /**
      * @return contact.blade.php
      */
@@ -39,6 +43,7 @@ class PagesController extends Controller
     {
         return view('contact');
     }
+
     /**
      * @return terms.blade.php
      */
