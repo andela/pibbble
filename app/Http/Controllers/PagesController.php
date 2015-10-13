@@ -51,4 +51,19 @@ class PagesController extends Controller
     {
         return view('terms');
     }
+    /**
+     * @return privacy.blade.php
+     */
+    public function privacy()
+    {
+        return view('privacy');
+    }
+
+    /**
+     * @return help.blade.php
+     */
+    public function help()
+    {
+        return view('help');
+    }
 }
