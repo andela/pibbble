@@ -168,7 +168,8 @@ a:hover {
 .blank-page {
     min-height: 450px;
 }
-<<<<<<< HEAD
+
+
 
 .all .banner {
     min-height: 200px;
@@ -181,12 +182,12 @@ a:hover {
     -moz-border-radius: 10px;
     border-radius: 10px;
     margin-top: -10px;
-    width: 900px;
-    margin-left: 90px;
+    max-width: 900px;
     text-align: justify;
     background-color: #FFF;
     padding: 19px;
     margin-bottom: 20px;
+    position: relative;
 }
 
 .all .banner2 {
@@ -488,9 +489,9 @@ a:hover {
 }
 
 .panel-info > .panel-heading {
-    text-align: left;
     background-color: #5BC0DE;
     border-color: #46B8DA;
+    text-align: left;
 }
 
 .panel-info > .panel-heading h1 {
@@ -528,6 +529,7 @@ a:hover {
     text-align: justify;
     margin-bottom: 15px;
     font-size: 18px;
+    position: relative;
 }
 
 .all .panel-body ul {
