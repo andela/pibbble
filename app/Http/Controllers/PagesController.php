@@ -1,4 +1,5 @@
 <?php
+
 namespace Pibbble\Http\Controllers;
 
 class PagesController extends Controller
