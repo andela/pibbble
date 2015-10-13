@@ -489,8 +489,9 @@ a:hover {
 }
 
 .panel-info > .panel-heading {
-    background-color: #f05a5a;
     text-align: left;
+    background-color: #5BC0DE;
+    border-color: #46B8DA;
 }
 
 .panel-info > .panel-heading h1 {
