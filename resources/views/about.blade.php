@@ -23,7 +23,6 @@
 
   <div class="row banner2">
     <div class="container">
-
       <div id="crew" class="crew">
         <h2><span>The Crew</span></h2>
       </div>
@@ -37,7 +36,7 @@
 
                   </div>
                   <div class="avatar">
-                      <img alt="" src="http://i57.tinypic.com/102o854.jpg">
+                      <img alt="Dipo Isola" src={!! secure_asset('http://i57.tinypic.com/102o854.jpg') !!}>
                   </div>
                   <div class="info">
                       <div class="title">
@@ -73,7 +72,7 @@
 
                 </div>
                 <div class="avatar">
-                    <img alt="" src="http://i62.tinypic.com/15yam1t.jpg">
+                    <img alt="Surajudeen Akande" src={!! secure_asset('http://i62.tinypic.com/15yam1t.jpg') !!}>
                 </div>
                 <div class="info">
                     <div class="title">
@@ -109,7 +108,7 @@
 
                 </div>
                 <div class="avatar">
-                    <img alt="" src="http://i58.tinypic.com/2m6tyr7.jpg">
+                    <img alt="Wilson Omokoro" src={!! secure_asset('http://i58.tinypic.com/2m6tyr7.jpg') !!}>
                 </div>
                 <div class="info">
                     <div class="title">
@@ -145,7 +144,7 @@
 
                 </div>
                 <div class="avatar">
-                    <img alt="" src="http://i62.tinypic.com/rr11zc.jpg">
+                    <img alt="Ope Ogunjimi" src={!! secure_asset('http://i62.tinypic.com/rr11zc.jpg') !!}>
                 </div>
                 <div class="info">
                     <div class="title">
