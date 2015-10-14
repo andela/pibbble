@@ -12,7 +12,7 @@
       <p>
       We all love to weave awesomely useful apps! And while we are at it we need extra pair of eyes to look into
       our work, appreciate and review it, so we made Pibbble.</p>
-      <p> Pibbble is a community of developers showcasing their side projects. Developers, programmers,tech-enthusiasts, technology lovers, computer scientists and other creative indivuals share small screenshots (shots) that show their work, process, and current projects.
+      <p> Pibbble is a community of developers showcasing their side projects. Developers, programmers,tech-enthusiasts, technology lovers, computer scientists and other creative individuals share small screenshots (shots) that show their work, process, and current projects.
       Pibbble is a place to show and tell, promote, discover, and explore the beauty of code.
       </p>
       <p>
