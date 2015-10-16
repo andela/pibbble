@@ -11,8 +11,6 @@
 |
 */
 
-
-
 Route::get('/', 'PagesController@home');
 Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
@@ -36,8 +34,6 @@ Route::get('/auth/logout', 'Auth\AuthController@getLogout');
 // Registration routes...
 Route::get('/auth/register', 'Auth\AuthController@getRegister');
 Route::post('/auth/register', 'Auth\AuthController@postRegister');
-
-
 
 Route::get('auth/{github}', 'Auth\AuthController@redirectToProvider');
 Route::get('auth/{github}/callback', 'Auth\AuthController@handleProviderCallback');
