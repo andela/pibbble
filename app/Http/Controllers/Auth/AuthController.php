@@ -26,7 +26,9 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
-    protected $redirectPath = '/dashboard';
+    protected $redirectPath = '/';
+
+    protected $redirectTo = '/';
 
     /**
      * Create a new authentication controller instance.
@@ -50,7 +52,7 @@ class AuthController extends Controller
             'username' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
-            'password_confirmation' => 'required|min:6'
+            'password_confirmation' => 'required|min:6',
         ]);
     }
 
