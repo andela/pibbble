@@ -9,7 +9,7 @@ class PagesController extends Controller
      */
     public function home()
     {
-        return view('welcome');
+        return view('landing');
     }
 
     /**
@@ -50,5 +50,21 @@ class PagesController extends Controller
     public function terms()
     {
         return view('terms');
+    }
+
+    /**
+     * @return privacy.blade.php
+     */
+    public function privacy()
+    {
+        return view('privacy');
+    }
+
+    /**
+     * @return help.blade.php
+     */
+    public function help()
+    {
+        return view('help');
     }
 }
