@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="container-fluid all">
-  <!-- <div class="row banner"></div> -->
+  <div class="container">
 
     <div class="jumbotron">
       <h4>ABOUT</h4>
@@ -12,7 +12,7 @@
       <p>
       We all love to weave awesomely useful apps! And while we are at it we need extra pair of eyes to look into
       our work, appreciate and review it, so we made Pibbble.</p>
-      <p> Pibbble is a community of developers showcasing their side projects. Developers, programmers,tech-enthusiasts, technology lovers, computer scientists and other creative indivuals share small screenshots (shots) that show their work, process, and current projects.
+      <p> Pibbble is a community of developers showcasing their side projects. Developers, programmers,tech-enthusiasts, technology lovers, computer scientists and other creative individuals share small screenshots (shots) that show their work, process, and current projects.
       Pibbble is a place to show and tell, promote, discover, and explore the beauty of code.
       </p>
       <p>
@@ -20,6 +20,7 @@
       </p>
 
     </div>
+  </div>
 
   <div class="row banner2">
     <div class="container">
@@ -47,18 +48,18 @@
                       <div class="desc">Top 1%</div>
                   </div>
                   <div class="bottom">
-                      <a class="btn btn-primary btn-twitter btn-sm" href="https://twitter.com/dipo">
+                      <a class="btn btn-primary btn-twitter btn-sm" href="#">
                           <i class="fa fa-twitter"></i>
                       </a>
                       <a class="btn btn-danger btn-sm" rel="publisher"
-                         href="https://plus.google.com/+ahmshahnuralam">
+                         href="#">
                           <i class="fa fa-google-plus"></i>
                       </a>
                       <a class="btn btn-primary btn-sm" rel="publisher"
-                         href="https://www.facebook.com/shahnuralam">
+                         href="#">
                           <i class="fa fa-facebook"></i>
                       </a>
-                      <a class="btn btn-warning btn-sm" rel="publisher" href="https://plus.google.com/andela-disola">
+                      <a class="btn btn-warning btn-sm" rel="publisher" href="#">
                           <i class="fa fa-linkedin"></i>
                       </a>
                   </div>
@@ -87,14 +88,14 @@
                         <i class="fa fa-twitter"></i>
                     </a>
                     <a class="btn btn-danger btn-sm" rel="publisher"
-                       href="https://plus.google.com/+ahmshahnuralam">
+                       href="http://www.google.com/sirolad">
                         <i class="fa fa-google-plus"></i>
                     </a>
                     <a class="btn btn-primary btn-sm" rel="publisher"
-                       href="https://www.facebook.com/shahnuralam">
+                       href="https://www.facebook.com/runthinz">
                         <i class="fa fa-facebook"></i>
                     </a>
-                    <a class="btn btn-warning btn-sm" rel="publisher" href="https://plus.google.com/andela-sakande">
+                    <a class="btn btn-warning btn-sm" rel="publisher" href="http://www.linkedin.com/in/sirolad">
                         <i class="fa fa-linkedin"></i>
                     </a>
                 </div>
@@ -119,18 +120,18 @@
                     <div class="desc">Top 1%</div>
                 </div>
                 <div class="bottom">
-                    <a class="btn btn-primary btn-twitter btn-sm" href="https://twitter.com/wilson">
+                    <a class="btn btn-primary btn-twitter btn-sm" href="#">
                         <i class="fa fa-twitter"></i>
                     </a>
                     <a class="btn btn-danger btn-sm" rel="publisher"
-                       href="https://plus.google.com/+ahmshahnuralam">
+                       href="#">
                         <i class="fa fa-google-plus"></i>
                     </a>
                     <a class="btn btn-primary btn-sm" rel="publisher"
-                       href="https://www.facebook.com/shahnuralam">
+                       href="#">
                         <i class="fa fa-facebook"></i>
                     </a>
-                    <a class="btn btn-warning btn-sm" rel="publisher" href="https://plus.google.com/womokoro">
+                    <a class="btn btn-warning btn-sm" rel="publisher" href="#">
                         <i class="fa fa-linkedin"></i>
                     </a>
                 </div>
@@ -155,18 +156,18 @@
                     <div class="desc">Top 1%</div>
                 </div>
                 <div class="bottom">
-                    <a class="btn btn-primary btn-twitter btn-sm" href="https://twitter.com/webmaniac">
+                    <a class="btn btn-primary btn-twitter btn-sm" href="#">
                         <i class="fa fa-twitter"></i>
                     </a>
                     <a class="btn btn-danger btn-sm" rel="publisher"
-                       href="https://plus.google.com/+ahmshahnuralam">
+                       href="#">
                         <i class="fa fa-google-plus"></i>
                     </a>
                     <a class="btn btn-primary btn-sm" rel="publisher"
-                       href="https://www.facebook.com/shahnuralam">
+                       href="#">
                         <i class="fa fa-facebook"></i>
                     </a>
-                    <a class="btn btn-warning btn-sm" rel="publisher" href="https://plus.google.com/andela-oogunjimi">
+                    <a class="btn btn-warning btn-sm" rel="publisher" href="#">
                         <i class="fa fa-linkedin"></i>
                     </a>
                 </div>
@@ -175,7 +176,4 @@
         </div>
   </div>
 </div>
-
-
-
 @endsection
