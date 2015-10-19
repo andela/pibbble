@@ -1,32 +1,33 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Support\Facades\Facade;
 
-class ResetPasswordTest extends TestCase
+class ResetPasswordTest extends PHPUnit_Framework_TestCase
 {
-    use DatabaseMigrations;
-    protected $baseUrl = 'http://localhost';
-
-    public function testBasicExample()
+    protected function setUp()
     {
+        $this->password = Mockery::mock('Illuminate\Auth\Reminders\PasswordBroker');
 
-        $this->visit('/password/email')
-         ->type('oladipupo.isola@andela.com', 'email')
-         ->press('reset')
-         ->seePageIs('/password/email');
+        Facade::setFacadeApplication([
+            'password.remind' => $this->password
+        ]);
     }
-    public function testBasicExample1()
+    protected function tearDown()
     {
-        $this->visit('/password/email')
-             ->see('RESET');
+        Mockery::close();
+        Facade::setFacadeApplication(null);
+        Facade::clearResolvedInstances();
     }
 
-    public function testResponse()
+    public function test_it_sends_password_reset_confirmation_email()
     {
-        $response = $this->call('GET', '/password/email');
 
-        $this->assertEquals(200, $response->status());
+        // Testing for Password::sendResetLink()
+        $response = Mockery::mock();
+        $this-> password -> shouldReceive('sendResetLink')
+             -> with(Mockery::on(function(){
+                return true;
+            }))
+             -> andReturn($response);
     }
 }
