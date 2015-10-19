@@ -1,8 +1,6 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ResetPasswordTest extends TestCase
 {
@@ -11,12 +9,12 @@ class ResetPasswordTest extends TestCase
 
     public function testBasicExample()
     {
-
         $this->visit('/password/email')
          ->type('oladipupo.isola@andela.com', 'email')
          ->press('reset')
          ->seePageIs('/password/email');
     }
+
     public function testBasicExample1()
     {
         $this->visit('/password/email')
