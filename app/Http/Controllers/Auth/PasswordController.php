@@ -33,22 +33,4 @@ class PasswordController extends Controller
     {
         $this->middleware('guest');
     }
-
-    public function postEmail(Request $request)
-    {
-        $this->validate($request, ['email' => 'required|email']);
-
-        $response = Password::sendResetLink($request->only('email'), function (Message $message) {
-            $message->subject($this->getEmailSubject());
-        });
-
-        switch ($response) {
-            case Password::RESET_LINK_SENT:
-                return redirect()->back()->with('status', trans($response));
-
-            case Password::INVALID_USER:
-                return redirect()->back()->withErrors(['email' => trans($response)]);
-        }
-    }
-
 }
