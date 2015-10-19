@@ -3,10 +3,8 @@
 namespace Pibbble\Http\Controllers\Auth;
 
 use Pibbble\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
-use Illuminate\Auth\Reminders\PasswordBroker;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class PasswordController extends Controller
@@ -50,5 +48,4 @@ class PasswordController extends Controller
                 return redirect()->back()->withErrors(['email' => trans($response)]);
         }
     }
-
 }
