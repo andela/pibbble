@@ -12,8 +12,6 @@
 */
 
 Route::get('/', 'PagesController@home');
-Route::get('/register', 'PagesController@sign_up');
-Route::get('/login', 'PagesController@sign_in');
 Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
 Route::get('/terms', 'PagesController@terms');
@@ -35,12 +33,17 @@ Route::get('dashboard', function () {
     return view('social_auth_success');
 });
 
-/*
- * Social authentication routes
- */
-Route::get('/password/email', 'Auth\PasswordController@getEmail');
-Route::post('/password/reset/{token}', 'Auth\PassWordController@postEmail');
+// Authentication routes...
+Route::get('/auth/login', 'Auth\AuthController@getLogin');
+Route::post('/auth/login', 'Auth\AuthController@postLogin');
+Route::get('/auth/logout', 'Auth\AuthController@getLogout');
 
+// Registration routes...
+Route::get('/auth/register', 'Auth\AuthController@getRegister');
+Route::post('/auth/register', 'Auth\AuthController@postRegister');
+
+
+// Social authentication routes...
 Route::get('auth/{github}', 'Auth\AuthController@redirectToProvider');
 Route::get('auth/{github}/callback', 'Auth\AuthController@handleProviderCallback');
 

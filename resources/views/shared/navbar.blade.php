@@ -39,15 +39,25 @@
           </ul>
         </li>
       </ul>
-      <form class="navbar-form navbar-right" role="search">
-        <button type="button" id="sign-up-button" class="btn auth-btn">Sign up</button>
-        <button type="button" id="sign-in-button" class="btn auth-btn" style="margin-right:50px;">Sign in</button>
+      <form class="form-inline navbar-form navbar-right" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
         </div>
         <button type="submit" class="btn btn-info">Go</button>
+        @if (Auth::check())
+          <div class="form-group dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">{{ Auth::user()->username }}  <img class="avatar" src="{{ Auth::user()->getAvatar() }}" /></button>
+            <ul class="dropdown-menu " role="menu" aria-labelledby="menu1">
+              <li role="presentation" class="logout-item"><a role="menuitem" tabindex="-1" href="/auth/logout">Log out</a></li>
+            </ul>
+          </div>
+        @else
+          <button type="button" id="sign-up-button" class="btn auth-btn">Register</button>
+          <button type="button" id="sign-in-button" class="btn auth-btn" style="margin-right:50px;">Log in</button>
+        @endif
       </form>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 <script src="/js/auth.js"></script>
+
