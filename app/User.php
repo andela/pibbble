@@ -35,6 +35,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function getAvatar()
     {
-        return "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $this->email ) ) ) . "?d=mm&s=50";
+        return 'http://www.gravatar.com/avatar/'.md5(strtolower(trim($this->email))).'?d=mm&s=50';
     }
 }
