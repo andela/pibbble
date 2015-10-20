@@ -176,7 +176,4 @@
         </div>
   </div>
 </div>
-
-
-
 @endsection
