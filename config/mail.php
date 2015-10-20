@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'donotreply@sendgrid.net', 'name' => "Pibbble Mailer"],
+    'from' => ['address' => 'donotreply@sendgrid.net', 'name' => 'Pibbble Mailer'],
 
     /*
     |--------------------------------------------------------------------------

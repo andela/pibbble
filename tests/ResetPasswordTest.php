@@ -9,9 +9,10 @@ class ResetPasswordTest extends PHPUnit_Framework_TestCase
         $this->password = Mockery::mock('Illuminate\Auth\Reminders\PasswordBroker');
 
         Facade::setFacadeApplication([
-            'password.remind' => $this->password
+            'password.remind' => $this->password,
         ]);
     }
+
     protected function tearDown()
     {
         Mockery::close();
@@ -24,10 +25,10 @@ class ResetPasswordTest extends PHPUnit_Framework_TestCase
 
         // Testing for Password::sendResetLink()
         $response = Mockery::mock();
-        $this-> password -> shouldReceive('sendResetLink')
-             -> with(Mockery::on(function () {
+        $this->password->shouldReceive('sendResetLink')
+             ->with(Mockery::on(function () {
                 return true;
             }))
-             -> andReturn($response);
+             ->andReturn($response);
     }
 }
