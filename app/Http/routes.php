@@ -20,9 +20,26 @@ Route::get('/terms', 'PagesController@terms');
 Route::get('/privacy', 'PagesController@privacy');
 Route::get('/help', 'PagesController@help');
 
+Route::controllers([
+    'password' => 'Auth\PasswordController',
+]);
+
+// To reset user's password
+Route::get('/password/email', 'Auth\PasswordController@getEmail');
+Route::post('/password/email', 'Auth\PasswordController@postEmail');
+
+Route::get('/password/reset', 'Auth\PasswordController@getReset');
+Route::post('/password/reset', 'Auth\PasswordController@postReset');
+
 Route::get('dashboard', function () {
     return view('social_auth_success');
 });
+
+/*
+ * Social authentication routes
+ */
+Route::get('/password/email', 'Auth\PasswordController@getEmail');
+Route::post('/password/reset/{token}', 'Auth\PassWordController@postEmail');
 
 Route::get('auth/{github}', 'Auth\AuthController@redirectToProvider');
 Route::get('auth/{github}/callback', 'Auth\AuthController@handleProviderCallback');
