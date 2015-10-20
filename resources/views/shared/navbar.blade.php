@@ -52,8 +52,8 @@
             </ul>
           </div>
         @else
-          <button type="button" id="sign-up-button" class="btn auth-btn">Sign up</button>
-          <button type="button" id="sign-in-button" class="btn auth-btn" style="margin-right:50px;">Sign in</button>
+          <button type="button" id="sign-up-button" class="btn auth-btn">Register</button>
+          <button type="button" id="sign-in-button" class="btn auth-btn" style="margin-right:50px;">Log in</button>
         @endif
       </form>
     </div><!-- /.navbar-collapse -->

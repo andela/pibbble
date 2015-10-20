@@ -31,17 +31,12 @@
             <div align="left" class="mui-form-group">
               <input type="submit" class="mui-btn" value="Register">
             </div>
-            <div align="left">
-              <span>Or sign up with:</span>
-              <a class="btn btn-social-icon btn-github">
-                <i class="fa fa-github"></i>
-              </a>
-              <a class="btn btn-social-icon btn-twitter">
-                <i class="fa fa-twitter"></i>
-              </a>
-              <a class="btn btn-social-icon btn-linkedin">
-                <i class="fa fa-linkedin"></i>
-              </a>
+             <div align="left" class="mui-form-group">
+                <p><span class="valign">Or sign up with:</span>
+                    <a href="#"><span class="footer-icons icon fa fa-github"></span></a>
+                    <a href="#"><span class="footer-icons icon fa fa-linkedin-square"></span></a>
+                    <a href="#"><span class="footer-icons icon fa fa-twitter"></span></a>
+                </p>
             </div>
           </form>
         </div>

@@ -26,22 +26,17 @@
               <label><input type="checkbox"> Remember me</label>
             </div>
             <div align="left" class="mui-form-group">
-              <button class="mui-btn" type="submit">Log In</button>
-            </div>
-            <div align="left">
-              Or log in with:
-              <a class="btn btn-social-icon btn-github">
-                <i class="fa fa-github"></i>
-              </a>
-              <a class="btn btn-social-icon btn-twitter">
-                <i class="fa fa-twitter"></i>
-              </a>
-              <a class="btn btn-social-icon btn-linkedin">
-                <i class="fa fa-linkedin"></i>
-              </a>
+              <input type="submit" class="mui-btn" value="Log in">
             </div>
             <div align="left" class="mui-form-group">
-              <a>Forgot your password?</a>
+                <p><span class="valign">Or log in with:</span>
+                    <a href="#"><span class="footer-icons icon fa fa-github"></span></a>
+                    <a href="#"><span class="footer-icons icon fa fa-linkedin-square"></span></a>
+                    <a href="#"><span class="footer-icons icon fa fa-twitter"></span></a>
+                </p>
+            </div>
+            <div align="left" class="mui-form-group">
+              <a href="/password/email">Forgot your password?</a>
             </div>
           </form>
         </div>
