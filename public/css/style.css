@@ -541,6 +541,21 @@ a:hover {
     color: rgba(255, 255, 255, 0.84);
 }
 
+.avatar {
+    border-radius: 10px;
+    height: 20px;
+    width: 20px;
+}
+
+.ddColor {
+    background-color: #fff;
+    color: #777;
+}
+
+.dropdown-menu>li>a:hover {
+    background-color: white;
+}
+
 .error404 {
     margin: 10% auto;
     text-align: center;
