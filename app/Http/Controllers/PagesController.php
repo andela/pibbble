@@ -2,14 +2,19 @@
 
 namespace Pibbble\Http\Controllers;
 
+use Pibbble\Project;
+
 class PagesController extends Controller
 {
     /**
-     * @return welcome.blade.php
+     * @return landing.blade.php
      */
     public function home()
     {
-        return view('landing');
+        $projects = Project::all();
+
+        return view('landing', ['projects' => $projects]);
+        //return view('landing');
     }
 
     /**
