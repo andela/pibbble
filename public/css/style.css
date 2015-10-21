@@ -540,3 +540,9 @@ a:hover {
     background-color: #3b5998;
     color: rgba(255, 255, 255, 0.84);
 }
+
+.error404 {
+    margin: 10% auto;
+    text-align: center;
+    font-family: Garamond;
+}

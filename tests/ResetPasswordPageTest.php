@@ -15,10 +15,9 @@ class ResetPasswordPageTest extends TestCase
 
     public function testPasswordResetButton()
     {
-        $this -> visit('/password/email')
-              -> type('oladipupo.isola@andela.com', 'email')
-              -> press('reset')
-              -> seePageIs('/password/email');
+        $this->visit('/login')
+             ->click("Forgot your password?")
+             ->seePageIs('/password/email');
     }
 
     public function testResponse()

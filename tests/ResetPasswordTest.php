@@ -1,10 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Facade;
+use Pibbble\Http\Requests\Request;
+use Pibbble\Http\Controllers\Auth\PasswordController;
+use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class ResetPasswordTest extends PHPUnit_Framework_TestCase
+class ResetPasswordTest extends TestCase
 {
-    protected function setUp()
+    protected $baseUrl = 'http://localhost';
+
+    public function setUp()
     {
         $this->password = Mockery::mock('Illuminate\Auth\Reminders\PasswordBroker');
 
@@ -12,7 +20,8 @@ class ResetPasswordTest extends PHPUnit_Framework_TestCase
             'password.remind' => $this->password
         ]);
     }
-    protected function tearDown()
+
+    public function tearDown()
     {
         Mockery::close();
         Facade::setFacadeApplication(null);
