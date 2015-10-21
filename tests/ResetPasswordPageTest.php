@@ -1,11 +1,6 @@
 <?php
 
-use Pibbble\Http\Requests\Request;
-use Pibbble\Http\Controllers\Auth\PasswordController;
-use Illuminate\Foundation\Auth\ResetsPasswords;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ResetPasswordPageTest extends TestCase
 {
@@ -16,7 +11,7 @@ class ResetPasswordPageTest extends TestCase
     public function testPasswordResetButton()
     {
         $this->visit('/auth/login')
-             ->click("Forgot your password?")
+             ->click('Forgot your password?')
              ->seePageIs('/password/email');
     }
 
