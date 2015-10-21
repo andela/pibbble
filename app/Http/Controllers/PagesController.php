@@ -14,7 +14,6 @@ class PagesController extends Controller
         $projects = Project::all();
 
         return view('landing', ['projects' => $projects]);
-        //return view('landing');
     }
 
     /**

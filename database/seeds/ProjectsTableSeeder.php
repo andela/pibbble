@@ -13,17 +13,17 @@ class ProjectsTableSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
 
-        $limit = 40; //number of records to insert
+        $limit = 20; //number of records to insert
 
         for ($i = 0; $i < $limit; $i++) {
             DB::table('projects')->insert([ //,
                 'user_id' => $faker->numberBetween(2, 41),
-                'projectname' => $faker->sentence(5),
+                'projectname' => $faker->sentence(1),
                 'description' => $faker->paragraph(1),
                 'url' => $faker->url,
                 'technologies' => $faker->paragraph(1),
-                'views' => $faker->numberBetween(0, 1000000),
-                'likes' => $faker->numberBetween(0, 1000000),
+                'views' => $faker->numberBetween(500, 10000),
+                'likes' => $faker->numberBetween(0, 500),
                 'created_at' => $faker->dateTimeBetween('-1 years', 'now'),
                 'updated_at' => $faker->dateTimeBetween('-1 years', 'now'),
             ]);
