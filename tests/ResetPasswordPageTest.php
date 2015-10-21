@@ -15,7 +15,7 @@ class ResetPasswordPageTest extends TestCase
 
     public function testPasswordResetButton()
     {
-        $this->visit('/login')
+        $this->visit('/auth/login')
              ->click("Forgot your password?")
              ->seePageIs('/password/email');
     }
