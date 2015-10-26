@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST', 'smtp.mandrilapp.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'donotreply@sendgrid.net', 'name' => "Pibbble Mailer"],
+    'from' => ['address' => 'alert@pibbble.com', 'name' => "Pibbble Mailer"],
 
     /*
     |--------------------------------------------------------------------------
