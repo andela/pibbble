@@ -18,6 +18,10 @@ Route::get('/terms', 'PagesController@terms');
 Route::get('/privacy', 'PagesController@privacy');
 Route::get('/help', 'PagesController@help');
 
+// Profile settings Route
+
+Route::get('/profile/settings', 'PagesController@getProfileSettings');
+
 Route::controllers([
     'password' => 'Auth\PasswordController',
 ]);

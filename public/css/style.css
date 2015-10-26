@@ -144,7 +144,7 @@ a:hover {
     background-color: #fff;
     color: gray;
     font-size: 12px;
-    position: relative;
+    position: fixed;
     bottom: 0px;
 }
 
@@ -560,4 +560,8 @@ a:hover {
     margin: 10% auto;
     text-align: center;
     font-family: Garamond;
+}
+
+.footer-designs {
+    
 }
