@@ -556,3 +556,8 @@ a:hover {
     background-color: white;
 }
 
+.error404 {
+    margin: 10% auto;
+    text-align: center;
+    font-family: Garamond;
+}

@@ -42,7 +42,6 @@ Route::get('/auth/logout', 'Auth\AuthController@getLogout');
 Route::get('/auth/register', 'Auth\AuthController@getRegister');
 Route::post('/auth/register', 'Auth\AuthController@postRegister');
 
-
 // Social authentication routes...
 Route::get('auth/{github}', 'Auth\AuthController@redirectToProvider');
 Route::get('auth/{github}/callback', 'Auth\AuthController@handleProviderCallback');
