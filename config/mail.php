@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'alert@pibbble.com', 'name' => "Pibbble Mailer"],
+    'from' => ['address' => 'alert@pibbble.com', 'name' => 'Pibbble Mailer'],
 
     /*
     |--------------------------------------------------------------------------
