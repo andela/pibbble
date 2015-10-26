@@ -22,12 +22,12 @@
       </div>
       <div class="footer-sections">
         <p>Ads<br />
-        <img src="/img/your_ad.jpeg" border="0" />
+          <img src="/img/your_ad.jpeg" border="0" />
         </p>
       </div>
 
       <br clear="left" />
       <br />
-      <p>Copyright&copy; 2015 Pibbble. All screenshots &copy; of their respective owners..</p>
+      <p>Copyright&copy; 2015 Pibbble. All screenshots &copy; are of their respective owners.</p>
   </div>
 </div>
