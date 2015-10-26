@@ -5,6 +5,6 @@
     <span class='project-stats'><i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->likes }}</span>
     <span class='project-stats'><i class='fa fa-eye'></i>&nbsp;{{ $project->views }}</span>
     </div>
-    <span class='projects-name'>{{ $project->projectname }}</span>
+    <span class='projects-name'><a href="">{{ $project->projectname }}</a></span>
     </div>
 @endforeach
