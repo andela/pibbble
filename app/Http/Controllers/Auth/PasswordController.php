@@ -3,6 +3,7 @@
 namespace Pibbble\Http\Controllers\Auth;
 
 use Pibbble\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Password;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class PasswordController extends Controller

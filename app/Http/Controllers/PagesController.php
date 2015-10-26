@@ -17,22 +17,6 @@ class PagesController extends Controller
     }
 
     /**
-     * @return sign_up.blade.php
-     */
-    public function sign_up()
-    {
-        return view('sign_up');
-    }
-
-    /**
-     * @return sign_in.blade.php
-     */
-    public function sign_in()
-    {
-        return view('sign_in');
-    }
-
-    /**
      * @return about.blade.php
      */
     public function about()

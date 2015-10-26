@@ -1,7 +1,7 @@
 $( "#sign-up-button" ).click(function() {
-    window.location.href = "/register";
+    window.location.href = "/auth/register";
 });
 
 $( "#sign-in-button" ).click(function() {
-    window.location.href = "/login";
+    window.location.href = "/auth/login";
 });
