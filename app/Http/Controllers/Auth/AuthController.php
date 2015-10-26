@@ -2,11 +2,11 @@
 
 namespace Pibbble\Http\Controllers\Auth;
 
-use Pibbble\User;
-use Socialite;
 use Auth;
 use Redirect;
 use Validator;
+use Socialite;
+use Pibbble\User;
 use Pibbble\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;

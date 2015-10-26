@@ -39,6 +39,12 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
-        return parent::render($request, $e);
+        if ($e instanceof \Swift_TransportException) {
+            return response()->view('errors.mailprovider', [], 500);
+        } elseif ($this->isHttpException($e)) {
+            return $this->renderHttpException($e);
+        } else {
+            return parent::render($request, $e);
+        }
     }
 }
