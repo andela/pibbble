@@ -11,7 +11,7 @@ class PagesController extends Controller
      */
     public function home()
     {
-        $projects = Project::all();
+        $projects = Project::paginate(12);
 
         return view('landing', ['projects' => $projects]);
     }
