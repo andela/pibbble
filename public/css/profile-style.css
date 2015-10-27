@@ -1,0 +1,30 @@
+.user-bio {
+    margin: auto;
+    justify-content: center;
+}
+
+.g-font {
+    font-family: garamond;
+}
+
+.custom-width {
+    width: 350px;
+}
+
+.button-center {
+    width: 150px;
+    margin: 0 auto;
+}
+
+.tab-bar {
+    margin: 25px;
+}
+
+.container-margin {
+    margin: 0 auto;
+}
+
+.profile-button {
+    color: white;
+    background-color: #31b0d5;
+}
