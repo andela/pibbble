@@ -144,7 +144,7 @@ a:hover {
     background-color: #fff;
     color: gray;
     font-size: 12px;
-    position: fixed;
+    position: relative;
     bottom: 0px;
 }
 
@@ -552,7 +552,7 @@ a:hover {
     color: #777;
 }
 
-.ddColor-menu>li>a:hover {
+.ddColor>li>a:hover {
     background-color: white;
 }
 
@@ -563,5 +563,5 @@ a:hover {
 }
 
 .footer-designs {
-    
+
 }
