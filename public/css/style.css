@@ -2,6 +2,7 @@ body {
     background-color: #eee;
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 a {
@@ -137,7 +138,6 @@ a:hover {
 #lower-navbar a:hover { color:#f05a5a; }
 
 .footer {
-    border:0px solid red;
     padding:25px;
     width: 100%;
     min-height:200px;
@@ -145,7 +145,8 @@ a:hover {
     color: gray;
     font-size: 12px;
     position: relative;
-    bottom: 0px;
+    bottom: 0;
+    clear: both;
 }
 
 .footer-sections {
