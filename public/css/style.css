@@ -553,7 +553,7 @@ a:hover {
     color: #777;
 }
 
-.ddColor-menu>li>a:hover {
+.dropdown-menu>li>a:hover {
     background-color: white;
 }
 
