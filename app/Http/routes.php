@@ -19,7 +19,7 @@ Route::get('/privacy', 'PagesController@privacy');
 Route::get('/help', 'PagesController@help');
 
 //Dashboard Route
-Route::get('/profile/dashboard', ['middleware'=>'auth', 'uses'=>'PagesController@getDashboard']);
+Route::get('/profile/dashboard', ['middleware' => 'auth', 'uses' => 'PagesController@getDashboard']);
 
 // Profile settings Route
 
