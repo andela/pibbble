@@ -16,6 +16,6 @@ class ProviderTableSeeder extends Seeder
         ],
         [
             'provider' => 'twitter',
-        ]]);
+        ], ]);
     }
 }
