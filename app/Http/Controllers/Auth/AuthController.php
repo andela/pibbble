@@ -7,7 +7,6 @@ use Redirect;
 use Validator;
 use Socialite;
 use Pibbble\User;
-use Pibbble\Provider;
 use Pibbble\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -122,9 +121,5 @@ class AuthController extends Controller
             'username' => $theUser->nickname,
             'avatar' => $theUser->avatar,
         ]);
-
-        Provider::find($_provider->id)->users()->attach($authUser->id);
-
-        return $authUser;
     }
 }
