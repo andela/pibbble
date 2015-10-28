@@ -60,4 +60,12 @@ class PagesController extends Controller
     {
         return view('profile.settings');
     }
+
+    /**
+     * @return dashboard.blade.php
+     */
+    public function getDashboard()
+    {
+        return view('profile.dashboard');
+    }
 }
