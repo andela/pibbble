@@ -18,6 +18,9 @@ Route::get('/terms', 'PagesController@terms');
 Route::get('/privacy', 'PagesController@privacy');
 Route::get('/help', 'PagesController@help');
 
+//Dashboard Route
+Route::get('/profile/dashboard', ['middleware'=>'auth', 'uses'=>'PagesController@getDashboard']);
+
 // Profile settings Route
 
 Route::get('/profile/settings', 'PagesController@getProfileSettings');
