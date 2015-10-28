@@ -17,5 +17,4 @@ class Project extends Model
      * @var string
      */
     protected $primaryKey = 'project_id';
-
 }
