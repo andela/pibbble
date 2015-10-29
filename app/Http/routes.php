@@ -22,7 +22,6 @@ Route::get('/contact', 'PagesController@contact');
 Route::get('/profile/dashboard', ['middleware'=>'auth', 'uses'=>'PagesController@getDashboard']);
 
 // Profile settings Route
-
 Route::get('/profile/settings', 'PagesController@getProfileSettings');
 
 Route::controllers([
