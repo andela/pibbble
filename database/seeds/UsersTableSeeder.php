@@ -17,14 +17,14 @@ class UsersTableSeeder extends Seeder
 
         for ($i = 0; $i < $limit; $i++) {
             DB::table('users')->insert([ //,
-                'provider' => 'github',
-                'provider_id' => $faker->unique()->ean8,
-                'name' => $faker->name,
                 'username' => $faker->unique()->userName,
-                'email' => $faker->unique()->email,
                 'password' => 'password',
+                'name' => $faker->name,
+                'email' => $faker->unique()->email,
                 'bio' => $faker->paragraph(1),
                 'location' => $faker->country,
+                'provider' => 'github',
+                'uid' => $faker->unique()->ean8,
                 'created_at' => $faker->dateTime('now'),
                 'updated_at' => $faker->dateTime('now'),
             ]);
