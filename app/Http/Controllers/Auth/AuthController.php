@@ -7,6 +7,7 @@ use Redirect;
 use Validator;
 use Socialite;
 use Pibbble\User;
+use Pibbble\Provider;
 use Pibbble\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -30,6 +31,8 @@ class AuthController extends Controller
 
     protected $redirectTo = '/';
 
+    protected $username = 'username';
+
     /**
      * Create a new authentication controller instance.
      *
@@ -50,7 +53,6 @@ class AuthController extends Controller
     {
         return Validator::make($data, [
             'username' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
             'password_confirmation' => 'required|min:6',
         ]);
@@ -66,7 +68,6 @@ class AuthController extends Controller
     {
         return User::create([
             'username' => $data['username'],
-            'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
     }
@@ -98,7 +99,7 @@ class AuthController extends Controller
 
         Auth::login($authUser, true);
 
-        return Redirect::to('dashboard');
+        return Redirect::to($this->redirectTo);
     }
 
     /**
@@ -109,18 +110,20 @@ class AuthController extends Controller
      */
     private function findOrCreateUser($theUser, $provider)
     {
-        $authUser = User::where('provider_id', $theUser->id)->first();
+        $_provider = Provider::where('provider', $provider)->first();
+        $authUser = $_provider->users()->where('username', $theUser->nickname)->first();
 
         if ($authUser) {
             return $authUser;
         }
 
-        return User::create([
-            'provider' => $provider,
-            'provider_id' => $theUser->id,
-            'name' => $theUser->name,
-            'email' => $theUser->email,
-            'avatar' => $theUser->avatar,
+        $authUser = $this->create([
+            'username' => $theUser->nickname,
+            'password' => $theUser->token,
         ]);
+
+        Provider::find($_provider->id)->users()->attach($authUser->id);
+
+        return $authUser;
     }
 }

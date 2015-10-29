@@ -145,8 +145,8 @@ a:hover {
     color: gray;
     font-size: 12px;
     position: relative;
-    bottom: 0;
-    clear: both;
+    bottom: 0px;
+
 }
 
 .footer-sections {
@@ -553,7 +553,7 @@ a:hover {
     color: #777;
 }
 
-.dropdown-menu>li>a:hover {
+.ddColor>li>a:hover {
     background-color: white;
 }
 
