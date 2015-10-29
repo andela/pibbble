@@ -7,7 +7,6 @@ use Redirect;
 use Validator;
 use Socialite;
 use Pibbble\User;
-use Pibbble\Provider;
 use Pibbble\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -97,7 +96,7 @@ class AuthController extends Controller
 
         $authUser = $this->findOrCreateUser($user, $provider);
 
-        Auth::login($authUser, true);
+        Auth::loginUsingId($authUser->id, true);
 
         return Redirect::to($this->redirectTo);
     }
@@ -110,20 +109,17 @@ class AuthController extends Controller
      */
     private function findOrCreateUser($theUser, $provider)
     {
-        $_provider = Provider::where('provider', $provider)->first();
-        $authUser = $_provider->users()->where('username', $theUser->nickname)->first();
+        $authUser = User::where('uid', $theUser->id)->first();
 
         if ($authUser) {
             return $authUser;
         }
 
-        $authUser = $this->create([
+        return User::create([
+            'provider' => $provider,
+            'uid' => $theUser->id,
             'username' => $theUser->nickname,
-            'password' => $theUser->token,
+            'avatar' => $theUser->avatar
         ]);
-
-        Provider::find($_provider->id)->users()->attach($authUser->id);
-
-        return $authUser;
     }
 }
