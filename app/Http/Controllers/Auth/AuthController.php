@@ -119,7 +119,7 @@ class AuthController extends Controller
             'provider' => $provider,
             'uid' => $theUser->id,
             'username' => $theUser->nickname,
-            'avatar' => $theUser->avatar
+            'avatar' => $theUser->avatar,
         ]);
     }
 }
