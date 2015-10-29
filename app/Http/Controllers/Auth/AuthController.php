@@ -30,6 +30,8 @@ class AuthController extends Controller
 
     protected $redirectTo = '/';
 
+    protected $username = 'username';
+
     /**
      * Create a new authentication controller instance.
      *
@@ -50,7 +52,6 @@ class AuthController extends Controller
     {
         return Validator::make($data, [
             'username' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
             'password_confirmation' => 'required|min:6',
         ]);
@@ -66,7 +67,6 @@ class AuthController extends Controller
     {
         return User::create([
             'username' => $data['username'],
-            'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
     }
@@ -96,9 +96,9 @@ class AuthController extends Controller
 
         $authUser = $this->findOrCreateUser($user, $provider);
 
-        Auth::login($authUser, true);
+        Auth::loginUsingId($authUser->id, true);
 
-        return Redirect::to('dashboard');
+        return Redirect::to($this->redirectTo);
     }
 
     /**
@@ -109,7 +109,7 @@ class AuthController extends Controller
      */
     private function findOrCreateUser($theUser, $provider)
     {
-        $authUser = User::where('provider_id', $theUser->id)->first();
+        $authUser = User::where('uid', $theUser->id)->first();
 
         if ($authUser) {
             return $authUser;
@@ -117,9 +117,8 @@ class AuthController extends Controller
 
         return User::create([
             'provider' => $provider,
-            'provider_id' => $theUser->id,
-            'name' => $theUser->name,
-            'email' => $theUser->email,
+            'uid' => $theUser->id,
+            'username' => $theUser->nickname,
             'avatar' => $theUser->avatar,
         ]);
     }
