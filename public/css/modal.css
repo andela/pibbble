@@ -1,0 +1,35 @@
+.modal-dialog {
+    width:75%; height:500px;
+}
+
+.modal-content {
+    background-color: #eee;
+    padding-left:80px;
+}
+
+.modal-header {
+    background-color: #eee;
+}
+
+.modal-left {
+    width: 90%;
+    border: 0px solid red;
+    margin:10px;
+    overflow: hidden;
+}
+
+.modal-left img {
+    border: 10px solid #fff;
+    float: left;
+}
+
+.modal-right {
+    width: 30%;
+    border: 0px solid blue;
+    margin:10px;
+    padding: 10px;
+    font-family: arial;
+    font-weight: normal;
+    color: #999;
+    float: left;
+}

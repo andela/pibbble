@@ -26,6 +26,8 @@
     <link href="/css/ripples.min.css" rel="stylesheet">
     <link href="/css/display.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/modal.css" rel="stylesheet">
+
     @yield('custom-css')
   </head>
   <body>
