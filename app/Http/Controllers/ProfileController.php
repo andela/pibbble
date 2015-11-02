@@ -2,9 +2,6 @@
 
 namespace Pibbble\Http\Controllers;
 
-use Auth;
-use Pibbble\Http\Controllers\Controller;
-
 class ProfileController extends Controller
 {
     public function getProfileSettings()
@@ -14,6 +11,5 @@ class ProfileController extends Controller
 
     public function postProfileSettings()
     {
-
     }
 }
