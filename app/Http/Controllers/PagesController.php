@@ -55,9 +55,4 @@ class PagesController extends Controller
     {
         return view('help');
     }
-
-    public function getProfileSettings()
-    {
-        return view('profile.settings');
-    }
 }

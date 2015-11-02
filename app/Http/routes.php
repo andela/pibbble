@@ -20,7 +20,10 @@ Route::get('/help', 'PagesController@help');
 
 // Profile settings Route
 
-Route::get('/profile/settings', 'PagesController@getProfileSettings');
+Route::get('/profile/settings', [
+    'uses' => 'ProfileController@getProfileSettings',
+    'middleware' => ['auth']
+]);
 
 Route::controllers([
     'password' => 'Auth\PasswordController',
