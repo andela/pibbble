@@ -17,10 +17,10 @@
                 </div>
             @endif
             <div class="mui-form-group">
-              <input type="email" class="mui-form-control" name="email" id="email" placeholder="Email" value="{{ old('email') }}" required>
+              <input type="text" class="mui-form-control" name="username" id="username" placeholder="User Name" value="{{ old('username') }}" required>
             </div>
             <div class="mui-form-group">
-              <input type="text" class="mui-form-control" name="username" id="username" placeholder="User name" value="{{ old('userName') }}" required>
+              <input type="email" class="mui-form-control" name="email" id="email" placeholder="Email" value="{{ old('email') }}" required>
             </div>
             <div class="mui-form-group">
               <input type="password" class="mui-form-control" name="password" id="password" placeholder="Password" required>
@@ -33,9 +33,8 @@
             </div>
              <div align="left" class="mui-form-group">
                 <p><span class="valign">Or sign up with:</span>
-                    <a href="#"><span class="footer-icons icon fa fa-github"></span></a>
-                    <a href="#"><span class="footer-icons icon fa fa-linkedin-square"></span></a>
-                    <a href="#"><span class="footer-icons icon fa fa-twitter"></span></a>
+                    <a href="/auth/github"><span class="footer-icons icon fa fa-github"></span></a>
+                    <a href="/auth/twitter"><span class="footer-icons icon fa fa-twitter"></span></a>
                 </p>
             </div>
           </form>
