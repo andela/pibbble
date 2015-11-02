@@ -20,6 +20,9 @@
               <input type="text" class="mui-form-control" name="username" id="username" placeholder="User Name" value="{{ old('username') }}" required>
             </div>
             <div class="mui-form-group">
+              <input type="email" class="mui-form-control" name="email" id="email" placeholder="Email" value="{{ old('email') }}" required>
+            </div>
+            <div class="mui-form-group">
               <input type="password" class="mui-form-control" name="password" id="password" placeholder="Password" required>
             </div>
             <div class="mui-form-group">
