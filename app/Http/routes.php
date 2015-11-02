@@ -23,7 +23,10 @@ Route::get('/profile/dashboard', ['middleware' => 'auth', 'uses' => 'PagesContro
 
 // Profile settings Route
 
-Route::get('/profile/settings', 'PagesController@getProfileSettings');
+Route::get('/profile/settings', [
+    'uses' => 'ProfileController@getProfileSettings',
+    'middleware' => ['auth']
+]);
 
 Route::controllers([
     'password' => 'Auth\PasswordController',

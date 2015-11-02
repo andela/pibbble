@@ -12,37 +12,37 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label">Name</label>
                 <div class="col-sm-3">
-                    <input type="text" class="form-control" id="name" placeholder="">
+                    <input type="text" class="form-control" name="name" placeholder="">
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputPassword" class="col-sm-2 control-label">Username</label>
                 <div class="col-sm-3">
-                    <input type="text" class="form-control" id="password" placeholder="">
+                    <input type="text" class="form-control" name="username" placeholder="">
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputPassword" class="col-sm-2 control-label">Email</label>
                 <div class="col-sm-3">
-                    <input type="email" class="form-control" id="password" placeholder="">
+                    <input type="email" class="form-control" name="email" placeholder="">
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputPassword" class="col-sm-2 control-label">URL</label>
                 <div class="col-sm-3">
-                    <input type="text" class="form-control" id="password" placeholder="">
+                    <input type="text" class="form-control" name="url" placeholder="">
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputPassword" class="col-sm-2 control-label">Location</label>
                 <div class="col-sm-3">
-                    <input type="text" class="form-control" id="password" placeholder="">
+                    <input type="text" class="form-control" name="location" placeholder="">
                 </div>
             </div>
             <fieldset class="form-group">
                 <label for="inputPassword" class="col-sm-2 control-label">Bio</label>
                 <div class="col-sm-2">
-                    <textarea class="form-control custom-width" rows="3"></textarea>
+                    <textarea class="form-control custom-width" name="bio" rows="3"></textarea>
                 </div>
             </fieldset>
             <div class="form-group">
