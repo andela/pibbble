@@ -25,7 +25,7 @@ Route::get('/profile/dashboard', ['middleware' => 'auth', 'uses' => 'PagesContro
 
 Route::get('/profile/settings', [
     'uses' => 'ProfileController@getProfileSettings',
-    'middleware' => ['auth']
+    'middleware' => ['auth'],
 ]);
 
 Route::controllers([
