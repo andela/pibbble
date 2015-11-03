@@ -230,7 +230,7 @@ a:hover {
     background: #f05a5a
 }
 
-.card {
+.all .card {
     padding-top: 20px;
     margin: 10px 0 20px 0;
     background-color: rgba(214, 224, 226, 0.2);
@@ -247,19 +247,19 @@ a:hover {
     box-sizing: border-box;
 }
 
-.card .card-heading {
+.all .card .card-heading {
     padding: 0 20px;
     margin: 0;
 }
 
-.card .card-heading.simple {
+.all .card .card-heading.simple {
     font-size: 20px;
     font-weight: 300;
     color: #777;
     border-bottom: 1px solid #e5e5e5;
 }
 
-.card .card-heading.image img {
+.all .card .card-heading.image img {
     display: inline-block;
     width: 46px;
     height: 46px;
@@ -271,57 +271,57 @@ a:hover {
     border-radius: 50%;
 }
 
-.card .card-heading.image .card-heading-header {
+.all .card .card-heading.image .card-heading-header {
     display: inline-block;
     vertical-align: top;
 }
 
-.card .card-heading.image .card-heading-header h3 {
+.all .card .card-heading.image .card-heading-header h3 {
     margin: 0;
     font-size: 14px;
     line-height: 16px;
     color: #262626;
 }
 
-.card .card-heading.image .card-heading-header span {
+.all .card .card-heading.image .card-heading-header span {
     font-size: 12px;
     color: #999999;
 }
 
-.card .card-body {
+.all .card .card-body {
     padding: 0 20px;
     margin-top: 20px;
 }
 
-.card .card-media {
+.all .card .card-media {
     padding: 0 20px;
     margin: 0 -14px;
 }
 
-.card .card-media img {
+.all .card .card-media img {
     max-width: 100%;
     max-height: 100%;
 }
 
-.card .card-actions {
+.all .card .card-actions {
     min-height: 30px;
     padding: 0 20px 20px 20px;
     margin: 20px 0 0 0;
 }
 
-.card .card-comments {
+.all .card .card-comments {
     padding: 20px;
     margin: 0;
     background-color: #f8f8f8;
 }
 
-.card .card-comments .comments-collapse-toggle {
+.all .card .card-comments .comments-collapse-toggle {
     padding: 0;
     margin: 0 20px 12px 20px;
 }
 
-.card .card-comments .comments-collapse-toggle a,
-.card .card-comments .comments-collapse-toggle span {
+.all .card .card-comments .comments-collapse-toggle a,
+.all .card .card-comments .comments-collapse-toggle span {
     padding-right: 5px;
     overflow: hidden;
     font-size: 12px;
@@ -330,12 +330,12 @@ a:hover {
     white-space: nowrap;
 }
 
-.card-comments .media-heading {
+.all .card-comments .media-heading {
     font-size: 13px;
     font-weight: bold;
 }
 
-.card.people {
+.all .card.people {
     position: relative;
     display: inline-block;
     width: 170px;
@@ -346,11 +346,11 @@ a:hover {
     vertical-align: top;
 }
 
-.card.people:first-child {
+.all .card.people:first-child {
     margin-left: 0;
 }
 
-.card.people .card-top {
+.all .card.people .card-top {
     position: absolute;
     top: 0;
     left: 0;
@@ -360,15 +360,15 @@ a:hover {
     background-color: #ffffff;
 }
 
-.card.people .card-top.green {
+.all .card.people .card-top.green {
     background-color: #53a93f;
 }
 
-.card.people .card-top.blue {
+.all .card.people .card-top.blue {
     background-color: #427fed;
 }
 
-.card.people .card-info {
+.all  .card.people .card-info {
     position: absolute;
     top: 150px;
     display: inline-block;
@@ -381,7 +381,7 @@ a:hover {
     box-sizing: border-box;
 }
 
-.card.people .card-info .title {
+.all .card.people .card-info .title {
     display: block;
     margin: 8px 14px 0 14px;
     overflow: hidden;
@@ -391,7 +391,7 @@ a:hover {
     color: #404040;
 }
 
-.card.people .card-info .desc {
+.all .card.people .card-info .desc {
     display: block;
     margin: 8px 14px 0 14px;
     overflow: hidden;
@@ -401,7 +401,7 @@ a:hover {
     text-overflow: ellipsis;
 }
 
-.card.people .card-bottom {
+.all .card.people .card-bottom {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -415,7 +415,7 @@ a:hover {
     box-sizing: border-box;
 }
 
-.card.hovercard {
+.all .card.hovercard {
     position: relative;
     padding-top: 0;
     overflow: hidden;
@@ -423,19 +423,19 @@ a:hover {
     background-color: rgba(214, 224, 226, 1);
 }
 
-.card.hovercard .cardheader {
+.all .card.hovercard .cardheader {
     background: url("http://lorempixel.com/850/280/nature/4/");
     background-size: cover;
     height: 135px;
 }
 
-.card.hovercard .avatar {
+.all .card.hovercard .avatar {
     position: relative;
     top: -50px;
     margin-bottom: -50px;
 }
 
-.card.hovercard .avatar img {
+.all .card.hovercard .avatar img {
     width: 100px;
     height: 100px;
     max-width: 100px;
@@ -446,11 +446,11 @@ a:hover {
     border: 5px solid rgba(255, 255, 255, 0.5);
 }
 
-.card.hovercard .info {
+.all .card.hovercard .info {
     padding: 4px 8px 10px;
 }
 
-.card.hovercard .info .title {
+.all .card.hovercard .info .title {
     margin-bottom: 4px;
     font-size: 24px;
     line-height: 1;
@@ -458,7 +458,7 @@ a:hover {
     vertical-align: middle;
 }
 
-.card.hovercard .info .title h4 {
+.all .card.hovercard .info .title h4 {
     font-size: 24px;
     line-height: 1;
     color: #262626;
@@ -466,7 +466,7 @@ a:hover {
     margin-top: -1px;
 }
 
-.card.hovercard .info .desc {
+.all .card.hovercard .info .desc {
     overflow: hidden;
     font-size: 12px;
     line-height: 20px;
@@ -474,7 +474,7 @@ a:hover {
     text-overflow: ellipsis;
 }
 
-.card.hovercard .bottom {
+.all .card.hovercard .bottom {
     padding: 0 20px;
     margin-bottom: 17px;
 }

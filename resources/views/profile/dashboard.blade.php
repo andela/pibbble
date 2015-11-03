@@ -36,11 +36,11 @@
                         <i class="fa fa-linkedin"></i>
                     </a>
                     <div class="btn-group pull-right">
-                        <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-cloud-upload"></span> Upload</button>
-                        <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span> Bio</button>
-                        <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-folder-open"></span> Skills</button>
-                        <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span> Follow</button>
-                        <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-user"></span> Hire Me</button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-cloud-upload"></span> Upload</button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-eye-open"></span> Bio</button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-folder-open"></span> Skills</button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> Follow</button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-user"></span> Hire Me</button>
                     </div>
                 </div>
             </div>
@@ -67,7 +67,9 @@
                         <div class="panel-heading">
                             <h4>My Projects</h4></div>
                         <div class="panel-body">
-                            <h2>You are yet to upload a project!</h2>
+
+                                @include('others.projects_grid')
+
                         </div>
                     </div>
                 </div>
@@ -75,5 +77,27 @@
         </div>
     </div>
     </div>
+    <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
 @endsection
 
