@@ -30,9 +30,8 @@
             </div>
             <div align="left" class="mui-form-group">
                 <p><span class="valign">Or log in with:</span>
-                    <a href="#"><span class="footer-icons icon fa fa-github"></span></a>
-                    <a href="#"><span class="footer-icons icon fa fa-linkedin-square"></span></a>
-                    <a href="#"><span class="footer-icons icon fa fa-twitter"></span></a>
+                    <a href="/auth/github"><span class="footer-icons icon fa fa-github"></span></a>
+                    <a href="/auth/twitter"><span class="footer-icons icon fa fa-twitter"></span></a>
                 </p>
             </div>
             <div align="left" class="mui-form-group">
