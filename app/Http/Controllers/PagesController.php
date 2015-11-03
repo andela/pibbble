@@ -66,6 +66,8 @@ class PagesController extends Controller
      */
     public function getDashboard()
     {
-        return view('profile.dashboard');
+        $projects = Project::paginate(12);
+
+        return view('profile.dashboard', ['projects' => $projects]);
     }
 }
