@@ -56,13 +56,9 @@ class PagesController extends Controller
         return view('help');
     }
 
-    /**
-     * @return dashboard.blade.php
-     */
+
     public function getDashboard()
     {
-        $projects = Project::paginate(12);
 
-        return view('profile.dashboard', ['projects' => $projects]);
     }
 }
