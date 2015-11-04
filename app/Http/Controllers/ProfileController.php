@@ -4,10 +4,8 @@ namespace Pibbble\Http\Controllers;
 
 use Auth;
 use Redirect;
-use Validator;
 use Pibbble\User;
 use Illuminate\Http\Request;
-use Pibbble\Http\Controllers\Controller;
 
 class ProfileController extends Controller
 {
