@@ -22,11 +22,11 @@ Route::get('/contact', 'PagesController@contact');
 Route::get('/projects/dashboard', ['middleware' => 'auth', 'uses' => 'ProjectController@index']);
 
 // Profile settings Route
-
 Route::get('/profile/settings', [
     'uses' => 'ProfileController@getProfileSettings',
     'middleware' => ['auth']
 ]);
+Route::post('/profile/settings', 'ProfileController@postProfileSettings');
 
 Route::controllers([
     'password' => 'Auth\PasswordController',
