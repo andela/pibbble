@@ -40,7 +40,7 @@
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myBio"><span class="glyphicon glyphicon-eye-open"></span> Bio</button>
                         <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-log-in" onclick="change()" type="button" value="Follow" id="myButton1"></span> Follow</button>
                         <button type="button" class="btn btn-primary dropdown-toggle" id="menu1" data-toggle="dropdown" data-target="#myModal"><span class="glyphicon glyphicon-folder-open"></span> Skills<span class="caret"></span></button>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                        <ul class="ddColor dropdown-menu" role="menu" aria-labelledby="menu1">
                           <li role="presentation"><a role="menuitem" tabindex="-1">HTML</a></li>
                           <li role="presentation"><a role="menuitem" tabindex="-1">CSS</a></li>
                           <li role="presentation"><a role="menuitem" tabindex="-1">JavaScript</a></li>
