@@ -37,4 +37,15 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return 'http://www.gravatar.com/avatar/'.md5(strtolower(trim($this->email))).'?d=mm&s=500';
     }
+
+    public function updateProfile($formData)
+    {
+        foreach ($formData as $key => $value) {
+            if (!empty($value)) {
+                $this->$key = $value;
+            }
+        }
+
+        $this->save();
+    }
 }
