@@ -40,7 +40,7 @@
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myUpload"><span class="glyphicon glyphicon-cloud-upload"></span> Upload</button>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myBio"><span class="glyphicon glyphicon-eye-open"></span> Bio</button>
                         <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-log-in" onclick="change()" type="button" value="Follow" id="myButton1"></span> Follow</button>
-                        <button type="button" class="btn btn-primary dropdown-toggle" id="menu1" data-toggle="dropdown" data-target="#myModal"><span class="glyphicon glyphicon-folder-open"></span> Skills<span class="caret"></span></button>
+                        <button type="button" class="btn btn-primary" id="menu1" data-toggle="dropdown" data-target="#myModal"><span class="glyphicon glyphicon-folder-open"></span> Skills<span class="caret"></span></button>
                         <ul class="ddColor dropdown-menu" role="menu" aria-labelledby="menu1">
                           <li role="presentation"><a role="menuitem" tabindex="-1">HTML</a></li>
                           <li role="presentation"><a role="menuitem" tabindex="-1">CSS</a></li>
@@ -60,11 +60,7 @@
                             <hr>
                             <p>Followers <span class="badge pull-right">10</span></p>
                             <hr>
-                            <p>Projects <span class="badge pull-right">2</span></p>
-                            <hr>
-                            <p>Posts <span class="badge pull-right">2</span></p>
-                            <hr>
-                            <p>Shares <span class="badge pull-right">2</span></p>
+                            <p>Projects <span class="badge pull-right">8</span></p>
                         </div>
                     </div>
                 </div>
