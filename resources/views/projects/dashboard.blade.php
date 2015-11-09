@@ -60,7 +60,7 @@
                             <hr>
                             <p>Followers <span class="badge pull-right">10</span></p>
                             <hr>
-                            <p>Projects <span class="badge pull-right">8</span></p>
+                            <p>Projects <span class="badge pull-right">{{$projects->count()}}</span></p>
                         </div>
                     </div>
                 </div>
@@ -187,7 +187,7 @@
           <h4 class="modal-title">Bio</h4>
         </div>
         <div class="modal-body">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p>{{Auth::user()->bio}}</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
