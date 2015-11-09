@@ -27,7 +27,7 @@ Route::resource('projects', 'ProjectController');
 // Profile settings Route
 Route::get('/profile/settings', [
     'uses' => 'ProfileController@getProfileSettings',
-    'middleware' => ['auth']
+    'middleware' => ['auth'],
 ]);
 Route::post('/profile/settings', 'ProfileController@postProfileSettings');
 

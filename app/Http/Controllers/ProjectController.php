@@ -4,10 +4,7 @@ namespace Pibbble\Http\Controllers;
 
 use Auth;
 use Pibbble\Project;
-use Cloudinary\Uploader;
-use Pibbble\Http\Requests;
 use Illuminate\Http\Request;
-use Pibbble\Http\Controllers\Controller;
 
 class ProjectController extends Controller
 {
@@ -15,13 +12,15 @@ class ProjectController extends Controller
     {
         $this->middleware('auth');
     }
+
     /**
-     * Index page of the projects
+     * Index page of the projects.
      * @return dashboard.blade.php
      */
     public function index()
     {
         $projects = Project::orderBy('created_at', 'desc')->get();
+
         return view('projects.dashboard', ['projects' => $projects]);
     }
 
@@ -32,7 +31,6 @@ class ProjectController extends Controller
      */
     public function create()
     {
-
     }
 
     /**
@@ -47,15 +45,15 @@ class ProjectController extends Controller
             'projname'     => 'required|min:5',
             'projdesc'     => 'required|min:15',
             'projtech'     => 'required',
-            'projurl'      => 'required|url'
+            'projurl'      => 'required|url',
         ]);
 
         $project = new Project;
-        $project->user_id      = Auth::user()->id;
-        $project->projectname  = $request->input('projname');
-        $project->description  = $request->input('projdesc');
+        $project->user_id = Auth::user()->id;
+        $project->projectname = $request->input('projname');
+        $project->description = $request->input('projdesc');
         $project->technologies = $request->input('projtech');
-        $project->url          = $request->input('projurl');
+        $project->url = $request->input('projurl');
 
         $project->save();
 
