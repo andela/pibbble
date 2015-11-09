@@ -4,10 +4,10 @@ namespace Pibbble\Http\Controllers;
 
 use Auth;
 use Pibbble\Project;
-use Illuminate\Http\Request;
-use Pibbble\Http\Requests;
-use Pibbble\Http\Controllers\Controller;
 use Cloudinary\Uploader;
+use Pibbble\Http\Requests;
+use Illuminate\Http\Request;
+use Pibbble\Http\Controllers\Controller;
 
 class ProjectController extends Controller
 {
@@ -21,7 +21,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::orderBy('created_at', 'dsc')->get();
+        $projects = Project::orderBy('created_at', 'desc')->get();
         return view('projects.dashboard', ['projects' => $projects]);
     }
 
