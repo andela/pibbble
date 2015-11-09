@@ -1,4 +1,4 @@
-@extends('master')
+@extends('layouts.master')
 @section('title', 'Dashboard')
 
 @endsection
@@ -12,6 +12,7 @@
 @section('content')
 <div class="container-fluid ball">
         <div class="container">
+        @include('layouts.partials.alerts')
             <div class="fb-profile">
                 <img align="left" class="fb-image-lg" src="http://i58.tinypic.com/2464bc2.jpg" alt="Profile image example" / height="351px" width="815px">
                 <img align="left" class="fb-image-profile thumbnail" src="{{ Auth::user()->getAvatar() }}" alt="Profile image example" border-radius="100%">
@@ -77,7 +78,8 @@
                                 @foreach ($projects as $project)
                                 <div class='projects-container'>
                                     <div class='projects'>
-                                        <a href=''><img src='{{ $project->url }}' width='200' height='150' style='border:0px solid #ccc;' /></a>
+                                        <a href=''><img src="{{ $project->url }}" width='200' height='150' style='border:0px solid #ccc;'>
+                                        </a>
                                         <span class='project-stats'><i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->likes }}</span>
                                         <span class='project-stats'><i class='fa fa-eye'></i>&nbsp;{{ $project->views }}</span>
                                     </div>
@@ -139,16 +141,42 @@
           <h4 class="modal-title">Upload Project</h4>
         </div>
         <div class="modal-body">
-          <form role="form">
+          <form role="form" method="post" action="{{ route('projects.store') }}">
+            <div class="form-group">
+              <label for="name"><span class="glyphicon glyphicon-file"></span> Name</label>
+              <input type="text" name="projname" class="form-control" id="name" placeholder="Pibbble">
+              @if ($errors->has('projname'))
+                    <span class="help-block">{{ $errors->first('projname') }}</span>
+                @endif
+            </div>
+            <div class="form-group">
+              <label for="description"><span class="glyphicon glyphicon-blackboard"></span> Description</label>
+              <input type="text" name="projdesc" class="form-control" id="description" placeholder="A show and tell for Codeweavers">
+              @if ($errors->has('projdesc'))
+                    <span class="help-block">{{ $errors->first('projdesc') }}</span>
+                @endif
+            </div>
+            <div class="form-group">
+              <label for="technologies"><span class="glyphicon glyphicon-cog"></span> Technologies</label>
+              <input type="text" name="projtech" class="form-control" id="technologies" placeholder="PHP, JavaScript, HTML, Firebase.">
+              @if ($errors->has('projtech'))
+                    <span class="help-block">{{ $errors->first('projtech') }}</span>
+                @endif
+            </div>
             <div class="form-group">
               <label for="upload"><span class="glyphicon glyphicon-upload"></span> Upload</label>
-              <input type="text" class="form-control" id="upload" placeholder="http://www.pibbble.com">
+              <input type="text" name="projurl" class="form-control" id="upload" placeholder="http://www.pibbble.com">
+              @if ($errors->has('projurl'))
+                    <span class="help-block">{{ $errors->first('projurl') }}</span>
+                @endif
             </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Upload</button>
+          <button type="submit" class="btn btn-primary">Upload</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    </form>
       </div>
     </div>
   </div>

@@ -21,6 +21,9 @@ Route::get('/contact', 'PagesController@contact');
 //Dashboard Route
 Route::get('/projects/dashboard', ['middleware' => 'auth', 'uses' => 'ProjectController@index']);
 
+#Project routes using resource
+Route::resource('projects', 'ProjectController');
+
 // Profile settings Route
 Route::get('/profile/settings', [
     'uses' => 'ProfileController@getProfileSettings',

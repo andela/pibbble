@@ -10,7 +10,8 @@
         "laravel/socialite": "^2.0",
         "laravelcollective/html": "5.1.*",
         "fzaninotto/faker": "^1.5",
-        "jrm2k6/cloudder": "^0.2.0"
+        "jrm2k6/cloudder": "^0.2.0",
+        "cloudinary/cloudinary_php": "^1.2"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",

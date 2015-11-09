@@ -1,4 +1,4 @@
-@extends('master')
+@extends('layouts.master')
 @section('title', 'Log in')
 @section('content')
 <div class="container">
@@ -23,7 +23,7 @@
               <input type="password" class="mui-form-control" name="password" id="password" placeholder="Password" required>
             </div>
             <div align="left" class="mui-checkbox">
-              <label><input type="checkbox"> Remember me</label>
+              <label><input type="checkbox" name="remember"> Remember me</label>
             </div>
             <div align="left" class="mui-form-group">
               <input type="submit" class="mui-btn" value="Log in">

@@ -2,20 +2,26 @@
 
 namespace Pibbble\Http\Controllers;
 
+use Auth;
 use Pibbble\Project;
 use Illuminate\Http\Request;
 use Pibbble\Http\Requests;
 use Pibbble\Http\Controllers\Controller;
+use Cloudinary\Uploader;
 
 class ProjectController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Index page of the projects
      * @return dashboard.blade.php
      */
     public function index()
     {
-        $projects = Project::orderBy('created_at', 'asc')->get();
+        $projects = Project::orderBy('created_at', 'dsc')->get();
         return view('projects.dashboard', ['projects' => $projects]);
     }
 
@@ -26,7 +32,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -37,7 +43,23 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'projname'     => 'required|min:5',
+            'projdesc'     => 'required|min:15',
+            'projtech'     => 'required',
+            'projurl'      => 'required|url'
+        ]);
+
+        $project = new Project;
+        $project->user_id      = Auth::user()->id;
+        $project->projectname  = $request->input('projname');
+        $project->description  = $request->input('projdesc');
+        $project->technologies = $request->input('projtech');
+        $project->url          = $request->input('projurl');
+
+        $project->save();
+
+        return redirect()->to('/projects/dashboard')->with('info', 'Your Project has been created successfully');
     }
 
     /**
