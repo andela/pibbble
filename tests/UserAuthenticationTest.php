@@ -1,8 +1,6 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class UserAuthenticationTest extends TestCase
 {
@@ -15,7 +13,7 @@ class UserAuthenticationTest extends TestCase
         factory(Pibbble\User::class)->create([
             'email' => 'ope@yahoo.com',
             'password' => bcrypt('123456'),
-            'username' => 'solami'
+            'username' => 'solami',
             ]);
 
         $this->visit('/auth/login')
