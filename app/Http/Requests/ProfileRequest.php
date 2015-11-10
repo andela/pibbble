@@ -17,7 +17,7 @@ class ProfileRequest extends Request
             'email' => 'required|unique:users|min:2',
             'url' => 'min:2',
             'location' => 'min:2',
-            'bio' => 'min:2'
+            'bio' => 'min:2',
         ];
     }
 }
