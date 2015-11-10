@@ -18,8 +18,8 @@
                 <img align="left" class="fb-image-profile thumbnail" src="{{ Auth::user()->getAvatar() }}" alt="Profile image example" border-radius="100%">
                 <div class="fb-profile-text red col-md-8 col-xs-3">
                     <h1> {{ Auth::user()->username }}</h1>
-                    <p>Unicodeveloper</p>
-                    <p>Lagos, Nigeria</p>
+                    <p>{{ Auth::user()->job }}</p>
+                    <p>{{ Auth::user()->location }}</p>
                 </div>
             </div>
             <div class="well well-sm makeup">
@@ -60,7 +60,7 @@
                             <hr>
                             <p>Followers <span class="badge pull-right">10</span></p>
                             <hr>
-                            <p>Projects <span class="badge pull-right">{{$projects->count()}}</span></p>
+                            <p>Projects <span class="badge pull-right">{{ $projects->count() }}</span></p>
                         </div>
                     </div>
                 </div>
@@ -187,7 +187,7 @@
           <h4 class="modal-title">Bio</h4>
         </div>
         <div class="modal-body">
-          <p>{{Auth::user()->bio}}</p>
+          <p>{{ Auth::user()->bio }}</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

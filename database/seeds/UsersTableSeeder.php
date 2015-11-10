@@ -23,6 +23,7 @@ class UsersTableSeeder extends Seeder
                 'email' => $faker->unique()->email,
                 'bio' => $faker->paragraph(1),
                 'location' => $faker->country,
+                'job' => $faker->word(20),
                 'provider' => 'github',
                 'uid' => $faker->unique()->ean8,
                 'created_at' => $faker->dateTime('now'),
