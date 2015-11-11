@@ -29,5 +29,6 @@ class Kernel extends HttpKernel
         'auth' => \Pibbble\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \Pibbble\Http\Middleware\RedirectIfAuthenticated::class,
+        'hasUser' => \Pibbble\Http\Middleware\HasUser::class,
     ];
 }

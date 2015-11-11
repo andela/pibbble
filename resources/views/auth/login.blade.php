@@ -23,7 +23,7 @@
               <input type="password" class="mui-form-control" name="password" id="password" placeholder="Password" required>
             </div>
             <div align="left" class="mui-checkbox">
-              <label><input type="checkbox" name="remember"> Remember me</label>
+              <label><input type="checkbox" name="rememberMe"> Remember me</label>
             </div>
             <div align="left" class="mui-form-group">
               <input type="submit" class="mui-btn" value="Log in" name="login">
