@@ -3,8 +3,6 @@
 namespace Pibbble\Exceptions;
 
 use Exception;
-use Pibbble\Exceptions\OAuthEmailException;
-use Pibbble\Exceptions\OAuthNameException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
@@ -47,6 +45,7 @@ class Handler extends ExceptionHandler
 
         if ($e instanceof OAuthNameException) {
             $request->session()->put('user', $e->getUser());
+
             return redirect('/errors/oauthname');
         }
 
