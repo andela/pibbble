@@ -8,7 +8,6 @@ use Validator;
 use Socialite;
 use Pibbble\User;
 use Illuminate\Http\Request;
-use Pibbble\Exceptions\Handler;
 use Pibbble\Http\Controllers\Controller;
 use Pibbble\Exceptions\OAuthNameException;
 use Pibbble\Exceptions\OAuthEmailException;
