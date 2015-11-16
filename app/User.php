@@ -54,7 +54,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function updateProfile($formData)
     {
         foreach ($formData as $key => $value) {
-            if (!empty($value)) {
+            if (! empty($value)) {
                 $this->$key = $value;
             }
         }

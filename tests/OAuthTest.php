@@ -1,8 +1,6 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class OAuthTest extends TestCase
 {
@@ -12,7 +10,6 @@ class OAuthTest extends TestCase
 
     public function testGitHubOAuth()
     {
-
         $response = $this->call('GET', '/auth/github');
 
         $this->assertEquals(302, $response->getStatusCode());
@@ -22,7 +19,6 @@ class OAuthTest extends TestCase
 
     public function testTwitterOAuth()
     {
-
         $response = $this->call('GET', '/auth/twitter');
 
         $this->assertEquals(302, $response->getStatusCode());
