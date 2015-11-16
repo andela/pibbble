@@ -3,14 +3,25 @@
 namespace Pibbble\Http\Controllers;
 
 use Auth;
+use Cloudder;
 use Pibbble\Project;
-use Cloudinary\Uploader;
 use Pibbble\Http\Requests;
 use Illuminate\Http\Request;
+use Spatie\Browsershot\Browsershot;
 use Pibbble\Http\Controllers\Controller;
 
 class ProjectController extends Controller
 {
+    /**
+     * @var string name of image in local
+     */
+    private $fileName;
+
+    /**
+     * @var string url returned from database
+     */
+    private $finalUrl;
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -34,6 +45,34 @@ class ProjectController extends Controller
     {
 
     }
+    /**
+     * This method saves the image to cloudinary
+     * @param  string $name_of_screenshot
+     * @return void
+     */
+    private function saveToCloud($name_of_screenshot)
+    {
+        $this->fileName = "screenshots/".$name_of_screenshot.".jpg";
+        Cloudder::upload($this->fileName);
+        $this->finalUrl = Cloudder::getResult()['url'];
+    }
+
+    /**
+     * This method converts url to images
+     * @return string
+     */
+    private function convertUrlToPng(Request $request)
+    {
+        $name_of_screenshot = uniqid();
+        $browsershot = new Browsershot();
+        $browsershot
+            ->setURL($request->input('projurl'))
+            ->setWidth('1024')
+            ->setHeight('768')
+            ->save("screenshots/".$name_of_screenshot.".jpg");
+
+        return $name_of_screenshot;
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -44,18 +83,21 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'projname'     => 'required|min:5',
-            'projdesc'     => 'required|min:15',
-            'projtech'     => 'required',
-            'projurl'      => 'required|url'
+            'name'     => 'required|min:5',
+            'description'     => 'required|min:15',
+            'technologies'     => 'required',
+            'url'      => 'required|url'
         ]);
+
+        $getScreenshotName = $this->convertUrlToPng($request);
+        $this->saveToCloud($getScreenshotName);
 
         $project = new Project;
         $project->user_id      = Auth::user()->id;
-        $project->projectname  = $request->input('projname');
-        $project->description  = $request->input('projdesc');
-        $project->technologies = $request->input('projtech');
-        $project->url          = $request->input('projurl');
+        $project->projectname  = $request->input('name');
+        $project->description  = $request->input('description');
+        $project->technologies = $request->input('technologies');
+        $project->url          = $this->finalUrl;
 
         $project->save();
 
