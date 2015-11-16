@@ -1,5 +1,6 @@
 .modal-dialog {
-    width:75%; height:500px;
+    width:75%;
+    height:500px;
 }
 
 .modal-content {
@@ -32,4 +33,9 @@
     font-weight: normal;
     color: #999;
     float: left;
+}
+
+.modal-backdrop
+{
+    min-height: 702px;
 }

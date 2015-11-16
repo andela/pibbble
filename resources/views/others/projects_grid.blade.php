@@ -2,7 +2,7 @@
     <div class='projects-container'>
         <div class='projects'>
             <!-- Trigger modal window when a project thumbnail is clicked -->
-            <a href="" data-toggle="modal" data-target="#{{ $project->id }}"><img src='{{ $project->url }}' width='200' height='150' style='border:0px solid #ccc;' /></a>
+            <a href="" data-toggle="modal" data-target="#{{ $project->id }}"><img src='{{ $project->url }}' width='200' height='150' /></a>
             <span class='project-stats'><i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->likes }}</span>
             <span class='project-stats'><i class='fa fa-eye'></i>&nbsp;{{ $project->views }}</span>
         </div>
@@ -25,8 +25,8 @@
             <div class="modal-left">
                 <img src='{{ $project->url }}' />
                 <div class="modal-right">
-                    <p><i class='fa fa-thumbs-o-up'></i>&nbsp;likes</p>
-                    <p><i class='fa fa-eye'></i>&nbsp;views</p>
+                    <p><i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->views }}&nbsp;likes</p>
+                    <p><i class='fa fa-eye'></i>&nbsp;{{ $project->views }}&nbsp;views</p>
                 </div>
             </div>
             <br clear="left">
