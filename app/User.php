@@ -33,15 +33,28 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      */
     protected $hidden = ['password', 'remember_token', 'token'];
 
+    /**
+     * Get the avatar from gravatar.
+     * @return string
+     */
+    private function getAvatarFromGravatar()
+    {
+        return 'http://www.gravatar.com/avatar/'.md5(strtolower(trim($this->email))).'?d=mm&s=500'; 
+    }
+
+    /**
+     * Get avatar from the model.
+     * @return string
+     */
     public function getAvatar()
     {
-        return 'http://www.gravatar.com/avatar/'.md5(strtolower(trim($this->email))).'?d=mm&s=500';
+        return (! is_null($this->avatar)) ? $this->avatar : $this->getAvatarFromGravatar();
     }
 
     public function updateProfile($formData)
     {
         foreach ($formData as $key => $value) {
-            if (!empty($value)) {
+            if (! empty($value)) {
                 $this->$key = $value;
             }
         }
