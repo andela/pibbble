@@ -137,37 +137,40 @@
           <h4 class="modal-title">Upload Project</h4>
         </div>
         <div class="modal-body">
-          <form role="form" method="post" action="{{ route('projects.store') }}">
+          <form role="form-group" method="post" action="{{ route('projects.store') }}" onsubmit="showLoader()">
             <div class="form-group">
               <label for="name"><span class="glyphicon glyphicon-file"></span> Name</label>
-              <input type="text" name="projname" class="form-control" id="name" placeholder="Pibbble">
-              @if ($errors->has('projname'))
-                    <span class="help-block">{{ $errors->first('projname') }}</span>
+              <input type="text" name="name" class="form-control" id="name" placeholder="Pibbble">
+              @if ($errors->has('name'))
+                    <span class="help-block">{{ $errors->first('name') }}</span>
                 @endif
             </div>
             <div class="form-group">
               <label for="description"><span class="glyphicon glyphicon-blackboard"></span> Description</label>
-              <input type="text" name="projdesc" class="form-control" id="description" placeholder="A show and tell for Codeweavers">
-              @if ($errors->has('projdesc'))
-                    <span class="help-block">{{ $errors->first('projdesc') }}</span>
+              <input type="text" name="description" class="form-control" id="description" placeholder="A show and tell for Codeweavers">
+              @if ($errors->has('description'))
+                    <span class="help-block">{{ $errors->first('description') }}</span>
                 @endif
             </div>
             <div class="form-group">
               <label for="technologies"><span class="glyphicon glyphicon-cog"></span> Technologies</label>
-              <input type="text" name="projtech" class="form-control" id="technologies" placeholder="PHP, JavaScript, HTML, Firebase.">
-              @if ($errors->has('projtech'))
-                    <span class="help-block">{{ $errors->first('projtech') }}</span>
+              <input type="text" name="technologies" class="form-control" id="technologies" placeholder="PHP, JavaScript, HTML, Firebase.">
+              @if ($errors->has('technologies'))
+                    <span class="help-block">{{ $errors->first('technologies') }}</span>
                 @endif
             </div>
             <div class="form-group">
               <label for="upload"><span class="glyphicon glyphicon-upload"></span> Upload</label>
-              <input type="text" name="projurl" class="form-control" id="upload" placeholder="http://www.pibbble.com">
-              @if ($errors->has('projurl'))
-                    <span class="help-block">{{ $errors->first('projurl') }}</span>
+              <input type="text" name="url" class="form-control" id="upload" placeholder="http://www.pibbble.com">
+              @if ($errors->has('url'))
+                    <span class="help-block">{{ $errors->first('url') }}</span>
                 @endif
             </div>
         </div>
         <div class="modal-footer">
+          <div class="pull-left">
+            <img src='/img/33.gif' style="display:none;" id="form-load-img"/>
+          </div>
           <button type="submit" class="btn btn-primary">Upload</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
@@ -198,5 +201,10 @@
   </div>
 
 </div>
+<script type="text/javascript">
+  function showLoader(){
+    document.getElementById('form-load-img').style.display = 'block';
+  }
+</script>
 @endsection
 
