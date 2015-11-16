@@ -116,9 +116,10 @@ class AuthController extends Controller
         }
 
         return User::create([
+            'username' => $theUser->nickname,
+            'email' => $theUser->email,
             'provider' => $provider,
             'uid' => $theUser->id,
-            'username' => $theUser->nickname,
             'avatar' => $theUser->avatar,
         ]);
     }
