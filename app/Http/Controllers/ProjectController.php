@@ -9,6 +9,7 @@ use Pibbble\Http\Requests;
 use Illuminate\Http\Request;
 use Spatie\Browsershot\Browsershot;
 use Pibbble\Http\Controllers\Controller;
+use Cloudinary\Uploader;
 
 class ProjectController extends Controller
 {
