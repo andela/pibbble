@@ -66,7 +66,7 @@ class ProjectController extends Controller
         $name_of_screenshot = uniqid();
         $browsershot = new Browsershot();
         $browsershot
-            ->setURL($request->input('projurl'))
+            ->setURL($request->input('url'))
             ->setWidth('1024')
             ->setHeight('768')
             ->save("screenshots/".$name_of_screenshot.".jpg");
@@ -83,10 +83,10 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name'     => 'required|min:5',
-            'description'     => 'required|min:15',
-            'technologies'     => 'required',
-            'url'      => 'required|url'
+            'name'          => 'required|min:5',
+            'description'   => 'required|min:15',
+            'technologies'  => 'required',
+            'url'           => 'required|url'
         ]);
 
         $getScreenshotName = $this->convertUrlToPng($request);
