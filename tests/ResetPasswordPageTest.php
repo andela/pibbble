@@ -1,11 +1,7 @@
 <?php
 
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-
 class ResetPasswordPageTest extends TestCase
 {
-    use DatabaseMigrations;
-
     protected $baseUrl = 'http://localhost';
 
     public function testPasswordResetButton()

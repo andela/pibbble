@@ -27,6 +27,7 @@ class ResetPasswordTest extends TestCase
 
         // Testing for Password::sendResetLink()
         $response = Mockery::mock();
+        
         $this->password->shouldReceive('sendResetLink')
              ->with(Mockery::on(function () {
                 return true;
