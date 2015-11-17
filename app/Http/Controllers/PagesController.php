@@ -2,6 +2,7 @@
 
 namespace Pibbble\Http\Controllers;
 
+use DB;
 use Pibbble\Project;
 
 class PagesController extends Controller
@@ -11,8 +12,7 @@ class PagesController extends Controller
      */
     public function home()
     {
-        $projects = Project::paginate(12);
-
+        $projects = Project::orderBy('created_at', 'desc')->paginate(12);
         return view('landing', ['projects' => $projects]);
     }
 
@@ -56,9 +56,7 @@ class PagesController extends Controller
         return view('help');
     }
 
-
     public function getDashboard()
     {
-
     }
 }

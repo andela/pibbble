@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('job', 25)->nullable();
             $table->string('avatar')->nullable();
             $table->string('provider')->nullable();
-            $table->integer('uid')->nullable();
+            $table->bigInteger('uid')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

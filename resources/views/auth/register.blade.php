@@ -33,8 +33,8 @@
             </div>
              <div align="left" class="mui-form-group">
                 <p><span class="valign">Or sign up with:</span>
-                    <a href="/auth/github"><span class="footer-icons icon fa fa-github"></span></a>
-                    <a href="/auth/twitter"><span class="footer-icons icon fa fa-twitter"></span></a>
+                    <a href="/auth/github" name="github"><span class="footer-icons icon fa fa-github"></span></a>
+                    <a href="/auth/twitter" name="twitter"><span class="footer-icons icon fa fa-twitter"></span></a>
                 </p>
             </div>
           </form>

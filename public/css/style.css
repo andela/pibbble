@@ -114,6 +114,10 @@ a:hover {
     background-color: #fff;
 }
 
+.projects a {
+    color: yellow;
+}
+
 .projects-name {
     font-weight:bold;
     font-size:12px;

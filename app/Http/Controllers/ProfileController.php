@@ -4,18 +4,18 @@ namespace Pibbble\Http\Controllers;
 
 use Auth;
 use Redirect;
-use Validator;
 use Pibbble\User;
 use Illuminate\Http\Request;
-use Pibbble\Http\Controllers\Controller;
 
 class ProfileController extends Controller
 {
+    // Gets profile update page
     public function getProfileSettings()
     {
         return view('profile.settings');
     }
 
+    // Posts form request
     public function postProfileSettings(Request $request)
     {
         $input = $request->except('_token', 'url');

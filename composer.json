@@ -11,7 +11,8 @@
         "laravelcollective/html": "5.1.*",
         "fzaninotto/faker": "^1.5",
         "jrm2k6/cloudder": "^0.2.0",
-        "cloudinary/cloudinary_php": "^1.2"
+        "spatie/browsershot": "^1.2",
+        "ext-gd": "*"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",

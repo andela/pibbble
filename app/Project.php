@@ -3,6 +3,7 @@
 namespace Pibbble;
 
 use Auth;
+use Pibbble\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
@@ -17,6 +18,7 @@ class Project extends Model
      * The primary key field in the table.
      * @var string
      */
+
     protected $primaryKey = 'id';
 
     /**
@@ -24,4 +26,19 @@ class Project extends Model
      * @var array
      * */
     protected $fillable = ['projectname', 'description', 'technologies', 'url'];
+
+    /**
+     * Set scope for personal info
+     * @param  string
+     * @return string
+     */
+    public function scopePersonal($query)
+    {
+        return $query->where('user_id', Auth::user()->id);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('Pibbble\User');
+    }
 }

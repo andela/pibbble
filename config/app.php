@@ -136,6 +136,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Spatie\Browsershot\BrowsershotServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -145,7 +146,7 @@ return [
         Pibbble\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
-
+        JD\Cloudder\CloudderServiceProvider::class,
     ],
 
     /*
@@ -196,6 +197,7 @@ return [
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Cloudder'  => JD\Cloudder\Facades\Cloudder::class,
 
     ],
 

@@ -66,7 +66,7 @@ body {
 }
 
 .ball .makeup {
-    background-color: #f05a5a;
+    background-color: #c;
 }
 
 .ball .panel {
@@ -79,7 +79,7 @@ body {
 }
 
 .ball .panel-primary {
-    border-color: #f05a5a;
+    border-color: #ccc;
 }
 
 .ball .panel-body {
@@ -88,8 +88,8 @@ body {
 
 .ball .panel-primary>.panel-heading {
     color: #fff;
-    background-color: #f05a5a;
-    border-color: #f05a5a;
+    background-color: #ccc;
+    border-color: #ccc;
 }
 
 .ball .btn-primary:not(.btn-link):not(.btn-flat) {
