@@ -24,17 +24,41 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      *
      * @var array
      */
-    protected $fillable = ['provider', 'provider_id', 'name', 'username', 'email', 'password', 'bio', 'location', 'avatar'];
+    protected $fillable = ['username', 'password', 'name', 'email', 'bio', 'location', 'avatar', 'provider', 'uid'];
 
     /**
      * The attributes excluded from the model's JSON form.
      *
      * @var array
      */
-    protected $hidden = ['password', 'remember_token'];
+    protected $hidden = ['password', 'remember_token', 'token'];
 
+    /**
+     * Get the avatar from gravatar.
+     * @return string
+     */
+    private function getAvatarFromGravatar()
+    {
+        return 'http://www.gravatar.com/avatar/'.md5(strtolower(trim($this->email))).'?d=mm&s=500'; 
+    }
+
+    /**
+     * Get avatar from the model.
+     * @return string
+     */
     public function getAvatar()
     {
-        return 'http://www.gravatar.com/avatar/'.md5(strtolower(trim($this->email))).'?d=mm&s=50';
+        return (! is_null($this->avatar)) ? $this->avatar : $this->getAvatarFromGravatar();
+    }
+
+    public function updateProfile($formData)
+    {
+        foreach ($formData as $key => $value) {
+            if (! empty($value)) {
+                $this->$key = $value;
+            }
+        }
+
+        $this->save();
     }
 }

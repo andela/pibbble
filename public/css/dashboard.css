@@ -1,0 +1,100 @@
+/* ==========================================================================
+   Dashboard's custom styles
+   ========================================================================== */
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.fb-profile img.fb-image-lg {
+    z-index: 0;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.fb-image-profile {
+    margin: -210px 10px 0px 50px;
+    z-index: 9;
+    width: 20%;
+    border-radius: 100%;
+}
+
+.fb-profile-text {
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: -150px;
+    color: #fff;
+}
+
+@media (max-width:768px) {
+    .fb-profile-text {
+        font-weight: 125;
+        font-size: 7px;
+        margin-top: -70px;
+        color: #ccc;
+    }
+    .fb-profile-text > h1{
+        font-weight: 125;
+        font-size: 9px;
+        margin-top: -70px;
+        color: #ccc;
+    }
+    .fb-image-profile {
+        margin: -115px 10px 0px 25px;
+        z-index: 9;
+        width: 20%;
+    }
+    .btn-social-icon {
+        width:18px;
+        height:24px;
+    }
+    .fa{
+    display: inline-block;
+    font: normal normal normal 7px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    }
+    .btn-primary {
+    height:24px;
+    width:75px;
+    }
+    .ball .panel-body>.p {
+        font-size: 2px;
+    }
+}
+
+.ball .makeup {
+    background-color: #c;
+}
+
+.ball .panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.ball .panel-primary {
+    border-color: #ccc;
+}
+
+.ball .panel-body {
+    padding-bottom: 0px;
+}
+
+.ball .panel-primary>.panel-heading {
+    color: #fff;
+    background-color: #ccc;
+    border-color: #ccc;
+}
+
+.ball .btn-primary:not(.btn-link):not(.btn-flat) {
+    background-color: #5BC0DE;
+    color: rgba(255, 255, 255, 0.84);
+    border-color: #46B8DA;
+}
+

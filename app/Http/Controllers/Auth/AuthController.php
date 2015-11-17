@@ -7,7 +7,10 @@ use Redirect;
 use Validator;
 use Socialite;
 use Pibbble\User;
+use Illuminate\Http\Request;
 use Pibbble\Http\Controllers\Controller;
+use Pibbble\Exceptions\OAuthNameException;
+use Pibbble\Exceptions\OAuthEmailException;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
@@ -38,6 +41,8 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'getLogout']);
+
+        $this->middleware('hasUser', ['only' => ['oauthGet']]);
     }
 
     /**
@@ -49,7 +54,7 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => 'required|max:255',
+            'username' => 'required|max:255|unique:users',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
             'password_confirmation' => 'required|min:6',
@@ -96,9 +101,9 @@ class AuthController extends Controller
 
         $authUser = $this->findOrCreateUser($user, $provider);
 
-        Auth::login($authUser, true);
+        Auth::loginUsingId($authUser->id, true);
 
-        return Redirect::to('dashboard');
+        return Redirect::to($this->redirectTo);
     }
 
     /**
@@ -109,18 +114,73 @@ class AuthController extends Controller
      */
     private function findOrCreateUser($theUser, $provider)
     {
-        $authUser = User::where('provider_id', $theUser->id)->first();
+        $authUser = User::where('uid', $theUser->id)->first();
 
         if ($authUser) {
             return $authUser;
         }
 
+        if (User::where('username', $theUser->nickname)->first()) {
+            $user = factory(User::class)->make([
+                'username' => $theUser->nickname,
+                'email' => $theUser->email,
+                'provider' => $provider,
+                'uid' => $theUser->id,
+                'avatar' => $theUser->avatar,
+            ]);
+            $err = new OAuthNameException();
+            $err->setUser($user);
+            throw $err;
+        }
+
+        if (User::where('email', $theUser->email)->first()) {
+            throw new OAuthEmailException();
+        }
+
         return User::create([
-            'provider' => $provider,
-            'provider_id' => $theUser->id,
-            'name' => $theUser->name,
+            'username' => $theUser->nickname,
             'email' => $theUser->email,
+            'provider' => $provider,
+            'uid' => $theUser->id,
             'avatar' => $theUser->avatar,
         ]);
+    }
+
+    public function postOauth(Request $request)
+    {
+        $data = $request->all();
+
+        $validator = Validator::make($data, [
+            'username' => 'required|max:255|unique:users',
+        ]);
+
+        if ($validator->fails()) {
+            $this->throwValidationException(
+                $request, $validator
+            );
+        }
+
+        if ($request->session()->has('user')) {
+            $user = $request->session()->pull('user');
+            $data['email'] = $user->email;
+            $data['provider'] = $user->provider;
+            $data['uid'] = $user->uid;
+            $data['avatar'] = $user->avatar;
+        }
+
+        Auth::login(User::create([
+            'username' => $data['username'],
+            'email' => $data['email'],
+            'provider' => $data['provider'],
+            'uid' => $data['uid'],
+            'avatar' => $data['avatar'],
+        ]));
+
+        return redirect($this->redirectPath());
+    }
+
+    public function getOauth()
+    {
+        return view('/errors/oauthname');
     }
 }

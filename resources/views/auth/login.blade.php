@@ -1,4 +1,4 @@
-@extends('master')
+@extends('layouts.master')
 @section('title', 'Log in')
 @section('content')
 <div class="container">
@@ -23,16 +23,15 @@
               <input type="password" class="mui-form-control" name="password" id="password" placeholder="Password" required>
             </div>
             <div align="left" class="mui-checkbox">
-              <label><input type="checkbox"> Remember me</label>
+              <label><input type="checkbox" name="rememberMe"> Remember me</label>
             </div>
             <div align="left" class="mui-form-group">
-              <input type="submit" class="mui-btn" value="Log in">
+              <input type="submit" class="mui-btn" value="Log in" name="login">
             </div>
             <div align="left" class="mui-form-group">
                 <p><span class="valign">Or log in with:</span>
-                    <a href="#"><span class="footer-icons icon fa fa-github"></span></a>
-                    <a href="#"><span class="footer-icons icon fa fa-linkedin-square"></span></a>
-                    <a href="#"><span class="footer-icons icon fa fa-twitter"></span></a>
+                    <a href="/auth/github" name="github"><span class="footer-icons icon fa fa-github"></span></a>
+                    <a href="/auth/twitter" name="twitter"><span class="footer-icons icon fa fa-twitter"></span></a>
                 </p>
             </div>
             <div align="left" class="mui-form-group">
