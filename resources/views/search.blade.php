@@ -2,13 +2,15 @@
 @section('title', 'Search Result')
 
 @section('content')
-<div class="search" style="min-height: 400px">
-    <h2>SEARCH RESULTS</h2>
+<div class="search" style="min-height: 426px">
+    <div class="nav navbar-center" style="background-color: #FFCCCC; margin-top: -28px">
+        <h3 style="color: #F05A5A">SEARCH RESULTS</h3>
+    </div>
     <div class="container">
 
       @if(!$projects)
       <div>
-          <h3 style="text-align: center">No results found for your query.</h3>
+          <h4 style="text-align: center; margin-top: 20px">No results found for your query.</h4>
       </div>
       @endif
 

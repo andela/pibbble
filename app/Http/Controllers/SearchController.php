@@ -11,18 +11,24 @@ use Pibbble\Http\Controllers\Controller;
 
 class SearchController extends Controller
 {
+    /*
+     * Runs searches against projects and users
+     */
     public function search()
     {
         $searchInput = Input::get('searchinput');
 
         if($searchInput) {
-            $projects = DB::table('projects');
-            $results = $projects->where('projectname', 'LIKE', '%'. $searchInput .'%')
-              ->orWhere('description', 'LIKE', '%'. $searchInput .'%')
-              ->orWhere('technologies', 'LIKE', '%'. $searchInput .'%')
-              ->get();
+            $projects = DB::table('projects')->join('users', 'users.id', '=', 'projects.user_id');
+            
+            $results  = $projects->where('projectname', 'ILIKE', '%'. $searchInput .'%')
+                                 ->orWhere('description', 'ILIKE', '%'. $searchInput .'%')
+                                 ->orWhere('technologies', 'ILIKE', '%'. $searchInput .'%')
+                                 ->orWhere('users.username', 'ILIKE', '%'. $searchInput .'%')
+                                 ->get();
+        } else {
+            $results = [];
         }
-        //$results = $results::paginate(12);
 
         return view('search')->with('projects', $results);
     }
