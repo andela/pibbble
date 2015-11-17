@@ -16,11 +16,5 @@ class Project extends Model
      * The primary key field in the table.
      * @var string
      */
-    protected $primaryKey = 'id';
-
-    /**
-     *  The attributes that are mass assignable.
-     * @var array
-     * */
-    protected $fillable = ['projectname', 'description', 'technologies', 'url'];
+    protected $primaryKey = 'project_id';
 }
