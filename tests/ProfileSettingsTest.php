@@ -1,15 +1,17 @@
 <?php
 
+namespace Pibbble\Tests;
+
 use Illuminate\Foundation\Testing\CrawlerTrait;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class ProfileSettingsTest extends TestCase
 {
-    protected $baseUrl = 'http://pibbble.dev';
+    protected $baseUrl = 'http://localhost';
 
     use WithoutMiddleware;
 
-    public function tes_Response()
+    public function testResponse()
     {
         $response = $this->call('GET', '/profile/settings');
 

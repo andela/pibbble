@@ -18,9 +18,9 @@ class SearchController extends Controller
     {
         $searchInput = Input::get('searchinput');
 
-        if($searchInput) {
+        if ($searchInput) {
             $projects = DB::table('projects')->join('users', 'users.id', '=', 'projects.user_id');
-            
+
             $results  = $projects->where('projectname', 'ILIKE', '%'. $searchInput .'%')
                                  ->orWhere('description', 'ILIKE', '%'. $searchInput .'%')
                                  ->orWhere('technologies', 'ILIKE', '%'. $searchInput .'%')

@@ -32,7 +32,7 @@ class ProjectController extends Controller
      * @return dashboard.blade.php
      */
     public function index()
-    { 
+    {
         $projects = Project::orderBy('created_at', 'desc')->personal()->get();
 
         return view('projects.dashboard', ['projects' => $projects]);
