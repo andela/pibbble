@@ -140,28 +140,28 @@
           <form role="form-group" method="post" action="{{ route('projects.store') }}" onsubmit="showLoader()">
             <div class="form-group">
               <label for="name"><span class="glyphicon glyphicon-file"></span> Name</label>
-              <input type="text" name="name" class="form-control" id="name" placeholder="Pibbble">
+              <input type="text" name="name" class="form-control" id="name" placeholder="Pibbble" required>
               @if ($errors->has('name'))
                     <span class="help-block">{{ $errors->first('name') }}</span>
                 @endif
             </div>
             <div class="form-group">
               <label for="description"><span class="glyphicon glyphicon-blackboard"></span> Description</label>
-              <input type="text" name="description" class="form-control" id="description" placeholder="A show and tell for Codeweavers">
+              <textarea type="text" name="description" class="form-control" id="description" placeholder="A show and tell for Codeweavers" required></textarea>
               @if ($errors->has('description'))
                     <span class="help-block">{{ $errors->first('description') }}</span>
                 @endif
             </div>
             <div class="form-group">
               <label for="technologies"><span class="glyphicon glyphicon-cog"></span> Technologies</label>
-              <input type="text" name="technologies" class="form-control" id="technologies" placeholder="PHP, JavaScript, HTML, Firebase.">
+              <input type="text" name="technologies" class="form-control" id="technologies" placeholder="PHP, JavaScript, HTML, Firebase." required>
               @if ($errors->has('technologies'))
                     <span class="help-block">{{ $errors->first('technologies') }}</span>
                 @endif
             </div>
             <div class="form-group">
               <label for="upload"><span class="glyphicon glyphicon-upload"></span> Upload</label>
-              <input type="text" name="url" class="form-control" id="upload" placeholder="http://www.pibbble.com">
+              <input type="text" name="url" class="form-control" id="upload" placeholder="http://www.pibbble.com" required>
               @if ($errors->has('url'))
                     <span class="help-block">{{ $errors->first('url') }}</span>
                 @endif

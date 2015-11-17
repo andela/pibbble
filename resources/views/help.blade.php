@@ -12,14 +12,13 @@
 
 @section('content')
     <header>
-    <h1><a href="http://www.pibbble.com">Pibbble</a> | Help Center </h1>
+    <h1><a href="/">Pibbble</a> | Help Center </h1>
 </header>
 <section class="cd-faq">
     <ul class="cd-faq-categories">
         <li><a class="selected" href="#basics">Basics</a></li>
         <li><a href="#mobile">Mobile</a></li>
         <li><a href="#account">Account</a></li>
-        <li><a href="#privacy">Teams</a></li>
         <li><a href="#delivery">Miscellaneous</a></li>
     </ul> <!-- cd-faq-categories -->
 
@@ -36,7 +35,7 @@
             <li>
                 <a class="cd-faq-trigger" href="#0">How do I sign up?</a>
                 <div class="cd-faq-content">
-                    <p>Signing up on Pibbble is very easy. Simply click  <a href="http://www.pibbble.com">Pibbble</a> which takes you to the Homepage. Click on Signup button to fill few fields for quick registration. Also, you can register using your existing social media account on Github, Google or LinkedIn.</p>
+                    <p>Signing up on Pibbble is very easy. Simply click  <a href="/">Pibbble</a> which takes you to the Homepage. Click on Signup button to fill few fields for quick registration. Also, you can register using your existing social media account on Github, Google or LinkedIn.</p>
                 </div> <!-- cd-faq-content -->
             </li>
 
@@ -50,7 +49,7 @@
             <li>
                 <a class="cd-faq-trigger" href="#0">How do reviews work?</a>
                 <div class="cd-faq-content">
-                    <p>You are only allowed to like , share, or comment a shot of any side project you view on Pibbble as a registered user. But as a guest user , you can only view shots. Wouldn't you rather <a href="http://www.pibbble.com/register">Signup</a> now?</p>
+                    <p>You are only allowed to like , share, or comment a shot of any side project you view on Pibbble as a registered user. But as a guest user , you can only view shots. Wouldn't you rather <a href="/auth/register">Signup</a> now?</p>
                 </div> <!-- cd-faq-content -->
             </li>
         </ul> <!-- cd-faq-group -->
@@ -101,32 +100,7 @@
             <li>
                 <a class="cd-faq-trigger" href="#0">I forgot my password. How do I reset it?</a>
                 <div class="cd-faq-content">
-                    <p>Simply click on the <a href="http://www.pibbble.com/remind">Forgot password</a> link. Input your user email to reset your password through a link which will be sent to your email.</p>
-                </div> <!-- cd-faq-content -->
-            </li>
-        </ul> <!-- cd-faq-group -->
-
-
-        <ul id="privacy" class="cd-faq-group">
-            <li class="cd-faq-title"><h2>Teams</h2></li>
-            <li>
-                <a class="cd-faq-trigger" href="#0">What is a team account on Pibbble?</a>
-                <div class="cd-faq-content">
-                    <p>Teams are an easy way for organizations and their designers to share work on Pibbble. Team members can upload work to both their profile and the Team’s profile. Job ads posted by the team show up on our main Jobs page, as well as the team profile.</p>
-                </div> <!-- cd-faq-content -->
-            </li>
-
-            <li>
-                <a class="cd-faq-trigger" href="#0">Creating a team account</a>
-                <div class="cd-faq-content">
-                    <p>You can create a team account by either creating a new team from scratch, or by converting an existing Pibbble account to a team.</p>
-                </div> <!-- cd-faq-content -->
-            </li>
-
-            <li>
-                <a class="cd-faq-trigger" href="#0">What are team owners?</a>
-                <div class="cd-faq-content">
-                    <p>Owners are team members that have special privileges. Owners can update the team profile, add and remove members, and manage billing info. Owners can also act on the team’s behalf (upload shots, comment, like, etc.). Each team is required to have at least one owner.</p>
+                    <p>Simply click on the <a href="/password/email">Forgot password</a> link. Input your user email to reset your password through a link which will be sent to your email.</p>
                 </div> <!-- cd-faq-content -->
             </li>
         </ul> <!-- cd-faq-group -->
@@ -146,27 +120,6 @@
                     <p>Comments can be left on shots using the form at the bottom of each shot page. Currently, only Players are able to leave comments.</p>
 
                     <p>Comments can include some HTML tags for formatting and links, and you can mention other Pibbblers if you want them to know you’re talking about them.</p>
-                </div> <!-- cd-faq-content -->
-            </li>
-
-            <li>
-                <a class="cd-faq-trigger" href="#0">How can I get more invitations?</a>
-                <div class="cd-faq-content">
-                    <p>Invitations are handed out to Players based a variety of ever-changing criteria. The longer you’re on Dribbble, the better your chances are of receiving invites. Thanks for your patience!</p>
-                </div> <!-- cd-faq-content -->
-            </li>
-
-            <li>
-                <a class="cd-faq-trigger" href="#0">I tried to invite a member, but they haven’t accepted the invitation. Is the invitation gone?</a>
-                <div class="cd-faq-content">
-                    <p>Don’t worry! If the user doesn’t claim the invitation within 30 days, it will expire and the invitation will automatically return to your account.</p>
-                </div> <!-- cd-faq-content -->
-            </li>
-
-            <li>
-                <a class="cd-faq-trigger" href="#0">Can I post part-time or freelance jobs?</a>
-                <div class="cd-faq-content">
-                    <p>While most job ads are for full-time employment, we welcome part-time and freelance/contract positions as well.</p>
                 </div> <!-- cd-faq-content -->
             </li>
         </ul> <!-- cd-faq-group -->

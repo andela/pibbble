@@ -12,12 +12,7 @@ class PagesController extends Controller
      */
     public function home()
     {
-        $projects =
-            DB::table('projects')
-            ->join('users', 'users.id', '=', 'projects.user_id')
-            ->select('users.name', 'projects.id', 'projects.projectname', 'projects.description', 'projects.url', 'projects.views', 'projects.likes')
-            ->paginate(12);
-
+        $projects = Project::orderBy('created_at', 'desc')->paginate(12);
         return view('landing', ['projects' => $projects]);
     }
 
