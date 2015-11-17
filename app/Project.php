@@ -2,6 +2,7 @@
 
 namespace Pibbble;
 
+use Auth;
 use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
@@ -23,4 +24,14 @@ class Project extends Model
      * @var array
      * */
     protected $fillable = ['projectname', 'description', 'technologies', 'url'];
+
+    /**
+     * Set scope for personal info
+     * @param  string
+     * @return string
+     */
+    public function scopePersonal($query)
+    {
+        return $query->where('user_id', Auth::user()->id);
+    }
 }

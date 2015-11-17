@@ -33,7 +33,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::orderBy('created_at', 'desc')->get();
+        $projects = Project::orderBy('created_at', 'desc')->personal()->get();
 
         return view('projects.dashboard', ['projects' => $projects]);
     }
@@ -84,7 +84,7 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name'          => 'required|min:5',
+            'name'          => 'required|min:1',
             'description'   => 'required|min:15',
             'technologies'  => 'required',
             'url'           => 'required|url'

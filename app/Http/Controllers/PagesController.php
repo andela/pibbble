@@ -11,8 +11,7 @@ class PagesController extends Controller
      */
     public function home()
     {
-        $projects = Project::paginate(12);
-
+        $projects = Project::orderBy('created_at', 'desc')->paginate(12);
         return view('landing', ['projects' => $projects]);
     }
 
