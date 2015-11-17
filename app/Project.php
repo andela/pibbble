@@ -17,7 +17,6 @@ class Project extends Model
      * The primary key field in the table.
      * @var string
      */
-
     protected $primaryKey = 'id';
 
     /**
@@ -27,7 +26,7 @@ class Project extends Model
     protected $fillable = ['projectname', 'description', 'technologies', 'url'];
 
     /**
-     * Set scope for personal info
+     * Set scope for personal info.
      * @param  string
      * @return string
      */
