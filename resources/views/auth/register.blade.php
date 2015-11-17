@@ -4,7 +4,7 @@
 <div class="container">
   <div align="center" class="row">
         <div class="mui-panel width_400 padding_40">
-          <legend align="left">Register</legend>
+          <legend align="left">SIGN UP</legend>
           <form method="POST" action="/auth/register">
           {{ csrf_field() }}
             @if (count($errors) > 0)
@@ -17,19 +17,19 @@
                 </div>
             @endif
             <div class="mui-form-group">
-              <input type="text" class="mui-form-control" name="username" id="username" placeholder="Username" value="{{ old('username') }}" required>
+              <input type="text" class="mui-form-control" name="username" id="username" placeholder="username" value="{{ old('username') }}" required>
             </div>
             <div class="mui-form-group">
-              <input type="email" class="mui-form-control" name="email" id="email" placeholder="Email" value="{{ old('email') }}" required>
+              <input type="email" class="mui-form-control" name="email" id="email" placeholder="e-mail" value="{{ old('email') }}" required>
             </div>
             <div class="mui-form-group">
-              <input type="password" class="mui-form-control" name="password" id="password" placeholder="Password" required>
+              <input type="password" class="mui-form-control" name="password" id="password" placeholder="password" required>
             </div>
             <div class="mui-form-group">
-              <input type="password" class="mui-form-control" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password" required>
+              <input type="password" class="mui-form-control" name="password_confirmation" id="password_confirmation" placeholder="confirm password" required>
             </div>
             <div align="left" class="mui-form-group">
-              <input type="submit" class="mui-btn" value="Register" name="register">
+              <input type="submit" class="mui-btn" value="Sign up">
             </div>
              <div align="left" class="mui-form-group">
                 <p><span class="valign">Or sign up with:</span>

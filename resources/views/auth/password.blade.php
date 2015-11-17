@@ -2,7 +2,8 @@
 @section('title', 'Reset password')
 
 @section('content')
-    <h3 align="center">Provide your e-mail address to reset your password.</h3>
+  <div style="min-height: 402px">
+    <h3 align="center">Provide your e-mail address to reset your password</h3>
     <div class="container">
       <div align="center" class="row">
           <div class="mui-panel width_400 padding_40">
@@ -39,4 +40,5 @@
           </div>
       </div>
     </div>
+  </div>
 @endsection

@@ -39,9 +39,10 @@
           </ul>
         </li>
       </ul>
-      <form class="form-inline navbar-form navbar-right" role="search">
+      <form method="POST" action="/search" class="form-inline navbar-form navbar-right" role="search">
+        {{ csrf_field() }}
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" name="searchinput" class="form-control" placeholder="Search">
         </div>
         <button type="submit" class="btn btn-info">Go</button>
         @if (Auth::check())
