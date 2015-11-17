@@ -3,7 +3,6 @@
 namespace Pibbble\Http\Controllers;
 
 use DB;
-use Pibbble\Project;
 
 class PagesController extends Controller
 {
