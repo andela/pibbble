@@ -17,6 +17,7 @@ class Project extends Model
      * The primary key field in the table.
      * @var string
      */
+
     protected $primaryKey = 'id';
 
     /**
