@@ -26,13 +26,15 @@ class ProjectController extends Controller
     {
         $this->middleware('auth');
     }
+
     /**
-     * Index page of the projects
+     * Index page of the projects.
      * @return dashboard.blade.php
      */
     public function index()
     {
         $projects = Project::orderBy('created_at', 'desc')->get();
+
         return view('projects.dashboard', ['projects' => $projects]);
     }
 
@@ -43,7 +45,6 @@ class ProjectController extends Controller
      */
     public function create()
     {
-
     }
     /**
      * This method saves the image to cloudinary

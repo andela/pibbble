@@ -27,7 +27,7 @@ Route::resource('projects', 'ProjectController');
 // Profile settings Route
 Route::get('/profile/settings', [
     'uses' => 'ProfileController@getProfileSettings',
-    'middleware' => ['auth']
+    'middleware' => ['auth'],
 ]);
 Route::post('/profile/settings', 'ProfileController@postProfileSettings');
 
@@ -57,3 +57,6 @@ Route::get('auth/{github}/callback', 'Auth\AuthController@handleProviderCallback
 
 Route::get('auth/{twitter}', 'Auth\AuthController@redirectToProvider');
 Route::get('auth/{twitter}/callback', 'Auth\AuthController@handleProviderCallback');
+
+Route::post('/errors/oauthname', 'Auth\AuthController@postOauth');
+Route::get('/errors/oauthname', 'Auth\AuthController@getOauth');

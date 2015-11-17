@@ -39,6 +39,16 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
+        if ($e instanceof OAuthEmailException) {
+            return response()->view('errors.oauthemail');
+        }
+
+        if ($e instanceof OAuthNameException) {
+            $request->session()->put('user', $e->getUser());
+
+            return redirect('/errors/oauthname');
+        }
+
         if ($e instanceof \Swift_TransportException) {
             return response()->view('errors.mailprovider', [], 500);
         } elseif ($this->isHttpException($e)) {
