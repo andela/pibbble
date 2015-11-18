@@ -201,10 +201,10 @@
   </div>
 
 </div>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   function showLoader(){
     document.getElementById('form-load-img').style.display = 'block';
   }
-</script>
+</script> -->
 @endsection
 

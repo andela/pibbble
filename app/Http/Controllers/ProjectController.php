@@ -34,7 +34,6 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::orderBy('created_at', 'desc')->personal()->get();
-
         return view('projects.dashboard', ['projects' => $projects]);
     }
 

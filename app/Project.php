@@ -37,8 +37,14 @@ class Project extends Model
         return $query->where('user_id', Auth::user()->id);
     }
 
+    /**
+     * many to one relationship
+     * many project
+     * @return string
+     */
     public function user()
     {
         return $this->belongsTo('Pibbble\User');
+
     }
 }
