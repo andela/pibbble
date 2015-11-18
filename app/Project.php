@@ -44,6 +44,7 @@ class Project extends Model
      */
     public function user()
     {
-        return $this->belongsTo('Pibbble/User');
+        return $this->belongsTo('Pibbble\User');
+
     }
 }

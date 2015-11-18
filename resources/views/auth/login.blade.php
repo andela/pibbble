@@ -4,7 +4,7 @@
 <div class="container">
   <div align="center" class="row">
         <div class="mui-panel width_400 padding_40">
-          <legend align="left">Log in</legend>
+          <legend align="left">LOG IN</legend>
           <form method="POST" action="/auth/login">
             {{ csrf_field() }}
             @if (count($errors) > 0)
