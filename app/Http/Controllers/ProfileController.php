@@ -10,12 +10,14 @@ use Illuminate\Http\Request;
 class ProfileController extends Controller
 {
     // Gets profile update page
+
     public function getProfileSettings()
     {
         return view('profile.settings');
     }
 
     // Posts form request
+
     public function postProfileSettings(Request $request)
     {
         $input = $request->except('_token', 'url');
