@@ -31,3 +31,7 @@
 .valign {
     vertical-align: 30%;
 }
+
+.min_height_400 {
+    min-height: 400px;
+}
