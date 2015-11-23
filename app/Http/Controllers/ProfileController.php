@@ -11,15 +11,23 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    // Gets profile update page
-
+    
+    /**
+     * Gets profile update page
+     * 
+     * @return Response
+     */
     public function getProfileSettings()
     {
         return view('profile.settings');
     }
 
-    // Posts form request
-
+    /**
+     * Posts form request
+     * 
+     * @param  Request $request
+     * @return Response           
+     */
     public function postProfileSettings(Request $request)
     {
         $input = $request->except('_token', 'url');
