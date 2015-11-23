@@ -17,10 +17,10 @@ class UserRegistrationTest extends TestCase
 
     public function testRegistrationAfterEmailValidation()
     {
-        $this->withSession(['_token'=>'23eftyhsjeu7yfbhfijsuyhfuushbnu826h',
-                            'username'=>'opeyemiab',
-                            'email'=>'ope@yahoo.com',
-                            'password'=> bcrypt('123456'),
+        $this->withSession(['_token' => '23eftyhsjeu7yfbhfijsuyhfuushbnu826h',
+                            'username' => 'opeyemiab',
+                            'email' => 'ope@yahoo.com',
+                            'password' => bcrypt('123456'),
                             ])
             ->visit('/?_token=23eftyhsjeu7yfbhfijsuyhfuushbnu826h')
             ->see('opeyemiab');
