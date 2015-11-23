@@ -4,6 +4,7 @@ namespace Pibbble\Http\Controllers;
 
 use Auth;
 use Cloudder;
+use Pibbble\User;
 use Pibbble\Project;
 use Pibbble\Http\Requests;
 use Illuminate\Http\Request;
@@ -33,8 +34,9 @@ class ProjectController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
         $projects = Project::orderBy('created_at', 'desc')->personal()->get();
-        return view('projects.dashboard', ['projects' => $projects]);
+        return view('projects.dashboard', compact('projects', 'user'));
     }
 
     /**
