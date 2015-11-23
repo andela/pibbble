@@ -32,6 +32,7 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::orderBy('created_at', 'desc')->personal()->get();
+
         return view('projects.dashboard', ['projects' => $projects]);
     }
 
@@ -85,7 +86,7 @@ class ProjectController extends Controller
             'name'          => 'required|min:1',
             'description'   => 'required|min:15',
             'technologies'  => 'required',
-            'url'           => 'required|url'
+            'url'           => 'required|url',
         ]);
 
         $getScreenshotName = $this->convertUrlToPng($request);

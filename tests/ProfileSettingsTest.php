@@ -2,7 +2,6 @@
 
 namespace Pibbble\Tests;
 
-use Illuminate\Foundation\Testing\CrawlerTrait;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class ProfileSettingsTest extends TestCase
