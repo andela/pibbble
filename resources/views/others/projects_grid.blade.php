@@ -19,7 +19,7 @@
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             <br />
             <h3 class="modal-title">{{ $project->projectname }}</h3>
-            by {{ $project->user->username }}
+            <p>by</p> <a href="">{{ $project->user->username }}</a>
           </div>
           <div class="modal-body">
             <div class="modal-left">

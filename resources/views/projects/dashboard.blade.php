@@ -12,10 +12,14 @@
 @section('content')
 <div class="container-fluid ball">
         <div class="container">
-        @include('layouts.partials.alerts')
+        <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-12">
+          @include('layouts.partials.alerts')
             <div class="fb-profile">
-                <img align="left" class="fb-image-lg" src="http://i58.tinypic.com/2464bc2.jpg" alt="Profile image example" / height="351px" width="815px">
-                <img align="left" class="fb-image-profile thumbnail" src="{{ Auth::user()->getAvatar() }}" alt="Profile image example" border-radius="100%">
+            <div class="cover-container">
+                <img align="left" class="fb-image-lg img-responsive" src="http://goo.gl/b6Sxx3" alt="Cover image" / width="100%" >
+                </div>
+                <img align="left" class="fb-image-profile thumbnail img-responsive" src="{{ Auth::user()->getAvatar() }}" alt="Profile image example" border-radius="100%">
                 <div class="fb-profile-text red col-md-8 col-xs-3">
                     <h1> {{ Auth::user()->username }}</h1>
                     <p>{{ Auth::user()->job }}</p>
@@ -37,13 +41,28 @@
                         <i class="fa fa-linkedin"></i>
                     </a>
                     <div class="btn-group pull-right">
+                    @if($user->username == Auth::user()->username)
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myUpload"><span class="glyphicon glyphicon-cloud-upload"></span> Upload</button>
+                        <button type="button" class="btn btn-primary" id="menu1" data-toggle="dropdown" data-target="#myModal"><span class="glyphicon glyphicon-folder-open"></span> Skills<span class="caret"></span></button>
+                        <ul class="ddColor dropdown-menu" role="menu" aria-labelledby="menu1">
+                          <li role="presentation"><a role="menuitem" tabindex="-1">HTML</a></li>
+                          <li role="presentation"><a role="menuitem" tabindex="-1">CSS</a></li>
+                          <li role="presentation"><a role="menuitem" tabindex="-1">JavaScript</a></li>
+                        </ul>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myBio"><span class="glyphicon glyphicon-eye-open"></span> Bio</button>
+                    </div>
+                    @else
+                    <div class="btn-group pull-right">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myBio"><span class="glyphicon glyphicon-eye-open"></span> Bio</button>
                         <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-log-in" onclick="change()" type="button" value="Follow" id="myButton1"></span> Follow</button>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mySkills"><span class="glyphicon glyphicon-folder-open"></span> Skills</button>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myHire"><span class="glyphicon glyphicon-user"></span> Hire Me</button>
+                    @endif
                     </div>
                 </div>
+            </div>
+        </div>
+
             </div>
             <div class="row">
                 <div class="col-md-3">
@@ -69,13 +88,39 @@
                                 @foreach ($projects as $project)
                                 <div class='projects-container'>
                                     <div class='projects'>
-                                        <a href=''><img src="{{ $project->url }}" width='200' height='150' style='border:0px solid #ccc;'>
+                                        <a href="" data-toggle="modal" data-target="#{{ $project->id }}"><img src="{{ $project->url }}" width='200' height='150' style='border:0px solid #ccc;'>
                                         </a>
                                         <span class='project-stats'><i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->likes }}</span>
                                         <span class='project-stats'><i class='fa fa-eye'></i>&nbsp;{{ $project->views }}</span>
                                     </div>
                                     <span class='projects-name'><a href="">{{ $project->projectname }}</a></span>
                                     </div>
+                                    <div class="modal fade-lg" id="{{ $project->id }}" role="dialog">
+                                  <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <br />
+                                        <h3 class="modal-title">{{ $project->projectname }}</h3>
+                                        <p>by</p> <a href="">{{ $project->user->username }}</a>
+                                      </div>
+                                      <div class="modal-body">
+                                        <div class="modal-left">
+                                            <img src='{{ $project->url }}' width="600" height="400" />
+                                            <div class="modal-right">
+                                                <p><i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->views }}&nbsp;likes</p>
+                                                <p><i class='fa fa-eye'></i>&nbsp;{{ $project->views }}&nbsp;views</p>
+                                            </div>
+                                        </div>
+                                        <br clear="left">
+                                        <p>{{ $project->description }}</p>
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                                 @endforeach
                             </div>
                         @endif
@@ -98,16 +143,14 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Contact {{ Auth::user()->username }} About Work</h4>
+          <h4 class="modal-title">Contact {{ Auth::user()->username }} about Work</h4>
         </div>
         <div class="modal-body">
-          <p>From:   <img class="avatar" src="{{ Auth::user()->getAvatar() }}" /> {{ Auth::user()->username }}
-          <span>'<'{{ Auth::user()->email }}'>'</span></p>
+          <p>From:   <img class="avatar" src="{{ Auth::user()->getAvatar() }}" /> {{ $user->username }}
+
           <hr>
           <p>To:     <img class="avatar" src="{{ Auth::user()->getAvatar() }}" /> {{ Auth::user()->username }}
-          <span>'<'{{ Auth::user()->email }}'>'</span></p>
-          <hr>
-          <p>Cc:     <input type="checkbox"> Send me a copy of this mail</p>
+
           <hr>
           <div class="form-group">
               <label for="message"><span class="glyphicon glyphicon-envelope"></span> Type Message Here</label>
