@@ -2,9 +2,11 @@
 
 namespace Pibbble\Http\Middleware;
 
+use Auth;
+use Pibbble\User;
 use Closure;
 
-class HasUser
+class ValidateEmail
 {
     /**
      * Handle an incoming request.
@@ -15,8 +17,9 @@ class HasUser
      */
     public function handle($request, Closure $next)
     {
-        if (! $request->session()->has('user')) {
-            return redirect('/');
+        if ($request->has('_token') && $request->session()->has('_token')
+            && $request->_token === $request->session()->pull('_token')) {
+            Auth::login(User::create($request->session()->all()));
         }
 
         return $next($request);

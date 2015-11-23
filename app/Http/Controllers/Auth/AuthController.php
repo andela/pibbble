@@ -42,7 +42,7 @@ class AuthController extends Controller
     {
         $this->middleware('guest', ['except' => 'getLogout']);
 
-        $this->middleware('hasUser', ['only' => ['oauthGet']]);
+        $this->middleware('oauthUser', ['only' => ['oauthGet']]);
     }
 
     /**
@@ -146,6 +146,12 @@ class AuthController extends Controller
         ]);
     }
 
+    /**
+     * Create and login new user after collecting new username.
+     * 
+     * @param  Request $request
+     * @return Response
+     */
     public function postOauth(Request $request)
     {
         $data = $request->all();
@@ -179,8 +185,55 @@ class AuthController extends Controller
         return redirect($this->redirectPath());
     }
 
+    /**
+     * Show form to collect new username.
+     * 
+     * @return Response
+     */
     public function getOauth()
     {
         return view('/errors/oauthname');
+    }
+
+    /**
+     * Send a mail to register a user.
+     * 
+     * @param  Request $request
+     * @return Response
+     */
+    public function sendMail(Request $request)
+    {
+        $validator = $this->validator($request->all());
+
+        if ($validator->fails()) {
+            $this->throwValidationException(
+                $request, $validator
+            );
+        }
+
+        $transport = \Swift_SmtpTransport::newInstance(env('MAIL_HOST'), env('MAIL_PORT'))
+                        ->setUsername(env('MAIL_USERNAME'))
+                        ->setPassword(env('MAIL_PASSWORD'));
+
+        $mailer = \Swift_Mailer::newInstance($transport);
+
+        $_url = $request->url();
+        $url = substr($_url, 0, stripos($_url, '/auth/register'))."?_token={$request->_token}";
+
+        $message = \Swift_Message::newInstance('Confirm your email address.')
+                    ->setFrom([env('MAIL_USERNAME') => 'Team Pibbble'])
+                    ->setTo([$request->email => $request->username])
+                    ->setBody("Dear {$request->username},<br><br>
+                        Thank you for registering with us. Confirm your email with the link below.<br>
+                        <a href={$url}>CONFIRM EMAIL</a>", 'text/html');
+
+        $mailer->send($message);
+
+        $request->session()->put('_token', $request->_token);
+        $request->session()->put('username', $request->username);
+        $request->session()->put('email', $request->email);
+        $request->session()->put('password', bcrypt($request->password));
+
+        return view('/auth/confirmemail');
     }
 }
