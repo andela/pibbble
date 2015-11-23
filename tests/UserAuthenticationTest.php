@@ -14,7 +14,7 @@ class UserAuthenticationTest extends TestCase
             'email' => 'ope@yahoo.com',
             'password' => bcrypt('123456'),
             'username' => 'solami',
-            ]);
+        ]);
 
         $this->visit('/auth/login')
             ->type('ope@yahoo.com', 'email')
