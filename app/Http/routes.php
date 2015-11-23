@@ -29,6 +29,12 @@ Route::get('/profile/settings', [
     'uses' => 'ProfileController@getProfileSettings',
     'middleware' => ['auth'],
 ]);
+
+Route::post('/avatar/setting', [
+    'uses' => 'ProfileController@postAvatarSetting',
+    'middleware' => ['auth'],
+]);
+
 Route::post('/profile/settings', 'ProfileController@postProfileSettings');
 
 Route::controllers([
