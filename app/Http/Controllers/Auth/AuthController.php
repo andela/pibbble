@@ -207,7 +207,7 @@ class AuthController extends Controller
 
         if ($validator->fails()) {
             $this->throwValidationException(
-                $request, 
+                $request,
                 $validator
             );
         }
@@ -233,7 +233,7 @@ class AuthController extends Controller
         $request->session(['_token' => $request->_token,
             'username' => $request->username,
             'email' => $request->email,
-            'password' => bcrypt($request->password)]);
+            'password' => bcrypt($request->password), ]);
 
         return view('/auth/confirmemail');
     }
