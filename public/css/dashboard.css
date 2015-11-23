@@ -12,6 +12,11 @@ body {
     margin-bottom: 10px;
 }
 
+.cover-container {
+    width: 100%;
+    height: 315px;
+    overflow: hidden;
+}
 .fb-image-profile {
     margin: -210px 10px 0px 50px;
     z-index: 9;
