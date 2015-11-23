@@ -42,7 +42,7 @@ class AuthController extends Controller
     {
         $this->middleware('guest', ['except' => 'getLogout']);
 
-        $this->middleware('oauthUser', ['only' => ['oauthGet']]);
+        $this->middleware('oauthUser', ['only' => ['getOauth']]);
     }
 
     /**
@@ -207,7 +207,8 @@ class AuthController extends Controller
 
         if ($validator->fails()) {
             $this->throwValidationException(
-                $request, $validator
+                $request, 
+                $validator
             );
         }
 
@@ -229,10 +230,10 @@ class AuthController extends Controller
 
         $mailer->send($message);
 
-        $request->session()->put('_token', $request->_token);
-        $request->session()->put('username', $request->username);
-        $request->session()->put('email', $request->email);
-        $request->session()->put('password', bcrypt($request->password));
+        $request->session(['_token' => $request->_token,
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => bcrypt($request->password)]);
 
         return view('/auth/confirmemail');
     }
