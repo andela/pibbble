@@ -5,10 +5,8 @@ namespace Pibbble\Http\Controllers;
 use Auth;
 use Cloudder;
 use Pibbble\Project;
-use Pibbble\Http\Requests;
 use Illuminate\Http\Request;
 use Spatie\Browsershot\Browsershot;
-use Pibbble\Http\Controllers\Controller;
 
 class ProjectController extends Controller
 {
@@ -45,20 +43,21 @@ class ProjectController extends Controller
     public function create()
     {
     }
+
     /**
-     * This method saves the image to cloudinary
+     * This method saves the image to cloudinary.
      * @param  string $name_of_screenshot
      * @return void
      */
     private function saveToCloud($name_of_screenshot)
     {
-        $this->fileName = "screenshots/".$name_of_screenshot.".jpg";
+        $this->fileName = 'screenshots/'.$name_of_screenshot.'.jpg';
         Cloudder::upload($this->fileName);
         $this->finalUrl = Cloudder::getResult()['url'];
     }
 
     /**
-     * This method converts url to images
+     * This method converts url to images.
      * @return string
      */
     private function convertUrlToPng(Request $request)
@@ -69,7 +68,7 @@ class ProjectController extends Controller
             ->setURL($request->input('url'))
             ->setWidth('1024')
             ->setHeight('768')
-            ->save("screenshots/".$name_of_screenshot.".jpg");
+            ->save('screenshots/'.$name_of_screenshot.'.jpg');
 
         return $name_of_screenshot;
     }
@@ -93,11 +92,11 @@ class ProjectController extends Controller
         $this->saveToCloud($getScreenshotName);
 
         $project = new Project;
-        $project->user_id      = Auth::user()->id;
-        $project->projectname  = $request->input('name');
-        $project->description  = $request->input('description');
+        $project->user_id = Auth::user()->id;
+        $project->projectname = $request->input('name');
+        $project->description = $request->input('description');
         $project->technologies = $request->input('technologies');
-        $project->url          = $this->finalUrl;
+        $project->url = $this->finalUrl;
 
         $project->save();
 
