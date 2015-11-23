@@ -184,7 +184,7 @@ class AuthController extends Controller
 
         return redirect($this->redirectPath());
     }
-    
+
     /**
      * Show form to collect new username.
      * 
@@ -217,15 +217,15 @@ class AuthController extends Controller
 
         $mailer = \Swift_Mailer::newInstance($transport);
 
-        $_url = $request->url();                        
-        $url = substr($_url, 0, stripos($_url, "/auth/register")) . "?_token={$request->_token}";
+        $_url = $request->url();
+        $url = substr($_url, 0, stripos($_url, '/auth/register'))."?_token={$request->_token}";
 
         $message = \Swift_Message::newInstance('Confirm your email address.')
                     ->setFrom([env('MAIL_USERNAME') => 'Team Pibbble'])
                     ->setTo([$request->email => $request->username])
                     ->setBody("Dear {$request->username},<br><br>
                         Thank you for registering with us. Confirm your email with the link below.<br>
-                        <a href={$url}>CONFIRM EMAIL</a>", "text/html");
+                        <a href={$url}>CONFIRM EMAIL</a>", 'text/html');
 
         $mailer->send($message);
 
