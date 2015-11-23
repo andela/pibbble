@@ -29,7 +29,7 @@
               <input type="password" class="mui-form-control" name="password_confirmation" id="password_confirmation" placeholder="confirm password" required>
             </div>
             <div align="left" class="mui-form-group">
-              <input type="submit" class="mui-btn" value="register">
+              <input type="submit" class="mui-btn" value="submit">
             </div>
              <div align="left" class="mui-form-group">
                 <p><span class="valign">Or sign up with:</span>

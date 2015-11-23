@@ -162,7 +162,8 @@ class AuthController extends Controller
 
         if ($validator->fails()) {
             $this->throwValidationException(
-                $request, $validator
+                $request, 
+                $validator
             );
         }
 
@@ -222,7 +223,7 @@ class AuthController extends Controller
         $url = substr($_url, 0, stripos($_url, '/auth/register'))."?_token={$request->_token}";
 
         $message = \Swift_Message::newInstance('Confirm your email address.')
-                    ->setFrom([env('MAIL_USERNAME') => 'Team Pibbble'])
+                    ->setFrom([env('MAIL_USERNAME') => 'Team'])
                     ->setTo([$request->email => $request->username])
                     ->setBody("Dear {$request->username},<br><br>
                         Thank you for registering with us. Confirm your email with the link below.<br>
@@ -230,11 +231,11 @@ class AuthController extends Controller
 
         $mailer->send($message);
 
-        $request->session(['_token' => $request->_token,
-            'username' => $request->username,
-            'email' => $request->email,
-            'password' => bcrypt($request->password)]);
+        $request->session()->put('_token', $request->_token);
+        $request->session()->put('username', $request->username);
+        $request->session()->put('email', $request->email);
+        $request->session()->put('password', bcrypt($request->password));
 
-        return view('/auth/confirmemail');
+        return view('auth/confirmemail');
     }
 }
