@@ -4,65 +4,65 @@
 @endsection
 
 @section('custom-css')
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-social.css') }}"> <!-- Resource style -->
-    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}"> <!-- CSS reset -->
-@endsection
-
-@section('content')
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ asset('css/bootstrap-social.css') }}">
+<!-- Resource style -->
+<link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+<!-- CSS reset -->
+@endsection @section('content')
 <div class="container-fluid ball">
-        <div class="container">
+    <div class="container">
         <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-12">
-          @include('layouts.partials.alerts')
-            <div class="fb-profile">
-            <div class="cover-container">
-                <img align="left" class="fb-image-lg img-responsive" src="http://goo.gl/b6Sxx3" alt="Cover image" / width="100%" >
+            <div class="col-md-12">
+                @include('layouts.partials.alerts')
+                <div class="fb-profile">
+                    <img align="left" class="fb-image-lg img-responsive" src="http://goo.gl/b6Sxx3" alt="Cover image"  width="100%">
+                    <img align="left" class="fb-image-profile thumbnail img-responsive" src="{{ Auth::user()->getAvatar() }}" alt="Profile image example" border-radius="100%">
+                    <div class="fb-profile-text red col-md-8">
+                        <h1> {{ Auth::user()->username }}</h1>
+                        <p>{{ Auth::user()->job }}</p>
+                        <p>{{ Auth::user()->location }}</p>
+                    </div>
                 </div>
-                <img align="left" class="fb-image-profile thumbnail img-responsive" src="{{ Auth::user()->getAvatar() }}" alt="Profile image example" border-radius="100%">
-                <div class="fb-profile-text red col-md-8 col-xs-3">
-                    <h1> {{ Auth::user()->username }}</h1>
-                    <p>{{ Auth::user()->job }}</p>
-                    <p>{{ Auth::user()->location }}</p>
-                </div>
-            </div>
-            <div class="well well-sm makeup">
-                <div class="span12">
-                    <a class="btn btn-social-icon btn-twitter">
-                        <i class="fa fa-twitter"></i>
-                    </a>
-                    <a class="btn btn-social-icon btn-google">
-                        <i class="fa fa-google"></i>
-                    </a>
-                    <a class="btn btn-social-icon btn-facebook">
-                        <i class="fa fa-facebook"></i>
-                    </a>
-                    <a class="btn btn-social-icon btn-linkedin">
-                        <i class="fa fa-linkedin"></i>
-                    </a>
-                    <div class="btn-group pull-right">
-                    @if($user->username == Auth::user()->username)
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myUpload"><span class="glyphicon glyphicon-cloud-upload"></span> Upload</button>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mySkills"><span class="glyphicon glyphicon-folder-open"></span> Skills</button>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myBio"><span class="glyphicon glyphicon-eye-open"></span> Bio</button>
-                    @else
-                    <div class="btn-group pull-right">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myBio"><span class="glyphicon glyphicon-eye-open"></span> Bio</button>
-                        <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-log-in" onclick="change()" type="button" value="Follow" id="myButton1"></span> Follow</button>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mySkills"><span class="glyphicon glyphicon-folder-open"></span> Skills</button>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myHire"><span class="glyphicon glyphicon-user"></span> Hire Me</button>
-                    @endif
+                <div class="well well-sm makeup">
+                    <div class="row">
+                        <div class="pull-left">
+                            <a class="btn btn-social-icon btn-twitter">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a class="btn btn-social-icon btn-google">
+                                <i class="fa fa-google"></i>
+                            </a>
+                            <a class="btn btn-social-icon btn-facebook">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a class="btn btn-social-icon btn-linkedin">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                        </div>
+                        @if($user->username == Auth::user()->username)
+                        <div class="btn-group pull-right">
+                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myUpload"><span class="glyphicon glyphicon-cloud-upload"></span> Upload</button>
+                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#mySkills"><span class="glyphicon glyphicon-folder-open"></span> Skills</button>
+                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myBio"><span class="glyphicon glyphicon-eye-open"></span> Bio</button>
+                        </div>
+                        @else
+                        <div class="btn-group pull-right">
+                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myBio"><span class="glyphicon glyphicon-eye-open"></span> Bio</button>
+                            <button type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-log-in" onclick="change()" type="button" value="Follow" id="myButton1"></span> Follow</button>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mySkills"><span class="glyphicon glyphicon-folder-open"></span> Skills</button>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myHire"><span class="glyphicon glyphicon-user"></span> Hire Me</button>
+                        </div>
+                        @endif
                     </div>
                 </div>
             </div>
-        </div>
-
-            </div>
-            <div class="row">
+            <div class="">
                 <div class="col-md-3">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <h4>Activity Feed</h4></div>
+                            <h4>Activity Feed</h4>
+                        </div>
                         <div class="panel-body">
                             <p>Following <span class="badge pull-right">5</span></p>
                             <hr>
@@ -88,40 +88,37 @@
                                         <span class='project-stats'><i class='fa fa-eye'></i>&nbsp;{{ $project->views }}</span>
                                     </div>
                                     <span class='projects-name'><a href="">{{ $project->projectname }}</a></span>
-                                    </div>
-                                    <div class="modal fade-lg" id="{{ $project->id }}" role="dialog">
-                                  <div class="modal-dialog modal-lg">
-                                    <div class="modal-content">
-                                      <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <br />
-                                        <h3 class="modal-title">{{ $project->projectname }}</h3>
-                                        <p>by</p> <a href="">{{ $project->user->username }}</a>
-                                      </div>
-                                      <div class="modal-body">
-                                        <div class="modal-left">
-                                            <img src='{{ $project->url }}' width="600" height="400" />
-                                            <div class="modal-right">
-                                                <p><i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->views }}&nbsp;likes</p>
-                                                <p><i class='fa fa-eye'></i>&nbsp;{{ $project->views }}&nbsp;views</p>
+                                </div>
+                                <div class="modal fade-lg" id="{{ $project->id }}" role="dialog">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <br />
+                                                <h3 class="modal-title">{{ $project->projectname }}</h3>
+                                                <p>by</p> <a href="">{{ $project->user->username }}</a>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="modal-left">
+                                                    <img src='{{ $project->url }}' width="600" height="400" />
+                                                    <div class="modal-right">
+                                                        <p><i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->views }}&nbsp;likes</p>
+                                                        <p><i class='fa fa-eye'></i>&nbsp;{{ $project->views }}&nbsp;views</p>
+                                                    </div>
+                                                </div>
+                                                <br clear="left">
+                                                <p>{{ $project->description }}</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
                                             </div>
                                         </div>
-                                        <br clear="left">
-                                        <p>{{ $project->description }}</p>
-                                      </div>
-                                      <div class="modal-footer">
-                                        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
-                                      </div>
                                     </div>
-                                  </div>
                                 </div>
                                 @endforeach
                             </div>
-                        @endif
-                        @if( $projects->isEmpty() )
-                           <h3>There are currently no Projects</h3>
-                        @endif
-
+                            @endif @if( $projects->isEmpty() )
+                            <h3>There are currently no Projects</h3> @endif
                         </div>
                     </div>
                 </div>
@@ -204,7 +201,7 @@
                     @if ($errors->has('url'))
                           <span class="help-block">{{ $errors->first('url') }}</span>
                       @endif
-                  </div>             
+                  </div>
 
             </div>
 
@@ -263,11 +260,5 @@
 
         </div>
     </div>
-
 </div>
-<!-- <script type="text/javascript">
-  function showLoader(){
-    document.getElementById('form-load-img').style.display = 'block';
-  }
-</script> -->
 @endsection
