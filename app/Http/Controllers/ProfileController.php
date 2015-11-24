@@ -11,9 +11,8 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    
     /**
-     * Gets profile update page
+     * Gets profile update page.
      * 
      * @return Response
      */
@@ -23,7 +22,7 @@ class ProfileController extends Controller
     }
 
     /**
-     * Posts form request
+     * Posts form request.
      * 
      * @param  Request $request
      * @return Response           
