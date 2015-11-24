@@ -13,8 +13,7 @@
         "jrm2k6/cloudder": "^0.2.0",
         "spatie/browsershot": "^1.2",
         "ext-gd": "*",
-        "guzzlehttp/guzzle": "~4.0"
-
+        "guzzlehttp/guzzle": "~5.3|~6.0"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",
