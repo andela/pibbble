@@ -163,7 +163,7 @@ class AuthController extends Controller
 
         if ($validator->fails()) {
             $this->throwValidationException(
-                $request, 
+                $request,
                 $validator
             );
         }
@@ -209,7 +209,7 @@ class AuthController extends Controller
 
         if ($validator->fails()) {
             $this->throwValidationException(
-                $request, 
+                $request,
                 $validator
             );
         }
