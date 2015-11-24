@@ -4,7 +4,7 @@ namespace Pibbble\Http\Middleware;
 
 use Closure;
 
-class HasUser
+class OauthUser
 {
     /**
      * Handle an incoming request.
