@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b70a74e2966e8183a2f994c11394bf98",
-    "content-hash": "38a6bbb67862f14bd2a108dad35c4b7e",
+    "hash": "5fd76c71a184be4aa86c67482adbac1d",
+    "content-hash": "b070f40a609ab1931ddc8bbaad9c8ceb",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1598,16 +1598,16 @@
         },
         {
             "name": "spatie/browsershot",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/browsershot.git",
-                "reference": "fb440b5ec9a75ed8bf84b25ae67f3c12035f402e"
+                "reference": "77c0a35fb954c61370ca6ab9382a0c610712472a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/browsershot/zipball/fb440b5ec9a75ed8bf84b25ae67f3c12035f402e",
-                "reference": "fb440b5ec9a75ed8bf84b25ae67f3c12035f402e",
+                "url": "https://api.github.com/repos/spatie/browsershot/zipball/77c0a35fb954c61370ca6ab9382a0c610712472a",
+                "reference": "77c0a35fb954c61370ca6ab9382a0c610712472a",
                 "shasum": ""
             },
             "require": {
@@ -1648,7 +1648,7 @@
                 "screenshot",
                 "webpage"
             ],
-            "time": "2015-11-13 20:59:44"
+            "time": "2015-11-23 19:49:08"
         },
         {
             "name": "swiftmailer/swiftmailer",

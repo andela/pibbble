@@ -3,6 +3,7 @@
 namespace Pibbble\Http\Controllers\Auth;
 
 use Auth;
+use Mail;
 use Redirect;
 use Validator;
 use Socialite;
@@ -96,14 +97,14 @@ class AuthController extends Controller
         try {
             $user = Socialite::driver($provider)->user();
         } catch (Exception $e) {
-            return Redirect::to('auth/'.$provider);
+            return redirect('auth/'.$provider);
         }
 
         $authUser = $this->findOrCreateUser($user, $provider);
 
         Auth::loginUsingId($authUser->id, true);
 
-        return Redirect::to($this->redirectTo);
+        return redirect($this->redirectTo);
     }
 
     /**
@@ -213,29 +214,26 @@ class AuthController extends Controller
             );
         }
 
-        $transport = \Swift_SmtpTransport::newInstance(env('MAIL_HOST'), env('MAIL_PORT'))
-                        ->setUsername(env('MAIL_USERNAME'))
-                        ->setPassword(env('MAIL_PASSWORD'));
-
-        $mailer = \Swift_Mailer::newInstance($transport);
-
         $_url = $request->url();
         $url = substr($_url, 0, stripos($_url, '/auth/register'))."?_token={$request->_token}";
 
-        $message = \Swift_Message::newInstance('Confirm your email address.')
-                    ->setFrom([env('MAIL_USERNAME') => 'Team'])
-                    ->setTo([$request->email => $request->username])
-                    ->setBody("Dear {$request->username},<br><br>
-                        Thank you for registering with us. Confirm your email with the link below.<br>
-                        <a href={$url}>CONFIRM EMAIL</a>", 'text/html');
+        Mail::send('emails.confirm', ['user' => $request->username, 'url' => $url], function ($m) use ($request) {
+            $m->from(env('MAIL_USERNAME'), 'Pibbble');
 
-        $mailer->send($message);
-
+            $m->to($request->email, $request->username)->subject('Confirm your email address.');
+        });
+        /*
         $request->session()->put('_token', $request->_token);
         $request->session()->put('username', $request->username);
         $request->session()->put('email', $request->email);
         $request->session()->put('password', bcrypt($request->password));
+        */
+        $request->session(['_token' => $request->_token,
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            ]);
 
-        return view('auth/confirmemail');
+        return view('/auth/confirmemail');
     }
 }
