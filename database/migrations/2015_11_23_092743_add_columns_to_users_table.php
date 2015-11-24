@@ -12,7 +12,7 @@ class AddColumnsToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function(Blueprint $table){
+        Schema::table('users', function (Blueprint $table) {
             $table->string('skills')->nullable();
             $table->string('github')->nullable();
             $table->string('twitter')->nullable();
@@ -27,7 +27,7 @@ class AddColumnsToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function(Blueprint $table){
+        Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('skills');
             $table->dropColumn('github');
             $table->dropColumn('twitter');

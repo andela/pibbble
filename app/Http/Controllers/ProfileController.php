@@ -12,21 +12,24 @@ use Illuminate\Http\Request;
 class ProfileController extends Controller
 {
     // Gets profile update page
+
     public function getProfileSettings()
     {
         return view('profile.settings');
     }
 
     // Posts form request
+
     public function postProfileSettings(Request $request)
     {
-        $input   = $request->except('_token', 'url');
+        $input = $request->except('_token', 'url');
         User::find(Auth::user()->id)->updateProfile($input);
 
         return redirect('/profile/settings')->with('status', 'You have successfully updated your profile.');
     }
 
     // Posts image update request
+
     public function postAvatarSetting(Request $request)
     {
         $img = Input::file('avatar');
@@ -35,6 +38,7 @@ class ProfileController extends Controller
         $imgurl = Cloudder::getResult()['url'];
 
         User::find(Auth::user()->id)->updateAvatar($imgurl);
+
         return redirect('/profile/settings')->with('status', 'Avatar updated successfully.');
     }
 }

@@ -1,8 +1,6 @@
 <?php
 
 use Pibbble\User;
-use Illuminate\Foundation\Testing\CrawlerTrait;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class ProfileSettingsTest extends TestCase
 {

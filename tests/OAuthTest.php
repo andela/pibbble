@@ -2,7 +2,6 @@
 
 class OAuthTest extends TestCase
 {
-
     protected $baseUrl = 'http://localhost';
 
     public function testGitHubOAuth()
