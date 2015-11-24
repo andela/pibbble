@@ -2,13 +2,13 @@
   <div class="container-fluid topmost-nav">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">Pibbble</a>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Pibbble</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -42,7 +42,7 @@
       <form method="POST" action="/search" class="form-inline navbar-form navbar-right" role="search">
         {{ csrf_field() }}
         <div class="form-group">
-          <input type="text" name="searchinput" class="form-control" placeholder="Search">
+            <input type="text" name="searchinput" class="form-control" placeholder="Search">
         </div>
         <button type="submit" class="btn btn-info">Go</button>
         @if (Auth::check())
@@ -55,7 +55,7 @@
             </ul>
           </div>
         @else
-          <button type="button" id="sign-up-button" class="btn auth-btn">Sign Up</button>
+          <button type="button" id="sign-up-button" class="btn auth-btn">Register</button>
           <button type="button" id="sign-in-button" class="btn auth-btn" style="margin-right:50px;">Log in</button>
         @endif
       </form>

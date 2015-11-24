@@ -12,7 +12,8 @@
         "fzaninotto/faker": "^1.5",
         "jrm2k6/cloudder": "^0.2.0",
         "spatie/browsershot": "^1.2",
-        "ext-gd": "*"
+        "ext-gd": "*",
+        "guzzlehttp/guzzle": "^6.1"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",
