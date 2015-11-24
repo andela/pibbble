@@ -11,8 +11,8 @@ class UserRegistrationTest extends TestCase
             ->type('ope@yahoo.com', 'email')
             ->type('123456', 'password')
             ->type('123456', 'password_confirmation')
-            ->press('register')
-            ->seePageIs('/auth/confirmemail');
+            ->press('submit')
+            ->see('Check your mail box to confirm your email address.');
     }
 
     public function testRegistrationAfterEmailValidation()
