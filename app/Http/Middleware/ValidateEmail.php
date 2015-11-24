@@ -17,10 +17,8 @@ class ValidateEmail
      */
     public function handle($request, Closure $next)
     {
-        if ($request->has('_token') && $request->session()->has('_token'))
-        {
-            if ($request->_token === $request->session()->pull('_token')) 
-            {
+        if ($request->has('_token') && $request->session()->has('_token')) {
+            if ($request->_token === $request->session()->pull('_token')) {
                 Auth::login(User::create($request->session()->all()));
             }
         }
