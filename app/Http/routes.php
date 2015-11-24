@@ -29,6 +29,12 @@ Route::get('/profile/settings', [
     'uses' => 'ProfileController@getProfileSettings',
     'middleware' => ['auth'],
 ]);
+
+Route::post('/avatar/setting', [
+    'uses' => 'ProfileController@postAvatarSetting',
+    'middleware' => ['auth'],
+]);
+
 Route::post('/profile/settings', 'ProfileController@postProfileSettings');
 
 Route::controllers([
@@ -57,7 +63,6 @@ Route::get('auth/{github}/callback', 'Auth\AuthController@handleProviderCallback
 
 Route::get('auth/{twitter}', 'Auth\AuthController@redirectToProvider');
 Route::get('auth/{twitter}/callback', 'Auth\AuthController@handleProviderCallback');
-
 
 // Project search
 Route::post('/search', 'SearchController@search');
