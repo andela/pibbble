@@ -222,12 +222,7 @@ class AuthController extends Controller
 
             $m->to($request->email, $request->username)->subject('Confirm your email address.');
         });
-        /*
-        $request->session()->put('_token', $request->_token);
-        $request->session()->put('username', $request->username);
-        $request->session()->put('email', $request->email);
-        $request->session()->put('password', bcrypt($request->password));
-        */
+        
         $request->session(['_token' => $request->_token,
             'username' => $request->username,
             'email' => $request->email,
