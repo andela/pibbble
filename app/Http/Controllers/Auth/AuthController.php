@@ -282,6 +282,7 @@ class AuthController extends Controller
             $m->to($request->email, $request->username)->subject('Confirm your email address.');
         });
 <<<<<<< HEAD
+<<<<<<< HEAD
         /*
 >>>>>>> 9fe73d4... [Pibbble][#108779138] Refactor
         $request->session()->put('_token', $request->_token);
@@ -304,6 +305,9 @@ class AuthController extends Controller
 =======
         
 >>>>>>> 83e268c... [Pibbble][#108779138] Add email verification to the registration process
+=======
+
+>>>>>>> 963d430... Applied fixes from StyleCI
         $request->session(['_token' => $request->_token,
             'username' => $request->username,
             'email' => $request->email,
