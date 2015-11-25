@@ -55,7 +55,7 @@ Route::get('/auth/logout', 'Auth\AuthController@getLogout');
 
 // Registration routes...
 Route::get('/auth/register', 'Auth\AuthController@getRegister');
-Route::post('/auth/register', 'Auth\AuthController@postRegister');
+Route::post('/auth/register', 'Auth\AuthController@sendMail');
 
 // Social authentication routes...
 Route::get('auth/{github}', 'Auth\AuthController@redirectToProvider');
