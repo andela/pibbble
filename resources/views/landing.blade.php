@@ -12,7 +12,7 @@
     </div>
   </nav>
 
-  <div class="container">
+  <div class="container min_height_400">
     @include('others.projects_grid')
   </div>
 @endsection
