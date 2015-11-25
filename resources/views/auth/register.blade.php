@@ -29,7 +29,15 @@
               <input type="password" class="mui-form-control" name="password_confirmation" id="password_confirmation" placeholder="confirm password" required>
             </div>
             <div align="left" class="mui-form-group">
+<<<<<<< HEAD
+<<<<<<< HEAD
               <input type="submit" class="mui-btn" value="submit">
+=======
+              <input type="submit" class="mui-btn" value="register">
+>>>>>>> 73ad5fe... [Pibbble][#108779138] Update the AuthController
+=======
+              <input type="submit" class="mui-btn" value="submit">
+>>>>>>> 309eddb... [Pibbble][#108779138] Update Tests
             </div>
              <div align="left" class="mui-form-group">
                 <p><span class="valign">Or sign up with:</span>
