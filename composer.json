@@ -13,7 +13,16 @@
         "jrm2k6/cloudder": "^0.2.0",
         "spatie/browsershot": "^1.2",
         "ext-gd": "*",
-        "guzzlehttp/guzzle": "^6.1"
+<<<<<<< HEAD
+<<<<<<< HEAD
+        "guzzlehttp/guzzle": "~5.3|~6.0"
+=======
+        "guzzlehttp/guzzle": "~4.0"
+
+>>>>>>> 050ce14... [Pibbble][#108779138] Add email verification to the registration process.
+=======
+        "guzzlehttp/guzzle": "~5.3|~6.0"
+>>>>>>> 9fe73d4... [Pibbble][#108779138] Refactor
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",

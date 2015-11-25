@@ -3,6 +3,7 @@
 namespace Pibbble\Http\Controllers\Auth;
 
 use Auth;
+use Mail;
 use Redirect;
 use Validator;
 use Socialite;
@@ -42,7 +43,15 @@ class AuthController extends Controller
     {
         $this->middleware('guest', ['except' => 'getLogout']);
 
-        $this->middleware('hasUser', ['only' => ['oauthGet']]);
+<<<<<<< HEAD
+<<<<<<< HEAD
+        $this->middleware('oauthUser', ['only' => ['getOauth']]);
+=======
+        $this->middleware('oauthUser', ['only' => ['oauthGet']]);
+>>>>>>> 050ce14... [Pibbble][#108779138] Add email verification to the registration process.
+=======
+        $this->middleware('oauthUser', ['only' => ['getOauth']]);
+>>>>>>> 73ad5fe... [Pibbble][#108779138] Update the AuthController
     }
 
     /**
@@ -96,14 +105,14 @@ class AuthController extends Controller
         try {
             $user = Socialite::driver($provider)->user();
         } catch (Exception $e) {
-            return Redirect::to('auth/'.$provider);
+            return redirect('auth/'.$provider);
         }
 
         $authUser = $this->findOrCreateUser($user, $provider);
 
         Auth::loginUsingId($authUser->id, true);
 
-        return Redirect::to($this->redirectTo);
+        return redirect($this->redirectTo);
     }
 
     /**
@@ -146,6 +155,12 @@ class AuthController extends Controller
         ]);
     }
 
+    /**
+     * Create and login new user after collecting new username.
+     * 
+     * @param  Request $request
+     * @return Response
+     */
     public function postOauth(Request $request)
     {
         $data = $request->all();
@@ -156,7 +171,16 @@ class AuthController extends Controller
 
         if ($validator->fails()) {
             $this->throwValidationException(
-                $request, $validator
+<<<<<<< HEAD
+<<<<<<< HEAD
+                $request,
+=======
+                $request, 
+>>>>>>> 309eddb... [Pibbble][#108779138] Update Tests
+=======
+                $request,
+>>>>>>> 2216b17... [Pibbble][#108779138] Apply fixes from StyleCI
+                $validator
             );
         }
 
@@ -178,9 +202,123 @@ class AuthController extends Controller
 
         return redirect($this->redirectPath());
     }
+<<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 050ce14... [Pibbble][#108779138] Add email verification to the registration process.
+=======
+
+>>>>>>> 7d005a3... [Pibbble][#108779138] Add Email Verification to the registration process.
+    /**
+     * Show form to collect new username.
+     * 
+     * @return Response
+     */
     public function getOauth()
     {
         return view('/errors/oauthname');
+    }
+
+    /**
+     * Send a mail to register a user.
+     * 
+     * @param  Request $request
+     * @return Response
+     */
+    public function sendMail(Request $request)
+    {
+        $validator = $this->validator($request->all());
+
+        if ($validator->fails()) {
+            $this->throwValidationException(
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+                $request,
+                $validator
+            );
+        }
+
+        $_url = $request->url();
+        $url = substr($_url, 0, stripos($_url, '/auth/register'))."?_token={$request->_token}";
+
+        Mail::send('emails.confirm', ['user' => $request->username, 'url' => $url], function ($m) use ($request) {
+            $m->from(env('MAIL_USERNAME'), 'Pibbble');
+
+            $m->to($request->email, $request->username)->subject('Confirm your email address.');
+        });
+        
+        $request->session(['_token' => $request->_token,
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ]);
+=======
+                $request, $validator
+=======
+                $request, 
+=======
+                $request,
+>>>>>>> 2216b17... [Pibbble][#108779138] Apply fixes from StyleCI
+                $validator
+>>>>>>> 73ad5fe... [Pibbble][#108779138] Update the AuthController
+            );
+        }
+
+        $_url = $request->url();
+        $url = substr($_url, 0, stripos($_url, '/auth/register'))."?_token={$request->_token}";
+
+        Mail::send('emails.confirm', ['user' => $request->username, 'url' => $url], function ($m) use ($request) {
+            $m->from(env('MAIL_USERNAME'), 'Pibbble');
+
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 309eddb... [Pibbble][#108779138] Update Tests
+=======
+            $m->to($request->email, $request->username)->subject('Confirm your email address.');
+        });
+<<<<<<< HEAD
+<<<<<<< HEAD
+        /*
+>>>>>>> 9fe73d4... [Pibbble][#108779138] Refactor
+        $request->session()->put('_token', $request->_token);
+        $request->session()->put('username', $request->username);
+        $request->session()->put('email', $request->email);
+        $request->session()->put('password', bcrypt($request->password));
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 050ce14... [Pibbble][#108779138] Add email verification to the registration process.
+=======
+        $request->session(['_token' => $request->_token,
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => bcrypt($request->password)]);
+>>>>>>> 73ad5fe... [Pibbble][#108779138] Update the AuthController
+=======
+>>>>>>> 309eddb... [Pibbble][#108779138] Update Tests
+=======
+        */
+=======
+        
+>>>>>>> 83e268c... [Pibbble][#108779138] Add email verification to the registration process
+=======
+
+>>>>>>> 963d430... Applied fixes from StyleCI
+        $request->session(['_token' => $request->_token,
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+<<<<<<< HEAD
+            ]);
+>>>>>>> 9fe73d4... [Pibbble][#108779138] Refactor
+=======
+        ]);
+>>>>>>> 83e268c... [Pibbble][#108779138] Add email verification to the registration process
+
+        return view('/auth/confirmemail');
     }
 }
