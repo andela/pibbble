@@ -1,11 +1,7 @@
 <?php
 
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-
 class UserAuthenticationTest extends TestCase
 {
-    use DatabaseMigrations;
-
     protected $baseUrl = 'http://localhost';
 
     public function testUserAuthentication()
@@ -14,7 +10,7 @@ class UserAuthenticationTest extends TestCase
             'email' => 'ope@yahoo.com',
             'password' => bcrypt('123456'),
             'username' => 'solami',
-            ]);
+        ]);
 
         $this->visit('/auth/login')
             ->type('ope@yahoo.com', 'email')

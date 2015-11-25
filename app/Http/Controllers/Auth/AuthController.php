@@ -3,6 +3,7 @@
 namespace Pibbble\Http\Controllers\Auth;
 
 use Auth;
+use Mail;
 use Redirect;
 use Validator;
 use Socialite;
@@ -42,7 +43,7 @@ class AuthController extends Controller
     {
         $this->middleware('guest', ['except' => 'getLogout']);
 
-        $this->middleware('hasUser', ['only' => ['oauthGet']]);
+        $this->middleware('oauthUser', ['only' => ['getOauth']]);
     }
 
     /**
@@ -96,14 +97,14 @@ class AuthController extends Controller
         try {
             $user = Socialite::driver($provider)->user();
         } catch (Exception $e) {
-            return Redirect::to('auth/'.$provider);
+            return redirect('auth/'.$provider);
         }
 
         $authUser = $this->findOrCreateUser($user, $provider);
 
         Auth::loginUsingId($authUser->id, true);
 
-        return Redirect::to($this->redirectTo);
+        return redirect($this->redirectTo);
     }
 
     /**
@@ -146,6 +147,12 @@ class AuthController extends Controller
         ]);
     }
 
+    /**
+     * Create and login new user after collecting new username.
+     * 
+     * @param  Request $request
+     * @return Response
+     */
     public function postOauth(Request $request)
     {
         $data = $request->all();
@@ -156,7 +163,8 @@ class AuthController extends Controller
 
         if ($validator->fails()) {
             $this->throwValidationException(
-                $request, $validator
+                $request,
+                $validator
             );
         }
 
@@ -179,8 +187,48 @@ class AuthController extends Controller
         return redirect($this->redirectPath());
     }
 
+    /**
+     * Show form to collect new username.
+     * 
+     * @return Response
+     */
     public function getOauth()
     {
         return view('/errors/oauthname');
+    }
+
+    /**
+     * Send a mail to register a user.
+     * 
+     * @param  Request $request
+     * @return Response
+     */
+    public function sendMail(Request $request)
+    {
+        $validator = $this->validator($request->all());
+
+        if ($validator->fails()) {
+            $this->throwValidationException(
+                $request,
+                $validator
+            );
+        }
+
+        $_url = $request->url();
+        $url = substr($_url, 0, stripos($_url, '/auth/register'))."?_token={$request->_token}";
+
+        Mail::send('emails.confirm', ['user' => $request->username, 'url' => $url], function ($m) use ($request) {
+            $m->from(env('MAIL_USERNAME'), 'Pibbble');
+
+            $m->to($request->email, $request->username)->subject('Confirm your email address.');
+        });
+
+        $request->session(['_token' => $request->_token,
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            ]);
+
+        return view('/auth/confirmemail');
     }
 }

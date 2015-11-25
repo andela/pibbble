@@ -3,26 +3,49 @@
 namespace Pibbble\Http\Controllers;
 
 use Auth;
+use Input;
+use Cloudder;
 use Redirect;
 use Pibbble\User;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    // Gets profile update page
+    /**
+     * Gets profile update page.
+     * 
+     * @return Response
+     */
     public function getProfileSettings()
     {
         return view('profile.settings');
     }
 
-    // Posts form request
+    /**
+     * Posts form request.
+     * 
+     * @param  Request $request
+     * @return Response           
+     */
     public function postProfileSettings(Request $request)
     {
         $input = $request->except('_token', 'url');
-        $user_id = Auth::user()->id;
-        $user = User::find($user_id);
-        $user->updateProfile($input);
+        User::find(Auth::user()->id)->updateProfile($input);
 
-        return Redirect::back()->with('status', 'You have successfully updated your profile.');
+        return redirect('/profile/settings')->with('status', 'You have successfully updated your profile.');
+    }
+
+    // Posts image update request
+
+    public function postAvatarSetting(Request $request)
+    {
+        $img = Input::file('avatar');
+
+        Cloudder::upload($img);
+        $imgurl = Cloudder::getResult()['url'];
+
+        User::find(Auth::user()->id)->updateAvatar($imgurl);
+
+        return redirect('/profile/settings')->with('status', 'Avatar updated successfully.');
     }
 }
