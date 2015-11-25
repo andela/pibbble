@@ -68,7 +68,7 @@
             </div>
         </div>
 
-            </div>
+
             <div class="row">
                 <div class="col-md-3">
                     <div class="panel panel-primary">
@@ -121,7 +121,14 @@
                                         <p>{{ $project->description }}</p>
                                       </div>
                                       <div class="modal-footer">
-                                        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                                        {!! Form::open([
+                                            'method' => 'DELETE',
+                                            'route' => ['projects.destroy', $project->id]
+                                        ]) !!}
+                                            @if($user->username == Auth::user()->username)
+                                              {!! Form::submit('Delete Project ?', ['class' => 'btn btn-danger']) !!}
+                                            @endif
+                                        {!! Form::close() !!}
                                       </div>
                                     </div>
                                   </div>
@@ -244,10 +251,5 @@
   </div>
 
 </div>
-<!-- <script type="text/javascript">
-  function showLoader(){
-    document.getElementById('form-load-img').style.display = 'block';
-  }
-</script> -->
 @endsection
 
