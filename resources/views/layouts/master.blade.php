@@ -9,20 +9,12 @@
 
     <script src="/js/jquery-2.1.4.min.js"></script>
     <script src="/components/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
-    <script src="/js/ripples.min.js"></script>
-    <script src="/js/material.min.js"></script>
     <script src="/components/mui-0.1.22-rc1/js/mui.min.js"></script>
-    <script>
-      $(document).ready(function() {
-        // This command is used to initialize some elements and make them work properly
-        $.material.init();
-      });
-    </script>
-    <link href="/css/roboto.min.css" rel="stylesheet">
-    <link href="/css/ripples.min.css" rel="stylesheet">
-    <link href="/css/display.css" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
-    <link href="/css/profile-style.css" rel="stylesheet">
+    <link href="/css/roboto.min.css" rel="stylesheet" type="text/css">
+    <link href="/css/ripples.min.css" rel="stylesheet" type="text/css">
+    <link href="/css/display.css" rel="stylesheet" type="text/css">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/profile-style.css" rel="stylesheet" type="text/css">
     @yield('custom-css')
   </head>
   <body>
