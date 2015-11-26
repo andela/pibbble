@@ -2,17 +2,22 @@
 
 namespace Pibbble\Http\Controllers;
 
-use DB;
 use Pibbble\Project;
 
 class PagesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('validateEmail', ['only' => ['home']]);
+    }
+
     /**
      * @return landing.blade.php
      */
     public function home()
     {
         $projects = Project::orderBy('created_at', 'desc')->paginate(12);
+
         return view('landing', ['projects' => $projects]);
     }
 
