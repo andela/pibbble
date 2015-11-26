@@ -15,7 +15,6 @@ jQuery( document ).ready(function( $ ){
                 $('#editname').val(data.projectname);
                 $('#editdescription').text(data.description);
                 $('#edittechnologies').val(data.technologies);
-                $('#editurl').val(data.url);
                 $('#editForm').attr('action', formUrl);
                 $('#myEdit').modal('show');
             });

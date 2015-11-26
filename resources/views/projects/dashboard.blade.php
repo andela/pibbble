@@ -91,7 +91,10 @@ Dashboard
                             @if( $projects )
                             <div class="row">
                                 @foreach ($projects as $project)
-                                  @include('others.project_modal')
+                                <div class="col-md-4">
+                                    @include('others.project_modal')
+                                </div>
+
                                 @endforeach
                             </div>
                         @endif

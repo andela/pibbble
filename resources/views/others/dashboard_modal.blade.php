@@ -134,14 +134,6 @@
               @if ($errors->has('technologies'))
                     <span class="help-block">{{ $errors->first('technologies') }}</span>
                 @endif
-
-            </div>
-            <div class="form-group">
-              <label for="upload"><span class="glyphicon glyphicon-upload"></span> Upload</label>
-              <input type="text" name="url" class="form-control" id="editupload" value="{{ $project->url }}">
-              @if ($errors->has('url'))
-                    <span class="help-block">{{ $errors->first('url') }}</span>
-                @endif
             </div>
         </div>
         <div class="modal-footer">
