@@ -1,5 +1,7 @@
 <?php
 
+namespace Pibbble\Tests;
+
 class DashboardTest extends TestCase
 {
     protected $baseUrl = 'http://localhost';
