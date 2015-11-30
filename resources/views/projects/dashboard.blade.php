@@ -57,7 +57,10 @@
                     </div>
                 </div>
             </div>
-            <div class="">
+        </div>
+
+
+            <div class="row">
                 <div class="col-md-3">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
@@ -106,13 +109,19 @@
                                                         <p><i class='fa fa-eye'></i>&nbsp;{{ $project->views }}&nbsp;views</p>
                                                     </div>
                                                 </div>
-                                                <br clear="left">
-                                                <p>{{ $project->description }}</p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
-                                            </div>
-                                        </div>
+                                        <br clear="left">
+                                        <p>{{ $project->description }}</p>
+                                      </div>
+                                      <div class="modal-footer">
+                                        {!! Form::open([
+                                            'method' => 'DELETE',
+                                            'route' => ['projects.destroy', $project->id]
+                                        ]) !!}
+                                            @if($user->username == Auth::user()->username)
+                                              {!! Form::submit('Delete Project ?', ['class' => 'btn btn-danger']) !!}
+                                            @endif
+                                        {!! Form::close() !!}
+                                      </div>
                                     </div>
                                 </div>
                                 @endforeach
