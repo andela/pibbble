@@ -103,7 +103,7 @@ class ProjectController extends Controller
 
         $project->save();
 
-        return redirect()->to('/projects/dashboard')->with('info', 'Your Project has been created successfully');
+        return redirect()->to('/projects')->with('info', 'Your Project has been created successfully');
     }
 
     /**
@@ -148,7 +148,7 @@ class ProjectController extends Controller
         $input = $request->all();
         $project->fill($input)->save();
 
-        return redirect()->to('/projects/dashboard')->with('info', 'Your Project has been updated successfully');
+        return redirect()->to('/projects')->with('info', 'Your Project has been updated successfully');
 
     }
 

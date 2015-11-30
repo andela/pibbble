@@ -30,7 +30,10 @@
                 <p>{{ $project->description }}</p>
             </div>
             <div class="modal-footer">
-                {!! Form::open([ 'method' => 'DELETE', 'route' => ['projects.destroy', $project->id] ]) !!} @if($user->username == Auth::user()->username) {!! Form::submit('Delete Project ?', ['class' => 'btn btn-danger']) !!} @endif {!! Form::close() !!}
+                {!! Form::open([ 'method' => 'DELETE', 'route' => ['projects.destroy', $project->id] ]) !!}
+                @if($user->username == Auth::user()->username)
+                {!! Form::submit('Delete Project ?', ['class' => 'btn btn-danger', 'id' => 'destroy']) !!}
+                @endif {!! Form::close() !!}
             </div>
         </div>
     </div>
