@@ -20,7 +20,7 @@
       });
     </script>
     <!-- Include roboto.css to use the Roboto web font, material.css to include the theme and ripples.css to style the ripple effect -->
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="/css/roboto.min.css" rel="stylesheet">
     <!--<link href="/css/material.min.css" rel="stylesheet">-->
     <link href="/css/display.css" rel="stylesheet">
