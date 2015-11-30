@@ -24,7 +24,7 @@ Route::get('/projects/dashboard', ['middleware' => 'auth', 'uses' => 'ProjectCon
 #Project routes using resource
 Route::resource('projects', 'ProjectController');
 
-Route::get('projects/{id}', 'ProjectController@destroy');
+Route::get('projects/meta/{id}', ['uses'=>'ProjectController@getMetaAsJSON', 'as'=>'getMetaAsJSON']);
 
 // Profile settings Route
 Route::get('/profile/settings', [

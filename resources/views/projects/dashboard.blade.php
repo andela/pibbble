@@ -1,6 +1,6 @@
 @extends('layouts.master')
-@section('title', 'Dashboard')
-
+@section('title')
+Dashboard
 @endsection
 
 @section('custom-css')
@@ -83,191 +83,23 @@
                             @if( $projects )
                             <div class="row">
                                 @foreach ($projects as $project)
-                                <div class='projects-container'>
-                                    <div class='projects'>
-                                        <a href="" data-toggle="modal" data-target="#{{ $project->id }}"><img src="{{ $project->url }}" width='200' height='150' style='border:0px solid #ccc;'>
-                                        </a>
-                                        <span class='project-stats'><i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->likes }}</span>
-                                        <span class='project-stats'><i class='fa fa-eye'></i>&nbsp;{{ $project->views }}</span>
-                                    </div>
-                                    <span class='projects-name'><a href="">{{ $project->projectname }}</a></span>
-                                </div>
-                                <div class="modal fade-lg" id="{{ $project->id }}" role="dialog">
-                                    <div class="modal-dialog modal-lg">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <br />
-                                                <h3 class="modal-title">{{ $project->projectname }}</h3>
-                                                <p>by</p> <a href="">{{ $project->user->username }}</a>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="modal-left">
-                                                    <img src='{{ $project->url }}' width="600" height="400" />
-                                                    <div class="modal-right">
-                                                        <p><i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->views }}&nbsp;likes</p>
-                                                        <p><i class='fa fa-eye'></i>&nbsp;{{ $project->views }}&nbsp;views</p>
-                                                    </div>
-                                                </div>
-                                        <br clear="left">
-                                        <p>{{ $project->description }}</p>
-                                      </div>
-                                      <div class="modal-footer">
-                                        {!! Form::open([
-                                            'method' => 'DELETE',
-                                            'route' => ['projects.destroy', $project->id]
-                                        ]) !!}
-                                            @if($user->username == Auth::user()->username)
-                                              {!! Form::submit('Delete Project ?', ['class' => 'btn btn-danger']) !!}
-                                            @endif
-                                        {!! Form::close() !!}
-                                      </div>
-                                    </div>
+                                <div class="col-md-4">
+                                    @include('others.project_modal')
                                 </div>
                                 @endforeach
                             </div>
-                            @endif @if( $projects->isEmpty() )
-                            <h3>There are currently no Projects</h3> @endif
+                            @endif
+                            @if( $projects->isEmpty() )
+                                <h3>There are currently no Projects</h3>
+                            @endif
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-<!-- Hire Modal -->
-<div class="modal fade" id="myHire" role="dialog">
-    <div class="modal-dialog">
-
-      <!-- Modal content-->
-      <div class="modal-content">
-          <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Contact {{ Auth::user()->username }} about Work</h4>
-          </div>
-
-          <div class="modal-body">
-              <p>From:   <img class="avatar" src="{{ Auth::user()->getAvatar() }}" /> {{ $user->username }}
-
-              <hr>
-              <p>To:     <img class="avatar" src="{{ Auth::user()->getAvatar() }}" /> {{ Auth::user()->username }}
-
-              <hr>
-              <div class="form-group">
-                  <label for="message"><span class="glyphicon glyphicon-envelope"></span> Type Message Here</label>
-                  <textarea type="text" class="form-control" id="message" placeholder="Mail to"></textarea>
-              </div>
-          </div>
-
-          <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Send</button>
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-      </div>
-
     </div>
-</div>
+    @include('others.dashboard_modal')
 
-<!-- Upload Modal -->
-<div class="modal fade" id="myUpload" role="dialog">
-    <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-
-          <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Upload Project</h4>
-          </div>
-
-          <div class="modal-body">
-              <form role="form-group" method="post" action="{{ route('projects.store') }}" onsubmit="showLoader()">
-                  <div class="form-group">
-                    <label for="name"><span class="glyphicon glyphicon-file"></span> Name</label>
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Pibbble" required>
-                    @if ($errors->has('name'))
-                          <span class="help-block">{{ $errors->first('name') }}</span>
-                      @endif
-                  </div>
-                  <div class="form-group">
-                    <label for="description"><span class="glyphicon glyphicon-blackboard"></span> Description</label>
-                    <textarea type="text" name="description" class="form-control" id="description" placeholder="A show and tell for Codeweavers" required></textarea>
-                    @if ($errors->has('description'))
-                          <span class="help-block">{{ $errors->first('description') }}</span>
-                      @endif
-                  </div>
-                  <div class="form-group">
-                    <label for="technologies"><span class="glyphicon glyphicon-cog"></span> Technologies</label>
-                    <input type="text" name="technologies" class="form-control" id="technologies" placeholder="PHP, JavaScript, HTML, Firebase." required>
-                    @if ($errors->has('technologies'))
-                          <span class="help-block">{{ $errors->first('technologies') }}</span>
-                      @endif
-                  </div>
-                  <div class="form-group">
-                    <label for="upload"><span class="glyphicon glyphicon-upload"></span> Upload</label>
-                    <input type="text" name="url" class="form-control" id="upload" placeholder="http://www.pibbble.com" required>
-                    @if ($errors->has('url'))
-                          <span class="help-block">{{ $errors->first('url') }}</span>
-                      @endif
-                  </div>
-
-            </div>
-
-            <div class="modal-footer">
-                <div class="pull-left">
-                  <img src='/img/33.gif' style="display:none;" id="form-load-img"/>
-                </div>
-                <button type="submit" class="btn btn-primary">Upload</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                </form>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-    <!-- Bio Modal -->
-    <div class="modal fade" id="myBio" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Bio</h4>
-                </div>
-                <div class="modal-body">
-                    <p>{{ Auth::user()->bio }}</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Skills Modal -->
-    <div class="modal fade" id="mySkills" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Skills</h4>
-                </div>
-                <div class="modal-body">
-                    <p>{{ Auth::user()->skills }}</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
 </div>
 @endsection
