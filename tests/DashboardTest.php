@@ -1,6 +1,7 @@
 <?php
 
 use Pibbble\Project;
+
 class DashboardTest extends TestCase
 {
     protected $baseUrl = 'http://localhost:8000';
@@ -22,7 +23,5 @@ class DashboardTest extends TestCase
         $this->post('/projects/11');
         $project = Project::find(11);
         $this->missingFromDatabase('projects', ['id' => 11]);
-
     }
-
 }
