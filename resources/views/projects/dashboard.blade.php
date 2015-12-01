@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title')
+@section('title', 'Projects')
 Dashboard
 @endsection
 
@@ -13,8 +13,10 @@ Dashboard
 <div class="container-fluid ball">
     <div class="container">
         <div class="row">
+          <div class="col-md-12">
+            @include('layouts.partials.alerts')
+          </div>
             <div class="col-md-12">
-                @include('layouts.partials.alerts')
                 <div class="fb-profile">
                     <img align="left" class="fb-image-lg img-responsive" src="http://goo.gl/b6Sxx3" alt="Cover image"  width="100%">
                     <img align="left" class="fb-image-profile thumbnail img-responsive" src="{{ Auth::user()->getAvatar() }}" alt="Profile image example" border-radius="100%">

@@ -20,7 +20,7 @@
             </div>
             <div class="modal-body">
                 <div class="modal-left">
-                    <img src='{{ $project->url }}' width="600" height="400" />
+                    <img src='{{ $project->url }}' width="600" height="400" class="img-responsive" />
                     <div class="modal-right">
                         <p><i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->views }}&nbsp;likes</p>
                         <p><i class='fa fa-eye'></i>&nbsp;{{ $project->views }}&nbsp;views</p>
@@ -28,11 +28,17 @@
                 </div>
                 <br clear="left">
                 <p>{{ $project->description }}</p>
+                <hr>
+                @foreach(explode(', ', $project->technologies) as $tags)
+                    <button class="btn btn-xs">{{ $tags }}</button>
+                @endforeach
             </div>
             <div class="modal-footer">
                 {!! Form::open([ 'method' => 'DELETE', 'route' => ['projects.destroy', $project->id] ]) !!}
                 @if($user->username == Auth::user()->username)
                 {!! Form::submit('Delete Project ?', ['class' => 'btn btn-danger', 'id' => 'destroy']) !!}
+                {!! Form::button('Close', ['class' => 'btn btn-info', 'data-dismiss' => 'modal']) !!}
+                @else {!! Form::button('Close', ['class' => 'btn btn-info', 'data-dismiss' => 'modal']) !!}
                 @endif {!! Form::close() !!}
             </div>
         </div>

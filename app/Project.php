@@ -44,4 +44,8 @@ class Project extends Model
     {
         return $this->belongsTo('Pibbble\User');
     }
+
+     public function tags(){
+    $this->belongsToMany("Pibble\Tag");
+ }
 }
