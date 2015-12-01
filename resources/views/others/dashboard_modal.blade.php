@@ -116,21 +116,21 @@
           <form id="editForm" role="form-group" method="post" action="{{ route('projects.update') }}" onsubmit="showLoader()">
             <div class="form-group">
               <label for="name"><span class="glyphicon glyphicon-file"></span> Name</label>
-              <input type="text" name="projectname" class="form-control" id="editname" value="{{ $project->projectname }}">
+              <input type="text" name="projectname" class="form-control" id="editname" value="">
               @if ($errors->has('name'))
                     <span class="help-block">{{ $errors->first('name') }}</span>
                 @endif
             </div>
             <div class="form-group">
               <label for="description"><span class="glyphicon glyphicon-blackboard"></span> Description</label>
-              <textarea type="text" name="description" class="form-control" id="editdescription"  >{{ $project->description }}</textarea>
+              <textarea type="text" name="description" class="form-control" id="editdescription"  ></textarea>
               @if ($errors->has('description'))
                     <span class="help-block">{{ $errors->first('description') }}</span>
                 @endif
             </div>
             <div class="form-group">
               <label for="technologies"><span class="glyphicon glyphicon-cog"></span> Technologies</label>
-              <input type="text" name="technologies" class="form-control" id="edittechnologies"  value="{{ $project->technologies }}">
+              <input type="text" name="technologies" class="form-control" id="edittechnologies"  value="">
               @if ($errors->has('technologies'))
                     <span class="help-block">{{ $errors->first('technologies') }}</span>
                 @endif

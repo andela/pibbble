@@ -35,7 +35,8 @@ class ProjectController extends Controller
         $user = Auth::user();
         $projects = Project::orderBy('created_at', 'desc')->personal()->get();
 
-        return view('projects.dashboard', compact('projects', 'user'));
+
+        return view('projects.dashboard')->withProjects($projects)->withUser($user);
     }
 
     /**
