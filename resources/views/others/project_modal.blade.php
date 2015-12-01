@@ -20,7 +20,7 @@
             </div>
             <div class="modal-body">
                 <div class="modal-left">
-                    <img src='{{ $project->url }}' width="600" height="400" />
+                    <img src='{{ $project->url }}' width="600" height="400" class="img-responsive" />
                     <div class="modal-right">
                         <p><i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->views }}&nbsp;likes</p>
                         <p><i class='fa fa-eye'></i>&nbsp;{{ $project->views }}&nbsp;views</p>
