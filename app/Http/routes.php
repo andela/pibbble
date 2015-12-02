@@ -43,7 +43,7 @@ Route::controllers([
     'password' => 'Auth\PasswordController',
 ]);
 
-Route::get('user/{id}', [
+Route::get('{username}', [
     'uses' => 'ProfileController@show',
     'as'   => 'userprofile'
 ]);

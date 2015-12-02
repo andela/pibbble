@@ -27,11 +27,11 @@ class ProfileController extends Controller
      *
      * @return Response
      */
-    public function show($id)
+    public function show($username)
     {
-        $user     = User::with('projects')->find($id);
+        //$user = User::with('projects')->whereUsername($username);
 
-        return view('projects.dashboard', compact('user', 'projects'));
+        return view('projects.dashboard', array('user' => User::findByUsernameOrFail($username)));
     }
 
     /**
