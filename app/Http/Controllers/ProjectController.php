@@ -167,6 +167,11 @@ class ProjectController extends Controller
         return redirect()->to('/projects')->with('info', 'Project deleted successfully');
     }
 
+    public function confirm()
+    {
+        return view('others.confirm');
+    }
+
     /**
      * Gets the project meta and returns a JSON response
      *
