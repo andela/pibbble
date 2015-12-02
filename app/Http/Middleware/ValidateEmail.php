@@ -19,6 +19,7 @@ class ValidateEmail
     {
         if ($request->_token === $request->session()->get('_token')) {
             User::create($request->session()->all());
+
             return redirect('/auth/login');
         }
 
