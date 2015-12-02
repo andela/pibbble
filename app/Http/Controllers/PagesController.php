@@ -6,11 +6,6 @@ use Pibbble\Project;
 
 class PagesController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('validateEmail', ['only' => ['home']]);
-    }
-
     /**
      * @return landing.blade.php
      */

@@ -44,6 +44,8 @@ class AuthController extends Controller
         $this->middleware('guest', ['except' => 'getLogout']);
 
         $this->middleware('oauthUser', ['only' => ['getOauth']]);
+
+        $this->middleware('validateEmail', ['only' => ['getLogin']]);
     }
 
     /**
@@ -215,7 +217,7 @@ class AuthController extends Controller
         }
 
         $_url = $request->url();
-        $url = substr($_url, 0, stripos($_url, '/auth/register'))."?_token={$request->_token}";
+        $url = substr($_url, 0, stripos($_url, '/register'))."/login?_token={$request->_token}";
 
         Mail::send('emails.confirm', ['user' => $request->username, 'url' => $url], function ($m) use ($request) {
             $m->from(env('MAIL_USERNAME'), 'Pibbble');
