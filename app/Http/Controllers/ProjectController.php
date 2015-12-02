@@ -103,7 +103,7 @@ class ProjectController extends Controller
 
         $project->save();
 
-        return redirect()->to('/projects/dashboard')->with('info', 'Your Project has been created successfully');
+        return redirect()->to('/projects')->with('info', 'Your Project has been created successfully');
     }
 
     /**
@@ -125,7 +125,7 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -137,7 +137,19 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $project = Project::findOrFail($id);
+        $this->validate($request, [
+            'projectname'   => 'min:1',
+            'description'   => 'min:15',
+            'technologies'  => 'min:1',
+            'url'           => 'url'
+        ]);
+
+        $input = $request->all();
+        $project->fill($input)->save();
+
+        return redirect()->to('/projects')->with('info', 'Your Project has been updated successfully');
+
     }
 
     /**
@@ -148,6 +160,20 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $project = Project::findOrFail($id);
+        $project->delete();
+
+        return redirect()->to('/projects')->with('info', 'Project deleted successfully');
+    }
+
+    /**
+     * Gets the project meta and returns a JSON response
+     *
+     * @param int $id
+     * @return \Illuminate\Http\JSONResponse
+     */
+    public function getMetaAsJSON($id)
+    {
+        return Project::select('projectname', 'description', 'technologies', 'url')->findOrFail($id)->toJson();
     }
 }
