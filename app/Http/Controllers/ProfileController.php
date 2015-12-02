@@ -7,13 +7,14 @@ use Input;
 use Cloudder;
 use Redirect;
 use Pibbble\User;
+use Pibbble\Project;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
     /**
      * Gets profile update page.
-     * 
+     *
      * @return Response
      */
     public function getProfileSettings()
@@ -22,17 +23,29 @@ class ProfileController extends Controller
     }
 
     /**
+     * Gets selected user's dashboard.
+     *
+     * @return Response
+     */
+    public function show($id)
+    {
+        $user     = User::with('projects')->find($id);
+
+        return view('projects.dashboard', compact('user', 'projects'));
+    }
+
+    /**
      * Posts form request.
-     * 
+     *
      * @param  Request $request
-     * @return Response           
+     * @return Response
      */
     public function postProfileSettings(Request $request)
     {
         $input = $request->except('_token', 'url');
         User::find(Auth::user()->id)->updateProfile($input);
 
-        return redirect('/profile/settings')->with('status', 'You have successfully updated your profile.');
+        return redirect('/profile/settings')->with('status', 'You have successfully updated your profile');
     }
 
     // Posts image update request
@@ -46,6 +59,6 @@ class ProfileController extends Controller
 
         User::find(Auth::user()->id)->updateAvatar($imgurl);
 
-        return redirect('/profile/settings')->with('status', 'Avatar updated successfully.');
+        return redirect('/profile/settings')->with('status', 'Avatar updated successfully');
     }
 }

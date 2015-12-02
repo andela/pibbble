@@ -5,9 +5,14 @@
         <span class='project-stats'><i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->likes }}</span>
         <span class='project-stats'><i class='fa fa-eye'></i>&nbsp;{{ $project->views }}</span>
     </div>
-    <span class='projects-name'><a href="">{{ $project->projectname }}</a></span> @if($user->username == Auth::user()->username)
-    <a class="myEdit" data-action="{{ route('projects.update', $project->id) }}" data-url="{{ route('getMetaAsJSON', $project->id ) }}" href="#"><i class="fa fa-pencil-square-o fa-lg pull-right"></i></a> @endif
+    <span class='projects-name'><a href="">{{ $project->projectname }}</a></span>
+    @if(Auth::user())
+        @if($user->username == Auth::user()->username)
+            <a class="myEdit" data-action="{{ route('projects.update', $project->id) }}" data-url="{{ route('getMetaAsJSON', $project->id ) }}" href="#"><i class="fa fa-pencil-square-o fa-lg pull-right"></i></a>
+        @endif
+    @endif
 </div>
+
 <!--Project Modal-->
 <div class="modal fade-lg" id="{{ $project->id }}" role="dialog">
     <div class="modal-dialog modal-lg">
@@ -34,11 +39,13 @@
                 @endforeach
             </div>
             <div class="modal-footer">
-                @if($user->username == Auth::user()->username)
-                <a type="button" class="btn btn-danger" href="/projects/confirm">Delete</a>
-                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
-                @else
-                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                @if(Auth::user())
+                    @if($user->username == Auth::user()->username)
+                    <a type="button" class="btn btn-danger" href="/projects/confirm">Delete</a>
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                    @else
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                    @endif
                 @endif
             </div>
         </div>

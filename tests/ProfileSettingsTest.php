@@ -8,7 +8,7 @@ class ProfileSettingsTest extends TestCase
 
     public function testResponse()
     {
-        $user = User::find(4);
+        $user = factory(User::class)->create();
         $this->actingAs($user);
 
         $response = $this->call('GET', '/profile/settings');
@@ -18,7 +18,7 @@ class ProfileSettingsTest extends TestCase
 
     public function testUpdateProfile()
     {
-        $user = User::find(4);
+        $user = factory(User::class)->create();
         $this->actingAs($user);
 
         $this->visit('/profile/settings')

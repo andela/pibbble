@@ -33,6 +33,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      */
     protected $hidden = ['password', 'remember_token', 'token'];
 
+    public function projects()
+    {
+        return $this->hasMany('Pibbble\Project');
+    }
+
     /**
      * Get the avatar from gravatar.
      * @return string

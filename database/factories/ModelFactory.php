@@ -15,13 +15,13 @@ $factory->define(Pibbble\User::class, function (Faker\Generator $faker) {
     return [
         'username' => $faker->userName,
         'password' => bcrypt(str_random(10)),
-        'name' => null,
-        'email' => $faker->email,
-        'bio' => null,
+        'name'     => null,
+        'email'    => $faker->email,
+        'bio'      => null,
         'location' => null,
-        'avatar' => null,
+        'avatar'   => null,
         'provider' => null,
-        'uid' => null,
+        'uid'      => null,
         'remember_token' => str_random(10),
     ];
 });
