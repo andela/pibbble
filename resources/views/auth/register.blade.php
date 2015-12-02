@@ -4,9 +4,14 @@
 <div class="container">
   <div align="center" class="row">
         <div class="mui-panel width_400 padding_40">
+          <div class="red_message">
+            @if (! is_null(Session::get('message')))
+              {!! Session::get('message') !!}
+            @endif
+          </div>
           <legend align="left">SIGN UP</legend>
           <form method="POST" action="/auth/register">
-          {{ csrf_field() }}
+            {{ csrf_field() }}
             @if (count($errors) > 0)
                 <div class="alert alert-danger">
                     <ul>

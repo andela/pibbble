@@ -35,3 +35,7 @@
 .min_height_400 {
     min-height: 400px;
 }
+
+.red_message {
+    color: #f05a5a;
+}
