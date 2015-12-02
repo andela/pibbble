@@ -7,7 +7,6 @@ use Input;
 use Cloudder;
 use Redirect;
 use Pibbble\User;
-use Pibbble\Project;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -29,7 +28,7 @@ class ProfileController extends Controller
      */
     public function show($id)
     {
-        $user     = User::with('projects')->find($id);
+        $user = User::with('projects')->find($id);
 
         return view('projects.dashboard', compact('user', 'projects'));
     }
