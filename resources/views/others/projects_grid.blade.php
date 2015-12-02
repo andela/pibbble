@@ -22,15 +22,15 @@
                     <p>by</p> <a href="{{ route('userprofile', $project->user->id) }}">{{ $project->user->username}}</a>
                 </div>
                 <div class="modal-body">
-                  <div class="modal-left">
-                      <img src='{{ $project->url }}' width="600" height="400" class="img-responsive" />
-                      <div class="modal-right">
-                          <p><i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->views }}&nbsp;likes</p>
-                          <p><i class='fa fa-eye'></i>&nbsp;{{ $project->views }}&nbsp;views</p>
-                      </div>
-                  </div>
-                  <br clear="left">
-                  <p>{{ $project->description }}</p>
+                    <div class="modal-left">
+                        <img src='{{ $project->url }}' width="600" height="400" class="img-responsive" />
+                        <div class="modal-right">
+                            <p><i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->views }}&nbsp;likes</p>
+                            <p><i class='fa fa-eye'></i>&nbsp;{{ $project->views }}&nbsp;views</p>
+                        </div>
+                    </div>
+                    <br clear="left">
+                    <p>{{ $project->description }}</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>

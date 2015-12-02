@@ -22,10 +22,14 @@ class ProfileController extends Controller
         return view('profile.settings');
     }
 
+    /**
+     * Gets selected user's dashboard.
+     *
+     * @return Response
+     */
     public function show($id)
     {
         $user     = User::with('projects')->find($id);
-        //$projects  = Project::where('user', '=', 'user');
 
         return view('projects.dashboard', compact('user', 'projects'));
     }
