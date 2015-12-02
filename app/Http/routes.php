@@ -45,7 +45,7 @@ Route::controllers([
 
 Route::get('{username}', [
     'uses' => 'ProfileController@show',
-    'as'   => 'userprofile'
+    'as'   => 'userprofile',
 ]);
 
 // To reset user's password
