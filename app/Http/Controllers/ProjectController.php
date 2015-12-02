@@ -171,6 +171,7 @@ class ProjectController extends Controller
     public function confirm($id)
     {
         $project = Project::findOrFail($id);
+
         return view('others.confirm')->withProject($project);
     }
 
