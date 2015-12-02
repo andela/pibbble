@@ -4,29 +4,34 @@
 
       <!-- Modal content-->
       <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Contact {{ Auth::user()->username }} about Work</h4>
-        </div>
-        <div class="modal-body">
-          <p>From:   <img class="avatar" src="{{ Auth::user()->getAvatar() }}" /> {{ $user->username }}
-
-          <hr>
-          <p>To:     <img class="avatar" src="{{ Auth::user()->getAvatar() }}" /> {{ Auth::user()->username }}
-
-          <hr>
-          <div class="form-group">
-              <label for="message"><span class="glyphicon glyphicon-envelope"></span> Type Message Here</label>
-              <textarea type="text" class="form-control" id="message" placeholder="Mail to"></textarea>
+          @if(Auth::user())
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Contact {{ Auth::user()->username }} about Work</h4>
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Send</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
+          <div class="modal-body">
+            <p>From:   <img class="avatar" src="{{ Auth::user()->getAvatar() }}" /> {{ Auth::user()->username }}
+
+            <hr>
+            <p>To:     <img class="avatar" src="{{ $user->getAvatar() }}" /> {{ $user->username }}
+
+            <hr>
+            <div class="form-group">
+                <label for="message"><span class="glyphicon glyphicon-envelope"></span> Type Message Here</label>
+                <textarea type="text" class="form-control" id="message" placeholder="Mail to"></textarea>
+            </div>
+          </div>
+          else
+              <div>Please log in to contact developer.</div>
+          @endif
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Send</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
       </div>
     </div>
   </div>
+  
   <!-- Upload Modal -->
   <div class="modal fade" id="myUpload" role="dialog">
     <div class="modal-dialog">
@@ -80,25 +85,26 @@
       </div>
     </div>
   </div>
+
   <!-- Bio Modal -->
   <div class="modal fade" id="myBio" role="dialog">
-    <div class="modal-dialog">
+      <div class="modal-dialog">
 
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Bio</h4>
-        </div>
-        <div class="modal-body">
-          <p>{{ Auth::user()->bio }}</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
+          <!-- Modal content-->
+          <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Bio</h4>
+              </div>
+              <div class="modal-body">
+                <p>{{ $user->bio }}</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+
       </div>
-
-    </div>
   </div>
 
   <!--Edit Modal-->
@@ -149,3 +155,24 @@
       </div>
     </div>
   </div>
+
+<!-- Skills Modal -->
+<div class="modal fade" id="mySkills" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Skills</h4>
+            </div>
+            <div class="modal-body">
+                <p>{{ $user->skills }}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

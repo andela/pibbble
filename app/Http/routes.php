@@ -43,6 +43,11 @@ Route::controllers([
     'password' => 'Auth\PasswordController',
 ]);
 
+Route::get('{username}', [
+    'uses' => 'ProfileController@show',
+    'as'   => 'userprofile'
+]);
+
 // To reset user's password
 Route::get('/password/email', 'Auth\PasswordController@getEmail');
 Route::post('/password/email', 'Auth\PasswordController@postEmail');

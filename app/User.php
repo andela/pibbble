@@ -5,6 +5,7 @@ namespace Pibbble;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Database\Eloquent\ModelNotFoundException; 
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
@@ -32,6 +33,25 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var array
      */
     protected $hidden = ['password', 'remember_token', 'token'];
+
+    /**
+     * Finds by username
+     *
+     * @var array
+     */
+    public static function findByUsernameOrFail($username, $columns = array('*'))
+    {
+        if ( ! is_null($user = static::whereUsername($username)->first($columns))) {
+            return $user;
+        }
+
+        throw new ModelNotFoundException;
+    }
+
+    public function projects()
+    {
+        return $this->hasMany('Pibbble\Project');
+    }
 
     /**
      * Get the avatar from gravatar.
