@@ -4,29 +4,34 @@
 
       <!-- Modal content-->
       <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Contact {{ Auth::user()->username }} about Work</h4>
-        </div>
-        <div class="modal-body">
-          <p>From:   <img class="avatar" src="{{ Auth::user()->getAvatar() }}" /> {{ $user->username }}
-
-          <hr>
-          <p>To:     <img class="avatar" src="{{ Auth::user()->getAvatar() }}" /> {{ Auth::user()->username }}
-
-          <hr>
-          <div class="form-group">
-              <label for="message"><span class="glyphicon glyphicon-envelope"></span> Type Message Here</label>
-              <textarea type="text" class="form-control" id="message" placeholder="Mail to"></textarea>
+          @if(Auth::user())
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Contact {{ Auth::user()->username }} about Work</h4>
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Send</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
+          <div class="modal-body">
+            <p>From:   <img class="avatar" src="{{ Auth::user()->getAvatar() }}" /> {{ Auth::user()->username }}
+
+            <hr>
+            <p>To:     <img class="avatar" src="{{ $user->getAvatar() }}" /> {{ $user->username }}
+
+            <hr>
+            <div class="form-group">
+                <label for="message"><span class="glyphicon glyphicon-envelope"></span> Type Message Here</label>
+                <textarea type="text" class="form-control" id="message" placeholder="Mail to"></textarea>
+            </div>
+          </div>
+          else
+              <div>Please log in to contact developer.</div>
+          @endif
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Send</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
       </div>
     </div>
   </div>
+  
   <!-- Upload Modal -->
   <div class="modal fade" id="myUpload" role="dialog">
     <div class="modal-dialog">
@@ -80,25 +85,26 @@
       </div>
     </div>
   </div>
+
   <!-- Bio Modal -->
   <div class="modal fade" id="myBio" role="dialog">
-    <div class="modal-dialog">
+      <div class="modal-dialog">
 
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Bio</h4>
-        </div>
-        <div class="modal-body">
-          <p>{{ Auth::user()->bio }}</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
+          <!-- Modal content-->
+          <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Bio</h4>
+              </div>
+              <div class="modal-body">
+                <p>{{ $user->bio }}</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+
       </div>
-
-    </div>
   </div>
 
   <!--Edit Modal-->
@@ -116,21 +122,21 @@
           <form id="editForm" role="form-group" method="post" action="{{ route('projects.update') }}" onsubmit="showLoader()">
             <div class="form-group">
               <label for="name"><span class="glyphicon glyphicon-file"></span> Name</label>
-              <input type="text" name="projectname" class="form-control" id="editname" value="{{ $project->projectname }}">
+              <input type="text" name="projectname" class="form-control" id="editname" value="">
               @if ($errors->has('name'))
                     <span class="help-block">{{ $errors->first('name') }}</span>
                 @endif
             </div>
             <div class="form-group">
               <label for="description"><span class="glyphicon glyphicon-blackboard"></span> Description</label>
-              <textarea type="text" name="description" class="form-control" id="editdescription"  >{{ $project->description }}</textarea>
+              <textarea type="text" name="description" class="form-control" id="editdescription"  ></textarea>
               @if ($errors->has('description'))
                     <span class="help-block">{{ $errors->first('description') }}</span>
                 @endif
             </div>
             <div class="form-group">
               <label for="technologies"><span class="glyphicon glyphicon-cog"></span> Technologies</label>
-              <input type="text" name="technologies" class="form-control" id="edittechnologies"  value="{{ $project->technologies }}">
+              <input type="text" name="technologies" class="form-control" id="edittechnologies"  value="">
               @if ($errors->has('technologies'))
                     <span class="help-block">{{ $errors->first('technologies') }}</span>
                 @endif
@@ -161,7 +167,7 @@
                 <h4 class="modal-title">Skills</h4>
             </div>
             <div class="modal-body">
-                <p>{{ Auth::user()->skills }}</p>
+                <p>{{ $user->skills }}</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

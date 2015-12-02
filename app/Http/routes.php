@@ -23,8 +23,8 @@ Route::get('/projects/dashboard', ['middleware' => 'auth', 'uses' => 'ProjectCon
 
 #Project routes using resource
 Route::resource('projects', 'ProjectController');
-
 Route::get('projects/meta/{id}', ['uses'=>'ProjectController@getMetaAsJSON', 'as'=>'getMetaAsJSON']);
+Route::get('projects/confirm', 'ProjectController@destroy');
 
 // Profile settings Route
 Route::get('/profile/settings', [
@@ -41,6 +41,11 @@ Route::post('/profile/settings', 'ProfileController@postProfileSettings');
 
 Route::controllers([
     'password' => 'Auth\PasswordController',
+]);
+
+Route::get('user/{id}', [
+    'uses' => 'ProfileController@show',
+    'as'   => 'userprofile'
 ]);
 
 // To reset user's password

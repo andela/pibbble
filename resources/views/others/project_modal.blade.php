@@ -5,8 +5,12 @@
         <span class='project-stats'><i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->likes }}</span>
         <span class='project-stats'><i class='fa fa-eye'></i>&nbsp;{{ $project->views }}</span>
     </div>
-    <span class='projects-name'><a href="">{{ $project->projectname }}</a></span> @if($user->username == Auth::user()->username)
-    <a class="myEdit" data-action="{{ route('projects.update', $project->id) }}" data-url="{{ route('getMetaAsJSON', $project->id ) }}" href="#"><i class="fa fa-pencil-square-o fa-lg pull-right"></i></a> @endif
+    <span class='projects-name'><a href="">{{ $project->projectname }}</a></span>
+    @if(Auth::user())
+        @if($user->username == Auth::user()->username)
+            <a class="myEdit" data-action="{{ route('projects.update', $project->id) }}" data-url="{{ route('getMetaAsJSON', $project->id ) }}" href="#"><i class="fa fa-pencil-square-o fa-lg pull-right"></i></a>
+        @endif
+    @endif
 </div>
 <!--Project Modal-->
 <div class="modal fade-lg" id="{{ $project->id }}" role="dialog">
@@ -20,7 +24,7 @@
             </div>
             <div class="modal-body">
                 <div class="modal-left">
-                    <img src='{{ $project->url }}' width="600" height="400" />
+                    <img src='{{ $project->url }}' width="600" height="400" class="img-responsive" />
                     <div class="modal-right">
                         <p><i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->views }}&nbsp;likes</p>
                         <p><i class='fa fa-eye'></i>&nbsp;{{ $project->views }}&nbsp;views</p>
@@ -28,12 +32,20 @@
                 </div>
                 <br clear="left">
                 <p>{{ $project->description }}</p>
+                <hr>
+                @foreach(explode(', ', $project->technologies) as $tags)
+                    <button class="btn btn-xs">{{ $tags }}</button>
+                @endforeach
             </div>
             <div class="modal-footer">
                 {!! Form::open([ 'method' => 'DELETE', 'route' => ['projects.destroy', $project->id] ]) !!}
-                @if($user->username == Auth::user()->username)
-                {!! Form::submit('Delete Project ?', ['class' => 'btn btn-danger', 'id' => 'destroy']) !!}
-                @endif {!! Form::close() !!}
+                @if(Auth::user())
+                    @if($user->username == Auth::user()->username)
+                    {!! Form::submit('Delete Project ?', ['class' => 'btn btn-danger', 'id' => 'destroy']) !!}
+                    {!! Form::button('Close', ['class' => 'btn btn-info', 'data-dismiss' => 'modal']) !!}
+                    @else {!! Form::button('Close', ['class' => 'btn btn-info', 'data-dismiss' => 'modal']) !!}
+                    @endif {!! Form::close() !!}
+                @endif
             </div>
         </div>
     </div>
