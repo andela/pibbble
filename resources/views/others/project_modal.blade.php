@@ -34,12 +34,12 @@
                 @endforeach
             </div>
             <div class="modal-footer">
-                {!! Form::open([ 'method' => 'DELETE', 'route' => ['projects.destroy', $project->id] ]) !!}
                 @if($user->username == Auth::user()->username)
-                {!! Form::submit('Delete Project ?', ['class' => 'btn btn-danger', 'id' => 'destroy']) !!}
-                {!! Form::button('Close', ['class' => 'btn btn-info', 'data-dismiss' => 'modal']) !!}
-                @else {!! Form::button('Close', ['class' => 'btn btn-info', 'data-dismiss' => 'modal']) !!}
-                @endif {!! Form::close() !!}
+                <a type="button" class="btn btn-danger" href="/projects/confirm">Delete</a>
+                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                @else
+                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                @endif
             </div>
         </div>
     </div>
