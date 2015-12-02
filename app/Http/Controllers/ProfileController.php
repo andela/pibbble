@@ -7,7 +7,6 @@ use Input;
 use Cloudder;
 use Redirect;
 use Pibbble\User;
-use Pibbble\Project;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -31,7 +30,7 @@ class ProfileController extends Controller
     {
         //$user = User::with('projects')->whereUsername($username);
 
-        return view('projects.dashboard', array('user' => User::findByUsernameOrFail($username)));
+        return view('projects.dashboard', ['user' => User::findByUsernameOrFail($username)]);
     }
 
     /**
