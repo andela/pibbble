@@ -35,7 +35,6 @@ class ProjectController extends Controller
         $user = Auth::user();
         $projects = Project::orderBy('created_at', 'desc')->personal()->get();
 
-
         return view('projects.dashboard')->withProjects($projects)->withUser($user);
     }
 
@@ -126,7 +125,6 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-
     }
 
     /**
@@ -143,14 +141,13 @@ class ProjectController extends Controller
             'projectname'   => 'min:1',
             'description'   => 'min:15',
             'technologies'  => 'min:1',
-            'url'           => 'url'
+            'url'           => 'url',
         ]);
 
         $input = $request->all();
         $project->fill($input)->save();
 
         return redirect()->to('/projects')->with('info', 'Your Project has been updated successfully');
-
     }
 
     /**
@@ -168,7 +165,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Gets the project meta and returns a JSON response
+     * Gets the project meta and returns a JSON response.
      *
      * @param int $id
      * @return \Illuminate\Http\JSONResponse

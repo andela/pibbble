@@ -23,7 +23,5 @@ class DashboardTest extends TestCase
         $this->post('/projects/11');
         $project = Project::find(11);
         $this->missingFromDatabase('projects', ['id' => 11]);
-
     }
-
 }

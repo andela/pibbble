@@ -228,7 +228,7 @@ class AuthController extends Controller
         $request->session()->put('email', $request->email);
         $request->session()->put('password', bcrypt($request->password));
 
-        return Redirect::back()->with('message','Check your mail box to confirm your email address.');
+        return Redirect::back()->with('message', 'Check your mail box to confirm your email address.');
     }
 
     public function getAuthRegister()
