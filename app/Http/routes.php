@@ -24,7 +24,9 @@ Route::get('/projects/dashboard', ['middleware' => 'auth', 'uses' => 'ProjectCon
 #Project routes using resource
 Route::resource('projects', 'ProjectController');
 Route::get('projects/meta/{id}', ['uses'=>'ProjectController@getMetaAsJSON', 'as'=>'getMetaAsJSON']);
+// Confirm before delete
 Route::get('project/confirm/{id}', 'ProjectController@confirm');
+
 
 // Profile settings Route
 Route::get('/profile/settings', [
@@ -56,7 +58,7 @@ Route::post('/auth/login', 'Auth\AuthController@postLogin');
 Route::get('/auth/logout', 'Auth\AuthController@getLogout');
 
 // Registration routes...
-Route::get('/auth/register', 'Auth\AuthController@getRegister');
+Route::get('/auth/register', 'Auth\AuthController@getAuthRegister');
 Route::post('/auth/register', 'Auth\AuthController@sendMail');
 
 // Social authentication routes...
