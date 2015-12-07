@@ -165,7 +165,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Confirm before delete view
+     * Confirm before delete view.
      * @return confirm.blade.php
      */
     public function confirm($id)

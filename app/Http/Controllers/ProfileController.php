@@ -6,7 +6,6 @@ use Auth;
 use Cloudder;
 use Redirect;
 use Pibbble\User;
-use Pibbble\Project;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -46,7 +45,7 @@ class ProfileController extends Controller
     }
 
     /**
-     *  Posts image update request
+     *  Posts image update request.
      */
     public function postAvatarSetting(Request $request)
     {
