@@ -3,6 +3,7 @@
 namespace Pibbble\Exceptions;
 
 use Exception;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
@@ -39,6 +40,10 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
+        if ($e instanceof ModelNotFoundException) {
+            $this->renderHttpException(new HttpException(404, "Invalid URL.", $e));
+        }
+
         if ($e instanceof OAuthEmailException) {
             return response()->view('errors.oauthemail');
         }
