@@ -35,13 +35,13 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     protected $hidden = ['password', 'remember_token', 'token'];
 
     /**
-     * Finds by username
+     * Finds by username.
      *
      * @var array
      */
     public static function findByUsernameOrFail($username, $columns = ['*'])
     {
-        if (! is_null($user = static::whereUsername($username)->first($columns))) {
+        if (! is_null($user = static::where('username', 'ILIKE', '%'.$username.'%')->first($columns))) {
             return $user;
         }
 
