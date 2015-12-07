@@ -23,8 +23,10 @@ Route::get('/projects/dashboard', ['middleware' => 'auth', 'uses' => 'ProjectCon
 
 #Project routes using resource
 Route::resource('projects', 'ProjectController');
-Route::get('projects/meta/{id}', ['uses' => 'ProjectController@getMetaAsJSON', 'as' => 'getMetaAsJSON']);
-Route::get('projects/confirm', 'ProjectController@confirm');
+Route::get('projects/meta/{id}', ['uses'=>'ProjectController@getMetaAsJSON', 'as'=>'getMetaAsJSON']);
+// Confirm before delete
+Route::get('project/confirm/{id}', 'ProjectController@confirm');
+
 
 // Profile settings Route
 Route::get('/profile/settings', [

@@ -164,9 +164,15 @@ class ProjectController extends Controller
         return redirect()->to('/projects')->with('info', 'Project deleted successfully');
     }
 
-    public function confirm()
+    /**
+     * Confirm before delete view
+     * @return confirm.blade.php
+     */
+    public function confirm($id)
     {
-        return view('others.confirm');
+        $project = Project::findOrFail($id);
+
+        return view('others.confirm')->withProject($project);
     }
 
     /**

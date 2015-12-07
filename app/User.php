@@ -39,7 +39,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      *
      * @var array
      */
-    public static function findByUsernameOrFail($username, $columns = array('*'))
+    public static function findByUsernameOrFail($username, $columns = ['*'])
     {
         if (! is_null($user = static::whereUsername($username)->first($columns))) {
             return $user;
