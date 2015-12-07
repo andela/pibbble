@@ -5,7 +5,7 @@ namespace Pibbble;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
-use Illuminate\Database\Eloquent\ModelNotFoundException; 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
@@ -41,7 +41,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      */
     public static function findByUsernameOrFail($username, $columns = array('*'))
     {
-        if ( ! is_null($user = static::whereUsername($username)->first($columns))) {
+        if (! is_null($user = static::whereUsername($username)->first($columns))) {
             return $user;
         }
 

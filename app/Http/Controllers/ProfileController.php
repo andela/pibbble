@@ -29,9 +29,7 @@ class ProfileController extends Controller
      */
     public function show($username)
     {
-        //$user = User::with('projects')->whereUsername($username);
-
-        return view('projects.dashboard', array('user' => User::findByUsernameOrFail($username)));
+        return view('projects.dashboard', ['user' => User::findByUsernameOrFail($username)]);
     }
 
     /**
@@ -48,8 +46,9 @@ class ProfileController extends Controller
         return redirect('/profile/settings')->with('status', 'You have successfully updated your profile');
     }
 
-    // Posts image update request
-
+    /**
+     *  Posts image update request
+     */
     public function postAvatarSetting(Request $request)
     {
         $img = Input::file('avatar');
