@@ -31,7 +31,7 @@
       </div>
     </div>
   </div>
-  
+
   <!-- Upload Modal -->
   <div class="modal fade" id="myUpload" role="dialog">
     <div class="modal-dialog">
@@ -97,7 +97,11 @@
                 <h4 class="modal-title">Bio</h4>
               </div>
               <div class="modal-body">
+              @if($user->bio)
                 <p>{{ $user->bio }}</p>
+              @else
+                <p>Bio is yet to be updated</p>
+              @endif
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -158,7 +162,7 @@
 
 <!-- Skills Modal -->
 <div class="modal fade" id="mySkills" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-sm">
 
         <!-- Modal content-->
         <div class="modal-content">
@@ -167,7 +171,13 @@
                 <h4 class="modal-title">Skills</h4>
             </div>
             <div class="modal-body">
-                <p>{{ $user->skills }}</p>
+                @if($user->skills)
+                @foreach(explode(', ', $user->skills) as $skill)
+                    <button class="btn btn-md">{{ $skill }}</button>
+                @endforeach
+                @else
+                    <p>No Skill updated yet!</p>
+                @endif
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

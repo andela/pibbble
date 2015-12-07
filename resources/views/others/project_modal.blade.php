@@ -14,7 +14,7 @@
 </div>
 
 <!--Project Modal-->
-<div class="modal fade-lg" id="{{ $project->id }}" role="dialog">
+<div class="modal fade" id="{{ $project->id }}" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
