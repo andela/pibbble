@@ -3,11 +3,9 @@
 namespace Pibbble\Http\Controllers;
 
 use Auth;
-use Input;
 use Cloudder;
 use Redirect;
 use Pibbble\User;
-use Pibbble\Project;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -47,11 +45,11 @@ class ProfileController extends Controller
     }
 
     /**
-     *  Posts image update request
+     *  Posts image update request.
      */
     public function postAvatarSetting(Request $request)
     {
-        $img = Input::file('avatar');
+        $img = $request->file('avatar');
 
         Cloudder::upload($img);
         $imgurl = Cloudder::getResult()['url'];

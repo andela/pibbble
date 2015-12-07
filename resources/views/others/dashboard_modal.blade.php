@@ -21,7 +21,7 @@
                 <textarea type="text" class="form-control" id="message" placeholder="Mail to"></textarea>
             </div>
           </div>
-          else
+          @else
               <div>Please log in to contact developer.</div>
           @endif
           <div class="modal-footer">
@@ -31,7 +31,7 @@
       </div>
     </div>
   </div>
-  
+
   <!-- Upload Modal -->
   <div class="modal fade" id="myUpload" role="dialog">
     <div class="modal-dialog">
