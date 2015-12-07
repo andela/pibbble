@@ -3,8 +3,8 @@
 namespace Pibbble\Http\Middleware;
 
 use Auth;
-use Pibbble\User;
 use Closure;
+use Pibbble\User;
 
 class ValidateEmail
 {
@@ -17,8 +17,12 @@ class ValidateEmail
      */
     public function handle($request, Closure $next)
     {
-        if ($request->_token === $request->session()->get('_token')) {
-            User::create($request->session()->all());
+        if ($request->_token === session('_token')) {
+            User::create([
+                '_token' => session('_token'),
+                'username' => session('username'),
+                'email' => session('email'),
+                'password' => session('password'), ]);
 
             return redirect('/auth/login');
         }

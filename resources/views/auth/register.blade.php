@@ -5,8 +5,8 @@
   <div align="center" class="row">
         <div class="mui-panel width_400 padding_40">
           <div class="red_message">
-            @if (! is_null(Session::get('message')))
-              {!! Session::get('message') !!}
+            @if (! empty(session('message')))
+              {{ session('message') }}
             @endif
           </div>
           <legend align="left">SIGN UP</legend>
