@@ -41,7 +41,7 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $e)
     {
         if ($e instanceof ModelNotFoundException) {
-            $this->renderHttpException(new HttpException(404, "Invalid URL.", $e));
+            $this->renderHttpException(new HttpException(404, 'Invalid URL.', $e));
         }
 
         if ($e instanceof OAuthEmailException) {
