@@ -229,7 +229,8 @@ class AuthController extends Controller
             '_token' => $request->_token,
             'username' => $request->username,
             'email' => $request->email,
-            'password' => bcrypt($request->password)]);
+            'password' => bcrypt($request->password), 
+        ]);
 
         return back()->with('message', 'Check your mail box to confirm your email address.');
     }
