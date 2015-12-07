@@ -66,6 +66,12 @@
                         <input name="facebook" type="text" class="form-control" value="{{ Auth::user()->facebook }}">
                     </div>
                 </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Linkedin</label>
+                    <div class="col-sm-3">
+                        <input name="linkedin" type="text" class="form-control" value="{{ Auth::user()->linkedin }}">
+                    </div>
+                </div>
                 <fieldset class="form-group">
                     <label class="col-sm-2 control-label">Bio</label>
                     <div class="col-sm-2">
