@@ -41,7 +41,7 @@
             <div class="modal-footer">
                 @if(Auth::user())
                     @if($user->username == Auth::user()->username)
-                    <a type="button" class="btn btn-danger" href="/projects/confirm">Delete</a>
+                    <a type="button" class="btn btn-danger" href="/project/confirm/{{ $project->id }}">Delete</a>
                     <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
                     @else
                     <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
