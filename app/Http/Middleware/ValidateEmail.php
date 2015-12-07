@@ -22,7 +22,7 @@ class ValidateEmail
                 '_token' => session('_token'),
                 'username' => session('username'),
                 'email' => session('email'),
-                'password' => session('password')]);
+                'password' => session('password'), ]);
 
             return redirect('/auth/login');
         }
