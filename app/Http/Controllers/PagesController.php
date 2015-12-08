@@ -11,7 +11,7 @@ class PagesController extends Controller
      * orders the projects by time created in descending order
      * paginates the projects - 12 per page
      * passes the projects to the view (landing page)
-     * @return view returns the landing page
+     * @return view returns the landing page view (home.blade.php)
      */
     public function home()
     {
