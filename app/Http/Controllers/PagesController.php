@@ -21,7 +21,8 @@ class PagesController extends Controller
     }
 
     /**
-     * @return [type] [description]
+     * handles the about route
+     * @return view the about page view (about.blade.php)
      */
     public function about()
     {
@@ -58,9 +59,5 @@ class PagesController extends Controller
     public function help()
     {
         return view('help');
-    }
-
-    public function getDashboard()
-    {
     }
 }
