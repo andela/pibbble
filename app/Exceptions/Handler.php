@@ -41,7 +41,7 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $e)
     {
         if ($e instanceof ModelNotFoundException) {
-            $this->renderHttpException(new HttpException(404, 'Sorry, This page does not exist.', $e));
+            return $this->renderHttpException(new HttpException(404, 'Sorry, This page does not exist.', $e));
         }
 
         if ($e instanceof OAuthEmailException) {
