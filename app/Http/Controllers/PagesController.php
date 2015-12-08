@@ -7,7 +7,11 @@ use Pibbble\Project;
 class PagesController extends Controller
 {
     /**
-     * @return landing.blade.php
+     * gets projects from db
+     * orders the projects by time created in descending order
+     * paginates the projects - 12 per page
+     * passes the projects to the view (landing page)
+     * @return view returns the landing page
      */
     public function home()
     {
