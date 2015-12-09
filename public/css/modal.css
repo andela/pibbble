@@ -6,6 +6,7 @@
 .modal-content {
     background-color: #eee;
     padding-left:80px;
+    text-align: left;
 }
 
 .modal-header {

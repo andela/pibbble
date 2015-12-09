@@ -14,6 +14,7 @@
     <link href="/css/ripples.min.css" rel="stylesheet" type="text/css">
     <link href="/css/display.css" rel="stylesheet" type="text/css">
     <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/modal.css" rel="stylesheet" type="text/css">
     <link href="/css/profile-style.css" rel="stylesheet" type="text/css">
     @yield('custom-css')
   </head>

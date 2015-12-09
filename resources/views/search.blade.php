@@ -15,7 +15,7 @@
       @endif
 
       @foreach ($projects as $project)
-      <div class='projects-container'>
+        <div class='projects-container'>
           <div class='projects'>
               <!-- Trigger modal window when a project thumbnail is clicked -->
               <a data-toggle="modal" data-target="#{{ $project->id }}"><img src='{{ $project->url }}' width='200' height='150' /></a>
