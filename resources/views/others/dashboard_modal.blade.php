@@ -150,7 +150,7 @@
           <div class="pull-left">
             <img src='/img/33.gif' style="display:none;" id="form-load-img"/>
           </div>
-          <button type="submit" class="btn btn-primary">Edit</button>
+          <button type="submit" class="btn btn-primary">Save Changes</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
         <input type="hidden" name="_method" value="PUT">
