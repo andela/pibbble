@@ -1,3 +1,4 @@
+<script src="/js/like.js"></script>
 @foreach ($projects as $project)
     <div class='projects-container'>
         <div class='projects'>
@@ -36,8 +37,8 @@
 
                     <!-- Like feature from here -->
                     <div style="float:left; font-size:11px;">
-                        <a href="#" style="color: #2296cc;" onclick=""><b>Like</b></a>.
-                        <span id="">You and {{ $project->likes }} other people like this project.</span>
+                        <a id="like-link" href="#" style="color: #2296cc;" onclick="like({{ $project->id }}, {{ $project->likes }})">Like</a>.
+                        <span id="like-text"></span>
                     </div>
                     <!-- to here -->
 
