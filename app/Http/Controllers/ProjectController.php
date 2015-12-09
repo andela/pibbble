@@ -39,15 +39,6 @@ class ProjectController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-    }
-
-    /**
      * This method saves the image to cloudinary.
      * @param  string $name_of_screenshot
      * @return void
