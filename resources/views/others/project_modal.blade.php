@@ -1,3 +1,4 @@
+
 @foreach ($user->projects as $project)
     <div class='projects-container'>
         <div class='projects'>
@@ -6,11 +7,9 @@
             <span class='project-stats'><i class='fa fa-eye'></i>&nbsp;{{ $project->views }}</span>
         </div>
         <span class='projects-name'><a href="" data-toggle="modal" data-target="#{{ $project->id }}">{{ $project->projectname }}</a></span>
-        @if(Auth::user())
-            @if($user->username == Auth::user()->username)
+            @can('owner-can-see', $user->id)
                 <a class="myEdit" data-action="{{ route('projects.update', $project->id) }}" data-url="{{ route('getMetaAsJSON', $project->id ) }}" href="#"><i class="fa fa-pencil-square-o fa-lg pull-right"></i></a>
-            @endif
-        @endif
+            @endcan
     </div>
 
     <!--Project Modal-->
@@ -39,14 +38,12 @@
                     @endforeach
                 </div>
                 <div class="modal-footer">
-                    @if(Auth::user())
-                        @if($user->username == Auth::user()->username)
+                        @can('owner-can-see', $user->id)
                         <a type="button" class="btn btn-danger" href="/project/confirm/{{ $project->id }}">Delete</a>
                         <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
                         @else
                         <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
-                        @endif
-                    @endif
+                        @endcan
                 </div>
             </div>
         </div>
