@@ -56,7 +56,32 @@ class PagesController extends Controller
         return view('help');
     }
 
-    public function getDashboard()
+    /**
+     * @return comments.blade.php
+     */
+    public function comments()
     {
+        $projects = Project::orderBy('created_at', 'desc')->paginate(12);
+
+        return view('pages.comments', ['projects' => $projects]);
+    }
+
+    /**
+     * @return views.blade.php
+     */
+    public function views()
+    {
+       $projects = Project::orderBy('views', 'desc')->paginate(12);
+
+        return view('pages.views', ['projects' => $projects]);
+    }
+    /**
+     * @return likes.blade.php
+     */
+    public function likes()
+    {
+        $projects = Project::orderBy('likes', 'desc')->paginate(12);
+
+        return view('pages.likes', ['projects' => $projects]);
     }
 }
