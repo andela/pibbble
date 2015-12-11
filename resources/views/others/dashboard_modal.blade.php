@@ -53,7 +53,7 @@
             </div>
             <div class="form-group">
               <label for="description"><span class="glyphicon glyphicon-blackboard"></span> Description</label>
-              <textarea type="text" name="description" class="form-control" id="description" placeholder="A show and tell for Codeweavers" required></textarea>
+              <textarea type="text" name="description" class="form-control" id="description" placeholder="A show and tell for Codeweavers" minlength="15"></textarea>
               @if ($errors->has('description'))
                     <span class="help-block">{{ $errors->first('description') }}</span>
                 @endif
@@ -67,7 +67,7 @@
             </div>
             <div class="form-group">
               <label for="upload"><span class="glyphicon glyphicon-upload"></span> Upload</label>
-              <input type="text" name="url" class="form-control" id="upload" placeholder="http://www.pibbble.com" required>
+              <input type="url" name="url" class="form-control" id="upload" placeholder="http://www.pibbble.com" pattern="https?://.+">
               @if ($errors->has('url'))
                     <span class="help-block">{{ $errors->first('url') }}</span>
                 @endif
