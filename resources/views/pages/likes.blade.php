@@ -7,7 +7,7 @@
         <ul class="nav navbar-nav navbar-left" style="padding-left:505px; color: #777;">
             <li><a href="/" class="proj-links">Featured</a></li>
             <li><a href="/" class="proj-links">Latest</a></li>
-            <li><a href="/" class="proj-links dropdown-toggle" data-toggle="dropdown">Popular <span class="caret"></span></a>
+            <li><a href="#" class="proj-links dropdown-toggle" data-toggle="dropdown">Popular <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="/sort/likes">Most Liked</a></li>
                 <li><a href="/sort/views">Most Viewed</a></li>
