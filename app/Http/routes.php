@@ -41,7 +41,7 @@ Route::post('/avatar/setting', [
     'middleware' => ['auth'],
 ]);
 
-Route::post('/profile/settings', 'ProfileController@postProfileSettings');
+Route::post('/profile/settings', 'ProfileController@updateProfileSettings');
 
 Route::controllers([
     'password' => 'Auth\PasswordController',

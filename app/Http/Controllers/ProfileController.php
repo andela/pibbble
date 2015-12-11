@@ -36,7 +36,7 @@ class ProfileController extends Controller
      * @param  Request $request
      * @return Response
      */
-    public function postProfileSettings(Request $request)
+    public function updateProfileSettings(Request $request)
     {
         $input = $request->except('_token', 'url');
         User::find(Auth::user()->id)->updateProfile($input);
