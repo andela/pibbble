@@ -32,6 +32,7 @@
                     <br clear="left">
                     <p>{{ $project->description }}</p>
                 </div>
+                <textarea></textarea>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
                 </div>
