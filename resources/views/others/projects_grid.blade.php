@@ -32,6 +32,7 @@
                     <br clear="left">
                     <p>{{ $project->description }}</p>
                 </div>
+                <textarea></textarea>
                 <div class="modal-footer">
 
                     <!-- Like feature from here -->

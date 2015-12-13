@@ -3,6 +3,7 @@
 namespace Pibbble;
 
 use Auth;
+use Pibbble\Comment;
 use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
@@ -10,7 +11,7 @@ class Project extends Model
     /**
      * The table associated with this model.
      * @var string
-     */
+     * */
     protected $table = 'projects';
 
     /**
@@ -48,5 +49,10 @@ class Project extends Model
     public function tags()
     {
         $this->belongsToMany("Pibble\Tag");
+    }
+
+    public function comments()
+    {
+        return $this->hasMany('Comment');
     }
 }

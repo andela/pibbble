@@ -40,3 +40,19 @@
 {
     min-height: 702px;
 }
+
+textarea {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  color: #5a5656;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  height: 50px;
+  outline: none;
+  padding: 0px 10px;
+  width: 300px;
+  -webkit-appearance:none;
+}
