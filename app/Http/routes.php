@@ -27,6 +27,12 @@ Route::get('projects/meta/{id}', ['uses' => 'ProjectController@getMetaAsJSON', '
 // Confirm before delete
 Route::get('project/confirm/{id}', 'ProjectController@confirm');
 
+//like or unlike a project
+Route::get('/project/like/{id}', [
+    'uses' => 'ProjectLikesController@like',
+    'middleware' => ['auth'],
+]);
+
 // Profile settings Route
 Route::get('/profile/settings', [
     'uses' => 'ProfileController@getProfileSettings',

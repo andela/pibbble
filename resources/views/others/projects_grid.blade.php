@@ -37,8 +37,8 @@
 
                     <!-- Like feature from here -->
                     <div style="float:left; font-size:11px;">
-                        <a id="like-link" href="#" style="color: #2296cc;" onclick="like({{ $project->id }}, {{ $project->likes }})">Like</a>.
-                        <span id="like-text"></span>
+                        <a href="#" id="link-text" style="color: #2296cc;" onclick="like({{ $project->id }});">Like</a>
+                        <span id="ajaxResponse"></span>
                     </div>
                     <!-- to here -->
 
