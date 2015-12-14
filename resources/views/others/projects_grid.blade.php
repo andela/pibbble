@@ -26,7 +26,12 @@
                     <div class="modal-left">
                         <img src='{{ $project->url }}' width="600" height="400" class="img-responsive" />
                         <div class="modal-right">
-                            <p><i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->likes }}&nbsp;likes</p>
+                            <p>
+                                <a href="#" id="link-text" onclick="like({{ $project->id }});">
+                                    <i class='fa fa-thumbs-o-up'></i>
+                                </a>
+                                <span id="ajaxResponse">{{ $project->likes }}</span>&nbsp;likes
+                            </p>
                             <p><i class='fa fa-eye'></i>&nbsp;{{ $project->views }}&nbsp;views</p>
                         </div>
                     </div>
@@ -34,14 +39,6 @@
                     <p>{{ $project->description }}</p>
                 </div>
                 <div class="modal-footer">
-
-                    <!-- Like feature from here -->
-                    <div style="float:left; font-size:11px;">
-                        <a href="#" id="link-text" style="color: #2296cc;" onclick="like({{ $project->id }});">Like</a>
-                        <span id="ajaxResponse"></span>
-                    </div>
-                    <!-- to here -->
-
                     <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
                 </div>
             </div>

@@ -3,6 +3,7 @@ function like(projectID)
     var elementID = "link-text";
     var linkText = document.getElementById(elementID).innerHTML;
     alert(linkText);
+    document.getElementById("ajaxResponse").innerHTML = "1";
 
     //var ajaxResponse = ajaxCall(projectID);
 

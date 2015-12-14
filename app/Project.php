@@ -22,7 +22,7 @@ class Project extends Model
     /**
      *  The attributes that are mass assignable.
      * @var array
-     * */wincache_lock(key)
+     * */
     protected $fillable = ['projectname', 'description', 'technologies', 'url'];
 
     /**
