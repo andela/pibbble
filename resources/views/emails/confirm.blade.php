@@ -1,6 +1,5 @@
-Dear {{ $user }}, <br><br>
+Dear {{ $user }},
 
-Thank you for registering with us. Confirm your email with the link below. <br>
-<a href="{!! $url !!}">CONFIRM EMAIL</a><br><br>
+Thank you for registering with us. Confirm your email with the link below.        
 
-<b><i>The Pibbble Team<i><b>
+<a href="{!! $url !!}">CONFIRM EMAIL</a
