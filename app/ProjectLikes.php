@@ -25,7 +25,7 @@ class ProjectLikes extends Model
      */
     protected $fillable = ['project_id', 'user_id'];
 
-    public function projects()
+    public function project()
     {
         return $this->belongsTo('Pibbble\Project');
     }

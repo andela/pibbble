@@ -27,9 +27,15 @@
                         <img src='{{ $project->url }}' width="600" height="400" class="img-responsive" />
                         <div class="modal-right">
                             <p>
-                                <a href="#" id="link-text" onclick="like({{ $project->id }});">
+                                <!-- if already liked -->
+                                <a href="#" id="like-link" onclick="like({{ $project->id }}, true);" style="color:red;">
                                     <i class='fa fa-thumbs-o-up'></i>
                                 </a>
+                                <!-- else -->
+                                <a href="#" id="like-link" onclick="like({{ $project->id }}, false);" style="color:#2296cc;">
+                                    <i class='fa fa-thumbs-o-up'></i>
+                                </a>
+                                <!-- end  if -->
                                 <span id="ajaxResponse">{{ $project->likes }}</span>&nbsp;likes
                             </p>
                             <p><i class='fa fa-eye'></i>&nbsp;{{ $project->views }}&nbsp;views</p>
