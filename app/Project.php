@@ -48,11 +48,11 @@ class Project extends Model
 
     public function tags()
     {
-        $this->belongsToMany("Pibble\Tag");
+        return $this->belongsToMany('Pibble\Tag');
     }
 
     public function comments()
     {
-        return $this->hasMany('Comment');
+        return $this->hasMany('Pibbble\Comment');
     }
 }

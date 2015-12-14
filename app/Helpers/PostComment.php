@@ -4,7 +4,8 @@ namespace Pibbble\Helpers;
 
 use Pibbble\User;
 use Pibbble\Comment;
-use Pibbble\Http\Request\CommentRequest;
+use Pibbble\Project;
+use Pibbble\Http\Requests\CommentRequest;
 use Pibbble\Pibbble\Repository\CommentRepository;
 
 class PostComment
@@ -16,21 +17,25 @@ class PostComment
         $this->comment = $comment;
     }
 
-    public function saveProjectComment(User $user, CommentRequest $request)
+    /**
+     *
+     */
+    public function saveProjectComment($id, User $user, CommentRequest $request)
     {
+
         $this->comment->comment    = $request->comment;
         $this->comment->user_id    = $user->id;
-        $this->comment->project_id = $request->project_id;
+        $this->comment->project_id = $id;
 
         $this->comment->save();
 
         $commentId   = Comment::where('comment', $request->comment)->first()->id;
-        $commentRepo = new CommentsRepository;
+        $commentRepo = new CommentRepository;
 
         return ['avatar'    => $user->avatar,
                 'username'  => $user->username,
                 'user_id'   => $user->id,
-                'chop_id'   => $request->chop_id,
+                'project_id'=> $id,
                 'comment'   => $request->comment,
                 'comment_id'=> $commentId,
                 'comment_time' => $commentRepo->getCommentTime($commentId)

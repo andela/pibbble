@@ -35,5 +35,9 @@ class AuthServiceProvider extends ServiceProvider
         $gate->define('users-can-see', function ($user, $id) {
             return $id !== $user->id;
         });
+
+        $gate->define('authusers-can-see', function ($user) {
+            return Auth::check();
+        });
     }
 }

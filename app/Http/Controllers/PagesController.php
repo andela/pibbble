@@ -2,6 +2,9 @@
 
 namespace Pibbble\Http\Controllers;
 
+use Auth;
+use Pibbble\User;
+use Pibbble\Comment;
 use Pibbble\Project;
 
 class PagesController extends Controller
@@ -11,9 +14,10 @@ class PagesController extends Controller
      */
     public function home()
     {
-        $projects = Project::orderBy('created_at', 'desc')->paginate(12);
+        $user     = Auth::user();
+        $projects = Project::orderBy('created_at', 'desc')->with('comments')->paginate(12);
 
-        return view('landing', ['projects' => $projects]);
+        return view('landing', ['projects' => $projects])->withUser($user);
     }
 
     /**
