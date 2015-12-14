@@ -86,7 +86,6 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         if ($request->ajax()) {
-
             $this->validate($request, [
                 'projectUrl'    => 'required|unique:projects|url',
             ]);
