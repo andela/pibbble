@@ -2,7 +2,7 @@
 @foreach ($user->projects as $project)
     <div class='projects-container'>
         <div class='projects'>
-            <a href="" data-toggle="modal" data-target="#{{ $project->id }}"><img src="{{ $project->url }}" width='200' height='150' style='border:0px solid #ccc;'></a>
+            <a href="" data-toggle="modal" data-target="#{{ $project->id }}"><img src="{{ $project->imageUrl }}" width='200' height='150' style='border:0px solid #ccc;'></a>
             <span class='project-stats'><i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->likes }}</span>
             <span class='project-stats'><i class='fa fa-eye'></i>&nbsp;{{ $project->views }}</span>
         </div>
@@ -24,7 +24,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="modal-left">
-                        <img src='{{ $project->url }}' width="600" height="400" class="img-responsive" />
+                        <img src='{{ $project->imageUrl }}' width="600" height="400" class="img-responsive" />
                         <div class="modal-right">
                             <p><i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->views }}&nbsp;likes</p>
                             <p><i class='fa fa-eye'></i>&nbsp;{{ $project->views }}&nbsp;views</p>
