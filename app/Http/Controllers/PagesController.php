@@ -10,7 +10,11 @@ use Pibbble\Project;
 class PagesController extends Controller
 {
     /**
-     * @return landing.blade.php
+     * gets projects from db (Project Model)
+     * orders the projects by time created in descending order
+     * paginates the projects - 12 per page
+     * passes the projects to the view (landing page)
+     * @return view returns the landing page view (home.blade.php)
      */
     public function home()
     {
@@ -21,7 +25,8 @@ class PagesController extends Controller
     }
 
     /**
-     * @return about.blade.php
+     * handles the about route
+     * @return view the about page view (about.blade.php)
      */
     public function about()
     {
@@ -58,9 +63,5 @@ class PagesController extends Controller
     public function help()
     {
         return view('help');
-    }
-
-    public function getDashboard()
-    {
     }
 }

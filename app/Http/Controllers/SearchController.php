@@ -7,10 +7,10 @@ use Illuminate\Support\Facades\Input;
 
 class SearchController extends Controller
 {
-    /*
-     * Runs searches against projects and users
+    /**
+     * Search for projects from the db
+     * @return view the search view (search.blade.php);
      */
-
     public function search()
     {
         $searchInput = Input::get('searchinput');
