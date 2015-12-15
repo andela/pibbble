@@ -12,9 +12,6 @@ class UpdateProjectsTableUrls extends Migration
     */
     public function up()
     {
-        Schema::table('projects', function (Blueprint $table) {
-            $table->renameColumn('imageurl', 'image_url');
-        });
     }
 
     /**
@@ -24,8 +21,5 @@ class UpdateProjectsTableUrls extends Migration
      */
     public function down()
     {
-        Schema::table('projects', function (Blueprint $table) {
-            $table->renameColumn('image_url', 'imageurl');
-        });
     }
 }
