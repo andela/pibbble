@@ -12,7 +12,7 @@ use Pibbble\Http\Requests\CommentRequest;
 class CommentController extends Controller
 {
     /**
-     * Saves project comment and returns JSON data
+     * Saves project comment and returns JSON data.
      */
     public function makeComment($id, CommentRequest $request, PostComment $comment)
     {
@@ -22,7 +22,7 @@ class CommentController extends Controller
     }
 
     /**
-     * Deletes project comment 
+     * Deletes project comment.
      */
     public function destroy($id)
     {
