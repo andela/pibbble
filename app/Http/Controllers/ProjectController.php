@@ -6,7 +6,6 @@ use Auth;
 use Cloudder;
 use Pibbble\User;
 use Pibbble\Project;
-use Pibbble\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Spatie\Browsershot\Browsershot;
@@ -34,7 +33,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $user     = Auth::user();
+        $user = Auth::user();
         $projects = Project::orderBy('created_at', 'desc')->personal()->get();
 
         return view('projects.dashboard')->withProjects($projects)->withUser($user);
