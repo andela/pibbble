@@ -2,9 +2,7 @@
 
 namespace Pibbble;
 
-use Auth;
-use Pibbble\Comment;
-use Illuminate\Database\Eloquent\Model;
+use Auth;use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
