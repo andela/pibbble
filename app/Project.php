@@ -10,7 +10,7 @@ class Project extends Model
     /**
      * The table associated with this model.
      * @var string
-     */
+     * */
     protected $table = 'projects';
 
     /**
@@ -47,6 +47,11 @@ class Project extends Model
 
     public function tags()
     {
-        $this->belongsToMany("Pibble\Tag");
+        return $this->belongsToMany('Pibble\Tag');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany('Pibbble\Comment');
     }
 }

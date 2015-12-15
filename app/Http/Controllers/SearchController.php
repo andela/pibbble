@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Input;
 class SearchController extends Controller
 {
     /**
-     * Search for projects from the db
+     * Search for projects from the db.
      * @return view the search view (search.blade.php);
      */
     public function search()

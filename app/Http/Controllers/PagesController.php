@@ -2,6 +2,8 @@
 
 namespace Pibbble\Http\Controllers;
 
+use Auth;
+use Pibbble\User;
 use Pibbble\Project;
 
 class PagesController extends Controller
@@ -10,18 +12,19 @@ class PagesController extends Controller
      * gets projects from db (Project Model)
      * orders the projects by time created in descending order
      * paginates the projects - 12 per page
-     * passes the projects to the view (landing page)
+     * passes the projects to the view (landing page).
      * @return view returns the landing page view (home.blade.php)
      */
     public function home()
     {
-        $projects = Project::orderBy('created_at', 'desc')->paginate(12);
+        $user = Auth::user();
+        $projects = Project::orderBy('created_at', 'desc')->with('comments')->paginate(12);
 
-        return view('landing', ['projects' => $projects]);
+        return view('landing', ['projects' => $projects])->withUser($user);
     }
 
     /**
-     * handles the about route
+     * handles the about route.
      * @return view the about page view (about.blade.php)
      */
     public function about()

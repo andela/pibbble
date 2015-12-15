@@ -6,10 +6,10 @@ use Illuminate\Database\Migrations\Migration;
 class AddandupdateProjectsTableColumns extends Migration
 {
     /**
-    * Run the migrations.
-    *
-    * @return void
-    */
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
         Schema::table('projects', function (Blueprint $table) {
@@ -31,4 +31,3 @@ class AddandupdateProjectsTableColumns extends Migration
         });
     }
 }
-

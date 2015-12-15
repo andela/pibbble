@@ -2,6 +2,7 @@
 
 namespace Pibbble\Providers;
 
+use Auth;
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -32,6 +33,10 @@ class AuthServiceProvider extends ServiceProvider
 
         $gate->define('users-can-see', function ($user, $id) {
             return $id !== $user->id;
+        });
+
+        $gate->define('authusers-can-see', function ($user) {
+            return Auth::check();
         });
     }
 }
