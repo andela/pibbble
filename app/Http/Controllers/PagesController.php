@@ -3,6 +3,7 @@
 namespace Pibbble\Http\Controllers;
 
 use Pibbble\Project;
+use Pibbble\ProjectLikes;
 
 class PagesController extends Controller
 {
@@ -11,9 +12,9 @@ class PagesController extends Controller
      */
     public function home()
     {
-        $projects = Project::orderBy('created_at', 'desc')->paginate(12);
+        $projects = Project::orderBy('created_at', 'desc')->with('projectLikes')->paginate(12);
 
-        return view('landing', ['projects' => $projects]);
+        return view('landing')->withProjects($projects);
     }
 
     /**

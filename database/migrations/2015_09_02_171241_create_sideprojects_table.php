@@ -19,8 +19,8 @@ class CreateSideprojectsTable extends Migration
       $table->string('description');
       $table->string('url');
       $table->string('technologies');
-      $table->integer('views')->unsigned()->default(0);
-      $table->integer('likes')->unsigned()->default(0);
+      // $table->integer('views')->unsigned()->default(0);
+      // $table->integer('likes')->unsigned()->default(0);
       $table->timestamps();
       $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
     });
