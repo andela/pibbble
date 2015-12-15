@@ -23,7 +23,9 @@ jQuery( document ).ready(function( $ ){
     }
 );
 
-
+/**
+ * Allows users make comment without modal reloading
+ */
 var makeComment = function(evt){
   evt.preventDefault();
   var _this = $(this);

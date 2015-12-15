@@ -19,7 +19,7 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <br />
                     <h3 class="modal-title">{{ $project->projectname }}</h3>
-                    <p>by <a href="{{ route('userprofile', $project->user->username) }}">{{ $project->user->username }}</a></p>
+                    <p>by <a href="{{ route('userprofile', $project->user->username) }}" class="no-decoration">{{ $project->user->username }}</a></p>
                 </div>
                 <div class="modal-body">
                     <div class="modal-left">
@@ -39,7 +39,7 @@
                           <div class="comment-wrapper">
                             <img src="{{ $comments->user->avatar }}" class="comment-img"/>
                             <span class="comment-username">
-                              <a href="{{ route('userprofile', $comments->user->username) }}" class="no-decoration">
+                              <a href="{{ route('userprofile', $comments->user->username) }}" style="text-decoration: none;">
                                 {{ $comments->user->username }}
                               </a>
                             </span>
@@ -59,7 +59,7 @@
                             <div class="form-group">
                               <textarea name="comment" class="form-control" rows="5" id="comment"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-info comment-btn">Comment</button>
+                            <button type="submit" class="btn btn-info comment-btn" style="margin-bottom: 4px;">Comment</button>
                             <span>
                         </form>
                     </div>

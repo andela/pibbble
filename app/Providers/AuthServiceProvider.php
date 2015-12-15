@@ -2,6 +2,7 @@
 
 namespace Pibbble\Providers;
 
+use Auth;
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
