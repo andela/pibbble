@@ -24,7 +24,7 @@ class Project extends Model
      *  The attributes that are mass assignable.
      * @var array
      * */
-    protected $fillable = ['projectname', 'description', 'technologies', 'url'];
+    protected $fillable = ['projectname', 'description', 'technologies', 'image_url', 'project_url'];
 
     /**
      * Set scope for personal info.
