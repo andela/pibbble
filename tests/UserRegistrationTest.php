@@ -23,6 +23,6 @@ class UserRegistrationTest extends TestCase
                             'password' => bcrypt('123456'),
                             ])
             ->visit('/?_token=23eftyhsjeu7yfbhfijsuyhfuushbnu826h')
-            ->see('opeyemiab');
+            ->seePageIs('/auth/login');
     }
 }
