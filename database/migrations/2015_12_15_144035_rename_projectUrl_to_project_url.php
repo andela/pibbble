@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdateProjectsTableUrls extends Migration
+class RenameProjectUrlToProjectUrl extends Migration
 {
     /**
     * Run the migrations.
@@ -13,7 +13,7 @@ class UpdateProjectsTableUrls extends Migration
     public function up()
     {
         Schema::table('projects', function (Blueprint $table) {
-            $table->renameColumn('imageurl', 'image_url');
+            $table->renameColumn('projectUrl', 'project_url');
         });
     }
 
@@ -25,7 +25,7 @@ class UpdateProjectsTableUrls extends Migration
     public function down()
     {
         Schema::table('projects', function (Blueprint $table) {
-            $table->renameColumn('image_url', 'imageurl');
+            $table->renameColumn('project_url', 'projectUrl');
         });
     }
 }
