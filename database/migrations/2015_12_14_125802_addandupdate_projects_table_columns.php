@@ -14,7 +14,6 @@ class AddandupdateProjectsTableColumns extends Migration
     {
         Schema::table('projects', function (Blueprint $table) {
             $table->renameColumn('url', 'image_url');
-            $table->string('project_url')->nullable()->unique();
         });
     }
 
@@ -27,7 +26,6 @@ class AddandupdateProjectsTableColumns extends Migration
     {
         Schema::table('projects', function (Blueprint $table) {
             $table->renameColumn('image_url', 'url');
-            $table->dropColumn('project_url');
         });
     }
 }
