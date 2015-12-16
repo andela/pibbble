@@ -7,6 +7,7 @@ use Cloudder;
 use Pibbble\User;
 use Pibbble\Project;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 use Spatie\Browsershot\Browsershot;
 
 class ProjectController extends Controller
@@ -59,7 +60,7 @@ class ProjectController extends Controller
         $name_of_screenshot = uniqid();
         $browsershot = new Browsershot();
         $browsershot
-            ->setURL($request->input('url'))
+            ->setURL($request->input('project_url'))
             ->setWidth('1024')
             ->setHeight('768')
             ->save('screenshots/'.$name_of_screenshot.'.jpg');
@@ -75,11 +76,19 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->ajax()) {
+            $this->validate($request, [
+                'project_url'    => 'required|unique:projects|url',
+            ]);
+
+            return new JsonResponse();
+        }
+
         $this->validate($request, [
             'name'          => 'required|min:1',
             'description'   => 'required|min:15',
             'technologies'  => 'required',
-            'url'           => 'required|url',
+            'project_url'    => 'required|unique:projects|url',
         ]);
 
         $getScreenshotName = $this->convertUrlToPng($request);
@@ -90,7 +99,8 @@ class ProjectController extends Controller
         $project->projectname = $request->input('name');
         $project->description = $request->input('description');
         $project->technologies = $request->input('technologies');
-        $project->url = $this->finalUrl;
+        $project->image_url = $this->finalUrl;
+        $project->project_url = $request->input('project_url');
 
         $project->save();
 
@@ -111,7 +121,7 @@ class ProjectController extends Controller
             'projectname'   => 'min:1',
             'description'   => 'min:15',
             'technologies'  => 'min:1',
-            'url'           => 'url',
+            'project_url'    => 'url',
         ]);
 
         $input = $request->all();
@@ -153,6 +163,6 @@ class ProjectController extends Controller
      */
     public function getMetaAsJSON($id)
     {
-        return Project::select('projectname', 'description', 'technologies', 'url')->findOrFail($id)->toJson();
+        return Project::select('projectname', 'description', 'technologies', 'image_url')->findOrFail($id)->toJson();
     }
 }

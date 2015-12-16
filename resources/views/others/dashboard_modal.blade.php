@@ -69,12 +69,12 @@
             <div class="form-group">
               <label for="upload"><span class="glyphicon glyphicon-upload"></span> Upload</label>
               <input type="url" name="project_url" class="form-control" id="upload" placeholder="http://www.pibbble.com" pattern="https?://.+">
-              @if ($errors->has('projectUrl'))
+              @if ($errors->has('project_url'))
                     <span class="help-block">{{ $errors->first('project_url') }}</span>
                 @endif
               <div id="errors" class="red_message"></div>
               <br>
-              <button type="button" class="btn btn-default" id="verifyUrl">Check Url</button>
+              <button type="button" class="btn btn-default" id="verifyUrl">Check Upload</button>
             </div>
         <div class="modal-footer">
           <div class="pull-left">
