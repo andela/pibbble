@@ -74,7 +74,6 @@
                 @endif
               <div id="errors" class="red_message"></div>
               <br>
-              <button type="button" class="btn btn-default" id="verifyUrl">Check Upload</button>
             </div>
         <div class="modal-footer">
           <div class="pull-left">
