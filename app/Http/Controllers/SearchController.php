@@ -16,12 +16,13 @@ class SearchController extends Controller
         $searchInput = Input::get('searchinput');
 
         /**
-         * During testing, the db coneection is set to sqlite
+         * Like is dependant on which db is being used
+         * LIKE for every other db except pgsql
+         * ILIKE for pgsql - used for case insensitive search
          */
-        $dbConnection = env('DB_CONNECTION', 'pgsql');
         $like = 'ILIKE';
 
-        if (strcasecmp($dbConnection, 'sqlite') == 0) {
+        if ($this->checkSqliteConnection()) {
             $like = 'LIKE';
         }
 
@@ -38,5 +39,18 @@ class SearchController extends Controller
         }
 
         return view('search')->with('projects', $results);
+    }
+
+    /**
+     * Chek if detabase connection is using sqlite
+     * @return boolean true if connection used is sqlite, false otherwise
+     */
+    private function checkSqliteConnection()
+    {
+        if (env('DB_CONNECTION') === 'sqlite') {
+            return true;
+        }
+
+        return false;
     }
 }
