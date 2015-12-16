@@ -1,5 +1,4 @@
 <script src="/js/like.js"></script>
-<div>
 @foreach ($projects as $project)
     <?php
         $ajaxResponse = 'proj'.$project->id;
