@@ -2,8 +2,6 @@
 
 namespace Pibbble;
 
-use Pibbble\User;
-use Pibbble\Project;
 use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
