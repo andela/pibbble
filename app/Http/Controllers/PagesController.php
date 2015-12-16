@@ -77,8 +77,9 @@ class PagesController extends Controller
      */
     protected function views()
     {
-       return Project::orderBy('views', 'desc')->paginate(12);
+        return Project::orderBy('views', 'desc')->paginate(12);
     }
+
     /**
      * @return likes.blade.php
      */
@@ -89,7 +90,7 @@ class PagesController extends Controller
 
     public function getLinks($link)
     {
-        $projects = NULL;
+        $projects = null;
 
         if ($link == 'comments') {
             $projects = $this->comments();
