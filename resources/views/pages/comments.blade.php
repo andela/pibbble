@@ -2,5 +2,5 @@
 @section('title', 'Pibbble')
 
 @section('content')
-@include('shared.homeview')
+ @include('shared.homeview')
 @endsection
