@@ -2,8 +2,8 @@
 
 namespace Pibbble\Providers;
 
-use Pibbble\User;
-use Pibbble\Policies\UserPolicy;
+use Auth;
+use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -14,6 +14,29 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        User::class => UserPolicy::class,
+        'Pibbble\Model' => 'Pibbble\Policies\ModelPolicy',
     ];
+
+    /**
+     * Register any application authentication / authorization services.
+     *
+     * @param  \Illuminate\Contracts\Auth\Access\Gate  $gate
+     * @return void
+     */
+    public function boot(GateContract $gate)
+    {
+        $this->registerPolicies($gate);
+
+        $gate->define('owner-can-see', function ($user, $id) {
+            return $id === $user->id;
+        });
+
+        $gate->define('users-can-see', function ($user, $id) {
+            return $id !== $user->id;
+        });
+
+        $gate->define('authusers-can-see', function ($user) {
+            return Auth::check();
+        });
+    }
 }

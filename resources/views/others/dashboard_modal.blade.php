@@ -37,13 +37,14 @@
     <div class="modal-dialog">
 
       <!-- Modal content-->
+      <script src="/js/project_upload.js"></script>
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Upload Project</h4>
         </div>
         <div class="modal-body">
-          <form role="form-group" method="post" action="{{ route('projects.store') }}" onsubmit="showLoader()">
+          <form id="uploadForm" role="form-group" method="post" action="{{ route('projects.store') }}" onsubmit="showLoader()">
             <div class="form-group">
               <label for="name"><span class="glyphicon glyphicon-file"></span> Name</label>
               <input type="text" name="name" class="form-control" id="name" placeholder="Pibbble" required>
@@ -67,21 +68,24 @@
             </div>
             <div class="form-group">
               <label for="upload"><span class="glyphicon glyphicon-upload"></span> Upload</label>
-              <input type="text" name="url" class="form-control" id="upload" placeholder="http://www.pibbble.com" required>
-              @if ($errors->has('url'))
-                    <span class="help-block">{{ $errors->first('url') }}</span>
+              <input type="text" name="project_url" class="form-control" id="upload" placeholder="http://www.pibbble.com" required>
+              @if ($errors->has('project_url'))
+                    <span class="help-block">{{ $errors->first('project_url') }}</span>
                 @endif
+              <div id="errors" class="red_message"></div>
+              <br>
+              <button type="button" class="btn btn-default" id="verifyUrl">Check Upload</button>
             </div>
-        </div>
         <div class="modal-footer">
           <div class="pull-left">
             <img src='/img/33.gif' style="display:none;" id="form-load-img"/>
           </div>
-          <button type="submit" class="btn btn-primary">Upload</button>
+          <button type="submit" class="btn btn-primary" id="uploadSubmit">Upload</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
     </form>
+    </div>
       </div>
     </div>
   </div>
@@ -150,7 +154,7 @@
           <div class="pull-left">
             <img src='/img/33.gif' style="display:none;" id="form-load-img"/>
           </div>
-          <button type="submit" class="btn btn-primary">Edit</button>
+          <button type="submit" class="btn btn-primary">Save Changes</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
         <input type="hidden" name="_method" value="PUT">

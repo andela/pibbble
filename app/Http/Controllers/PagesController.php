@@ -2,23 +2,30 @@
 
 namespace Pibbble\Http\Controllers;
 
+use Auth;
+use Pibbble\User;
 use Pibbble\Project;
 use Pibbble\ProjectLikes;
 
 class PagesController extends Controller
 {
     /**
-     * @return landing.blade.php
+     * gets projects from db (Project Model)
+     * orders the projects by time created in descending order
+     * paginates the projects - 12 per page
+     * passes the projects to the view (landing page).
+     * @return view returns the landing page view (home.blade.php)
      */
     public function home()
     {
-        $projects = Project::orderBy('created_at', 'desc')->with('projectLikes')->paginate(12);
+        $projects = Project::orderBy('created_at', 'desc')->with('projectLikes')->with('comments')->paginate(12);
 
         return view('landing')->withProjects($projects);
     }
 
     /**
-     * @return about.blade.php
+     * handles the about route.
+     * @return view the about page view (about.blade.php)
      */
     public function about()
     {
@@ -55,9 +62,5 @@ class PagesController extends Controller
     public function help()
     {
         return view('help');
-    }
-
-    public function getDashboard()
-    {
     }
 }

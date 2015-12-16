@@ -49,3 +49,71 @@
 {
     min-height: 702px;
 }
+
+form textarea {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  color: #5a5656;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  outline: none;
+  padding: 0px 10px;
+  height: 70px;
+  width: 75%;
+  -webkit-appearance:none;
+}
+
+.form-control {
+  width: 60%;
+}
+
+
+.comment-img {
+  border-radius: 26px;
+  height: 37px;
+  width: 37px;
+}
+
+.comment-username {
+  margin-left: 10px;
+  font-size: 125%;
+  font-weight: 500;
+}
+
+.comment-comment {
+  padding-left: 50px;
+  margin-top: -10px;
+}
+
+.comment-time {
+  padding-left: 51px;
+  font-size: 75%;
+}
+
+.hr-color {
+  background-color: #ffffff;
+  color: #ffffff;
+  height: 1px;
+  width: 80%;
+  margin-left: 0px;
+}
+
+.no-decoration {
+  text-decoration: none;
+}
+.comment-wrapper{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid white;
+  margin-right: 30px;
+  width: 50em;
+}
+.comment-wrapper:first-of-type {
+  border-top: 1px solid white;
+}
+.comment-wrapper:last-of-type {
+  margin-bottom: 10px;
+}

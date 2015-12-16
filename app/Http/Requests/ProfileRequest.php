@@ -9,6 +9,10 @@ class ProfileRequest extends Request
         return true;
     }
 
+    /**
+     * validation rules for profile request.
+     * @return array an array containing the validation rules for fields
+     */
     public function rules()
     {
         return [

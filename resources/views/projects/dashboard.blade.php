@@ -43,27 +43,27 @@ Dashboard
                                     <i class="fa fa-linkedin"></i>
                                 </a>
                             </div>
-                            @if(Auth::user())
-                                @if($user->username == Auth::user()->username)
+                            @can('owner-can-see', $user->id)
                                 <div class="btn-group pull-right">
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myUpload"><span class="glyphicon glyphicon-cloud-upload"></span> Upload</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#mySkills"><span class="glyphicon glyphicon-folder-open"></span> Skills</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myBio"><span class="glyphicon glyphicon-eye-open"></span> Bio</button>
                                 </div>
-                                @else
+                            @endcan
+                            @can('users-can-see', $user->id)
                                 <div class="btn-group pull-right">
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myBio"><span class="glyphicon glyphicon-eye-open"></span> Bio</button>
                                     <button type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-log-in" onclick="change()" type="button" value="Follow" id="myButton1"></span> Follow</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#mySkills"><span class="glyphicon glyphicon-folder-open"></span> Skills</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myHire"><span class="glyphicon glyphicon-user"></span> Hire Me</button>
                                 </div>
-                                @endif
-                            @else
+                            @endcan
+                            @if(! Auth::check())
                                 <div class="btn-group pull-right">
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myBio"><span class="glyphicon glyphicon-eye-open"></span> Bio</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#mySkills"><span class="glyphicon glyphicon-folder-open"></span> Skills</button>
+                                </div>
                             @endif
-                        </div>
                     </div>
                 </div>
             </div>
