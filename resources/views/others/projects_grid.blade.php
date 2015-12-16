@@ -1,5 +1,10 @@
 <script src="/js/like.js"></script>
+<div>
 @foreach ($projects as $project)
+    <?php
+        $ajaxResponse = 'proj'.$project->id;
+        $likeLink = 'link'.$project->id;
+    ?>
     <div class='projects-container'>
         <div class='projects'>
             <!-- Trigger modal window when a project thumbnail is clicked -->
@@ -27,18 +32,16 @@
                         <img src='{{ $project->url }}' width="600" height="400" class="img-responsive" />
                         <div class="modal-right">
                             <p>
-                                <!-- if already liked -->
-                                <a href="#" id="like-link" onclick="like({{ $project->id }}, true);" style="color:red;">
-                                    <i class='fa fa-thumbs-o-up'></i>
-                                </a>
-                                <!-- else -->
-                                <a href="#" id="like-link" onclick="like({{ $project->id }}, false);" style="color:#2296cc;">
-                                    <i class='fa fa-thumbs-o-up'></i>
-                                </a>
-                                <!-- end  if -->
-                                <span id="ajaxResponse">{{ $project->likes }}</span>&nbsp;likes
+                                @if(Auth::user())
+                                    <a href="#" id="{{ $likeLink }}" onclick="like({{ $project->id }}, {{ $project->projectLikes->count() }}, '{{ $ajaxResponse }}', '{{ $likeLink }}');">
+                                        <i class='fa fa-thumbs-o-up'></i>
+                                        <span id="{{ $ajaxResponse }}">{{ $project->projectLikes->count() }}</span>&nbsp;Likes
+                                    </a>
+                                @else
+                                    <i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->projectLikes->count() }}&nbsp;Likes
+                                @endif
                             </p>
-                            <p><i class='fa fa-eye'></i>&nbsp;{{ $project->views }}&nbsp;views</p>
+                            <p><i class='fa fa-eye'></i>&nbsp;{{ $project->views }}&nbsp;Views</p>
                         </div>
                     </div>
                     <br clear="left">

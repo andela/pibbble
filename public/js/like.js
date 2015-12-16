@@ -1,5 +1,6 @@
-function like(projectID, liked)
+function like(projectID, count, ajaxResponse, likeLink)
 {
+    //alert(likeLink);
     if (window.XMLHttpRequest) {
         xmlhttp = new XMLHttpRequest();
     }
@@ -9,13 +10,14 @@ function like(projectID, liked)
 
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            document.getElementById("ajaxResponse").innerHTML = xmlhttp.responseText;
+            var likesCount = xmlhttp.responseText;
+            document.getElementById(ajaxResponse).innerHTML = likesCount;
 
-            if(liked) {
-                document.getElementById("like-link").style.color = "#2296cc";
+            if(likesCount <= count) {
+                document.getElementById(likeLink).style.color = "#999";
             }
             else {
-                document.getElementById("like-link").style.color = "red";
+                document.getElementById(likeLink).style.color = "#2296cc";
             }
         }
     };

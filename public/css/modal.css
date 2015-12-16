@@ -41,6 +41,10 @@
     text-decoration: none;
 }
 
+.modal-right a:hover{
+    text-decoration: none;
+}
+
 .modal-backdrop
 {
     min-height: 702px;
