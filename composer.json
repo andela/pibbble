@@ -13,7 +13,8 @@
         "jrm2k6/cloudder": "^0.2.0",
         "spatie/browsershot": "^1.2",
         "ext-gd": "*",
-        "guzzlehttp/guzzle": "~5.3|~6.0"
+        "guzzlehttp/guzzle": "~5.3|~6.0",
+        "doctrine/dbal": "^2.5"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",
@@ -22,7 +23,8 @@
     },
     "autoload": {
         "classmap": [
-            "database"
+            "database",
+            "app/"
         ],
         "psr-4": {
             "Pibbble\\": "app/"
