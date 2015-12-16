@@ -1,5 +1,7 @@
 <?php
 
+use DatabaseMigrations;
+
 class UserRegistrationTest extends TestCase
 {
     protected $baseUrl = 'http://localhost';
@@ -22,7 +24,7 @@ class UserRegistrationTest extends TestCase
                             'email' => 'ope@yahoo.com',
                             'password' => bcrypt('123456'),
                             ])
-            ->visit('/?_token=23eftyhsjeu7yfbhfijsuyhfuushbnu826h')
+            ->visit('/auth/login/?_token=23eftyhsjeu7yfbhfijsuyhfuushbnu826h')
             ->seePageIs('/auth/login');
     }
 }
