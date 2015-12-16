@@ -23,7 +23,6 @@ jQuery( document ).ready(function( $ ){
     }
 );
 
-
 /**
  * Allows users to make comment without modal reloading
  */

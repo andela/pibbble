@@ -21,7 +21,6 @@ class PostComment
      */
     public function saveProjectComment($id, User $user, CommentRequest $request)
     {
-
         $this->comment->comment = $request->comment;
         $this->comment->user_id = $user->id;
         $this->comment->project_id = $id;
@@ -35,10 +34,10 @@ class PostComment
                 'avatar' => $user->avatar,
                 'username' => $user->username,
                 'user_id' => $user->id,
-                'project_id'=> $id,
+                'project_id' => $id,
                 'comment' => $request->comment,
                 'comment_id' => $commentId,
-                'commentTime' => $commentRepo->getCommentTime($commentId)
+                'commentTime' => $commentRepo->getCommentTime($commentId),
         ];
     }
 }

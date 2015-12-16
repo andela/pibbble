@@ -2,7 +2,7 @@
     <div class='projects-container'>
         <div class='projects'>
             <!-- Trigger modal window when a project thumbnail is clicked -->
-            <a href="" data-toggle="modal" data-target="#{{ $project->id }}"><img src='{{ $project->url }}' width='200' height='150' /></a>
+            <a href="" data-toggle="modal" data-target="#{{ $project->id }}"><img src='{{ $project->image_url }}' width='200' height='150' /></a>
             <span class='project-stats'><i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->likes }}</span>
             <span class='project-stats'><i class='fa fa-eye'></i>&nbsp;{{ $project->views }}</span>
         </div>
@@ -19,13 +19,13 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <br />
                     <h3 class="modal-title">{{ $project->projectname }}</h3>
-                    <p>by <a href="{{ route('userprofile', $project->user->username) }}">{{ $project->user->username }}</a></p>
+                    <p>by <a href="{{ route('userprofile', $project->user->username) }}" class="no-decoration">{{ $project->user->username }}</a></p>
                 </div>
                 <div class="modal-body">
                     <div class="modal-left">
-                        <img src='{{ $project->url }}' width="600" height="400" class="img-responsive" />
+                        <img src='{{ $project->image_url }}' width="600" height="400" class="img-responsive" />
                         <div class="modal-right">
-                            <p><i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->views }}&nbsp;likes</p>
+                            <p><i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->likes }}&nbsp;likes</p>
                             <p><i class='fa fa-eye'></i>&nbsp;{{ $project->views }}&nbsp;views</p>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                           <div class="comment-wrapper">
                             <img src="{{ $comments->user->avatar }}" class="comment-img"/>
                             <span class="comment-username">
-                              <a href="{{ route('userprofile', $comments->user->username) }}" class="no-decoration">
+                              <a href="{{ route('userprofile', $comments->user->username) }}" style="text-decoration: none;">
                                 {{ $comments->user->username }}
                               </a>
                             </span>
@@ -59,12 +59,20 @@
                             <div class="form-group">
                               <textarea name="comment" class="form-control" rows="5" id="comment"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-info comment-btn">Comment</button>
+                            <button type="submit" class="btn btn-info comment-btn" style="margin-bottom: 4px;">Comment</button>
                             <span>
                         </form>
                     </div>
                 @endcan
                 <div class="modal-footer">
+
+                    <!-- Like feature from here -->
+                    <div style="float:left; font-size:11px;">
+                        <a href="#" style="color: #2296cc;" onclick=""><b>Like</b></a>.
+                        <span id="">You and {{ $project->likes - 1 }} other people like this project.</span>
+                    </div>
+                    <!-- to here -->
+
                     <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
                 </div>
             </div>

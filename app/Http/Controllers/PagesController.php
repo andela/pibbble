@@ -67,29 +67,38 @@ class PagesController extends Controller
     /**
      * @return comments.blade.php
      */
-    public function comments()
+    protected function comments()
     {
-        $projects = Project::orderBy('created_at', 'desc')->paginate(12);
-
-        return view('pages.comments', ['projects' => $projects]);
+        return Project::orderBy('created_at', 'desc')->paginate(12);
     }
 
     /**
      * @return views.blade.php
      */
-    public function views()
+    protected function views()
     {
-       $projects = Project::orderBy('views', 'desc')->paginate(12);
-
-        return view('pages.views', ['projects' => $projects]);
+       return Project::orderBy('views', 'desc')->paginate(12);
     }
     /**
      * @return likes.blade.php
      */
-    public function likes()
+    protected function likes()
     {
-        $projects = Project::orderBy('likes', 'desc')->paginate(12);
+        return Project::orderBy('likes', 'desc')->paginate(12);
+    }
 
-        return view('pages.likes', ['projects' => $projects]);
+    public function getLinks($link)
+    {
+        $projects = NULL;
+
+        if ($link == 'comments') {
+            $projects = $this->comments();
+        } elseif ($link == 'views') {
+            $projects = $this->views();
+        } elseif ($link == 'likes') {
+            $projects = $this->likes();
+        }
+
+        return view('pages.links', ['projects' => $projects]);
     }
 }

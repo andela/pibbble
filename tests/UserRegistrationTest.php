@@ -1,7 +1,11 @@
 <?php
 
+use Illuminate\Foundation\Testing\DatabaseTransactions;
+
 class UserRegistrationTest extends TestCase
 {
+    use DatabaseTransactions;
+
     protected $baseUrl = 'http://localhost';
 
     public function testNewUserRegistration()
@@ -22,7 +26,7 @@ class UserRegistrationTest extends TestCase
                             'email' => 'ope@yahoo.com',
                             'password' => bcrypt('123456'),
                             ])
-            ->visit('/?_token=23eftyhsjeu7yfbhfijsuyhfuushbnu826h')
-            ->see('opeyemiab');
+            ->visit('/auth/login/?_token=23eftyhsjeu7yfbhfijsuyhfuushbnu826h')
+            ->seePageIs('/auth/login');
     }
 }

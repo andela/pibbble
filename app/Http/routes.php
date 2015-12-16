@@ -17,9 +17,8 @@ Route::get('/terms', 'PagesController@terms');
 Route::get('/privacy', 'PagesController@privacy');
 Route::get('/help', 'PagesController@help');
 Route::get('/contact', 'PagesController@contact');
-Route::get('sort/comments', 'PagesController@comments');
-Route::get('sort/likes', 'PagesController@likes');
-Route::get('sort/views', 'PagesController@views');
+Route::get('sort/{links}', 'PagesController@getLinks');
+
 
 //Dashboard Route
 Route::get('/projects/dashboard', ['middleware' => 'auth', 'uses' => 'ProjectController@index']);

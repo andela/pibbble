@@ -22,7 +22,6 @@ class CommentController extends Controller
     }
 
     /**
-     *
      * Deletes project comment.
      */
     public function destroy($id)
