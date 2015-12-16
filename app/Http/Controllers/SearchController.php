@@ -15,13 +15,23 @@ class SearchController extends Controller
     {
         $searchInput = Input::get('searchinput');
 
+        /**
+         * During testing, the db coneection is set to sqlite
+         */
+        $dbConnection = env('DB_CONNECTION', 'pgsql');
+        $like = 'ILIKE';
+
+        if (strcasecmp($dbConnection, 'sqlite') == 0) {
+            $like = 'LIKE';
+        }
+
         if ($searchInput) {
             $projects = DB::table('projects')->join('users', 'users.id', '=', 'projects.user_id');
 
-            $results = $projects->where('projectname', 'ILIKE', '%'.$searchInput.'%')
-                                 ->orWhere('description', 'ILIKE', '%'.$searchInput.'%')
-                                 ->orWhere('technologies', 'ILIKE', '%'.$searchInput.'%')
-                                 ->orWhere('users.username', 'ILIKE', '%'.$searchInput.'%')
+            $results = $projects->where('projectname', $like , '%'.$searchInput.'%')
+                                 ->orWhere('description', $like , '%'.$searchInput.'%')
+                                 ->orWhere('technologies', $like , '%'.$searchInput.'%')
+                                 ->orWhere('users.username', $like , '%'.$searchInput.'%')
                                  ->get();
         } else {
             $results = [];
