@@ -1,7 +1,11 @@
 <?php
 
+use Illuminate\Foundation\Testing\DatabaseTransactions;
+
 class UserAuthenticationTest extends TestCase
 {
+    use DatabaseTransactions;
+
     protected $baseUrl = 'http://localhost';
 
     public function testUserAuthentication()
