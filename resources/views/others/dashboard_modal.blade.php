@@ -68,9 +68,9 @@
             </div>
             <div class="form-group">
               <label for="upload"><span class="glyphicon glyphicon-upload"></span> Upload</label>
-              <input type="url" name="projectUrl" class="form-control" id="upload" placeholder="http://www.pibbble.com" pattern="https?://.+">
+              <input type="url" name="project_url" class="form-control" id="upload" placeholder="http://www.pibbble.com" pattern="https?://.+">
               @if ($errors->has('projectUrl'))
-                    <span class="help-block">{{ $errors->first('projectUrl') }}</span>
+                    <span class="help-block">{{ $errors->first('project_url') }}</span>
                 @endif
               <div id="errors" class="red_message"></div>
               <br>
