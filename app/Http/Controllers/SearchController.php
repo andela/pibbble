@@ -28,10 +28,10 @@ class SearchController extends Controller
         if ($searchInput) {
             $projects = DB::table('projects')->join('users', 'users.id', '=', 'projects.user_id');
 
-            $results = $projects->where('projectname', $like , '%'.$searchInput.'%')
-                                 ->orWhere('description', $like , '%'.$searchInput.'%')
-                                 ->orWhere('technologies', $like , '%'.$searchInput.'%')
-                                 ->orWhere('users.username', $like , '%'.$searchInput.'%')
+            $results = $projects->where('projectname', $like, '%'.$searchInput.'%')
+                                 ->orWhere('description', $like, '%'.$searchInput.'%')
+                                 ->orWhere('technologies', $like, '%'.$searchInput.'%')
+                                 ->orWhere('users.username', $like, '%'.$searchInput.'%')
                                  ->get();
         } else {
             $results = [];
