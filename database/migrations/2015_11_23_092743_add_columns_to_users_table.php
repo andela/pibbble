@@ -28,10 +28,7 @@ class AddColumnsToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('skills');
-            $table->dropColumn('github');
-            $table->dropColumn('twitter');
-            $table->dropColumn('facebook');
+
         });
     }
 }
