@@ -21,13 +21,12 @@ class ProjectLikesController extends Controller
 
         $result = ProjectLikes::where('project_id', '=', $projectID)->where('user_id', '=', $userID)->first();
 
-        if(is_null($result)) {
+        if (is_null($result)) {
             $projectlikes = new ProjectLikes();
             $projectlikes->project_id = $projectID;
             $projectlikes->user_id = $userID;
             $projectlikes->save();
-        }
-        else {
+        } else {
             $theLike = ProjectLikes::find($result->id);
             $theLike->delete();
         }
