@@ -25,14 +25,14 @@ class Comment extends Model
      * @var array
      * */
     protected $fillable = ['comment'];
-    
+
     public function project()
     {
-        return $this->belongsTo('Project');
+        return $this->belongsTo('Pibbble\Project');
     }
 
     public function user()
     {
-        return $this->belongsTo('User');
+        return $this->belongsTo('Pibbble\User');
     }
 }

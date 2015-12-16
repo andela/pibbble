@@ -47,6 +47,7 @@ Route::controllers([
     'password' => 'Auth\PasswordController',
 ]);
 
+// Gets users' profiles
 Route::get('{username}', [
     'uses' => 'ProfileController@show',
     'as'   => 'userprofile',
@@ -81,3 +82,6 @@ Route::post('/search', 'SearchController@search');
 // OAuth form
 Route::post('/errors/oauthname', 'Auth\AuthController@postOauth');
 Route::get('/errors/oauthname', 'Auth\AuthController@getOauth');
+
+// Make comments on projects
+Route::post('/comment/{id}', 'CommentController@makeComment');

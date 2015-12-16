@@ -6,7 +6,7 @@ use Pibbble\Comment;
 
 class CommentRepository
 {
-    public function getTimeOfComment()
+    public function getCommentTime($commentId)
     {
         $comment = Comment::find($commentId);
 
