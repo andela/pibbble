@@ -79,10 +79,11 @@ class PagesController extends Controller
      */
     public function views()
     {
-       $projects = Project::orderBy('views', 'desc')->paginate(12);
+        $projects = Project::orderBy('views', 'desc')->paginate(12);
 
         return view('pages.views', ['projects' => $projects]);
     }
+
     /**
      * @return likes.blade.php
      */
