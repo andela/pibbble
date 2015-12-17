@@ -37,6 +37,12 @@ jQuery(document).ready(function($) {
         }
     });
 
+    $("#myUpload").on("shown.bs.modal", function () {
+ 
+        $("#uploadSubmit").prop("disabled", true);
+ 
+    });
+
     $('#upload').donetyping(function() {
 
         $.ajax({

@@ -78,7 +78,7 @@ class ProjectController extends Controller
     {
         if ($request->ajax()) {
             $this->validate($request, [
-                'project_url'    => 'required|unique:projects|url',
+                'project_url'    => 'required|unique:projects|validurl',
             ]);
 
             return new JsonResponse();
