@@ -1,5 +1,7 @@
 ## Pibbble
 
+[![Build Status](https://travis-ci.org/andela/pibbble.svg)](https://travis-ci.org/andela/pibbble)
+
 Pibbble is a web application developed with the Laravel framework. It is a show and tell for developers who would like to showcase their side projects for fellow developers, investors and other software enthusiasts.
 
 Pibbble is a community of developers where they can ask one another about what they are working on. They can talk about current work, challenges and help analyse each other's project.
