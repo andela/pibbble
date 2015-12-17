@@ -25,7 +25,12 @@ env:
 
 install: travis_retry composer install --no-interaction --prefer-source
 
-script: vendor/bin/phpunit
+script:
+    - mkdir -p build/logs
+    - vendor/bin/phpunit
+
+after_script:
+    - travis_retry php vendor/bin/coveralls -v
 
 notifications:
   slack: andela:FS1U7O0WWw91Uffll8EVrWLm
