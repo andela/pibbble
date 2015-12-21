@@ -1,7 +1,6 @@
 <?php
 
 use Pibbble\User;
-
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ProfileSettingsTest extends TestCase

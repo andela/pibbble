@@ -15,11 +15,11 @@ jQuery(document).ready(function($) {
             return this.each(function(i,el){
                 var $el = $(el);
                 
-                $el.is(':input') && $el.on('input',function(e){
+                $el.is(":input") && $el.on("input",function(e){
                     // This catches the backspace button in chrome, but also prevents
                     // the event from triggering too premptively. Without this line,
                     // using tab/shift+tab will make the focused element fire the callback.
-                    if (e.type=='keyup' && e.keyCode!=8) return;
+                    if (e.type=="keyup" && e.keyCode!=8) return;
                     
                     // Check if timeout has been set. If it has, "reset" the clock and
                     // start over again.
@@ -29,7 +29,7 @@ jQuery(document).ready(function($) {
                         // callback
                         doneTyping(el);
                     }, timeout);
-                }).on('blur',function(){
+                }).on("blur",function(){
                     // If we can, fire the event since we're leaving the field
                     doneTyping(el);
                 });
@@ -37,7 +37,13 @@ jQuery(document).ready(function($) {
         }
     });
 
-    $('#upload').donetyping(function() {
+    $("#myUpload").on("shown.bs.modal", function () {
+ 
+        $("#uploadSubmit").prop("disabled", true);
+ 
+    });
+
+    $("#upload").donetyping(function() {
 
         $.ajax({
 
