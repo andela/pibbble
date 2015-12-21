@@ -7,7 +7,6 @@ use Cloudder;
 use Pibbble\User;
 use Pibbble\Project;
 use Illuminate\Http\Request;
-use Illuminate\Http\JsonResponse;
 use Spatie\Browsershot\Browsershot;
 
 class ProjectController extends Controller
