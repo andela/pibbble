@@ -81,7 +81,7 @@ class ProjectController extends Controller
                 'project_url'    => 'required|unique:projects|validurl',
             ]);
 
-            return new JsonResponse();
+            return;
         }
 
         $this->validate($request, [
