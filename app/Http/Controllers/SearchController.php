@@ -15,7 +15,7 @@ class SearchController extends Controller
     {
         $searchInput = Input::get('searchinput');
 
-        /**
+        /*
          * Like is dependant on which db is being used
          * LIKE for every other db except pgsql
          * ILIKE for pgsql - used for case insensitive search
@@ -42,8 +42,8 @@ class SearchController extends Controller
     }
 
     /**
-     * Chek if detabase connection is using sqlite
-     * @return boolean true if connection used is sqlite, false otherwise
+     * Chek if detabase connection is using sqlite.
+     * @return bool true if connection used is sqlite, false otherwise
      */
     private function checkSqliteConnection()
     {
