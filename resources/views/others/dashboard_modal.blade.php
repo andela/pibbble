@@ -54,7 +54,7 @@
             </div>
             <div class="form-group">
               <label for="description"><span class="glyphicon glyphicon-blackboard"></span> Description</label>
-              <textarea type="text" name="description" class="form-control" id="description" placeholder="A show and tell for Codeweavers" required></textarea>
+              <textarea type="text" name="description" class="form-control" id="description" placeholder="A show and tell for Codeweavers" minlength="15"></textarea>
               @if ($errors->has('description'))
                     <span class="help-block">{{ $errors->first('description') }}</span>
                 @endif
@@ -74,7 +74,6 @@
                 @endif
               <div id="errors" class="red_message"></div>
               <br>
-              <button type="button" class="btn btn-default" id="verifyUrl">Check Upload</button>
             </div>
         <div class="modal-footer">
           <div class="pull-left">

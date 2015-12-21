@@ -63,4 +63,42 @@ class PagesController extends Controller
     {
         return view('help');
     }
+
+    /**
+     * @return comments.blade.php
+     */
+    protected function comments()
+    {
+        return Project::orderBy('created_at', 'desc')->paginate(12);
+    }
+
+    /**
+     * @return views.blade.php
+     */
+    protected function views()
+    {
+        return Project::orderBy('views', 'desc')->paginate(12);
+    }
+    /**
+     * @return likes.blade.php
+     */
+    protected function likes()
+    {
+        return Project::orderBy('likes', 'desc')->paginate(12);
+    }
+
+    public function getLinks($link)
+    {
+        $projects = null;
+
+        if ($link == 'comments') {
+            $projects = $this->comments();
+        } elseif ($link == 'views') {
+            $projects = $this->views();
+        } elseif ($link == 'likes') {
+            $projects = $this->likes();
+        }
+
+        return view('pages.links', ['projects' => $projects]);
+    }
 }

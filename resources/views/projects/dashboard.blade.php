@@ -67,7 +67,6 @@ Dashboard
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-md-2">
                     <div class="panel panel-primary">
@@ -88,8 +87,12 @@ Dashboard
                         <div class="panel-heading"><h4>My Projects</h4></div>
                         <div class="panel-body">
                             @if( $user->projects )
-                                <div class="min_height_400">
-                                    @include('others.project_modal')
+                                <div class="row">
+                                    @foreach ($user->projects as $project)
+                                    <div class="col-md-4">
+                                        @include('others.project_modal')
+                                    </div>
+                                    @endforeach
                                 </div>
                             @endif
                             @if( $user->projects->isEmpty() )

@@ -1,9 +1,12 @@
 <?php
 
 use Pibbble\User;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ProfileSettingsTest extends TestCase
 {
+    use DatabaseTransactions;
+
     protected $baseUrl = 'http://localhost';
 
     public function testResponse()
@@ -25,6 +28,6 @@ class ProfileSettingsTest extends TestCase
               ->type('tests', 'username')
               ->type('tests@yahoo.com', 'email')
               ->press('Update Settings')
-              ->see('You have successfully updated your profile.');
+              ->see('You have successfully updated your profile');
     }
 }
