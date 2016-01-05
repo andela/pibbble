@@ -7,6 +7,8 @@
     background-color: #eee;
     padding-left:80px;
     text-align: left;
+    border: 5px solid #eee;
+    border-radius: 10px;
 }
 
 .modal-header {
@@ -26,7 +28,6 @@
 }
 
 .modal-right {
-    width: 30%;
     border: 0px solid blue;
     margin:10px;
     padding: 10px;
@@ -34,6 +35,14 @@
     font-weight: normal;
     color: #999;
     float: left;
+}
+
+.modal-right a{
+    text-decoration: none;
+}
+
+.modal-right a:hover{
+    text-decoration: none;
 }
 
 .modal-backdrop
