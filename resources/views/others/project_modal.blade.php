@@ -1,5 +1,3 @@
-
-@foreach ($user->projects as $project)
     <div class='projects-container'>
         <div class='projects'>
             <a href="" data-toggle="modal" data-target="#{{ $project->id }}"><img src="{{ $project->image_url }}" width='200' height='150' style='border:0px solid #ccc;'></a>
@@ -48,4 +46,3 @@
             </div>
         </div>
     </div>
-@endforeach

@@ -7,7 +7,7 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
     <link rel="stylesheet" href="css/help.css"> <!-- Resource style -->
-    <script src="js/modernizr.js"></script> <!-- Modernizr -->
+    <script src="{{ load_asset('js/modernizr.js') }}"></script> <!-- Modernizr -->
 @endsection
 
 @section('content')
@@ -126,7 +126,7 @@
     </div> <!-- cd-faq-items -->
     <a href="#0" class="cd-close-panel">Close</a>
 </section> <!-- cd-faq -->
-<script src="js/jquery-2.1.1.js"></script>
-<script src="js/jquery.mobile.custom.min.js"></script>
-<script src="js/main.js"></script> <!-- Resource jQuery -->
+<script src="{{ load_asset('js/jquery-2.1.1.js') }}"></script>
+<script src="{{ load_asset('js/jquery.mobile.custom.min.js') }}"></script>
+<script src="{{ load_asset('js/main.js') }}"></script> <!-- Resource jQuery -->
 @endsection
