@@ -19,7 +19,6 @@ Route::get('/help', 'PagesController@help');
 Route::get('/contact', 'PagesController@contact');
 Route::get('sort/{links}', 'PagesController@getLinks');
 
-
 //Dashboard Route
 Route::get('/projects/dashboard', ['middleware' => 'auth', 'uses' => 'ProjectController@index']);
 
