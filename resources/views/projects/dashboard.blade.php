@@ -5,9 +5,9 @@ Dashboard
 
 @section('custom-css')
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="{{ asset('css/bootstrap-social.css') }}">
+<link rel="stylesheet" href="{{ load_asset('css/bootstrap-social.css') }}">
 <!-- Resource style -->
-<link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+<link rel="stylesheet" href="{{ load_asset('css/dashboard.css') }}">
 <!-- CSS reset -->
 @endsection @section('content')
 
