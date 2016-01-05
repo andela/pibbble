@@ -154,8 +154,8 @@ a:hover {
 
 .footer-sections {
     border: 0px solid gray;
-    min-width: 200px;
-    max-width: 300px;
+    min-width: 243px;
+    max-width: 310px;
     margin: 5px 25px 5px 0px;
     float: left;
 }
@@ -172,8 +172,6 @@ a:hover {
 .blank-page {
     min-height: 450px;
 }
-
-
 
 .all .banner {
     min-height: 200px;
@@ -564,6 +562,14 @@ a:hover {
     margin: 10% auto;
     text-align: center;
     font-family: Garamond;
+}
+
+.size14{
+    font-size: 14px;
+}
+.size14:hover{
+    font-size: 14px;
+    text-decoration: none;
 }
 
 .search {
