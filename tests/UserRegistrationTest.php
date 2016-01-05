@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class UserRegistrationTest extends TestCase
 {
-    use DatabaseTransactions;
+    use DatabaseMigrations;
 
     protected $baseUrl = 'http://localhost';
 
