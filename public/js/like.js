@@ -3,8 +3,7 @@ function like(projectID, count, ajaxResponse, likeLink)
     //alert(likeLink);
     if (window.XMLHttpRequest) {
         xmlhttp = new XMLHttpRequest();
-    }
-    else {
+    } else {
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
 
@@ -13,10 +12,9 @@ function like(projectID, count, ajaxResponse, likeLink)
             var likesCount = xmlhttp.responseText;
             document.getElementById(ajaxResponse).innerHTML = likesCount;
 
-            if(likesCount <= count) {
+            if (likesCount <= count) {
                 document.getElementById(likeLink).style.color = "#999";
-            }
-            else {
+            } else {
                 document.getElementById(likeLink).style.color = "#2296cc";
             }
         }
