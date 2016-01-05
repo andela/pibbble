@@ -62,5 +62,5 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-<script src="/js/auth.js"></script>
-<script type="text/javascript" src="/js/app.js"></script>
+<script src="{{ load_asset('/js/auth.js') }}"></script>
+<script type="text/javascript" src="{{ load_asset('/js/app.js') }}"></script>

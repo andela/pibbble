@@ -1,4 +1,4 @@
-<script src="/js/like.js"></script>
+<script src="{{ load_asset('/js/like.js') }}"></script>
 @foreach ($projects as $project)
     <?php
         $ajaxResponse = 'proj'.$project->id;
@@ -7,7 +7,7 @@
     <div class='projects-container'>
         <div class='projects'>
             <!-- Trigger modal window when a project thumbnail is clicked -->
-            <a href="" data-toggle="modal" data-target="#{{ $project->id }}"><img src='{{ $project->url }}' width='200' height='150' /></a>
+            <a href="" data-toggle="modal" data-target="#{{ $project->id }}"><img src='{{ $project->image_url }}' width='200' height='150' /></a>
             <span class='project-stats'><i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->projectLikes->count() }}</span>
             <span class='project-stats'><i class='fa fa-eye'></i>&nbsp;{{ $project->views }}</span>
         </div>
