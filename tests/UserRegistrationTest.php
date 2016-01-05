@@ -6,7 +6,7 @@ class UserRegistrationTest extends TestCase
 {
     use DatabaseMigrations;
 
-    protected $baseUrl = 'http://localhost';
+    protected $baseUrl = 'https://pibbble-staging.herokuapp.com';
 
     public function testNewUserRegistration()
     {
