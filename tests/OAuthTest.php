@@ -2,7 +2,7 @@
 
 class OAuthTest extends TestCase
 {
-    protected $baseUrl = 'http://localhost';
+    protected $baseUrl = 'https://pibbble-staging.herokuapp.com';
 
     public function testGitHubOAuth()
     {
