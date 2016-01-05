@@ -2,8 +2,6 @@
 
 namespace Pibbble\Http\Controllers;
 
-use Auth;
-use Pibbble\User;
 use Pibbble\Project;
 use Pibbble\ProjectLikes;
 
@@ -79,6 +77,7 @@ class PagesController extends Controller
     {
         return Project::orderBy('views', 'desc')->paginate(12);
     }
+
     /**
      * @return likes.blade.php
      */
