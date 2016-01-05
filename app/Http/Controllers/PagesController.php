@@ -79,6 +79,7 @@ class PagesController extends Controller
     {
         return Project::orderBy('views', 'desc')->paginate(12);
     }
+
     /**
      * @return likes.blade.php
      */
