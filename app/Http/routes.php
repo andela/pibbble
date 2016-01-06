@@ -35,6 +35,9 @@ Route::get('/project/like/{id}', [
     'middleware' => ['auth'],
 ]);
 
+//update project views when a project is viewed
+Route::get('/project/view/{id}', 'ProjectViewsController@view');
+
 // Profile settings Route
 Route::get('/profile/settings', [
     'uses' => 'ProfileController@getProfileSettings',

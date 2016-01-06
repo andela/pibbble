@@ -1,18 +1,22 @@
 <script src="{{ load_asset('/js/like.js') }}"></script>
+<script src="{{ load_asset('/js/view.js') }}"></script>
 @foreach ($projects as $project)
     <?php
-        $ajaxResponse = 'proj'.$project->id;
-        $likeLink = 'link'.$project->id;
+        $likesValueOnThumbnail = 'proj_'.$project->id.'_thumb_likes';
+        $likesValueOnModal = 'proj_'.$project->id.'_modal_likes';
+        $modalLikesLink = 'proj_'.$project->id.'_modal_like_link';
+        $viewsValueOnThumbnail = 'proj_'.$project->id.'_thumb_views';
+        $viewsValueOnModal = 'proj_'.$project->id.'_modal_views';
     ?>
     <div class='projects-container'>
         <div class='projects'>
             <!-- Trigger modal window when a project thumbnail is clicked -->
-            <a href="" data-toggle="modal" data-target="#{{ $project->id }}"><img src='{{ $project->image_url }}' width='200' height='150' /></a>
-            <span class='project-stats'><i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->projectLikes->count() }}</span>
-            <span class='project-stats'><i class='fa fa-eye'></i>&nbsp;{{ $project->views }}</span>
+            <a href="" data-toggle="modal" data-target="#{{ $project->id }}" onclick="view({{ $project->id }}, '{{ $viewsValueOnThumbnail }}', '{{ $viewsValueOnModal }}')"><img src='{{ $project->image_url }}' width='200' height='150' /></a>
+            <span id="{{ $likesValueOnThumbnail }}" class='project-stats'><i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->projectLikes->count() }}</span>
+            <span class='project-stats'><i class='fa fa-eye'></i>&nbsp;<span id="{{ $viewsValueOnThumbnail }}">{{ $project->views }}</span></span>
         </div>
         <span class='projects-name'>
-            <a href="" data-toggle="modal" data-target="#{{ $project->id }}">{{ $project->projectname }}</a>
+            <a href="" data-toggle="modal" data-target="#{{ $project->id }}" onclick="view({{ $project->id }}, '{{ $viewsValueOnThumbnail }}', '{{ $viewsValueOnModal }}')">{{ $project->projectname }}</a>
         </span>
     </div>
 
@@ -32,15 +36,15 @@
                         <div class="modal-right">
                             <p>
                                 @if(Auth::user())
-                                    <a href="#" id="{{ $likeLink }}" onclick="like({{ $project->id }}, {{ $project->projectLikes->count() }}, '{{ $ajaxResponse }}', '{{ $likeLink }}');">
+                                    <a href="#" id="{{ $modalLikesLink }}" onclick="like({{ $project->id }}, {{ $project->projectLikes->count() }}, '{{ $likesValueOnModal }}', '{{ $likesValueOnThumbnail }}', '{{ $modalLikesLink }}');">
                                         <i class='fa fa-thumbs-o-up'></i>
-                                        <span id="{{ $ajaxResponse }}">{{ $project->projectLikes->count() }}</span>&nbsp;Likes
+                                        <span id="{{ $likesValueOnModal }}">{{ $project->projectLikes->count() }}</span>&nbsp;Likes
                                     </a>
                                 @else
                                     <i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->projectLikes->count() }}&nbsp;Likes
                                 @endif
                             </p>
-                            <p><i class='fa fa-eye'></i>&nbsp;{{ $project->views }}&nbsp;Views</p>
+                            <p><i class='fa fa-eye'></i>&nbsp;<span id="{{ $viewsValueOnModal }}">{{ $project->views }}</span>&nbsp;Views</p>
                         </div>
                     </div>
                     <br clear="left">
