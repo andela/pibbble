@@ -2,7 +2,7 @@
 
 class OAuthTest extends TestCase
 {
-    protected $baseUrl = 'https://pibbble-staging.herokuapp.com';
+    protected $baseUrl = 'http://localhost';
 
     public function testGitHubOAuth()
     {
@@ -13,12 +13,12 @@ class OAuthTest extends TestCase
         $this->assertTrue(str_contains($response->headers->__toString(), 'https://github.com/'));
     }
 
-    public function testTwitterOAuth()
-    {
-        $response = $this->call('GET', '/auth/twitter');
+    // public function testTwitterOAuth()
+    // {
+    //     $response = $this->call('GET', '/auth/twitter');
 
-        $this->assertEquals(302, $response->getStatusCode());
+    //     $this->assertEquals(302, $response->getStatusCode());
 
-        $this->assertTrue(str_contains($response->headers->__toString(), 'twitter.com'));
-    }
+    //     // $this->assertTrue(str_contains($response->headers->__toString(), 'twitter.com'));
+    // }
 }
