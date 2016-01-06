@@ -13,7 +13,7 @@ class AddCommentToProjectTable extends Migration
     public function up()
     {
         Schema::table('projects', function (Blueprint $table) {
-            $table->integer('comments')->unsigned()->default(0);
+            $table->integer('comment_count')->unsigned()->default(0);
         });
     }
 
@@ -25,7 +25,7 @@ class AddCommentToProjectTable extends Migration
     public function down()
     {
         Schema::table('projects', function (Blueprint $table) {
-            $table->dropColumn('comments');
+            $table->dropColumn('comment_count');
         });
     }
 }

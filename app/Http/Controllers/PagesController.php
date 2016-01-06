@@ -69,7 +69,7 @@ class PagesController extends Controller
      */
     protected function comments()
     {
-        return Project::orderBy('created_at', 'desc')->paginate(12);
+        return Project::orderBy('comment_count', 'desc')->paginate(12);
     }
 
     /**
