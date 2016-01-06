@@ -12,17 +12,6 @@ matrix:
         - php: 5.5.9
         - php: 5.5
 
-env:
-  global:
-    - setup=basic
-    - APP_ENV=testing
-    - APP_DEBUG=true
-    - APP_KEY=b4kJqxeKSQSLoQezsy0QBuUx50RHqEW9
-    - DB_CONNECTION=sqlite
-    - CACHE_DRIVER=file
-    - SESSION_DRIVER=file
-    - QUEUE_DRIVER=sync
-
 install: travis_retry composer install --no-interaction --prefer-source
 
 script:

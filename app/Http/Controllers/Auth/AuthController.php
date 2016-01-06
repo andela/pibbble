@@ -151,7 +151,7 @@ class AuthController extends Controller
 
     /**
      * Create and login new user after collecting new username.
-     * 
+     *
      * @param  Request $request
      * @return Response
      */
@@ -191,7 +191,7 @@ class AuthController extends Controller
 
     /**
      * Show form to collect new username.
-     * 
+     *
      * @return Response
      */
     public function getOauth()
@@ -201,7 +201,7 @@ class AuthController extends Controller
 
     /**
      * Send a mail to register a user.
-     * 
+     *
      * @param  Request $request
      * @return Response
      */
