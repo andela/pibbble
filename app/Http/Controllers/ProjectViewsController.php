@@ -2,14 +2,10 @@
 
 namespace Pibbble\Http\Controllers;
 
-use DB;
-use Auth;
 use Pibbble\Project;
-use Pibbble\ProjectLikes;
 
 class ProjectViewsController extends Controller
 {
-
     public function view($projectID)
     {
         $project = Project::find($projectID);
