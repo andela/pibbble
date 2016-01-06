@@ -15,8 +15,12 @@ class OAuthTest extends TestCase
 
     public function testTwitterOAuth()
     {
-        $response = $this->call('GET', '/auth/twitter');
-        var_dump($response);
+        Session::start(); // Start a session for the current test
+        $params = [
+            '_token' => csrf_token(), // Retrieve current csrf token
+        ];
+
+        $response = $this->call('GET', '/auth/twitter', $params);
 
         $this->assertEquals(302, $response->getStatusCode());
 
