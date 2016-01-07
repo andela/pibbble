@@ -19,11 +19,10 @@ Route::get('/help', 'PagesController@help');
 Route::get('/contact', 'PagesController@contact');
 Route::get('sort/{links}', 'PagesController@getLinks');
 
-
 //Dashboard Route
 Route::get('/projects/dashboard', ['middleware' => 'auth', 'uses' => 'ProjectController@index']);
 
-#Project routes using resource
+//Project routes using resource
 Route::resource('projects', 'ProjectController');
 Route::get('projects/meta/{id}', ['uses' => 'ProjectController@getMetaAsJSON', 'as' => 'getMetaAsJSON']);
 // Confirm before delete
