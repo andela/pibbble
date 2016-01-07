@@ -26,8 +26,19 @@ class ProjectLikesController extends Controller
             $projectlikes->project_id = $projectID;
             $projectlikes->user_id = $userID;
             $projectlikes->save();
+
+            //find the project, increment the likes by 1 and save it.
+            $project = Project::find($projectID);
+            $project->likes += 1;
+            $project->save();
         } else {
             ProjectLikes::find($result->id)->delete();
+            $project = Project::find($projectID);
+            if ($project->likes > 0) {
+                $project->likes -= 1;
+            }
+
+            $project->save();
         }
 
         $likes = DB::table('projects_likes')->where('project_id', '=', $projectID)->count();
