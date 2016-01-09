@@ -17,8 +17,7 @@ Route::get('/terms', 'PagesController@terms');
 Route::get('/privacy', 'PagesController@privacy');
 Route::get('/help', 'PagesController@help');
 Route::get('/contact', 'PagesController@contact');
-Route::get('sort/{links}', 'PagesController@getLinks');
-
+Route::get('/sort', ['uses' => 'PagesController@getLinks', 'as' => 'sort']);
 
 //Dashboard Route
 Route::get('/projects/dashboard', ['middleware' => 'auth', 'uses' => 'ProjectController@index']);
@@ -34,6 +33,9 @@ Route::get('/project/like/{id}', [
     'uses' => 'ProjectLikesController@like',
     'middleware' => ['auth'],
 ]);
+
+//update project views when a project is viewed
+Route::get('/project/view/{id}', 'ProjectViewsController@view');
 
 // Profile settings Route
 Route::get('/profile/settings', [
@@ -78,8 +80,8 @@ Route::post('/auth/register', 'Auth\AuthController@sendMail');
 Route::get('auth/{github}', 'Auth\AuthController@redirectToProvider');
 Route::get('auth/{github}/callback', 'Auth\AuthController@handleProviderCallback');
 
-Route::get('auth/{twitter}', 'Auth\AuthController@redirectToProvider');
-Route::get('auth/{twitter}/callback', 'Auth\AuthController@handleProviderCallback');
+// Route::get('auth/{twitter}', 'Auth\AuthController@redirectToProvider');
+// Route::get('auth/{twitter}/callback', 'Auth\AuthController@handleProviderCallback');
 
 // Project search
 Route::post('/search', 'SearchController@search');

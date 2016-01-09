@@ -69,7 +69,7 @@ class PagesController extends Controller
      */
     protected function comments()
     {
-        return Project::orderBy('created_at', 'desc')->paginate(12);
+        return Project::orderBy('comment_count', 'desc')->paginate(12);
     }
 
     /**
@@ -79,6 +79,7 @@ class PagesController extends Controller
     {
         return Project::orderBy('views', 'desc')->paginate(12);
     }
+
     /**
      * @return likes.blade.php
      */
@@ -87,9 +88,10 @@ class PagesController extends Controller
         return Project::orderBy('likes', 'desc')->paginate(12);
     }
 
-    public function getLinks($link)
+    public function getLinks()
     {
         $projects = null;
+        $link = $_GET['popular'];
 
         if ($link == 'comments') {
             $projects = $this->comments();
@@ -99,6 +101,6 @@ class PagesController extends Controller
             $projects = $this->likes();
         }
 
-        return view('pages.links', ['projects' => $projects]);
+        return view('landing', ['projects' => $projects]);
     }
 }

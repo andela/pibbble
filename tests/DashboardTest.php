@@ -4,7 +4,7 @@ use Pibbble\Project;
 
 class DashboardTest extends TestCase
 {
-    protected $baseUrl = 'http://localhost:8000';
+    protected $baseUrl = 'http://localhost';
 
     /**
      * A test for the index page.
