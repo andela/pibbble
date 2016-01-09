@@ -253,14 +253,12 @@ a:hover {
     padding: 0 20px;
     margin: 0;
 }
-
 .all .card .card-heading.simple {
     font-size: 20px;
     font-weight: 300;
     color: #777;
     border-bottom: 1px solid #e5e5e5;
 }
-
 .all .card .card-heading.image img {
     display: inline-block;
     width: 46px;
@@ -548,36 +546,30 @@ a:hover {
     height: 20px;
     width: 20px;
 }
-
 .ddColor {
     background-color: #fff;
     color: #777;
 }
-
 .ddColor>li>a:hover {
     background-color: white;
 }
-
 .error404 {
     margin: 10% auto;
     text-align: center;
     font-family: Garamond;
 }
-
 .size14{
-    font-size: 14px;
+    font-size: 13px;
 }
 .size14:hover{
-    font-size: 14px;
+    font-size: 13px;
     text-decoration: none;
 }
-
 .search {
     margin-top: 10% auto;
     text-align: center;
     font-family: ;
 }
-
 .btn-xlarge {
     padding: 18px 28px;
     font-size: 22px; //change this to your desired size

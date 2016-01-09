@@ -31,11 +31,13 @@
 .valign {
     vertical-align: 30%;
 }
-
 .min_height_400 {
     min-height: 400px;
 }
-
 .red_message {
     color: #f05a5a;
+}
+.comment-box {
+  resize: none;
+  border-radius: 0px;
 }
