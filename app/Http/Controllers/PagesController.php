@@ -70,7 +70,6 @@ class PagesController extends Controller
      */
     public function getLinks()
     {
-        $q = $_SERVER['QUERY_STRING'];
         $link = isset($_GET['popular']) ? $_GET['popular'] : 'views';
         if ($link === 'comments') {
             $link = 'comment_count';
