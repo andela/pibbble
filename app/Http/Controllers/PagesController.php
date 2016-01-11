@@ -72,7 +72,7 @@ class PagesController extends Controller
     {
         $q = $_SERVER['QUERY_STRING'];
         $link = isset($_GET['popular']) ? $_GET['popular'] : 'views';
-        if($link === 'comments') $link = 'comment_count';
+        if ($link === 'comments') $link = 'comment_count';
         $projects = Project::orderBy($link, 'desc')->paginate(12);
         $projects->setPath('/sort?popular='.$link.'&');
 
