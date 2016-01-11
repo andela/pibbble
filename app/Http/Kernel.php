@@ -31,5 +31,6 @@ class Kernel extends HttpKernel
         'guest' => \Pibbble\Http\Middleware\RedirectIfAuthenticated::class,
         'oauthUser' => \Pibbble\Http\Middleware\OauthUser::class,
         'validateEmail' => \Pibbble\Http\Middleware\ValidateEmail::class,
+        'cors' => \Pibbble\Http\Middleware\CORS::class,
     ];
 }
