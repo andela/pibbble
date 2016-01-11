@@ -15,7 +15,7 @@
 <hr>
 <div class="row">
     <div class="col-md-7">
-        <form class="form-horizontal container-margin" method="POST" action="/profile/settings">
+        <form class="form-horizontal container-margin" method="POST" action="/settings/profile">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="group container">
                 <div class="form-group">
