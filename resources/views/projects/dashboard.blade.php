@@ -30,16 +30,16 @@ Dashboard
                     <div class="well well-sm makeup">
                         <div class="row">
                             <div class="pull-left">
-                                <a class="btn btn-social-icon btn-github">
+                                <a href="http://github.com/{{ $user->github }}" class="btn btn-social-icon btn-github">
                                     <i class="fa fa-github"></i>
                                 </a>
                                 <a href="http://twitter.com/{{ $user->twitter }}" class="btn btn-social-icon btn-twitter">
                                     <i class="fa fa-twitter"></i>
                                 </a>
-                                <a class="btn btn-social-icon btn-facebook">
+                                <a href="{{ $user->facebook }}" class="btn btn-social-icon btn-facebook">
                                     <i class="fa fa-facebook"></i>
                                 </a>
-                                <a class="btn btn-social-icon btn-linkedin">
+                                <a href="{{ $user->linkedin }}" class="btn btn-social-icon btn-linkedin">
                                     <i class="fa fa-linkedin"></i>
                                 </a>
                             </div>
