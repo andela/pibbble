@@ -88,5 +88,5 @@
 </div>
 <!-- Pagination -->
 <div class="row text-center">
-    {!! $projects->render() !!}
+{!! str_replace("&amp;?page", "&amp;page", $projects->render()) !!}
 </div>
