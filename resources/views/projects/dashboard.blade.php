@@ -39,7 +39,7 @@ Dashboard
                                 <a href="{{ $user->facebook }}" class="btn btn-social-icon btn-facebook">
                                     <i class="fa fa-facebook"></i>
                                 </a>
-                                <a class="btn btn-social-icon btn-linkedin">
+                                <a href="{{ $user->linkedin }}" class="btn btn-social-icon btn-linkedin">
                                     <i class="fa fa-linkedin"></i>
                                 </a>
                             </div>
