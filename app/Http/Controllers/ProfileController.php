@@ -50,7 +50,6 @@ class ProfileController extends Controller
     public function postAvatarSetting(Request $request)
     {
         if ($request->hasFile('avatar')) {
-
             $img = $request->file('avatar');
 
             Cloudder::upload($img);
