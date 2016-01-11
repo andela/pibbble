@@ -36,7 +36,7 @@ Dashboard
                                 <a href="http://twitter.com/{{ $user->twitter }}" class="btn btn-social-icon btn-twitter">
                                     <i class="fa fa-twitter"></i>
                                 </a>
-                                <a class="btn btn-social-icon btn-facebook">
+                                <a href="{{ $user->facebook }}" class="btn btn-social-icon btn-facebook">
                                     <i class="fa fa-facebook"></i>
                                 </a>
                                 <a class="btn btn-social-icon btn-linkedin">
