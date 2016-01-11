@@ -2,7 +2,6 @@
     width:75%;
     height:500px;
 }
-
 .modal-content {
     background-color: #eee;
     padding-left:80px;
@@ -10,23 +9,19 @@
     border: 5px solid #eee;
     border-radius: 10px;
 }
-
 .modal-header {
     background-color: #eee;
 }
-
 .modal-left {
     width: 90%;
     border: 0px solid red;
     margin:10px;
     overflow: hidden;
 }
-
 .modal-left img {
     border: 10px solid #fff;
     float: left;
 }
-
 .modal-right {
     border: 0px solid blue;
     margin:10px;
@@ -36,20 +31,15 @@
     color: #999;
     float: left;
 }
-
 .modal-right a{
     text-decoration: none;
 }
-
 .modal-right a:hover{
     text-decoration: none;
 }
-
-.modal-backdrop
-{
+.modal-backdrop{
     min-height: 702px;
 }
-
 form textarea {
   background-color: #ffffff;
   border: none;
@@ -65,34 +55,27 @@ form textarea {
   width: 75%;
   -webkit-appearance:none;
 }
-
 .form-control {
-  width: 60%;
+  width: 54%;
 }
-
-
 .comment-img {
   border-radius: 26px;
   height: 37px;
   width: 37px;
 }
-
 .comment-username {
   margin-left: 10px;
   font-size: 125%;
   font-weight: 500;
 }
-
 .comment-comment {
   padding-left: 50px;
   margin-top: -10px;
 }
-
 .comment-time {
   padding-left: 51px;
   font-size: 75%;
 }
-
 .hr-color {
   background-color: #ffffff;
   color: #ffffff;
@@ -100,7 +83,6 @@ form textarea {
   width: 80%;
   margin-left: 0px;
 }
-
 .no-decoration {
   text-decoration: none;
 }
@@ -109,11 +91,15 @@ form textarea {
   padding-bottom: 10px;
   border-bottom: 1px solid white;
   margin-right: 30px;
-  width: 50em;
+  width: 45em;
 }
 .comment-wrapper:first-of-type {
   border-top: 1px solid white;
 }
 .comment-wrapper:last-of-type {
   margin-bottom: 10px;
+}
+.btn-margin {
+  margin-bottom: 4px;
+  margin-top: -9px;
 }
