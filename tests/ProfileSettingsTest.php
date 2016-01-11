@@ -14,7 +14,7 @@ class ProfileSettingsTest extends TestCase
         $user = factory(User::class)->create();
         $this->actingAs($user);
 
-        $response = $this->call('GET', '/profile/settings');
+        $response = $this->call('GET', '/settings/profile');
 
         $this->assertEquals(200, $response->getStatusCode());
     }
@@ -24,7 +24,7 @@ class ProfileSettingsTest extends TestCase
         $user = factory(User::class)->create();
         $this->actingAs($user);
 
-        $this->visit('/profile/settings')
+        $this->visit('/settings/profile')
               ->type('tests', 'username')
               ->type('tests@yahoo.com', 'email')
               ->press('Update Settings')

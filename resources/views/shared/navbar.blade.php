@@ -50,7 +50,7 @@
                   <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">{{ Auth::user()->username }}  <img class="avatar" src="{{ Auth::user()->getAvatar() }}" /></button>
                   <ul class="ddColor dropdown-menu" role="menu" aria-labelledby="menu1">
                     <li role="presentation" class="dashboard-item"><a role="menuitem" tabindex="-1" href="/projects">Dashboard </a></li>
-                    <li role="presentation" class="profile-item"><a role="menuitem" tabindex="-1" href="/profile/settings">Profile settings</a></li>
+                    <li role="presentation" class="profile-item"><a role="menuitem" tabindex="-1" href="/settings/profile">Profile settings</a></li>
                     <li role="presentation" class="logout-item"><a role="menuitem" tabindex="-1" href="/auth/logout">Log out</a></li>
                   </ul>
                 </div>

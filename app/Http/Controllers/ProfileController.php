@@ -41,7 +41,7 @@ class ProfileController extends Controller
         $input = $request->except('_token', 'url');
         User::find(Auth::user()->id)->updateProfile($input);
 
-        return redirect('/profile/settings')->with('status', 'You have successfully updated your profile');
+        return redirect('/settings/profile')->with('status', 'You have successfully updated your profile.');
     }
 
     /**
@@ -49,13 +49,17 @@ class ProfileController extends Controller
      */
     public function postAvatarSetting(Request $request)
     {
-        $img = $request->file('avatar');
+        if ($request->hasFile('avatar')) {
+            $img = $request->file('avatar');
 
-        Cloudder::upload($img);
-        $imgurl = Cloudder::getResult()['url'];
+            Cloudder::upload($img);
+            $imgurl = Cloudder::getResult()['url'];
 
-        User::find(Auth::user()->id)->updateAvatar($imgurl);
+            User::find(Auth::user()->id)->updateAvatar($imgurl);
 
-        return redirect('/profile/settings')->with('status', 'Avatar updated successfully');
+            return redirect('/settings/profile')->with('status', 'Avatar updated successfully.');
+        } else {
+            return redirect('/settings/profile')->with('status', 'Please select an image.');
+        }
     }
 }
