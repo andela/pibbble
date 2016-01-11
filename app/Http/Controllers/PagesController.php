@@ -2,8 +2,6 @@
 
 namespace Pibbble\Http\Controllers;
 
-use Auth;
-use Pibbble\User;
 use Pibbble\Project;
 use Pibbble\ProjectLikes;
 
