@@ -61,7 +61,7 @@
                                 {{ $comments->user->username }}
                               </a>
                             </span>
-                            <div class="comment-comment">{{ $comments->comment }}</div>
+                            <div class="comment-comment" style="word-wrap: break-word;">{{ $comments->comment }}</div>
                             <div class="comment-time">
                               {{ $comments->updated_at->diffForHumans() }}
                             </div>

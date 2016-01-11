@@ -41,7 +41,7 @@ class ProfileController extends Controller
         $input = $request->except('_token', 'url');
         User::find(Auth::user()->id)->updateProfile($input);
 
-        return redirect('/profile/settings')->with('status', 'You have successfully updated your profile.');
+        return redirect('/settings/profile')->with('status', 'You have successfully updated your profile.');
     }
 
     /**
@@ -58,9 +58,9 @@ class ProfileController extends Controller
 
             User::find(Auth::user()->id)->updateAvatar($imgurl);
 
-            return redirect('/profile/settings')->with('status', 'Avatar updated successfully.');
+            return redirect('/settings/profile')->with('status', 'Avatar updated successfully.');
         } else {
-            return redirect('/profile/settings')->with('status', 'Please select an image.');
+            return redirect('/settings/profile')->with('status', 'Please select an image.');
         }
     }
 }
