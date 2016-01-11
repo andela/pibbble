@@ -30,7 +30,7 @@ Dashboard
                     <div class="well well-sm makeup">
                         <div class="row">
                             <div class="pull-left">
-                                <a class="btn btn-social-icon btn-github">
+                                <a href="http://github.com/{{ $user->github }}" class="btn btn-social-icon btn-github">
                                     <i class="fa fa-github"></i>
                                 </a>
                                 <a href="http://twitter.com/{{ $user->twitter }}" class="btn btn-social-icon btn-twitter">
