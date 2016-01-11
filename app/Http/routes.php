@@ -20,7 +20,7 @@ Route::get('/contact', 'PagesController@contact');
 Route::get('/sort', ['uses' => 'PagesController@getLinks', 'as' => 'sort']);
 
 //Dashboard Route
-Route::get('/projects/dashboard', ['middleware' => 'auth', 'uses' => 'ProjectController@index']);
+Route::get('/dashboard', ['middleware' => 'auth', 'uses' => 'ProjectController@index']);
 
 #Project routes using resource
 Route::resource('projects', 'ProjectController');
