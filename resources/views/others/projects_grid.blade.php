@@ -61,7 +61,7 @@
                                 {{ $comments->user->username }}
                               </a>
                             </span>
-                            <div class="comment-comment">{{ $comments->comment }}</div>
+                            <div class="comment-comment" style="word-wrap: break-word;">{{ $comments->comment }}</div>
                             <div class="comment-time">
                               {{ $comments->updated_at->diffForHumans() }}
                             </div>
@@ -75,9 +75,9 @@
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <span>
                             <div class="form-group">
-                              <textarea name="comment" class="form-control" rows="5" id="comment"></textarea>
+                              <textarea name="comment" class="form-control comment-box" rows="3" id="comment"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-info comment-btn" style="margin-bottom: 4px;">Comment</button>
+                            <button type="submit" class="btn btn-info comment-btn btn-margin">Comment</button>
                             <span>
                         </form>
                     </div>

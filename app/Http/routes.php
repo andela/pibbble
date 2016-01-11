@@ -38,7 +38,7 @@ Route::get('/project/like/{id}', [
 Route::get('/project/view/{id}', 'ProjectViewsController@view');
 
 // Profile settings Route
-Route::get('/profile/settings', [
+Route::get('/settings/profile', [
     'uses' => 'ProfileController@getProfileSettings',
     'middleware' => ['auth'],
 ]);
@@ -48,7 +48,7 @@ Route::post('/avatar/setting', [
     'middleware' => ['auth'],
 ]);
 
-Route::post('/profile/settings', 'ProfileController@updateProfileSettings');
+Route::post('/settings/profile', 'ProfileController@updateProfileSettings');
 
 Route::controllers([
     'password' => 'Auth\PasswordController',
