@@ -20,7 +20,7 @@ Route::get('/contact', 'PagesController@contact');
 Route::get('/sort', ['uses' => 'PagesController@getLinks', 'as' => 'sort']);
 
 //Dashboard Route
-Route::get('/projects/dashboard', ['middleware' => 'auth', 'uses' => 'ProjectController@index']);
+Route::get('/dashboard', ['middleware' => 'auth', 'uses' => 'ProjectController@index']);
 
 #Project routes using resource
 Route::resource('projects', 'ProjectController');
@@ -38,7 +38,7 @@ Route::get('/project/like/{id}', [
 Route::get('/project/view/{id}', 'ProjectViewsController@view');
 
 // Profile settings Route
-Route::get('/profile/settings', [
+Route::get('/settings/profile', [
     'uses' => 'ProfileController@getProfileSettings',
     'middleware' => ['auth'],
 ]);
@@ -48,7 +48,7 @@ Route::post('/avatar/setting', [
     'middleware' => ['auth'],
 ]);
 
-Route::post('/profile/settings', 'ProfileController@updateProfileSettings');
+Route::post('/settings/profile', 'ProfileController@updateProfileSettings');
 
 Route::controllers([
     'password' => 'Auth\PasswordController',
