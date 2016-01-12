@@ -7,7 +7,7 @@ if (! function_exists('load_asset')) {
     }
 }
 
-if (! function_exists('sanitize')} {
+if (! function_exists('sanitize')) {
     /**
      * Check if user fields are empty
      *
