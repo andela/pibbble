@@ -30,18 +30,26 @@ Dashboard
                     <div class="well well-sm makeup">
                         <div class="row">
                             <div class="pull-left">
+                                @if (! empty($user->github) && ! ctype_space($user->github))
                                 <a href="http://github.com/{{ $user->github }}" class="btn btn-social-icon btn-github">
                                     <i class="fa fa-github"></i>
                                 </a>
+                                @endif
+                                @if (! empty($user->twitter) && ! ctype_space($user->twitter))
                                 <a href="http://twitter.com/{{ $user->twitter }}" class="btn btn-social-icon btn-twitter">
                                     <i class="fa fa-twitter"></i>
                                 </a>
+                                @endif
+                                @if (! empty($user->facebook) && ! ctype_space($user->facebook))
                                 <a href="{{ $user->facebook }}" class="btn btn-social-icon btn-facebook">
                                     <i class="fa fa-facebook"></i>
                                 </a>
+                                @endif
+                                @if (! empty($user->linkedin) && ! ctype_space($user->linkedin)))
                                 <a href="{{ $user->linkedin }}" class="btn btn-social-icon btn-linkedin">
                                     <i class="fa fa-linkedin"></i>
                                 </a>
+                                @endif
                             </div>
                             @can('owner-can-see', $user->id)
                                 <div class="btn-group pull-right">
