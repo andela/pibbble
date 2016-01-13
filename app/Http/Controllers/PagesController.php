@@ -6,6 +6,7 @@ use Auth;
 use Pibbble\User;
 use Pibbble\Project;
 use Pibbble\ProjectLikes;
+use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
@@ -68,13 +69,14 @@ class PagesController extends Controller
      * Get links for sorted views based on query
      * @return popular views
      */
-    public function getLinks()
+    public function getLinks(Request $request)
     {
-        $link = isset($_GET['popular']) ? $_GET['popular'] : 'views';
-        if ($link === 'comments') {
-            $link = 'comment_count';
-        }
-        $projects = Project::orderBy($link, 'desc')->paginate(12);
+        $link = ($request->query()['popular']) ?? 'views';
+        $sort_type = ['comments' => 'comment_count',
+                        'likes' => 'likes',
+                        'views' => 'views'
+                    ];
+        $projects = Project::orderBy($sort_type[$link], 'desc')->paginate(12);
         $projects->setPath('/sort?popular='.$link.'&');
 
         return view('landing', ['projects' => $projects]);

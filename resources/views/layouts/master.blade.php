@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <title> @yield('title') </title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{ load_asset('/components/mui-0.1.22-rc1/css/mui.min.css') }}" rel="stylesheet" />
     <link href="{{ load_asset('/components/font-awesome-4.4.0/css/font-awesome.min.css') }}" rel="stylesheet" >
