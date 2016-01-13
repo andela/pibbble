@@ -2,8 +2,6 @@
 
 namespace Pibbble\Http\Controllers;
 
-use DB;
-use Auth;
 use Pibbble\Project;
 
 class ProjectViewsController extends Controller
