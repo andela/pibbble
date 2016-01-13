@@ -22,5 +22,6 @@
     @include('shared.navbar')
     @yield('content')
     @include('shared.footer')
+    @yield('custom_js')
   </body>
 </html>
