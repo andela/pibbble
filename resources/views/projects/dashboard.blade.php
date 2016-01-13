@@ -9,7 +9,9 @@ Dashboard
 <!-- Resource style -->
 <link rel="stylesheet" href="{{ load_asset('css/dashboard.css') }}">
 <!-- CSS reset -->
-@endsection @section('content')
+@endsection
+
+@section('content')
 
 <div class="container-fluid ball">
     <div class="container">
@@ -106,5 +108,8 @@ Dashboard
     </div>
     @include('others.dashboard_modal')
 </div>
+@section('custom_js')
+    <script src="{{ load_asset('js/follow.js') }}"></script>
+@endsection
 
 @endsection
