@@ -34,4 +34,27 @@ class FollowAndUnfollowTest extends TestCase
             $this->assertContains($user->username, $usernames);
         }
     }
+
+    public function testFollowersOfUser()
+    {
+        $user1 = factory(User::class)->create();
+        $user2 = factory(User::class)->create();
+        $user3 = factory(User::class)->create();
+        $user4 = factory(User::class)->create();
+
+        $user1->follows()->save($user4);
+        $user2->follows()->save($user4);
+        $user3->follows()->save($user4);
+
+        $usernames = [$user1->username, $user2->username, $user3->username];
+
+        $followers = User::find($user4->id)->followers()->get();
+
+        $this->assertCount(3, $followers);
+
+        foreach ($followers as $follower) {
+            $this->assertContains($follower->username, $usernames);
+        }
+
+    }
 }
