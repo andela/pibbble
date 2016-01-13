@@ -41,12 +41,12 @@ Dashboard
                                 </a>
                                 @endif
                                 @if (sanitize($user->facebook))
-                                <a href="{{ $user->facebook }}" class="btn btn-social-icon btn-facebook">
+                                <a href="http://facebook.com/{{ $user->facebook }}" class="btn btn-social-icon btn-facebook">
                                     <i class="fa fa-facebook"></i>
                                 </a>
                                 @endif
                                 @if (sanitize($user->linkedin))
-                                <a href="{{ $user->linkedin }}" class="btn btn-social-icon btn-linkedin">
+                                <a href="http://linkedin.com/in/{{ $user->linkedin }}" class="btn btn-social-icon btn-linkedin">
                                     <i class="fa fa-linkedin"></i>
                                 </a>
                                 @endif
