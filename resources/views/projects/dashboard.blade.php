@@ -30,18 +30,26 @@ Dashboard
                     <div class="well well-sm makeup">
                         <div class="row">
                             <div class="pull-left">
+                                @if (sanitize($user->github))
                                 <a href="http://github.com/{{ $user->github }}" class="btn btn-social-icon btn-github">
                                     <i class="fa fa-github"></i>
                                 </a>
+                                @endif
+                                @if (sanitize($user->twitter))
                                 <a href="http://twitter.com/{{ $user->twitter }}" class="btn btn-social-icon btn-twitter">
                                     <i class="fa fa-twitter"></i>
                                 </a>
+                                @endif
+                                @if (sanitize($user->facebook))
                                 <a href="{{ $user->facebook }}" class="btn btn-social-icon btn-facebook">
                                     <i class="fa fa-facebook"></i>
                                 </a>
+                                @endif
+                                @if (sanitize($user->linkedin))
                                 <a href="{{ $user->linkedin }}" class="btn btn-social-icon btn-linkedin">
                                     <i class="fa fa-linkedin"></i>
                                 </a>
+                                @endif
                             </div>
                             @can('owner-can-see', $user->id)
                                 <div class="btn-group pull-right">
@@ -89,7 +97,7 @@ Dashboard
                             @if( $user->projects )
                                 <div class="row">
                                     @foreach ($user->projects as $project)
-                                    <div class="col-md-4">
+                                    <div>
                                         @include('others.project_modal')
                                     </div>
                                     @endforeach
