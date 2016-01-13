@@ -99,4 +99,13 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return $this->belongsToMany('User', 'user_follows', 'user_id', 'follow_id');
     }
+
+    /**
+     * Define followers relationship
+     * @return followers relationship
+     */
+    public function followers()
+    {
+        return $this->belongsToMany('Users', 'user_follows', 'follow_id', 'user_id');
+    }
 }
