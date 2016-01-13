@@ -1,18 +1,37 @@
 <?php
 
-class ExampleTest extends TestCase
+use Pibbble\User;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+
+
+class FollowAndUnfollowTest extends TestCase
 {
-    protected $baseUrl = 'http://localhost';
+    //use DatabaseMigrations;
 
     /**
      * A basic functional test example.
      *
      * @return void
      */
-    public function testBasicExample()
+    public function testFollowUser()
     {
-        $response = $this->call('GET', '/auth/login');
+        $user1 = factory(User::class)->create();
+        $user2 = factory(User::class)->create();
+        $user3 = factory(User::class)->create();
+        $user4 = factory(User::class)->create();
 
-        $this->assertEquals(200, $response->getStatusCode());
+
+        $user1->follows()->save($user2);
+        $user1->follows()->save($user3);
+        $user1->follows()->save($user4);
+
+        $usernames = [$user2->username, $user3->username, $user4->username];
+
+        $following = User::find($user1->id)->follows()->get();
+        $this->assertCount(3, $following);
+
+        foreach ($following as $user) {
+            $this->assertContains($user->username, $usernames);
+        }
     }
 }
