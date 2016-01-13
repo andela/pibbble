@@ -3,16 +3,10 @@
 use Pibbble\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-
 class FollowAndUnfollowTest extends TestCase
 {
-    //use DatabaseMigrations;
+    use DatabaseMigrations;
 
-    /**
-     * A basic functional test example.
-     *
-     * @return void
-     */
     public function testFollowUser()
     {
         $user1 = factory(User::class)->create();
@@ -55,6 +49,5 @@ class FollowAndUnfollowTest extends TestCase
         foreach ($followers as $follower) {
             $this->assertContains($follower->username, $usernames);
         }
-
     }
 }
