@@ -95,9 +95,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * Defines follow relationship
      * @return follow relationship
      */
-    public function follow()
+    public function follows()
     {
-        return $this->belongsToMany('User', 'user_follows', 'user_id', 'follow_id');
+        return $this->belongsToMany('Pibbble\User', 'user_follows', 'user_id', 'follow_id')->withTimestamps();
     }
 
     /**
@@ -106,6 +106,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      */
     public function followers()
     {
-        return $this->belongsToMany('Users', 'user_follows', 'follow_id', 'user_id');
+        return $this->belongsToMany('Pibbble\User', 'user_follows', 'follow_id', 'user_id');
     }
 }
