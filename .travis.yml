@@ -8,9 +8,6 @@ php:
 matrix:
     allow_failures:
         - php: 7.0
-        - php: hhvm
-        - php: 5.5.9
-        - php: 5.5
 
 install: travis_retry composer install --no-interaction --prefer-source
 
