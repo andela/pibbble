@@ -2,8 +2,6 @@
 
 namespace Pibbble\Http\Controllers;
 
-use Auth;
-use Pibbble\User;
 use Pibbble\Project;
 use Pibbble\ProjectLikes;
 use Illuminate\Http\Request;
@@ -66,7 +64,7 @@ class PagesController extends Controller
     }
 
     /**
-     * Get links for sorted views based on query
+     * Get links for sorted views based on query.
      * @return popular views
      */
     public function getLinks(Request $request)
@@ -74,7 +72,7 @@ class PagesController extends Controller
         $link = ($request->query()['popular']) ?? 'views';
         $sort_type = ['comments' => 'comment_count',
                         'likes' => 'likes',
-                        'views' => 'views'
+                        'views' => 'views',
                     ];
         $projects = Project::orderBy($sort_type[$link], 'desc')->paginate(12);
         $projects->setPath('/sort?popular='.$link.'&');
