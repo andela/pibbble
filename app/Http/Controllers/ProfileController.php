@@ -27,6 +27,11 @@ class ProfileController extends Controller
      */
     public function show($username)
     {
+        // $user = User::findByUsernameOrFail($username);
+        // $user->following = $user->follows()->get();
+        // $user->followers = $user->followers()->get();
+        // echo '<pre>'.print_r($user, true);
+
         return view('projects.dashboard', ['user' => User::findByUsernameOrFail($username)]);
     }
 
@@ -61,5 +66,24 @@ class ProfileController extends Controller
         } else {
             return redirect('/settings/profile')->with('status', 'Please select an image.');
         }
+    }
+
+    /**
+     * Follow a user
+     */
+    public function followUser($id)
+    {
+        if (\Auth::check()) {
+            $user = User::find($id);
+            $follow = Auth::user()->follows()->save($user);
+            $followers = $user->followers()->count();
+            $count = [
+                "count" => $followers
+            ];
+
+            return response()->json($count);
+        }
+
+        return response('Unauthorized.', 401);
     }
 }
