@@ -2,6 +2,7 @@
 
 namespace Pibbble\Http\Controllers;
 
+use DB;
 use Auth;
 use Cloudder;
 use Redirect;
@@ -79,7 +80,7 @@ class ProfileController extends Controller
      */
     public function followUser($id)
     {
-        if (\Auth::check()) {
+        if (Auth::check()) {
             $user = User::find($id);
             $follow = Auth::user()->follows()->save($user);
             $followers = $user->followers()->count();
@@ -88,6 +89,26 @@ class ProfileController extends Controller
             ];
 
             return response()->json($count);
+        }
+
+        return response('Unauthorized.', 401);
+    }
+
+    /**
+     * Unfollow a user
+     */
+    public function unfollowUser($id)
+    {
+        if (Auth::check()) {
+            $results = DB::delete('delete from user_follows where user_id = ? and follow_id = ?', [Auth::user()->id, $id]);
+            if ($results == 1) {
+                $user = User::find($id);
+                $followers = $user->followers()->count();
+                $count = [
+                    "count" => $followers
+                ];
+                return response()->json($count);
+            }
         }
 
         return response('Unauthorized.', 401);
