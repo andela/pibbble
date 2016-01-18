@@ -76,9 +76,9 @@ Dashboard
                             <h4>Activity Feed</h4>
                         </div>
                         <div class="panel-body">
-                            <p>Following <span class="badge pull-right">5</span></p>
+                            <p>Following <span class="badge pull-right">{{ $user->following }}</span></p>
                             <hr>
-                            <p>Followers <span class="badge pull-right" id="followersSpan">10</span></p>
+                            <p>Followers <span class="badge pull-right" id="followersSpan">{{ $user->followers }}</span></p>
                             <hr>
                             <p>Projects <span class="badge pull-right">{{ $user->projects->count() }}</span></p>
                         </div>
