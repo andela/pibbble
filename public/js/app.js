@@ -25,7 +25,9 @@ jQuery( document ).ready(function( $ ){
             var id = $(this).attr('data-id');
             var url = '/follow/' + id;
             $.getJSON(url, function(data) {
-                console.log(data);
+                if (data.count > 0) {
+                    $('#followersSpan').html(data.count);
+                }
             })
             .fail(function(error) {
                 console.log("error", error);
