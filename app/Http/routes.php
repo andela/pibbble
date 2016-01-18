@@ -60,6 +60,9 @@ Route::get('{username}', [
     'as'   => 'userprofile',
 ]);
 
+// Follow user route
+Route::get('/follow/{id}', 'ProfileController@followUser');
+
 // To reset user's password
 Route::get('/password/email', 'Auth\PasswordController@getEmail');
 Route::post('/password/email', 'Auth\PasswordController@postEmail');
