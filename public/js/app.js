@@ -29,18 +29,28 @@ jQuery( document ).ready(function( $ ){
                 $(this).addClass('btn-danger');
             }
         }, function() {
-            $(this).html('Following');
+            if ($(this).html() !== 'Follow') {
+                $(this).html('Following');
+            }
             $(this).removeClass('btn-danger');
             $(this).addClass('btn-primary');
         });
 
         $('#followButton').click(function(){
             var id = $(this).attr('data-id');
-            var url = '/follow/' + id;
+            var text = $(this).html();
+            if (text == 'Following' || text == 'Unfollow') {
+                var url = '/unfollow/' + id;
+                $(this).html('Follow');
+                console.log(url);
+            } else {
+                var url = '/follow/' + id;
+                $(this).html('Following');
+                console.log(url);
+            }
+
             $.getJSON(url, function(data) {
-                if (data.count > 0) {
-                    $('#followersSpan').html(data.count);
-                }
+                $('#followersSpan').html(data.count);
             })
             .fail(function(error) {
                 console.log("error", error);
