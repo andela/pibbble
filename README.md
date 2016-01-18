@@ -9,19 +9,20 @@ Pibbble is a community of developers where they can ask one another about what t
 
 Pibbble is a place to promote, discover, and explore web applications.
 
-## Cloning & Running the Pibbble Application
+## Running the Pibbble Application
+Clone this repository:
+```bash
+git clone https://github.com/andela/pibbble.git
+```
+Then enter into the directory
+``` bash
+cd pibbble
+```
+Make sure you have [composer](https://getcomposer.org/) installed and use it to install the project dependencies:
 
-Clone this repository using: ~ git clone https://github.com/andela/pibbble.git
-
-Then enter into the directory using: ~ cd pibbble
-
-After this, install all the dependencies with: ~ composer install
-
-Then run this command: ~ vagrant up
-
-The application should be up and running. So entering pibbble.app/ into your browser brings up the application.
-
-NOTE: There must be Virtual Box on your machine. You must also have vagrant & composer installed.
+```bash
+composer install
+```
 
 ## Setting Environment Variables for the Pibbble Application
 
@@ -66,6 +67,24 @@ TWITTER_ID
 TWITTER_SECRET
 TWITTER_URL
 ```
+
+To get up and running, we provide a database seed. To run this however, your environment should have a **Postgres database**. Setting up all these environments can be tricky, which is why we opted to use [laravel\homestead](https://laravel.com/docs/5.1/homestead) instead.
+
+If you are using laravel\homestead and have the necessary config:
+```bash
+vagrant up
+```
+Then ssh into the homestead box:
+```bash
+vagrant ssh
+```
+
+## Database Seeding
+The run the database seed in the project directory
+```bash
+php artisan db:seed
+```
+The application should be up and running. So entering pibbble.app/ into your browser brings up the application.
 
 ### Contributors
 
