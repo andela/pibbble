@@ -21,6 +21,19 @@ jQuery( document ).ready(function( $ ){
         });
         $('.comment-btn').on('click', makeComment);
 
+        $('#followButton').hover(function(){
+            var text = $(this).html();
+            if (text == 'Following') {
+                $(this).html('Unfollow');
+                $(this).removeClass('btn-primary');
+                $(this).addClass('btn-danger');
+            }
+        }, function() {
+            $(this).html('Following');
+            $(this).removeClass('btn-danger');
+            $(this).addClass('btn-primary');
+        });
+
         $('#followButton').click(function(){
             var id = $(this).attr('data-id');
             var url = '/follow/' + id;
