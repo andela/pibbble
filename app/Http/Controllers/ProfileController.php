@@ -27,12 +27,18 @@ class ProfileController extends Controller
      */
     public function show($username)
     {
-        // $user = User::findByUsernameOrFail($username);
-        // $user->following = $user->follows()->get();
-        // $user->followers = $user->followers()->get();
-        // echo '<pre>'.print_r($user, true);
+        $user = User::findByUsernameOrFail($username);
+        $user->following = $user->follows()->count();
+        $user->followers = $user->followers()->count();
+        $follow = $user->followers()->find(Auth::user()->id);
 
-        return view('projects.dashboard', ['user' => User::findByUsernameOrFail($username)]);
+        if ($follow) {
+            $user->follows = true;
+        } else {
+            $user->follows = false;
+        }
+
+        return view('projects.dashboard', ['user' => $user]);
     }
 
     /**
