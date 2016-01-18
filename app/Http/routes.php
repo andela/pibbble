@@ -63,6 +63,9 @@ Route::get('{username}', [
 // Follow user route
 Route::get('/follow/{id}', 'ProfileController@followUser');
 
+//Unfollow user route
+Route::get('/unfollow/{id}', 'ProfileController@unfollowUser');
+
 // To reset user's password
 Route::get('/password/email', 'Auth\PasswordController@getEmail');
 Route::post('/password/email', 'Auth\PasswordController@postEmail');
