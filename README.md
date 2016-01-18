@@ -69,4 +69,4 @@ TWITTER_URL
 
 ### Contributors
 
-Oladipupo Isola, Wilson Omokoro, Surajudeen Akande, Ogunjimi Opeyemi & Christopher Ganga
+Oladipupo Isola, Wilson Omokoro, Surajudeen Akande, Ogunjimi Opeyemi, Christopher Ganga & Andrew Onyango
