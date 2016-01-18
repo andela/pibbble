@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Profile Settings')
+@section('title', 'Profile Update')
 
 @section('content')
 <div>
@@ -14,8 +14,8 @@
 
 <hr>
 <div class="row">
-    <div class="col-md-7">
-        <form class="form-horizontal container-margin" method="POST" action="/profile/settings">
+    <div class="col-md-7 col-xs-12">
+        <form class="form-horizontal container-margin" method="POST" action="/settings/profile">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="group container">
                 <div class="form-group">
@@ -56,7 +56,7 @@
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Twitter</label>
-                    <div class="col-sm-5">
+                    <div class="col-sm-5 col-xs-12">
                         <input name="twitter" type="text" class="form-control" value="{{ Auth::user()->twitter }}">
                     </div>
                 </div>

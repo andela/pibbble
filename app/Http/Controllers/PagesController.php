@@ -6,6 +6,7 @@ use Auth;
 use Pibbble\User;
 use Pibbble\Project;
 use Pibbble\ProjectLikes;
+use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
@@ -65,40 +66,19 @@ class PagesController extends Controller
     }
 
     /**
-     * @return comments.blade.php
+     * Get links for sorted views based on query
+     * @return popular views
      */
-    protected function comments()
+    public function getLinks(Request $request)
     {
-        return Project::orderBy('created_at', 'desc')->paginate(12);
-    }
+        $link = ($request->query()['popular']) ?? 'views';
+        $sort_type = ['comments' => 'comment_count',
+                        'likes' => 'likes',
+                        'views' => 'views'
+                    ];
+        $projects = Project::orderBy($sort_type[$link], 'desc')->paginate(12);
+        $projects->setPath('/sort?popular='.$link.'&');
 
-    /**
-     * @return views.blade.php
-     */
-    protected function views()
-    {
-        return Project::orderBy('views', 'desc')->paginate(12);
-    }
-    /**
-     * @return likes.blade.php
-     */
-    protected function likes()
-    {
-        return Project::orderBy('likes', 'desc')->paginate(12);
-    }
-
-    public function getLinks($link)
-    {
-        $projects = null;
-
-        if ($link == 'comments') {
-            $projects = $this->comments();
-        } elseif ($link == 'views') {
-            $projects = $this->views();
-        } elseif ($link == 'likes') {
-            $projects = $this->likes();
-        }
-
-        return view('pages.links', ['projects' => $projects]);
+        return view('landing', ['projects' => $projects]);
     }
 }

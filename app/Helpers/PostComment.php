@@ -3,6 +3,7 @@
 namespace Pibbble\Helpers;
 
 use Pibbble\User;
+use Pibbble\Project;
 use Pibbble\Comment;
 use Pibbble\Http\Requests\CommentRequest;
 use Pibbble\Pibbble\Repository\CommentRepository;
@@ -26,6 +27,10 @@ class PostComment
         $this->comment->project_id = $id;
 
         $this->comment->save();
+
+        $project = Project::find($id);
+        $project->comment_count += 1;
+        $project->save();
 
         $commentId = Comment::where('comment', $request->comment)->first()->id;
         $commentRepo = new CommentRepository;
