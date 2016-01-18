@@ -20,6 +20,17 @@ jQuery( document ).ready(function( $ ){
             });
         });
         $('.comment-btn').on('click', makeComment);
+
+        $('#followButton').click(function(){
+            var id = $(this).attr('data-id');
+            var url = '/follow/' + id;
+            $.getJSON(url, function(data) {
+                console.log(data);
+            })
+            .fail(function(error) {
+                console.log("error", error);
+            });
+        });
     }
 );
 
