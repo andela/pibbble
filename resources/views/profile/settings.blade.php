@@ -51,25 +51,25 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Github</label>
                     <div class="col-sm-5">
-                        <input name="github" type="text" class="form-control" value="{{ Auth::user()->github }}">
+                        <input name="github" type="text" class="form-control" value="{{ Auth::user()->github }}" placeholder="e.g. rlerdorf">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Twitter</label>
                     <div class="col-sm-5 col-xs-12">
-                        <input name="twitter" type="text" class="form-control" value="{{ Auth::user()->twitter }}">
+                        <input name="twitter" type="text" class="form-control" value="{{ Auth::user()->twitter }}" placeholder="e.g. jack">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Facebook</label>
                     <div class="col-sm-5">
-                        <input name="facebook" type="text" class="form-control" value="{{ Auth::user()->facebook }}">
+                        <input name="facebook" type="text" class="form-control" value="{{ Auth::user()->facebook }}" placeholder="e.g. b.obama">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Linkedin</label>
                     <div class="col-sm-5">
-                        <input name="linkedin" type="text" class="form-control" value="{{ Auth::user()->linkedin }}">
+                        <input name="linkedin" type="text" class="form-control" value="{{ Auth::user()->linkedin }}"  placeholder="e.g. bankimoon">
                     </div>
                 </div>
                 <fieldset class="form-group">
