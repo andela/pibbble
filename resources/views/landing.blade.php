@@ -9,9 +9,9 @@
             <li><a href="/" class="proj-links">Latest</a></li>
             <li><a href="/" class="proj-links dropdown-toggle" data-toggle="dropdown">Popular <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="{{ route('sort', array('popular' => 'likes')) }}">Most Liked</a></li>
-                <li><a href="{{ route('sort', array('popular' => 'views')) }}">Most Viewed</a></li>
-                <li><a href="{{ route('sort', array('popular' => 'comments')) }}">Most Commented</a></li>
+                <li><a href="{{ route('sort', ['popular' => 'likes']) }}">Most Liked</a></li>
+                <li><a href="{{ route('sort', ['popular' => 'views']) }}">Most Viewed</a></li>
+                <li><a href="{{ route('sort', ['popular' => 'comments']) }}">Most Commented</a></li>
               </ul>
             </li>
         </ul>

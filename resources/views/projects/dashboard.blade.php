@@ -32,18 +32,26 @@ Dashboard
                     <div class="well well-sm makeup">
                         <div class="row">
                             <div class="pull-left">
-                                <a href="http://github.com/{{ $user->github }}" class="btn btn-social-icon btn-github">
+                                @if (sanitize($user->github))
+                                <a href="http://github.com/{{ $user->github }}" class="btn btn-social-icon btn-github" target="_blank">
                                     <i class="fa fa-github"></i>
                                 </a>
-                                <a href="http://twitter.com/{{ $user->twitter }}" class="btn btn-social-icon btn-twitter">
+                                @endif
+                                @if (sanitize($user->twitter))
+                                <a href="http://twitter.com/{{ $user->twitter }}" class="btn btn-social-icon btn-twitter" target="_blank">
                                     <i class="fa fa-twitter"></i>
                                 </a>
-                                <a href="{{ $user->facebook }}" class="btn btn-social-icon btn-facebook">
+                                @endif
+                                @if (sanitize($user->facebook))
+                                <a href="http://facebook.com/{{ $user->facebook }}" class="btn btn-social-icon btn-facebook" target="_blank">
                                     <i class="fa fa-facebook"></i>
                                 </a>
-                                <a href="{{ $user->linkedin }}" class="btn btn-social-icon btn-linkedin">
+                                @endif
+                                @if (sanitize($user->linkedin))
+                                <a href="http://linkedin.com/in/{{ $user->linkedin }}" class="btn btn-social-icon btn-linkedin" target="_blank">
                                     <i class="fa fa-linkedin"></i>
                                 </a>
+                                @endif
                             </div>
                             @can('owner-can-see', $user->id)
                                 <div class="btn-group pull-right">
@@ -91,7 +99,7 @@ Dashboard
                             @if( $user->projects )
                                 <div class="row">
                                     @foreach ($user->projects as $project)
-                                    <div class="col-md-4">
+                                    <div>
                                         @include('others.project_modal')
                                     </div>
                                     @endforeach
