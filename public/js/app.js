@@ -21,7 +21,7 @@ jQuery( document ).ready(function( $ ){
         });
         $('.comment-btn').on('click', makeComment);
 
-        $('#followButton').hover(function(){
+        $('#followButton, .follow').hover(function(){
             var text = $(this).html();
             if (text == 'Following') {
                 $(this).html('Unfollow');
@@ -36,7 +36,7 @@ jQuery( document ).ready(function( $ ){
             $(this).addClass('btn-primary');
         });
 
-        $('#followButton').click(function(){
+        $('#followButton, .follow').click(function(){
             var id = $(this).attr('data-id');
             var text = $(this).html();
             if (text == 'Following' || text == 'Unfollow') {
