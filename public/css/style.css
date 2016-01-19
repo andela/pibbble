@@ -578,3 +578,17 @@ a:hover {
     -webkit-border-radius: 8px;
        -moz-border-radius: 8px;
             border-radius: 8px;
+}
+
+.follows {
+    margin: 10px;
+}
+
+.follows img {
+    width: 7%;
+}
+
+.follows span {
+    display: inline-block;
+    padding: 10px;
+}
