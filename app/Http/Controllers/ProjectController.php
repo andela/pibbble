@@ -33,6 +33,16 @@ class ProjectController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $user->following = $user->follows()->count();
+        $user->followers = $user->followers()->count();
+        $follow = $user->followers()->find(Auth::user()->id);
+
+        if ($follow) {
+            $user->follows = true;
+        } else {
+            $user->follows = false;
+        }
+
         $projects = Project::orderBy('created_at', 'desc')->personal()->get();
 
         return view('projects.dashboard')->withProjects($projects)->withUser($user);
