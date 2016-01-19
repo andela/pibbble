@@ -1,0 +1,16 @@
+.cover-bg {
+  height: 125px;
+  width: 100%;
+  background-color: #31B0D5;
+  margin-top: -20px
+}
+.cover-bwords {
+  font-size: 250%;
+  color: white;
+  margin-left: 10%;
+}
+.cover-swords {
+  font-size: 105%;
+  color: white;
+  margin-left: 10%;
+}
