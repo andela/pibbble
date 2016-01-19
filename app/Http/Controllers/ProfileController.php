@@ -31,14 +31,6 @@ class ProfileController extends Controller
         $user = User::findByUsernameOrFail($username);
         $user->following = $user->follows()->get();
         $user->followers = $user->followers()->get();
-        $follow = $user->followers()->find(Auth::user()->id);
-
-        if ($follow) {
-            $user->follows = true;
-        } else {
-            $user->follows = false;
-        }
-
         return view('projects.dashboard', ['user' => $user]);
     }
 

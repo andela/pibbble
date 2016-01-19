@@ -35,13 +35,6 @@ class ProjectController extends Controller
         $user = Auth::user();
         $user->following = $user->follows()->get();
         $user->followers = $user->followers()->get();
-        $follow = $user->followers()->find(Auth::user()->id);
-
-        if ($follow) {
-            $user->follows = true;
-        } else {
-            $user->follows = false;
-        }
 
         $projects = Project::orderBy('created_at', 'desc')->personal()->get();
 
