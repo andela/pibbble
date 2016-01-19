@@ -33,8 +33,8 @@ class ProjectController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $user->following = $user->follows()->count();
-        $user->followers = $user->followers()->count();
+        $user->following = $user->follows()->get();
+        $user->followers = $user->followers()->get();
         $follow = $user->followers()->find(Auth::user()->id);
 
         if ($follow) {
