@@ -63,7 +63,7 @@ Dashboard
                             @can('users-can-see', $user->id)
                                 <div class="btn-group pull-right">
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myBio"><span class="glyphicon glyphicon-eye-open"></span> Bio</button>
-                                    <button type="button" id="followButton" data-id="{{ $user->id }}" class="btn btn-primary btn-sm">{{ $user->follows ? 'Following' : 'Follow' }}</button>
+                                    <button type="button" id="followButton" data-id="{{ $user->id }}" class="btn btn-primary btn-sm">{{ $user->checkFollow() ? 'Following' : 'Follow' }}</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#mySkills"><span class="glyphicon glyphicon-folder-open"></span> Skills</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myHire"><span class="glyphicon glyphicon-user"></span> Hire Me</button>
                                 </div>

@@ -208,7 +208,9 @@
                             <span><a href="/{{$follower->username}}">{{$follower->username}}</a></span>
                         </div>
                         <div class="col-md-3">
-                            <button data-id="{{$follower->id}}" class="btn btn-primary follow">Following</button>
+                        @can('users-can-see', $follower->id)
+                            <button type="button" data-id="{{ $follower->id }}" class="btn btn-primary follow">{{ $follower->checkFollow() ? 'Following' : 'Follow' }}</button>
+                        @endcan
                         </div>
                     </div>
                 @endforeach
