@@ -84,9 +84,9 @@ Dashboard
                             <h4>Activity Feed</h4>
                         </div>
                         <div class="panel-body">
-                            <a href="#" data-toggle="modal" data-target="#followingModal">Following <span class="badge pull-right">{{ $user->following }}</span></a>
+                            <a href="#" data-toggle="modal" data-target="#followingModal">Following <span class="badge pull-right">{{ $user->following->count() }}</span></a>
                             <hr>
-                            <a href="#" data-toggle="modal" data-target="#followersModal">Followers <span class="badge pull-right" id="followersSpan">{{ $user->followers }}</span></a>
+                            <a href="#" data-toggle="modal" data-target="#followersModal">Followers <span class="badge pull-right" id="followersSpan">{{ $user->followers->count() }}</span></a>
                             <hr>
                             <p>Projects <span class="badge pull-right">{{ $user->projects->count() }}</span></p>
                         </div>
