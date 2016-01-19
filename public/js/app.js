@@ -23,6 +23,7 @@ jQuery( document ).ready(function( $ ){
 
         $('#followButton, .follow').hover(function(){
             var text = $(this).html();
+
             if (text == 'Following') {
                 $(this).html('Unfollow');
                 $(this).removeClass('btn-primary');
@@ -39,21 +40,18 @@ jQuery( document ).ready(function( $ ){
         $('#followButton, .follow').click(function(){
             var id = $(this).attr('data-id');
             var text = $(this).html();
+            var url;
+
             if (text == 'Following' || text == 'Unfollow') {
-                var url = '/unfollow/' + id;
+                url = '/unfollow/' + id;
                 $(this).html('Follow');
-                console.log(url);
             } else {
-                var url = '/follow/' + id;
+                url = '/follow/' + id;
                 $(this).html('Following');
-                console.log(url);
             }
 
             $.getJSON(url, function(data) {
                 $('#followersSpan').html(data.count);
-            })
-            .fail(function(error) {
-                console.log("error", error);
             });
         });
     }
