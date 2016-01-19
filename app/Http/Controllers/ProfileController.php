@@ -29,8 +29,8 @@ class ProfileController extends Controller
     public function show($username)
     {
         $user = User::findByUsernameOrFail($username);
-        $user->following = $user->follows()->count();
-        $user->followers = $user->followers()->count();
+        $user->following = $user->follows()->get();
+        $user->followers = $user->followers()->get();
         $follow = $user->followers()->find(Auth::user()->id);
 
         if ($follow) {
