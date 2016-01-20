@@ -31,6 +31,7 @@ class ProfileController extends Controller
         $user = User::findByUsernameOrFail($username);
         $user->following = $user->follows()->get();
         $user->followers = $user->followers()->get();
+        $user->me = false;
 
         return view('projects.dashboard', ['user' => $user]);
     }
@@ -76,9 +77,9 @@ class ProfileController extends Controller
         if (Auth::check()) {
             $user = User::find($id);
             $follow = Auth::user()->follows()->save($user);
-            $followers = $user->followers()->count();
+            $follows = Auth::user()->follows()->count();
             $count = [
-                "count" => $followers
+                "count" => $follows
             ];
 
             return response()->json($count);
@@ -95,10 +96,9 @@ class ProfileController extends Controller
         if (Auth::check()) {
             $results = DB::delete('delete from user_follows where user_id = ? and follow_id = ?', [Auth::user()->id, $id]);
             if ($results == 1) {
-                $user = User::find($id);
-                $followers = $user->followers()->count();
+                $follows = Auth::user()->follows()->count();
                 $count = [
-                    "count" => $followers
+                    "count" => $follows
                 ];
                 return response()->json($count);
             }
@@ -114,6 +114,12 @@ class ProfileController extends Controller
     {
         if (Auth::check()) {
             $followers = User::find($id)->followers()->get();
+
+            for ($i = 0; $i < count($followers); $i++) {
+                $followers[$i]->avatar = $followers[$i]->getAvatar();
+                $followers[$i]->checkFollow = $followers[$i]->checkFollow();
+            }
+
             return response()->json($followers);
         }
 
@@ -130,6 +136,7 @@ class ProfileController extends Controller
 
             for ($i = 0; $i < count($followers); $i++) {
                 $followers[$i]->avatar = $followers[$i]->getAvatar();
+                $followers[$i]->checkFollow = $followers[$i]->checkFollow();
             }
 
             return response()->json($followers);
