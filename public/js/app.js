@@ -21,40 +21,6 @@ jQuery( document ).ready(function( $ ){
         });
         $('.comment-btn').on('click', makeComment);
 
-        $('#followButton, .follow').hover(function(){
-            var text = $(this).html();
-
-            if (text == 'Following') {
-                $(this).html('Unfollow');
-                $(this).removeClass('btn-primary');
-                $(this).addClass('btn-danger');
-            }
-        }, function() {
-            if ($(this).html() !== 'Follow') {
-                $(this).html('Following');
-            }
-            $(this).removeClass('btn-danger');
-            $(this).addClass('btn-primary');
-        });
-
-        $('#followButton, .follow').click(function(){
-            var id = $(this).attr('data-id');
-            var text = $(this).html();
-            var url;
-
-            if (text == 'Following' || text == 'Unfollow') {
-                url = '/unfollow/' + id;
-                $(this).html('Follow');
-            } else {
-                url = '/follow/' + id;
-                $(this).html('Following');
-            }
-
-            $.getJSON(url, function(data) {
-                $('#followersSpan').html(data.count);
-            });
-        });
-
         $('#followsLink, #followersLink').click(function(e) {
             e.preventDefault();
             var url = $(this).attr('data-url');
@@ -71,13 +37,14 @@ jQuery( document ).ready(function( $ ){
                     var html = "";
 
                     data.forEach(function(user) {
+                        follow = user.checkFollow ? 'Following' : 'Follow';
                         html += "<div class='row follows'>"
                              + "<div class='col-md-9'>"
                              + "<img align='left' class='img-circle img-responsive' src='" + user.avatar + "' alt='Profile image' border-radius='100%''>"
                              + "<span><a href='/" + user.username +"'>" + user.username + "</a></span>"
                              + "</div>"
                              + "<div class='col-md-3'>"
-                             + "<button data-id="+ user.id +" class='btn btn-primary follow'>Following</button>"
+                             + "<button data-id="+ user.id +" class='btn btn-primary follow'>" + follow + "</button>"
                              + "</div>"
                              + "</div>";
                     });
@@ -89,6 +56,49 @@ jQuery( document ).ready(function( $ ){
 
             }, function (err) {
                 console.log('error', error);
+            });
+        });
+
+        $(document).on('mouseenter', '#followButton, .follow', function() {
+            var text = $(this).text();
+
+            if (text == 'Following') {
+                $(this).html('Unfollow');
+                $(this).removeClass('btn-primary');
+                $(this).addClass('btn-danger');
+            }
+        });
+
+        $(document).on('mouseleave', '#followButton, .follow', function() {
+            if ($(this).html() !== 'Follow') {
+                $(this).html('Following');
+            }
+            $(this).removeClass('btn-danger');
+            $(this).addClass('btn-primary');
+        });
+
+        $(document).on('click', '#followButton, .follow', function() {
+            var id = $(this).attr('data-id');
+            var text = $(this).text();
+            var me = $('#me').attr('data-me');
+            var url, span;
+
+            if (text == 'Following' || text == 'Unfollow') {
+                url = '/unfollow/' + id;
+                console.log(url);
+                $(this).text('Follow');
+            } else {
+                url = '/follow/' + id;
+                console.log(url);
+                $(this).text('Following');
+            }
+
+            $.getJSON(url, function(data) {
+                if (me) {
+                    $('#followsSpan').text(data.count);
+                } else {
+                    $('#followersSpan').text(data.count);
+                }
             });
         });
     }
