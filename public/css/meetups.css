@@ -5,12 +5,23 @@
   margin-top: -20px
 }
 .cover-bwords {
-  font-size: 250%;
+  font-size: 300%;
   color: white;
-  margin-left: 10%;
+  margin-left: 7%;
 }
 .cover-swords {
   font-size: 105%;
   color: white;
-  margin-left: 10%;
+  margin-left: 7%;
+  padding-top: 7px;
+}
+.meetup-form {
+  margin-top: -27px;
+  margin-left: 16%;
+  height: 500px;
+  width: 55%;
+  border-radius: 7px;
+  border: 1px solid black;
+  margin-bottom: 15px;
+  background-color: white;
 }
