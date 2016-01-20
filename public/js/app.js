@@ -54,6 +54,43 @@ jQuery( document ).ready(function( $ ){
                 $('#followersSpan').html(data.count);
             });
         });
+
+        $('#followsLink, #followersLink').click(function(e) {
+            e.preventDefault();
+            var url = $(this).attr('data-url');
+            var title = /follows/.test(url) ? 'Following' : 'Followers';
+
+            $.getJSON(url, function(data) {
+                if (data.length == 0)
+                    return;
+
+                $('#ajaxModal').on('show.bs.modal', function(event) {
+                    var modal = $(this);
+                    modal.find('.modal-title').text(title);
+
+                    var html = "";
+
+                    data.forEach(function(user) {
+                        html += "<div class='row follows'>"
+                             + "<div class='col-md-9'>"
+                             + "<img align='left' class='img-circle img-responsive' src='" + user.avatar + "' alt='Profile image' border-radius='100%''>"
+                             + "<span><a href='/" + user.username +"'>" + user.username + "</a></span>"
+                             + "</div>"
+                             + "<div class='col-md-3'>"
+                             + "<button data-id="+ user.id +" class='btn btn-primary follow'>Following</button>"
+                             + "</div>"
+                             + "</div>";
+                    });
+
+                    modal.find('.modal-body').html(html);
+
+                });
+                $('#ajaxModal').modal();
+
+            }, function (err) {
+                console.log('error', error);
+            });
+        });
     }
 );
 
