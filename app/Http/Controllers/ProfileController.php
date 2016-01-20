@@ -106,4 +106,35 @@ class ProfileController extends Controller
 
         return response('Unauthorized.', 401);
     }
+
+    /**
+     * Get followers of a user
+     */
+    public function getFollowers($id)
+    {
+        if (Auth::check()) {
+            $followers = User::find($id)->followers()->get();
+            return response()->json($followers);
+        }
+
+        return response('Unauthorized.', 401);
+    }
+
+    /**
+     * Get Followings of a user
+     */
+    public function getFollows($id)
+    {
+        if (Auth::check()) {
+            $followers = User::find($id)->follows()->get();
+
+            for ($i = 0; $i < count($followers); $i++) {
+                $followers[$i]->avatar = $followers[$i]->getAvatar();
+            }
+
+            return response()->json($followers);
+        }
+
+        return response('Unauthorized.', 401);
+    }
 }
