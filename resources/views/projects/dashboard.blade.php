@@ -84,7 +84,8 @@ Dashboard
                             <h4>Activity Feed</h4>
                         </div>
                         <div class="panel-body">
-                            <a href="#" id="followsLink" data-url="/follows/{{ $user->id }}">Following <span class="badge pull-right">{{ $user->following->count() }}</span></a>
+                            <span id="me" data-me="{{ $user->me }}"></span>
+                            <a href="#" id="followsLink" data-url="/follows/{{ $user->id }}">Following <span class="badge pull-right" id="followsSpan">{{ $user->following->count() }}</span></a>
                             <hr>
                             <a href="#" id="followersLink" data-url="/followers/{{ $user->id }}">Followers <span class="badge pull-right" id="followersSpan">{{ $user->followers->count() }}</span></a>
                             <hr>
