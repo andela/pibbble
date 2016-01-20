@@ -190,60 +190,18 @@
     </div>
 </div>
 
-<!-- Followers Modal -->
-<div class="modal fade" id="followersModal" role="dialog">
+<!-- Ajax Modal-->
+<div class="modal fade" id="ajaxModal" role="dialog">
     <div class="modal-dialog modal-sm">
 
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Followers</h4>
+                <h4 class="modal-title">Following/Unfollow Ajax</h4>
             </div>
             <div class="modal-body">
-                @foreach ($user->followers as $follower)
-                    <div class="row follows">
-                        <div class="col-md-9">
-                            <img align="left" class="img-circle img-responsive" src="{{$follower->getAvatar()}}" alt="Profile image" border-radius="100%">
-                            <span><a href="/{{$follower->username}}">{{$follower->username}}</a></span>
-                        </div>
-                        <div class="col-md-3">
-                        @can('users-can-see', $follower->id)
-                            <button type="button" data-id="{{ $follower->id }}" class="btn btn-primary follow">{{ $follower->checkFollow() ? 'Following' : 'Follow' }}</button>
-                        @endcan
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
 
-<!--Following Modal-->
-<div class="modal fade" id="followingModal" role="dialog">
-    <div class="modal-dialog modal-sm">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Following</h4>
-            </div>
-            <div class="modal-body">
-                @foreach ($user->following as $follows)
-                    <div class="row follows">
-                        <div class="col-md-9">
-                            <img align="left" class="img-circle img-responsive" src="{{$follows->getAvatar()}}" alt="Profile image" border-radius="100%">
-                            <span><a href="/{{$follows->username}}">{{$follows->username}}</a></span>
-                        </div>
-                        <div class="col-md-3">
-                            <button data-id="{{$follows->id}}" class="btn btn-primary follow">Following</button>
-                        </div>
-                    </div>
-                @endforeach
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
