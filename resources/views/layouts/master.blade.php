@@ -5,7 +5,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{ load_asset('/components/mui-0.1.22-rc1/css/mui.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('/components/font-awesome-4.4.0/css/font-awesome.min.css') }}" rel="stylesheet" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href="{{ load_asset('/components/bootstrap-3.3.5-dist/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <script src="{{ load_asset('/js/jquery-2.1.4.min.js') }}"></script>
