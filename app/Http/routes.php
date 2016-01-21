@@ -19,6 +19,15 @@ Route::get('/help', 'PagesController@help');
 Route::get('/contact', 'PagesController@contact');
 Route::get('/sort', ['uses' => 'PagesController@getLinks', 'as' => 'sort']);
 
+/*
+|------------------------------------------------------------------------------
+| Team routes
+|------------------------------------------------------------------------------
+*/
+
+Route::get('/teams', 'TeamController@index');
+Route::get('/teams/new', ['uses' => 'TeamController@create', 'middleware' => 'auth']);
+
 //Dashboard Route
 Route::get('/dashboard', ['middleware' => 'auth', 'uses' => 'ProjectController@index']);
 
@@ -92,3 +101,10 @@ Route::get('/errors/oauthname', 'Auth\AuthController@getOauth');
 
 // Make comments on projects
 Route::post('/comment/{id}', 'CommentController@makeComment');
+
+/*
+|------------------------------------------------------------------------------
+| Team routes
+|------------------------------------------------------------------------------
+*/
+

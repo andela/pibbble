@@ -1,0 +1,131 @@
+.box {
+    border: 1px;
+    background-color: #5bc0de;
+    height: 100px;
+    width: auto;
+    margin-top: -20px;
+    padding: 10px;
+}
+
+#facheck {
+    padding: 15px;
+    font-size: 12px;
+}
+
+#oro {
+    width: 70%;
+    float: right;
+}
+
+.box > h1 {
+    color: #fff;
+    font-size: 78px;
+    margin-top: -10px;
+}
+
+table {
+    background-color: #fff;
+}
+
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 0;
+}
+
+.fa-check {
+    color: #6cc644;
+}
+
+.fa-users {
+    color: #4078c0;
+}
+
+.fa-puzzle-piece {
+    color: #ccc;
+}
+
+.fair-white {
+    background-color: #f8f8ff;
+    color: #7f7f7f;
+}
+
+.fairer-white {
+    background-color: #f2f2f2;
+    color: #ccc;
+}
+
+.right {
+    background-color: #fff;
+    border-radius: 15px;
+    text-align: center;
+    padding: 1px;
+    width: 250px;
+    margin-left: 60px
+}
+
+.plan {
+    background-color: #fff;
+    height: 430px;
+    padding: 20px;
+}
+
+.plan .row {
+    text-align: center;
+}
+
+.plan .row h4{
+    color: #5bc0de;
+}
+
+.plan .row h5{
+    font-size: 16px;
+}
+
+.btn span.glyphicon {
+    opacity: 0;
+}
+.btn.active span.glyphicon {
+    opacity: 1;
+}
+
+.form-control {
+    width: 100%;
+}
+
+.btn-second:not(.btn-link):not(.btn-flat) {
+    background-color: #C3C3C0;
+    color: rgba(255, 255, 255, 0.84);
+    text-shadow: 0px 0px 4px rgba(150, 150, 150, 1);
+}
+
+.btn-third:not(.btn-link):not(.btn-flat) {
+    background-color: #5bc0de;
+    color: rgba(255, 255, 255, 0.84);
+    text-shadow: 0px 0px 4px rgba(150, 150, 150, 1);
+}
+
+@media only screen and (min-width: 1068px) {
+    .btn-xlg {
+    display:inline-block;
+    /*min-width: 50%;*/
+    width: 237px;
+    padding: 10px;
+    font-size: 22px; //change this to your desired size
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+    }
+}
+
+.black {
+    color: black;
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+}
