@@ -130,7 +130,14 @@ class ProfileController extends Controller
             for ($i = 0; $i < count($followers); $i++) {
                 $followers[$i]->avatar = $followers[$i]->getAvatar();
                 $followers[$i]->checkFollow = $followers[$i]->checkFollow();
+                $followers[$i]->me = false;
+
+                if ($followers[$i]->id == Auth::user()->id) {
+                    $followers[$i]->me = true;
+                }
             }
+
+
 
             return response()->json($followers);
         }
@@ -149,6 +156,11 @@ class ProfileController extends Controller
             for ($i = 0; $i < count($followers); $i++) {
                 $followers[$i]->avatar = $followers[$i]->getAvatar();
                 $followers[$i]->checkFollow = $followers[$i]->checkFollow();
+                $followers[$i]->me = false;
+
+                if ($followers[$i]->id == Auth::user()->id) {
+                    $followers[$i]->me = true;
+                }
             }
 
             return response()->json($followers);
