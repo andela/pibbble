@@ -85,13 +85,13 @@ jQuery( document ).ready(function( $ ){
 
             if (text == 'Following' || text == 'Unfollow') {
                 url = '/unfollow/' + id;
-                console.log(url);
                 $(this).text('Follow');
             } else {
                 url = '/follow/' + id;
-                console.log(url);
                 $(this).text('Following');
             }
+
+            url = me ? url + '/1' : url + "/0";
 
             $.getJSON(url, function(data) {
                 if (me) {
