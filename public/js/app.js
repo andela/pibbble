@@ -38,13 +38,15 @@ jQuery( document ).ready(function( $ ){
 
                     data.forEach(function(user) {
                         follow = user.checkFollow ? 'Following' : 'Follow';
+                        display = user.me ? "style='display:none'" : '';
+
                         html += "<div class='row follows'>"
                              + "<div class='col-md-9'>"
                              + "<img align='left' class='img-circle img-responsive' src='" + user.avatar + "' alt='Profile image' border-radius='100%''>"
                              + "<span><a href='/" + user.username +"'>" + user.username + "</a></span>"
                              + "</div>"
                              + "<div class='col-md-3'>"
-                             + "<button data-id="+ user.id +" class='btn btn-primary follow'>" + follow + "</button>"
+                             + "<button " + display +" data-id="+ user.id +" class='btn btn-primary follow'>" + follow + "</button>"
                              + "</div>"
                              + "</div>";
                     });
@@ -52,10 +54,8 @@ jQuery( document ).ready(function( $ ){
                     modal.find('.modal-body').html(html);
 
                 });
-                $('#ajaxModal').modal();
 
-            }, function (err) {
-                console.log('error', error);
+                $('#ajaxModal').modal();
             });
         });
 
