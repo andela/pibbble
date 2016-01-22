@@ -61,10 +61,10 @@ Route::get('{username}', [
 ]);
 
 // Follow user route
-Route::get('/follow/{id}', 'ProfileController@followUser');
+Route::get('/follow/{id}/{me}', 'ProfileController@followUser');
 
 //Unfollow user route
-Route::get('/unfollow/{id}', 'ProfileController@unfollowUser');
+Route::get('/unfollow/{id}/{me}', 'ProfileController@unfollowUser');
 
 //Get Followers route
 Route::get('/followers/{id}', 'ProfileController@getFollowers');
