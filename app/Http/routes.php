@@ -32,6 +32,11 @@ Route::group(['prefix' => 'teams'], function () {
     Route::post('/new', ['uses' => 'TeamController@store', 'as' => 'teams.create']);
 });
 
+/**
+ * Gets Events creation page
+ */
+Route::get('/meetup', [
+  'uses' => 'MeetupController@index', 'as' => 'meetup-form']);
 
 //Dashboard Route
 Route::get('/dashboard', ['middleware' => 'auth', 'uses' => 'ProjectController@index']);
@@ -74,6 +79,18 @@ Route::get('{username}', [
     'as'   => 'userprofile',
 ]);
 
+// Follow user route
+Route::get('/follow/{id}/{me}', 'ProfileController@followUser');
+
+//Unfollow user route
+Route::get('/unfollow/{id}/{me}', 'ProfileController@unfollowUser');
+
+//Get Followers route
+Route::get('/followers/{id}', 'ProfileController@getFollowers');
+
+//Get Followers route
+Route::get('/follows/{id}', 'ProfileController@getFollows');
+
 // To reset user's password
 Route::get('/password/email', 'Auth\PasswordController@getEmail');
 Route::post('/password/email', 'Auth\PasswordController@postEmail');
@@ -106,10 +123,3 @@ Route::get('/errors/oauthname', 'Auth\AuthController@getOauth');
 
 // Make comments on projects
 Route::post('/comment/{id}', 'CommentController@makeComment');
-
-/*
-|------------------------------------------------------------------------------
-| Team routes
-|------------------------------------------------------------------------------
-*/
-

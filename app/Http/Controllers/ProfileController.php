@@ -2,6 +2,7 @@
 
 namespace Pibbble\Http\Controllers;
 
+use DB;
 use Auth;
 use Cloudder;
 use Redirect;
@@ -27,7 +28,12 @@ class ProfileController extends Controller
      */
     public function show($username)
     {
-        return view('projects.dashboard', ['user' => User::findByUsernameOrFail($username)]);
+        $user = User::findByUsernameOrFail($username);
+        $user->following = $user->follows()->get();
+        $user->followers = $user->followers()->get();
+        $user->me = false;
+
+        return view('projects.dashboard', ['user' => $user]);
     }
 
     /**
@@ -61,5 +67,107 @@ class ProfileController extends Controller
         } else {
             return redirect('/settings/profile')->with('status', 'Please select an image.');
         }
+    }
+
+    /**
+     * Follow a user
+     */
+    public function followUser($id, $me)
+    {
+        if (Auth::check()) {
+            $user = User::find($id);
+            $follow = Auth::user()->follows()->save($user);
+
+            if ($me == 1) {
+                $follows = Auth::user()->follows()->count();
+            } else if ($me == 0) {
+                $follows = User::find($id)->followers()->count();
+            }
+
+            $count = [
+                "count" => $follows
+            ];
+
+            return response()->json($count);
+        }
+
+        return response('Unauthorized.', 401);
+    }
+
+    /**
+     * Unfollow a user
+     */
+    public function unfollowUser($id, $me)
+    {
+        if (Auth::check()) {
+            $results = DB::delete('delete from user_follows where user_id = ? and follow_id = ?', [Auth::user()->id, $id]);
+            if ($results == 1) {
+                if ($me == 1) {
+                    $follows = Auth::user()->follows()->count();
+                } else {
+                    $follows = User::find($id)->followers()->count();
+                }
+
+                $count = [
+                    "count" => $follows
+                ];
+
+                return response()->json($count);
+            }
+        }
+
+        return response('Unauthorized.', 401);
+    }
+
+    /**
+     * Get followers of a user
+     */
+    public function getFollowers($id)
+    {
+        $followers = User::find($id)->followers()->get();
+
+        for ($i = 0; $i < count($followers); $i++) {
+            $followers[$i]->avatar = $followers[$i]->getAvatar();
+            $followers[$i]->checkFollow = false;
+            $followers[$i]->me = false;
+            if (Auth::check()) {
+                $followers[$i]->checkFollow = $followers[$i]->checkFollow();
+
+                if ($followers[$i]->id == Auth::user()->id) {
+                    $followers[$i]->me = true;
+                }
+            } else {
+                $followers[$i]->me = true;
+            }
+        }
+
+        return response()->json($followers);
+    }
+
+    /**
+     * Get Followings of a user
+     */
+    public function getFollows($id)
+    {
+        $followers = User::find($id)->follows()->get();
+
+        for ($i = 0; $i < count($followers); $i++) {
+            $followers[$i]->avatar = $followers[$i]->getAvatar();
+            $followers[$i]->checkFollow = false;
+            $followers[$i]->me = false;
+
+            if (Auth::check()) {
+                $followers[$i]->checkFollow = $followers[$i]->checkFollow();
+                $followers[$i]->me = false;
+
+                if ($followers[$i]->id == Auth::user()->id) {
+                    $followers[$i]->me = true;
+                }
+            } else {
+                $followers[$i]->me = true;
+            }
+        }
+
+        return response()->json($followers);
     }
 }
