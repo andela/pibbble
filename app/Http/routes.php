@@ -27,6 +27,7 @@ Route::get('/sort', ['uses' => 'PagesController@getLinks', 'as' => 'sort']);
 
 Route::get('/teams', 'TeamController@index');
 Route::get('/teams/new', ['uses' => 'TeamController@create', 'middleware' => 'auth']);
+Route::post('/teams/new', ['uses' => 'TeamController@store', 'as' => 'teams.create']);
 
 //Dashboard Route
 Route::get('/dashboard', ['middleware' => 'auth', 'uses' => 'ProjectController@index']);

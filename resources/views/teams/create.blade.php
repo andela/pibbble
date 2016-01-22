@@ -44,31 +44,32 @@
                 <h4>What is your development team working on?</h4>
                 <p>Promote your team and its work, build a following for your products, and hire developers.</p>
                 <hr>
-                <form role="form">
+                <form role="form" method="post" action="/teams/new">
                   <div class="form-group">
                     <label for="name">Team Name:</label>
-                    <input type="text" class="form-control" id="name">
+                    <input type="text" class="form-control" id="name" name="name">
                   </div>
                   <div class="form-group">
                     <label for="email">Billing Email:</label>
-                    <input type="email" class="form-control" id="email">
+                    <input type="email" class="form-control" id="email" name="email">
                   </div>
                   <div class="btn-group" data-toggle="buttons">
                     <label class="btn btn-second active btn-xlg">
-                        <input type="radio" name="options" id="option1" value="free">Basic<br>
+                        <input type="radio" name="options" id="option1" value="Basic">Basic<br>
                         <small> $0/month </small>
                     </label>
                     <label class="btn btn-second btn-xlg">
-                        <input type="radio" name="options" id="option2" value="free">Gold<br>
+                        <input type="radio" name="options" id="option2" value="Gold">Gold<br>
                         <small> $25/month </small>
                     </label>
                     <label class="btn btn-second btn-xlg">
-                        <input type="radio" name="options" id="option3" value="free">Platinum<br>
+                        <input type="radio" name="options" id="option3" value="Platinum">Platinum<br>
                         <small> $50/month </small>
                     </label>
                 </div>
                   <br>
                   <br>
+                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
                   <button type="submit" class="btn btn-third btn-lg">Create team</button>
                 </form>
             </div>

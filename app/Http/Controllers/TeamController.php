@@ -2,6 +2,8 @@
 
 namespace Pibbble\Http\Controllers;
 
+use Auth;
+use Pibbble\Team;
 use Illuminate\Http\Request;
 use Pibbble\Http\Requests;
 use Pibbble\Http\Controllers\Controller;
@@ -36,7 +38,21 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name'     => 'required|min:3',
+            'email'    => 'required|email',
+        ]);
+
+        $team = new Team;
+        $team->name  = $request->input('name');
+        $team->email = $request->input('email');
+        $team->plan  = $request->input('options');
+        $team->user_id = Auth::user()->id;
+
+        $team->save();
+
+        return redirect()->to('/');
+
     }
 
     /**
