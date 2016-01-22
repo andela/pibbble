@@ -19,6 +19,12 @@ Route::get('/help', 'PagesController@help');
 Route::get('/contact', 'PagesController@contact');
 Route::get('/sort', ['uses' => 'PagesController@getLinks', 'as' => 'sort']);
 
+/**
+ * Gets Events creation page
+ */
+Route::get('/meetup', [
+  'uses' => 'MeetupController@index', 'as' => 'meetup-form']);
+
 //Dashboard Route
 Route::get('/dashboard', ['middleware' => 'auth', 'uses' => 'ProjectController@index']);
 
