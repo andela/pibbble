@@ -17,6 +17,7 @@ class TeamController extends Controller
      */
     public function index()
     {
+        $teams = Team::all();
         return view('teams.index');
     }
 
@@ -28,6 +29,11 @@ class TeamController extends Controller
     public function create()
     {
         return view('teams.create');
+    }
+
+    public function invite()
+    {
+        return view('teams.invite');
     }
 
     /**
@@ -51,7 +57,7 @@ class TeamController extends Controller
 
         $team->save();
 
-        return redirect()->to('/');
+        return redirect()->to('/teams/invite');
 
     }
 
