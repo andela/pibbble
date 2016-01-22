@@ -72,12 +72,18 @@ class ProfileController extends Controller
     /**
      * Follow a user
      */
-    public function followUser($id)
+    public function followUser($id, $me)
     {
         if (Auth::check()) {
             $user = User::find($id);
             $follow = Auth::user()->follows()->save($user);
-            $follows = Auth::user()->follows()->count();
+
+            if ($me == 1) {
+                $follows = Auth::user()->follows()->count();
+            } else if ($me == 0) {
+                $follows = User::find($id)->followers()->count();
+            }
+
             $count = [
                 "count" => $follows
             ];
