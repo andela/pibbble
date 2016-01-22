@@ -97,15 +97,21 @@ class ProfileController extends Controller
     /**
      * Unfollow a user
      */
-    public function unfollowUser($id)
+    public function unfollowUser($id, $me)
     {
         if (Auth::check()) {
             $results = DB::delete('delete from user_follows where user_id = ? and follow_id = ?', [Auth::user()->id, $id]);
             if ($results == 1) {
-                $follows = Auth::user()->follows()->count();
+                if ($me == 1) {
+                    $follows = Auth::user()->follows()->count();
+                } else {
+                    $follows = User::find($id)->followers()->count();
+                }
+
                 $count = [
                     "count" => $follows
                 ];
+
                 return response()->json($count);
             }
         }
