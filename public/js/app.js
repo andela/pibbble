@@ -27,28 +27,39 @@ jQuery( document ).ready(function( $ ){
             var title = /follows/.test(url) ? 'Following' : 'Followers';
 
             $.getJSON(url, function(data) {
-                if (data.length == 0)
+                if (data.length === 0) {
                     return;
+                }
 
-                $('#ajaxModal').on('show.bs.modal', function(event) {
+                $('#ajaxModal').on('show.bs.modal', function() {
                     var modal = $(this);
                     modal.find('.modal-title').text(title);
 
-                    var html = "";
+                    var html = '';
 
                     data.forEach(function(user) {
-                        follow = user.checkFollow ? 'Following' : 'Follow';
-                        display = user.me ? "style='display:none'" : '';
-
-                        html += "<div class='row follows'>"
-                             + "<div class='col-md-9'>"
-                             + "<img align='left' class='img-circle img-responsive' src='" + user.avatar + "' alt='Profile image' border-radius='100%''>"
-                             + "<span><a href='/" + user.username +"'>" + user.username + "</a></span>"
-                             + "</div>"
-                             + "<div class='col-md-3'>"
-                             + "<button " + display +" data-id="+ user.id +" class='btn btn-primary follow'>" + follow + "</button>"
-                             + "</div>"
-                             + "</div>";
+                        html += '<div class="row follows">';
+                        html += '<div class="col-md-9">';
+                        html += '<img align="left"';
+                        html += ' class="img-circle img-responsive" src="';
+                        html += user.avatar;
+                        html += '" alt="Profile image" border-radius="100%">';
+                        html += '<span><a href="/';
+                        html += user.username;
+                        html += '">';
+                        html += user.username;
+                        html += '</a></span>';
+                        html += '</div>';
+                        html += '<div class="col-md-3">';
+                        html += '<button ';
+                        html += user.me ? 'style="display:none"' : '';
+                        html += ' data-id="';
+                        html += user.id;
+                        html += '" class="btn btn-primary follow">';
+                        html += user.checkFollow ? 'Following' : 'Follow';
+                        html += '</button>';
+                        html += '</div>';
+                        html += '</div>';
                     });
 
                     modal.find('.modal-body').html(html);
@@ -81,17 +92,17 @@ jQuery( document ).ready(function( $ ){
             var id = $(this).attr('data-id');
             var text = $(this).text();
             var me = $('#me').attr('data-me');
-            var url, span;
+            var _url, url;
 
             if (text == 'Following' || text == 'Unfollow') {
-                url = '/unfollow/' + id;
+                _url = '/unfollow/' + id;
                 $(this).text('Follow');
             } else {
-                url = '/follow/' + id;
+                _url = '/follow/' + id;
                 $(this).text('Following');
             }
 
-            url = me ? url + '/1' : url + "/0";
+            url = me ? _url + '/1' : _url + '/0';
 
             $.getJSON(url, function(data) {
                 if (me) {
@@ -143,4 +154,4 @@ var makeComment = function(evt){
         }
     );
   }
-}
+};
