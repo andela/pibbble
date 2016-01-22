@@ -124,25 +124,24 @@ class ProfileController extends Controller
      */
     public function getFollowers($id)
     {
-        if (Auth::check()) {
-            $followers = User::find($id)->followers()->get();
+        $followers = User::find($id)->followers()->get();
 
-            for ($i = 0; $i < count($followers); $i++) {
-                $followers[$i]->avatar = $followers[$i]->getAvatar();
+        for ($i = 0; $i < count($followers); $i++) {
+            $followers[$i]->avatar = $followers[$i]->getAvatar();
+            $followers[$i]->checkFollow = false;
+            $followers[$i]->me = false;
+            if (Auth::check()) {
                 $followers[$i]->checkFollow = $followers[$i]->checkFollow();
-                $followers[$i]->me = false;
 
                 if ($followers[$i]->id == Auth::user()->id) {
                     $followers[$i]->me = true;
                 }
+            } else {
+                $followers[$i]->me = true;
             }
-
-
-
-            return response()->json($followers);
         }
 
-        return response('Unauthorized.', 401);
+        return response()->json($followers);
     }
 
     /**
@@ -150,22 +149,25 @@ class ProfileController extends Controller
      */
     public function getFollows($id)
     {
-        if (Auth::check()) {
-            $followers = User::find($id)->follows()->get();
+        $followers = User::find($id)->follows()->get();
 
-            for ($i = 0; $i < count($followers); $i++) {
-                $followers[$i]->avatar = $followers[$i]->getAvatar();
+        for ($i = 0; $i < count($followers); $i++) {
+            $followers[$i]->avatar = $followers[$i]->getAvatar();
+            $followers[$i]->checkFollow = false;
+            $followers[$i]->me = false;
+
+            if (Auth::check()) {
                 $followers[$i]->checkFollow = $followers[$i]->checkFollow();
                 $followers[$i]->me = false;
 
                 if ($followers[$i]->id == Auth::user()->id) {
                     $followers[$i]->me = true;
                 }
+            } else {
+                $followers[$i]->me = true;
             }
-
-            return response()->json($followers);
         }
 
-        return response('Unauthorized.', 401);
+        return response()->json($followers);
     }
 }
