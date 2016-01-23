@@ -18,6 +18,7 @@ Route::get('/privacy', 'PagesController@privacy');
 Route::get('/help', 'PagesController@help');
 Route::get('/contact', 'PagesController@contact');
 Route::get('/sort', ['uses' => 'PagesController@getLinks', 'as' => 'sort']);
+Route::get('/timeframe', ['uses' => 'PagesController@getTimeframeLinks', 'as' => 'timeframe']);
 
 /**
  * Gets Events creation page

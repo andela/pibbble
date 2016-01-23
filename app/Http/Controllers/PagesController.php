@@ -4,6 +4,7 @@ namespace Pibbble\Http\Controllers;
 
 use Auth;
 use Pibbble\User;
+use Carbon\Carbon;
 use Pibbble\Project;
 use Pibbble\ProjectLikes;
 use Illuminate\Http\Request;
@@ -78,6 +79,34 @@ class PagesController extends Controller
                     ];
         $projects = Project::orderBy($sort_type[$link], 'desc')->paginate(12);
         $projects->setPath('/sort?popular='.$link.'&');
+
+        return view('landing', ['projects' => $projects]);
+    }
+
+    /**
+     * Get links for sorted views based on query
+     * @return popular views
+     */
+    public function getTimeframeLinks(Request $request)
+    {
+        switch ($request->query()['time']) {
+
+            case 'pastWeek':
+                $projects = Project::where('created_at', '>', Carbon::now()->subWeek())->paginate(12);
+                break;
+            
+            case 'pastMonth':
+                $projects = Project::where('created_at', '>', Carbon::now()->subMonth())->paginate(12);
+                break;
+
+            case 'pastYear':
+                $projects = Project::where('created_at', '>', Carbon::now()->subYear())->paginate(12);
+                break;
+                    
+            default:
+                $projects = Project::all()->paginate(12);
+                break;
+        } 
 
         return view('landing', ['projects' => $projects]);
     }
