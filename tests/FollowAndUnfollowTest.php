@@ -14,7 +14,6 @@ class FollowAndUnfollowTest extends TestCase
         $user3 = factory(User::class)->create();
         $user4 = factory(User::class)->create();
 
-
         $user1->follows()->save($user2);
         $user1->follows()->save($user3);
         $user1->follows()->save($user4);
