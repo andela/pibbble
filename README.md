@@ -88,4 +88,4 @@ The application should be up and running. So entering pibbble.app/ into your bro
 
 ### Contributors
 
-Oladipupo Isola, Wilson Omokoro, Surajudeen Akande, Ogunjimi Opeyemi & Christopher Ganga
+Oladipupo Isola, Wilson Omokoro, Surajudeen Akande, Ogunjimi Opeyemi, Christopher Ganga & Andrew Onyango
