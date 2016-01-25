@@ -33,15 +33,23 @@
     max-height: 80px;
 }
 
+.dev-avatar:hover {
+    opacity: 0.6;
+}
+
 .dev-info
 {
     float:left;
     border: 0px solid gray;
     width: 26%;
     margin-right: 10px;
-    font-family: arial;
+    font-family: "Helvetica Neue", arial;
     font-size: 12px;
     color: #555;
+}
+
+a.dev-names{
+    text-decoration: none;
 }
 
 .dev-projs
@@ -74,4 +82,17 @@
 
 .dev-projs-thumbs:hover {
     opacity: 0.6;
+}
+
+.l-separator{
+    width: auto;
+    padding-right: 10px;
+    float: left;
+}
+
+.r-separator{
+    border-left: 1px solid #ccc;
+    width: auto;
+    padding-left: 10px;
+    float: left;
 }

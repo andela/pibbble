@@ -13,19 +13,22 @@
             <div class="row dev">
                 <div class="col-md-12">
                     <div class="dev-avatar-frame">
+                        <a href="/{{ $user->username }}">
                         <img src="{{ $user->getAvatar() }}" class="img-circle img-responsive dev-avatar" />
+                        </a>
                     </div>
                     <div class="dev-info">
-                        <h4>{{ $user->username }}</h4>
-                        San Fransisco, Carlifonia<br />
-                        Skills, skills, and more skills<br />
-                        <p><b>1,234</b><br />Followers</p>
+                        <a href="/{{ $user->username }}" class="dev-names"><h4>{{ $user->username }}</h4></a>
+                        {{ $user->location }}<br />
+                        {{ $user->skills }}<br />
+                         <div class="l-separator"><b>{{ $user->projects->count() }}</b><br />projects</div>
+                         <div class="r-separator"><b>1,234</b><br />followers</div>
                     </div>
                     <div class="dev-projs">
-                         @foreach($user->projects as $projects)
+                        @foreach($user->projects as $project)
                             @if ($userProjectsCount < 3)
-                                <a href="#">
-                                    <img src="{{ $projects->image_url }}" class="img-responsive dev-projs-thumbs" />
+                                <a href="/developers/projects/{{ $project->id.'-'.str_replace(' ', '-', $project->projectname) }}">
+                                    <img src="{{ $project->image_url }}" class="img-responsive dev-projs-thumbs" />
                                 </a>
                             @endif
                             <?php $userProjectsCount++; ?>
