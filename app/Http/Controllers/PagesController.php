@@ -81,4 +81,10 @@ class PagesController extends Controller
 
         return view('landing', ['projects' => $projects]);
     }
+
+    public function developers()
+    {
+        $users = User::orderBy('id')->paginate(10);
+        return view('developers', ['users' => $users]);
+    }
 }

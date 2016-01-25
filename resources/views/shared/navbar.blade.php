@@ -17,7 +17,7 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Developers <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#">All</a></li>
+                <li><a href="/developers">All</a></li>
                 <li><a href="#">For Hire</a></li>
                 <li class="divider"></li>
                 <li><a href="#">Skills</a></li>
