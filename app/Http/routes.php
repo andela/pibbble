@@ -18,17 +18,18 @@ Route::get('/privacy', 'PagesController@privacy');
 Route::get('/help', 'PagesController@help');
 Route::get('/contact', 'PagesController@contact');
 Route::get('/sort', ['uses' => 'PagesController@getLinks', 'as' => 'sort']);
+Route::get('/timeframe', ['uses' => 'PagesController@getTimeframeLinks', 'as' => 'timeframe']);
 
-/**
+/*
  * Gets Events creation page
  */
 Route::get('/meetup', [
-  'uses' => 'MeetupController@index', 'as' => 'meetup-form']);
+  'uses' => 'MeetupController@index', 'as' => 'meetup-form', ]);
 
 //Dashboard Route
 Route::get('/dashboard', ['middleware' => 'auth', 'uses' => 'ProjectController@index']);
 
-#Project routes using resource
+//Project routes using resource
 Route::resource('projects', 'ProjectController');
 Route::get('projects/meta/{id}', ['uses' => 'ProjectController@getMetaAsJSON', 'as' => 'getMetaAsJSON']);
 // Confirm before delete
