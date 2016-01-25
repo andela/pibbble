@@ -154,3 +154,16 @@ h3 {
     font-size: 24px;
     font-weight: 400;
 }
+
+.team-pix {
+    border-radius: 50%;
+}
+
+.info {
+    margin-top: 20px;
+}
+
+.hire {
+    padding-top: -20px;
+    color:#ccc
+}
