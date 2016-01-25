@@ -14,17 +14,21 @@
             <div class="col-md-2">
                 <img src="http://placehold.it/80x80" class="team-pix">
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <h5>Yellow <i class="fa fa-envelope hire"></i></h5>
                 <p>Lagos, Nigeria</p>
                 <small>ui, ux, android, games </small>
-                <br>
-                <i class="fa fa-plus-square fa-lg"></i>
-                <p>450  |  54,201</p>
-                <small> shots  | followers</small>
+                <ul>
+                    <li><i class="fa fa-plus-square fa-2x"></i></li>
+                    <li> 450 shots</li>
+                    <li>|</li>
+                    <li> 54,201 followers </li>
+                </ul>
             </div>
-            <div class="shots">
+            <div class="col-md-7">
+                <div class="">
 
+                </div>
             </div>
         </div>
         <div class="col-sm-3">.col-sm-8</div>
