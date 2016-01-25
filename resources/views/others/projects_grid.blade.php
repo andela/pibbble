@@ -12,7 +12,10 @@
         <div class='projects'>
             <!-- Trigger modal window when a project thumbnail is clicked -->
             <a href="" data-toggle="modal" data-target="#{{ $project->id }}" onclick="view({{ $project->id }}, '{{ $viewsValueOnThumbnail }}', '{{ $viewsValueOnModal }}')"><img src='{{ $project->image_url }}' width='200' height='150' /></a>
-            <span class='project-stats'><i class='fa fa-comment-o'> {{ count($project->comments) }}</i></span>
+            <span class='project-stats'>
+                <i class='fa fa-comment-o'></i>
+                <span id='comments-project-{{ $project->id }}'>{{ count($project->comments) }}</span>
+            </span>
             <span id="{{ $likesValueOnThumbnail }}" class='project-stats'><i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->projectLikes->count() }}</span>
             <span class='project-stats'><i class='fa fa-eye'></i>&nbsp;<span id="{{ $viewsValueOnThumbnail }}">{{ $project->views }}</span></span>
         </div>
