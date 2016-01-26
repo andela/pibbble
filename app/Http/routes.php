@@ -17,6 +17,8 @@ Route::get('/terms', 'PagesController@terms');
 Route::get('/privacy', 'PagesController@privacy');
 Route::get('/help', 'PagesController@help');
 Route::get('/contact', 'PagesController@contact');
+Route::get('/developers', 'PagesController@developers');
+Route::get('/developers/projects/{param}', 'PagesController@developerProject');
 Route::get('/sort', ['uses' => 'PagesController@getLinks', 'as' => 'sort']);
 
 /**
