@@ -9,7 +9,9 @@ Dashboard
 <!-- Resource style -->
 <link rel="stylesheet" href="{{ load_asset('css/dashboard.css') }}">
 <!-- CSS reset -->
-@endsection @section('content')
+@endsection
+
+@section('content')
 
 <div class="container-fluid ball">
     <div class="container">
@@ -31,22 +33,22 @@ Dashboard
                         <div class="row">
                             <div class="pull-left">
                                 @if (sanitize($user->github))
-                                <a href="http://github.com/{{ $user->github }}" class="btn btn-social-icon btn-github">
+                                <a href="http://github.com/{{ $user->github }}" class="btn btn-social-icon btn-github" target="_blank">
                                     <i class="fa fa-github"></i>
                                 </a>
                                 @endif
                                 @if (sanitize($user->twitter))
-                                <a href="http://twitter.com/{{ $user->twitter }}" class="btn btn-social-icon btn-twitter">
+                                <a href="http://twitter.com/{{ $user->twitter }}" class="btn btn-social-icon btn-twitter" target="_blank">
                                     <i class="fa fa-twitter"></i>
                                 </a>
                                 @endif
                                 @if (sanitize($user->facebook))
-                                <a href="http://facebook.com/{{ $user->facebook }}" class="btn btn-social-icon btn-facebook">
+                                <a href="http://facebook.com/{{ $user->facebook }}" class="btn btn-social-icon btn-facebook" target="_blank">
                                     <i class="fa fa-facebook"></i>
                                 </a>
                                 @endif
                                 @if (sanitize($user->linkedin))
-                                <a href="http://linkedin.com/in/{{ $user->linkedin }}" class="btn btn-social-icon btn-linkedin">
+                                <a href="http://linkedin.com/in/{{ $user->linkedin }}" class="btn btn-social-icon btn-linkedin" target="_blank">
                                     <i class="fa fa-linkedin"></i>
                                 </a>
                                 @endif
@@ -61,7 +63,7 @@ Dashboard
                             @can('users-can-see', $user->id)
                                 <div class="btn-group pull-right">
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myBio"><span class="glyphicon glyphicon-eye-open"></span> Bio</button>
-                                    <button type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-log-in" onclick="change()" type="button" value="Follow" id="myButton1"></span> Follow</button>
+                                    <button type="button" id="followButton" data-id="{{ $user->id }}" class="btn btn-primary btn-sm">{{ $user->checkFollow() ? 'Following' : 'Follow' }}</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#mySkills"><span class="glyphicon glyphicon-folder-open"></span> Skills</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myHire"><span class="glyphicon glyphicon-user"></span> Hire Me</button>
                                 </div>
@@ -82,9 +84,10 @@ Dashboard
                             <h4>Activity Feed</h4>
                         </div>
                         <div class="panel-body">
-                            <p>Following <span class="badge pull-right">5</span></p>
+                            <span id="me" data-me="{{ $user->me }}"></span>
+                            <a href="#" id="followsLink" data-url="/follows/{{ $user->id }}">Following <span class="badge pull-right" id="followsSpan">{{ $user->following->count() }}</span></a>
                             <hr>
-                            <p>Followers <span class="badge pull-right">10</span></p>
+                            <a href="#" id="followersLink" data-url="/followers/{{ $user->id }}">Followers <span class="badge pull-right" id="followersSpan">{{ $user->followers->count() }}</span></a>
                             <hr>
                             <p>Projects <span class="badge pull-right">{{ $user->projects->count() }}</span></p>
                         </div>
@@ -114,5 +117,4 @@ Dashboard
     </div>
     @include('others.dashboard_modal')
 </div>
-
 @endsection

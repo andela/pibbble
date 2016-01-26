@@ -43,6 +43,7 @@ class PostComment
                 'comment' => $request->comment,
                 'comment_id' => $commentId,
                 'commentTime' => $commentRepo->getCommentTime($commentId),
+                'commentCount' => $project->comment_count,
         ];
     }
 }

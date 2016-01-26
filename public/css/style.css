@@ -11,6 +11,7 @@ body {
 
 a {
     color: #777;
+    cursor: pointer;
 }
 
 a:hover {
@@ -43,7 +44,8 @@ a:hover {
     color: #fff;
 }
 
-.navbar-default .navbar-nav>li>a:hover {
+.navbar-default .navbar-nav>li>a:hover,
+#lower-navbar > ul > li > ul.dropdown-menu > li > a:hover {
     color: #fff;
 }
 
@@ -144,6 +146,11 @@ a:hover {
 }
 
 #lower-navbar a:hover { color:#f05a5a; }
+
+#lower-navbar > ul > li > a.dropdown-toggle:focus {
+    background-color: #ff7d7d;
+    color: #fff;
+}
 
 .footer {
     padding:25px;
@@ -581,3 +588,17 @@ a:hover {
     -webkit-border-radius: 8px;
        -moz-border-radius: 8px;
             border-radius: 8px;
+}
+
+.follows {
+    margin: 10px;
+}
+
+.follows img {
+    width: 7%;
+}
+
+.follows span {
+    display: inline-block;
+    padding: 10px;
+}

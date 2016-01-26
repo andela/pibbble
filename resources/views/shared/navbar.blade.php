@@ -35,7 +35,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Meet Ups<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="#">All</a></li>
-                <li><a href="#">Host a Meetup</a></li>
+                <li><a href="{{ url('/meetup') }}">Host a Meetup</a></li>
               </ul>
             </li>
         </ul>
@@ -49,7 +49,7 @@
                 <div class="form-group dropdown">
                   <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">{{ Auth::user()->username }}  <img class="avatar" src="{{ Auth::user()->getAvatar() }}" /></button>
                   <ul class="ddColor dropdown-menu" role="menu" aria-labelledby="menu1">
-                    <li role="presentation" class="dashboard-item"><a role="menuitem" tabindex="-1" href="/projects">Dashboard </a></li>
+                    <li role="presentation" class="dashboard-item"><a role="menuitem" tabindex="-1" href="/dashboard">Dashboard </a></li>
                     <li role="presentation" class="profile-item"><a role="menuitem" tabindex="-1" href="/settings/profile">Profile settings</a></li>
                     <li role="presentation" class="logout-item"><a role="menuitem" tabindex="-1" href="/auth/logout">Log out</a></li>
                   </ul>
