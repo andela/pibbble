@@ -143,13 +143,19 @@ var makeComment = function(evt){
 
           if(lastComment.length < 1){
             newComment =
-              '<div><h4>1 Responses</h4>'
+              '<div><h4>1 Response</h4>'
             + newComment
             + '</div>';
             form.parent().prev().after(newComment);
+            document.getElementById('comments-project-' + respData.project_id)
+              .innerHTML = 1;
           }
           else {
             lastComment.after(newComment);
+            form.parent().parent().find('h4')
+              .text(respData.commentCount + ' Responses');
+            document.getElementById('comments-project-' + respData.project_id)
+              .innerHTML = respData.commentCount;
           }
           comment.val('');
         }
