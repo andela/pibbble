@@ -56,15 +56,15 @@
                   <div class="btn-group" data-toggle="buttons">
                     <label class="btn btn-second active btn-xlg">
                         <input type="radio" name="options" id="option1" value="Basic">Basic<br>
-                        <small> $0/month </small>
+                        <small class="cost"> $0/month </small>
                     </label>
                     <label class="btn btn-second btn-xlg">
                         <input type="radio" name="options" id="option2" value="Gold">Gold<br>
-                        <small> $25/month </small>
+                        <small class="cost"> $25/month </small>
                     </label>
                     <label class="btn btn-second btn-xlg">
                         <input type="radio" name="options" id="option3" value="Platinum">Platinum<br>
-                        <small> $50/month </small>
+                        <small class="cost"> $50/month </small>
                     </label>
                 </div>
                   <br>

@@ -17,8 +17,9 @@ class TeamController extends Controller
      */
     public function index()
     {
-        $teams = Team::all();
-        return view('teams.index');
+        $teams = Team::simplePaginate(15);
+
+        return view('teams.index', ['teams' => $teams]);
     }
 
     /**
@@ -57,7 +58,7 @@ class TeamController extends Controller
 
         $team->save();
 
-        return redirect()->to('/teams/invite');
+        return redirect()->to('/teams');
 
     }
 

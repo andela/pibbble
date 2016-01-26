@@ -17,6 +17,10 @@
     float: right;
 }
 
+.cost {
+    color: #000;
+}
+
 .box > h1 {
     color: #fff;
     font-size: 78px;
@@ -164,10 +168,91 @@ h3 {
 }
 
 .hire {
-    padding-top: -20px;
     color:#ccc
+}
+
+.hire-icon {
+    padding-top: 30px;
+    padding-left: 5px;
 }
 
 ul li {
     display: inline;
+}
+.meta-body {
+    margin-left: 10px;
+}
+
+small {
+    color:#aaa;
+}
+.loc {
+    color:#999;
+}
+
+.stat-shots {
+    float: left;
+    width: auto;
+    margin: 0 10px 0 0;
+    padding: 0 10px 0 0;
+    font-size: 12px;
+    line-height: 1;
+    border-bottom: none;
+    border-right: 1px solid #ddd;
+}
+
+.follow {
+    display:inline-block;
+}
+
+.meta {
+    display:block;
+    margin-top: 1px;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1;
+    text-transform: lowercase;
+    color: #999999;
+}
+
+.content {
+    margin: auto;
+    width: 970px;
+    overflow: hidden;
+}
+
+.shots {
+    float: right;
+    width: 51.388888888889%;
+}
+
+.under {
+    border-bottom: 1px solid #ccc;
+    margin: 0 0 0 0;
+    padding: 20px 0 0 0;
+    vertical-align: middle;
+}
+
+.show {
+    margin-top: 19px;
+    text-align: center;
+    height:50px;
+    padding-top: 0;
+    line-height: 0.1;
+    background-color: #fff;
+    color: gray;
+}
+
+.show:hover{
+    background-color: lightblue;
+}
+
+.badge {
+    background-color: #00b6e3;
+}
+
+a.full:hover {
+    background-color: #00b6e3;
+    text-decoration: none;
+    color: none;
 }
