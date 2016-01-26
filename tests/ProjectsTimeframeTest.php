@@ -18,4 +18,15 @@ class ProjectsTimeframeTest extends TestCase
         $response = $this->call('GET', '/timeframe?time=pastYear');
         $this->assertResponseOk();
     }
+
+    /**
+     * Test if timeframe links work with pagination.
+     *
+     * @return void
+     */
+    public function testTimeframeLoadWithPagination()
+    {
+        $response = $this->call('GET', '/timeframe?time=pastYear&page=2');
+        $this->assertResponseOk();
+    }
 }
