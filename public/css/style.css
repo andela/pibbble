@@ -1,3 +1,7 @@
+html {
+    height: 100%;
+}
+
 body {
     background-color: #eee;
     margin: 0;
@@ -155,8 +159,8 @@ a:hover {
     background-color: #fff;
     color: gray;
     font-size: 12px;
-    position: relative;
-    bottom: 0px;
+    font-family: arial;
+    bottom: 0;
 }
 
 .footer-sections {
