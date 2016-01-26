@@ -146,12 +146,15 @@ var makeComment = function(evt){
             + newComment
             + '</div>';
             form.parent().prev().after(newComment);
-            document.getElementById("comments-project-" + respData.project_id).innerHTML = 1;
+            document.getElementById('comments-project-' + respData.project_id)
+              .innerHTML = 1;
           }
           else {
             lastComment.after(newComment);
-            form.parent().parent().find('h4').text(respData.commentCount + " Responses");
-            document.getElementById("comments-project-" + respData.project_id).innerHTML = respData.commentCount;
+            form.parent().parent().find('h4')
+              .text(respData.commentCount + ' Responses');
+            document.getElementById('comments-project-' + respData.project_id)
+              .innerHTML = respData.commentCount;
           }
           comment.val('');
         }
