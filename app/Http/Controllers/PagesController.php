@@ -87,17 +87,17 @@ class PagesController extends Controller
      */
     public function getTimeframeLinks(Request $request)
     {
-        $time = $request->query()['time'];
+        $time = strtolower($request->query()['time']);
         switch ($time) {
-            case 'pastWeek':
+            case 'pastweek':
                 $projects = Project::where('created_at', '>', Carbon::now()->subWeek())->paginate(12);
                 break;
 
-            case 'pastMonth':
+            case 'pastmonth':
                 $projects = Project::where('created_at', '>', Carbon::now()->subMonth())->paginate(12);
                 break;
 
-            case 'pastYear':
+            case 'pastyear':
                 $projects = Project::where('created_at', '>', Carbon::now()->subYear())->paginate(12);
                 break;
 
