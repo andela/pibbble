@@ -22,7 +22,7 @@
                         {{ $user->location }}<br />
                         {{ $user->skills }}<br />
                          <div class="l-separator"><b>{{ $user->projects->count() }}</b><br />projects</div>
-                         <div class="r-separator"><b>1,234</b><br />followers</div>
+                         <div class="r-separator"><b>?</b><br />followers</div>
                     </div>
                     <div class="dev-projs">
                         @foreach($user->projects as $project)

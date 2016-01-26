@@ -90,6 +90,8 @@ class PagesController extends Controller
 
     public function developerProject()
     {
-        return view('project_details');
+        // $project = Project::where('id', '=', 7)->get();
+        // $project = Project::where('id', 7)->first();
+        // return view('project_details', ['project' => $project]);
     }
 }
