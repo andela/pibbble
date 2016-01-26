@@ -102,7 +102,7 @@ class PagesController extends Controller
                 break;
 
             default:
-                $projects = Project::all()->paginate(12);
+                $projects = Project::paginate(12);
                 break;
         }
 
