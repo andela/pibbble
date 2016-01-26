@@ -1,7 +1,7 @@
 function showLoader()
 {
     document.getElementById('form-load-img').style.display = 'block';
-    document.body.style.cursor = "wait";
+    document.body.style.cursor = 'wait';
 }
 
 

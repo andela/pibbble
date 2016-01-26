@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-sm-8">
             <div class="box">
-                <span class="pre-head">PIBBBLE FOR</span>
+                <b class="pre-head">PIBBBLE FOR</b>
                 <h1>Teams</h1>
             </div>
             <div class="container">
