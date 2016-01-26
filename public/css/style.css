@@ -1,3 +1,7 @@
+html {
+    height: 100%;
+}
+
 body {
     background-color: #eee;
     margin: 0;
@@ -7,6 +11,7 @@ body {
 
 a {
     color: #777;
+    cursor: pointer;
 }
 
 a:hover {
@@ -154,8 +159,8 @@ a:hover {
     background-color: #fff;
     color: gray;
     font-size: 12px;
-    position: relative;
-    bottom: 0px;
+    font-family: arial;
+    bottom: 0;
 }
 
 .footer-sections {
@@ -583,3 +588,17 @@ a:hover {
     -webkit-border-radius: 8px;
        -moz-border-radius: 8px;
             border-radius: 8px;
+}
+
+.follows {
+    margin: 10px;
+}
+
+.follows img {
+    width: 7%;
+}
+
+.follows span {
+    display: inline-block;
+    padding: 10px;
+}

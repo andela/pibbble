@@ -18,7 +18,9 @@
     <link href="{{ load_asset('/css/modal.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ load_asset('/css/meetups.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ load_asset('/css/profile-style.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ load_asset('/css/developers-list.css') }}" rel="stylesheet" type="text/css">
     @yield('custom-css')
+    @yield('custom_js')
   </head>
   <body>
     @include('shared.navbar')

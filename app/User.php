@@ -2,6 +2,7 @@
 
 namespace Pibbble;
 
+use Auth;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -89,5 +90,36 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         $this->avatar = $img;
 
         $this->save();
+    }
+
+    /**
+     * Defines follow relationship
+     * @return follow relationship
+     */
+    public function follows()
+    {
+        return $this->belongsToMany('Pibbble\User', 'user_follows', 'user_id', 'follow_id')->withTimestamps();
+    }
+
+    /**
+     * Define followers relationship
+     * @return followers relationship
+     */
+    public function followers()
+    {
+        return $this->belongsToMany('Pibbble\User', 'user_follows', 'follow_id', 'user_id');
+    }
+
+    /**
+     * Check if User follows a user
+     */
+    public function checkFollow()
+    {
+        $follow = $this->followers()->find(Auth::user()->id);
+        if ($follow) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

@@ -1,6 +1,9 @@
-<script src="{{ load_asset('/js/like.js') }}"></script>
-<script src="{{ load_asset('/js/view.js') }}"></script>
-@foreach ($projects as $project)
+<?php //dd($project); ?>
+
+@extends('layouts.master')
+@section('title', 'Developers')
+
+@section('content')
     <?php
         $likesValueOnThumbnail = 'proj_'.$project->id.'_thumb_likes';
         $likesValueOnModal = 'proj_'.$project->id.'_modal_likes';
@@ -8,23 +11,7 @@
         $viewsValueOnThumbnail = 'proj_'.$project->id.'_thumb_views';
         $viewsValueOnModal = 'proj_'.$project->id.'_modal_views';
     ?>
-    <div class='projects-container'>
-        <div class='projects'>
-            <!-- Trigger modal window when a project thumbnail is clicked -->
-            <a href="" data-toggle="modal" data-target="#{{ $project->id }}" onclick="view({{ $project->id }}, '{{ $viewsValueOnThumbnail }}', '{{ $viewsValueOnModal }}')"><img src='{{ $project->image_url }}' width='200' height='150' /></a>
-            <span class='project-stats'>
-                <i class='fa fa-comment-o'></i>
-                <span id='comments-project-{{ $project->id }}'>{{ count($project->comments) }}</span>
-            </span>
-            <span id="{{ $likesValueOnThumbnail }}" class='project-stats'><i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->projectLikes->count() }}</span>
-            <span class='project-stats'><i class='fa fa-eye'></i>&nbsp;<span id="{{ $viewsValueOnThumbnail }}">{{ $project->views }}</span></span>
-        </div>
-        <span class='projects-name'>
-            <a href="" data-toggle="modal" data-target="#{{ $project->id }}" onclick="view({{ $project->id }}, '{{ $viewsValueOnThumbnail }}', '{{ $viewsValueOnModal }}')">{{ $project->projectname }}</a>
-        </span>
-    </div>
 
-    <!-- Modal window -->
     <div class="modal fade-lg" id="{{ $project->id }}" role="dialog">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -92,9 +79,4 @@
             </div>
         </div>
     </div>
-@endforeach
-</div>
-<!-- Pagination -->
-<div class="row text-center">
-{!! str_replace("&amp;?page", "&amp;page", $projects->render()) !!}
-</div>
+@endsection
