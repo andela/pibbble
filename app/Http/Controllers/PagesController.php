@@ -87,7 +87,8 @@ class PagesController extends Controller
      */
     public function getTimeframeLinks(Request $request)
     {
-        switch ($request->query()['time']) {
+        $time = $request->query()['time'];
+        switch ($time) {
 
             case 'pastWeek':
                 $projects = Project::where('created_at', '>', Carbon::now()->subWeek())->paginate(12);
@@ -105,6 +106,8 @@ class PagesController extends Controller
                 $projects = Project::all()->paginate(12);
                 break;
         }
+
+        $projects->setPath('/timeframe?time='.$time.'&');
 
         return view('landing', ['projects' => $projects]);
     }
