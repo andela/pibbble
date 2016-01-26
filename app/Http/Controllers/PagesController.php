@@ -89,7 +89,6 @@ class PagesController extends Controller
     {
         $time = $request->query()['time'];
         switch ($time) {
-
             case 'pastWeek':
                 $projects = Project::where('created_at', '>', Carbon::now()->subWeek())->paginate(12);
                 break;
