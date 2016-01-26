@@ -22,7 +22,7 @@ Route::get('/sort', ['uses' => 'PagesController@getLinks', 'as' => 'sort']);
 /**
  * Gets Events creation page
  */
-Route::get('/meetup', [
+Route::get('/meetup/new', [
   'uses' => 'MeetupController@index', 'as' => 'meetup-form']);
 
 //Dashboard Route

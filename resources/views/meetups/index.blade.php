@@ -4,7 +4,7 @@
 @section('content')
 <div class="" style="min-height: 420px">
     <div class="cover-bg">
-        <p class="cover-swords">HANG OUT WITH OTHER DEVELOPERS</p>
+        <p class="cover-swords" style="color: #666666;"><strong>HANG OUT WITH OTHER DEVELOPERS</strong></p>
         <p class="cover-bwords"><strong>Host a Meetup</strong></p>
     </div>
     <div class="meetup-form">
