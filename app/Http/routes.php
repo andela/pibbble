@@ -25,7 +25,19 @@ Route::get('/sort', ['uses' => 'PagesController@getLinks', 'as' => 'sort']);
  * Gets Events creation page
  */
 Route::get('/meetup/new', [
-  'uses' => 'MeetupController@index', 'as' => 'meetup-form']);
+  'uses' => 'MeetupController@index',
+  'as' => 'meetup-form',
+  'middleware' => ['auth']
+]);
+
+/**
+ * Creates new Events
+ */
+Route::post('/meetup', [
+  'uses' => 'MeetupController@create',
+  'as' => 'meetup',
+  'middleware' => ['auth']
+]);
 
 //Dashboard Route
 Route::get('/dashboard', ['middleware' => 'auth', 'uses' => 'ProjectController@index']);

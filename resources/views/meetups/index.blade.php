@@ -11,19 +11,19 @@
         <div class="row">
             <div class="col-md-12 col-sm-12">
                 <div class="form-text">Want to host a Pibbble meetup? Fill the following...</div>
-                <form action="" method="" class="">
+                <form action="/meetup" method="POST" class="">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="container">
                         <fieldset class="form-group">
                             <label class="">City</label>
                             <div class="">
-                                <input type="text" class="input-field form-control" name="city">
+                                <input type="text" class="input-field form-control" name="city" required>
                             </div>
                         </fieldset>
                         <fieldset class="form-group">
                             <label class="">Date & Time</label>
                             <div class="">
-                                <input type="text" class="input-field form-control">
+                                <input id="datetimepicker" type="text" name="date" class="date-input form-control">
                             </div>
                         </fieldset>
                         <fieldset class="form-group">
@@ -41,7 +41,7 @@
                         <fieldset class="form-group">
                             <label class="">Phone</label>
                             <div class="">
-                                <input type="date" class="input-field form-control" name="phone_no">
+                                <input type="text" class="input-field form-control" name="phone_no" required>
                             </div>
                         </fieldset>
                         <div class="form-group">
