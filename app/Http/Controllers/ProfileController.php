@@ -47,7 +47,7 @@ class ProfileController extends Controller
         $input = $request->except('_token', 'url');
 
         $this->validate($request, [
-            'username' => 'required|unique:users'
+            'username' => 'required|unique:users,username,'.Auth::user()->id
         ]);
 
         User::find(Auth::user()->id)->updateProfile($input);
