@@ -14,7 +14,8 @@
         "spatie/browsershot": "^1.2",
         "ext-gd": "*",
         "guzzlehttp/guzzle": "~5.3|~6.0",
-        "doctrine/dbal": "^2.5"
+        "doctrine/dbal": "^2.5",
+        "nesbot/carbon": "^1.21"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",

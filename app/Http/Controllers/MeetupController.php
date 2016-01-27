@@ -3,8 +3,6 @@
 namespace Pibbble\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Pibbble\Http\Requests;
-use Pibbble\Http\Controllers\Controller;
 
 class MeetupController extends Controller
 {
