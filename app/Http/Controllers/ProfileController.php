@@ -45,6 +45,11 @@ class ProfileController extends Controller
     public function updateProfileSettings(Request $request)
     {
         $input = $request->except('_token', 'url');
+
+        $this->validate($request, [
+            'username' => 'required|unique:users,username,'.Auth::user()->id
+        ]);
+
         User::find(Auth::user()->id)->updateProfile($input);
 
         return redirect('/settings/profile')->with('status', 'You have successfully updated your profile.');

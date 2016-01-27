@@ -10,6 +10,16 @@
     @endif
 </div>
 
+@if (count($errors) > 0)
+    <div class="alert alert-danger" style="text-align: center; margin-top: -20px;">
+        <ul style="list-style:none;">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <h3 class="tab-bar" style="text-align: center;"><strong>Update your profile settings</strong></h3>
 
 <hr>
@@ -27,7 +37,7 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Username</label>
                     <div class="col-sm-5">
-                        <input type="text" name="username" class="form-control" value="{{ Auth::user()->username }}">
+                        <input type="text" name="username" class="form-control" value="{{ Auth::user()->username }}" required>
                     </div>
                 </div>
                 <div class="form-group">
