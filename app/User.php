@@ -122,4 +122,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
             return false;
         }
     }
+
+    /**
+     * many to one relationship
+     * many teams to one user.
+     * @return string
+     */
+    public function teams()
+    {
+        return $this->hasMany('Pibbble/Team');
+    }
 }

@@ -30,7 +30,7 @@
                                 <small>Set up the team</small>
                             </span>
                         </td>
-                        <td class="fairer-white">
+                        <td class="fairer-white" width="250px">
                             <span id="facheck"><i class="fa fa-puzzle-piece fa-3x"></i></span>
                             <span id="oro">
                                 <b class="block">Step 3</b><br>

@@ -24,4 +24,13 @@ class Team extends Model
      * @var array
      */
     protected $fillable = ['name', 'email', 'plan'];
+
+    /**
+     * one to one relationship
+     * @return string
+     */
+    public function user()
+    {
+        return $this->belongsTo('Pibbble\User');
+    }
 }

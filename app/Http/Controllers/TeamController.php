@@ -58,7 +58,7 @@ class TeamController extends Controller
 
         $team->save();
 
-        return redirect()->to('/teams');
+        return redirect()->to('/teams/invite');
 
     }
 

@@ -46,7 +46,7 @@ table {
 }
 
 .fa-puzzle-piece {
-    color: #ccc;
+    color: #4078c0;
 }
 
 .fair-white {
@@ -179,6 +179,7 @@ h3 {
 ul li {
     display: inline;
 }
+
 .meta-body {
     margin-left: 10px;
 }
@@ -255,4 +256,21 @@ a.full:hover {
     background-color: #00b6e3;
     text-decoration: none;
     color: none;
+}
+
+.team-item {
+    border-bottom: 1px solid #ccc;
+    padding: 3px;
+}
+
+.team-item img {
+    border-radius: 100%;
+}
+
+.team-line {
+    margin: 10px 0 10px 0;
+}
+
+.team-name {
+    margin: -35px 0 20px 60px;
 }
