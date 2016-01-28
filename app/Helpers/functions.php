@@ -2,7 +2,7 @@
 
 if (! function_exists('load_asset')) {
     /**
-     * Check if assets are being loaded on a secure server
+     * Check if assets are being loaded on a secure server.
      * @param  string $asset_url
      * @return string
      */
@@ -14,13 +14,13 @@ if (! function_exists('load_asset')) {
 
 if (! function_exists('sanitize')) {
     /**
-     * Check if user fields are empty
+     * Check if user fields are empty.
      *
      * @param $social_handle
      * $return boolean
      */
     function sanitize($social_handle)
     {
-        return (! empty($social_handle) && ! ctype_space($social_handle) ? true : false);
+        return ! empty($social_handle) && ! ctype_space($social_handle) ? true : false;
     }
 }

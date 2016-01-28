@@ -77,9 +77,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function updateProfile($formData)
     {
         foreach ($formData as $key => $value) {
-            if (! empty($value)) {
-                $this->$key = $value;
-            }
+            $this->$key = $value;
         }
 
         $this->save();
@@ -93,7 +91,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     /**
-     * Defines follow relationship
+     * Defines follow relationship.
      * @return follow relationship
      */
     public function follows()
@@ -102,7 +100,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     /**
-     * Define followers relationship
+     * Define followers relationship.
      * @return followers relationship
      */
     public function followers()
@@ -111,7 +109,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     /**
-     * Check if User follows a user
+     * Check if User follows a user.
      */
     public function checkFollow()
     {

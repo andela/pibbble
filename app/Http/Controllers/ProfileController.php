@@ -45,6 +45,11 @@ class ProfileController extends Controller
     public function updateProfileSettings(Request $request)
     {
         $input = $request->except('_token', 'url');
+
+        $this->validate($request, [
+            'username' => 'required|unique:users,username,'.Auth::user()->id
+        ]);
+
         User::find(Auth::user()->id)->updateProfile($input);
 
         return redirect('/settings/profile')->with('status', 'You have successfully updated your profile.');
@@ -70,7 +75,7 @@ class ProfileController extends Controller
     }
 
     /**
-     * Follow a user
+     * Follow a user.
      */
     public function followUser($id, $me)
     {
@@ -80,12 +85,12 @@ class ProfileController extends Controller
 
             if ($me == 1) {
                 $follows = Auth::user()->follows()->count();
-            } else if ($me == 0) {
+            } elseif ($me == 0) {
                 $follows = User::find($id)->followers()->count();
             }
 
             $count = [
-                "count" => $follows
+                'count' => $follows,
             ];
 
             return response()->json($count);
@@ -95,7 +100,7 @@ class ProfileController extends Controller
     }
 
     /**
-     * Unfollow a user
+     * Unfollow a user.
      */
     public function unfollowUser($id, $me)
     {
@@ -109,7 +114,7 @@ class ProfileController extends Controller
                 }
 
                 $count = [
-                    "count" => $follows
+                    'count' => $follows,
                 ];
 
                 return response()->json($count);
@@ -120,7 +125,7 @@ class ProfileController extends Controller
     }
 
     /**
-     * Get followers of a user
+     * Get followers of a user.
      */
     public function getFollowers($id)
     {
@@ -145,7 +150,7 @@ class ProfileController extends Controller
     }
 
     /**
-     * Get Followings of a user
+     * Get Followings of a user.
      */
     public function getFollows($id)
     {
