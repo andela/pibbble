@@ -3,9 +3,11 @@
 namespace Pibbble\Http\Controllers;
 
 use Auth;
+use Redirect;
 use Pibbble\Team;
 use Illuminate\Http\Request;
 use Pibbble\Http\Requests;
+use Illuminate\Database\QueryException;
 use Pibbble\Http\Controllers\Controller;
 
 class TeamController extends Controller
@@ -32,9 +34,14 @@ class TeamController extends Controller
         return view('teams.create');
     }
 
-    public function invite()
+    /*
+    * Invite team members view
+     */
+    public function invite($name)
     {
-        return view('teams.invite');
+        $team = Team::where('name', $name)->first();
+
+        return view('teams.invite', ['team' => $team]);
     }
 
     /**
@@ -50,16 +57,19 @@ class TeamController extends Controller
             'email'    => 'required|email',
         ]);
 
-        $team = new Team;
-        $team->name  = $request->input('name');
-        $team->email = $request->input('email');
-        $team->plan  = $request->input('options');
-        $team->user_id = Auth::user()->id;
+        try {
+            $team = new Team;
+            $org = $team->name  = $request->input('name');
+            $team->email = $request->input('email');
+            $team->plan  = $request->input('options');
+            $team->user_id = Auth::user()->id;
 
-        $team->save();
+            $team->save();
 
-        return redirect()->to('/teams/invite');
-
+            return redirect()->to('/teams/'.$org.'/invite');
+        } catch (QueryException $e) {
+            return Redirect::back()->withInput(['name' => 'You can\'t do that bullshit']);
+        }
     }
 
     /**
@@ -105,5 +115,19 @@ class TeamController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Check name availabilty
+     * @param  Request $request
+     * @return integer
+     */
+    public function checkName(Request $request)
+    {
+        $check = Team::where('name', $request->name)->first();
+
+        if ($check) {
+            return 200;
+        }
     }
 }

@@ -1,8 +1,15 @@
 @extends('layouts.master')
+
 @section('title', 'Create Teams')
+
 @section('custom-css')
 <link rel="stylesheet" href="{{ load_asset('css/teams.css') }}">
 @endsection
+
+@section('custom_js')
+<script type="text/javascript" src="{{ load_asset('js/team.js') }}"></script>
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -44,10 +51,11 @@
                 <h4>What is your development team working on?</h4>
                 <p>Promote your team and its work, build a following for your products, and hire developers.</p>
                 <hr>
+                <div>{{ $errors->first('name') }}</div>
                 <form role="form" method="post" action="/teams/new">
                   <div class="form-group">
-                    <label for="name">Team Name:</label>
-                    <input type="text" class="form-control" id="name" name="name">
+                    <label for="name">Team Name:</label><span id="error" class="error_msg"></span>
+                    <input type="text" class="form-control" id="team_name" name="name" required>
                   </div>
                   <div class="form-group">
                     <label for="email">Billing Email:</label>
@@ -69,8 +77,8 @@
                 </div>
                   <br>
                   <br>
-                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                  <button type="submit" class="btn btn-third btn-lg">Create team</button>
+                  <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+                  <input type="submit" id="creatTeam" class="btn btn-third btn-lg" value="Create team">
                 </form>
             </div>
         </div>

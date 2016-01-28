@@ -3,6 +3,7 @@
 @section('custom-css')
 <link rel="stylesheet" href="{{ load_asset('css/teams.css') }}">
 @endsection
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -50,13 +51,13 @@
                 </form>
                 <hr class="team-line">
                 <div class="team-item">
-                    <img src="http://placehold.it/50x50">
+                    <a href="{{ route('userprofile', $team->user->username) }}"><img src="{{ $team->user->getAvatar()}}"></a>
                     <div class="team-name">
-                        <b>Olabisi Coker</b>
+                        <b><a href="{{ route('userprofile', $team->user->username) }}">{{ $team->user->username }}</a></b>
                     </div>
                 </div>
                 <br>
-                <a href="" type="submit" class="btn btn-third btn-lg">Finish</a>
+                <a href="/{{ $team->name }}" class="btn btn-third btn-lg">Finish</a>
             </div>
         </div>
         <div class="col-sm-4">
