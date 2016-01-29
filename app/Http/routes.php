@@ -20,8 +20,9 @@ Route::get('/contact', 'PagesController@contact');
 Route::get('/developers', 'PagesController@developers');
 Route::get('/developers/projects/{param}', 'PagesController@developerProject');
 Route::get('/sort', ['uses' => 'PagesController@getLinks', 'as' => 'sort']);
+Route::get('/timeframe', ['uses' => 'PagesController@getTimeframeLinks', 'as' => 'timeframe']);
 
-/**
+/*
  * Gets Events creation page
  */
 Route::get('/meetup/new', [
@@ -42,7 +43,7 @@ Route::post('/meetup/new', [
 //Dashboard Route
 Route::get('/dashboard', ['middleware' => 'auth', 'uses' => 'ProjectController@index']);
 
-#Project routes using resource
+//Project routes using resource
 Route::resource('projects', 'ProjectController');
 Route::get('projects/meta/{id}', ['uses' => 'ProjectController@getMetaAsJSON', 'as' => 'getMetaAsJSON']);
 // Confirm before delete

@@ -21,16 +21,13 @@ class MeetupController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Creates and stores new meetups.
+     * Redirects to another page on successful creation.
+     * Then sends an email alerting admin of the creation.
      */
     public function create(Request $request, Meetup $meetup)
     {
-        /**
-         * Creates and stores new meetups.
-         * Redirects to another page on successful creation.
-         */
+
         $meetup->city = $request->city;
         $meetup->event_date = $request->event_date;
         $meetup->event_details = $request->event_details;
