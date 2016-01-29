@@ -33,7 +33,7 @@ Route::get('/meetup/new', [
 /**
  * Creates new Events
  */
-Route::post('/meetup', [
+Route::post('/meetup/new', [
   'uses' => 'MeetupController@create',
   'as' => 'meetup',
   'middleware' => ['auth']

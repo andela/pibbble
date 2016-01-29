@@ -19,7 +19,7 @@
 .meetup-form {
   margin-top: -27px;
   margin-left: 16%;
-  height: 600px;
+  height: 725px;
   width: 55%;
   border-radius: 7px;
   border: 1px solid #FFFFFF;
@@ -52,4 +52,7 @@
   margin-top: 2%;
   margin-bottom: 2%;
   margin-left: 2%;
+}
+.meetupfaq {
+  margin: 2% 0% 2% 2%;
 }

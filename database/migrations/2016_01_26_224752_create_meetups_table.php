@@ -16,13 +16,14 @@ class CreateMeetupsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('city');
-            $table->dateTime('event_details');
-            $table->string('time');
+            $table->string('event_details');
+            $table->string('event_date');
             $table->string('organizer_address');
             $table->string('phone_no');
+            $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-        }
+        });
     }
 
     /**
@@ -32,6 +33,6 @@ class CreateMeetupsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('meetups');
     }
 }

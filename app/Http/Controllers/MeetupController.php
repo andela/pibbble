@@ -2,8 +2,10 @@
 
 namespace Pibbble\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Auth;
+use Pibbble\Meetup;
 use Pibbble\Http\Requests;
+use Illuminate\Http\Request;
 use Pibbble\Http\Controllers\Controller;
 
 class MeetupController extends Controller
@@ -23,8 +25,21 @@ class MeetupController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create(Request $request, Meetup $meetup)
     {
-        dd($request->except('_token'));
+        /**
+         * Creates and stores new meetups.
+         * Redirects to another page on successful creation.
+         */
+        $meetup->city = $request->city;
+        $meetup->event_date = $request->event_date;
+        $meetup->event_details = $request->event_details;
+        $meetup->organizer_address = $request->organizer_address;
+        $meetup->phone_no = $request->phone_no;
+        $meetup->user_id = Auth::user()->id;
+
+        $meetup->save();
+
+        return redirect()->back();
     }
 }

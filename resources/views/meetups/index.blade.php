@@ -10,8 +10,11 @@
     <div class="meetup-form">
         <div class="row">
             <div class="col-md-12 col-sm-12">
-                <div class="form-text">Want to host a Pibbble meetup? Fill the following...</div>
-                <form action="/meetup" method="POST" class="">
+                <h3 class="form-text">Want to host a Pibbble meetup? Here's how..</h3>
+                <h3><i class="fa fa-question-circle meetupfaq"></i> Read our Meetup FAQ.</h3>
+                <p style="padding-left:28px;">You have questions, we have answers. The best way to learn more about hosting
+                    Pibbble Meetups is to read <a href="" >our FAQ.</a><p>
+                <form action="/meetup/new" method="POST" class="">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="container">
                         <fieldset class="form-group">
@@ -23,7 +26,7 @@
                         <fieldset class="form-group">
                             <label class="">Date & Time</label>
                             <div class="">
-                                <input id="datetimepicker" type="text" name="date" class="date-input form-control">
+                                <input id="datetimepicker" type="text" name="event_date" class="date-input form-control">
                             </div>
                         </fieldset>
                         <fieldset class="form-group">
