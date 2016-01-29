@@ -4,9 +4,7 @@ namespace Pibbble\Http\Controllers;
 
 use Auth;
 use Pibbble\Meetup;
-use Pibbble\Http\Requests;
 use Illuminate\Http\Request;
-use Pibbble\Http\Controllers\Controller;
 
 class MeetupController extends Controller
 {
@@ -27,7 +25,6 @@ class MeetupController extends Controller
      */
     public function create(Request $request, Meetup $meetup)
     {
-
         $meetup->city = $request->city;
         $meetup->event_date = $request->event_date;
         $meetup->event_details = $request->event_details;
