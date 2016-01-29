@@ -1,8 +1,8 @@
 .cover-bg {
   height: 125px;
   width: 100%;
-  background-color: #31B0D5;
-  margin-top: -20px
+  background-color: #CCCCCC;
+  margin-top: -20px;
 }
 .cover-bwords {
   font-size: 300%;
@@ -13,15 +13,46 @@
   font-size: 105%;
   color: white;
   margin-left: 7%;
+  margin-bottom: -2px;
   padding-top: 7px;
 }
 .meetup-form {
   margin-top: -27px;
   margin-left: 16%;
-  height: 500px;
+  height: 725px;
   width: 55%;
   border-radius: 7px;
-  border: 1px solid black;
+  border: 1px solid #FFFFFF;
   margin-bottom: 15px;
   background-color: white;
+  padding: 1%;
+}
+.input-field {
+  height: 45px;
+  width: 55%;
+  margin-top: 2px;
+  border-radius: 4px;
+}
+.date-input {
+  height: 45px;
+  width: 27%;
+  margin-top: 2px;
+  border-radius: 4px;
+}
+.textarea-field {
+  border-radius: 4px;
+  resize: none;
+  width: 55%;
+}
+.custom-label {
+  text-align: left;
+}
+.form-text {
+  font-size: 120%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 2%;
+}
+.meetupfaq {
+  margin: 2% 0% 2% 2%;
 }

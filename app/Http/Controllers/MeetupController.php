@@ -2,7 +2,11 @@
 
 namespace Pibbble\Http\Controllers;
 
+use Auth;
+use Pibbble\Meetup;
+use Pibbble\Http\Requests;
 use Illuminate\Http\Request;
+use Pibbble\Http\Controllers\Controller;
 
 class MeetupController extends Controller
 {
@@ -13,72 +17,26 @@ class MeetupController extends Controller
      */
     public function index()
     {
-        return view('Meetups.index');
+        return view('meetups.index');
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Creates and stores new meetups.
+     * Redirects to another page on successful creation.
+     * Then sends an email alerting admin of the creation.
      */
-    public function create()
+    public function create(Request $request, Meetup $meetup)
     {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        $meetup->city = $request->city;
+        $meetup->event_date = $request->event_date;
+        $meetup->event_details = $request->event_details;
+        $meetup->organizer_address = $request->organizer_address;
+        $meetup->phone_no = $request->phone_no;
+        $meetup->user_id = Auth::user()->id;
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        $meetup->save();
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return redirect()->back();
     }
 }
