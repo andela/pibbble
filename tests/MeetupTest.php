@@ -12,6 +12,7 @@ class MeetupTest extends TestCase
     /***
      * Tests if users that are not logged in cannot access page.
      */
+
     public function testResponse()
     {
         $response = $this->call('GET', '/meetup/new');
@@ -22,6 +23,7 @@ class MeetupTest extends TestCase
     /***
      * Tests if logged-in users can successfully create a meetup.
      */
+
     public function testMeetupCreation()
     {
         $user = factory(User::class)->create();
