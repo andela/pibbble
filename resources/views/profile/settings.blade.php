@@ -49,7 +49,7 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Email</label>
                     <div class="col-sm-5">
-                        <input type="email" name="email" class="form-control" value="{{ Auth::user()->email }}">
+                        <input type="email" name="email" class="form-control" value="{{ Auth::user()->email }}" required>
                     </div>
                 </div>
                 <div class="form-group">
