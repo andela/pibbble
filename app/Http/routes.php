@@ -22,7 +22,22 @@ Route::get('/developers/projects/{param}', 'PagesController@developerProject');
 Route::get('/sort', ['uses' => 'PagesController@getLinks', 'as' => 'sort']);
 Route::get('/timeframe', ['uses' => 'PagesController@getTimeframeLinks', 'as' => 'timeframe']);
 
+Route::post('/checkName', ['uses' => 'TeamController@checkName']);
 /*
+|------------------------------------------------------------------------------
+| Team routes
+|------------------------------------------------------------------------------
+*/
+
+Route::group(['prefix' => 'teams'], function () {
+    Route::get('/', 'TeamController@index');
+    Route::get('/new', ['uses' => 'TeamController@create', 'middleware' => 'auth']);
+    Route::get('/{team}/invite', 'TeamController@invite');
+    Route::post('/new', ['uses' => 'TeamController@store', 'as' => 'teams.create']);
+    Route::get('/dashboard', ['uses' => 'TeamController@show']);
+});
+
+/**
  * Gets Events creation page
  */
 Route::get('/meetup', [

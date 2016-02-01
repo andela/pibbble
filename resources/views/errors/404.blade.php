@@ -1,9 +1,6 @@
 @extends('layouts.master')
 
 @section('title', 'Error 404')
-
-@endsection
-
 @section('content')
 
     <div class="error404" style="min-height: 160px">
