@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
     $('#team_name').keyup(function(e){
+        e.preventDefault();
         var name = $('#team_name').val();
         var url = '/checkName';
         var token = $('#token').val();
@@ -9,7 +10,7 @@ $(document).ready(function(){
                 _token : token,
                 name   : name
             }
-        }
+        };
 
         $.ajax({
             url : url,
@@ -19,10 +20,10 @@ $(document).ready(function(){
             success : function(response) {
                 if (response == 200) {
                     $('#error').html('Username Already exist!');
-                    $("#createTeam").prop("disabled", true);
+                    $("#createTeam").prop('disabled', true);
                 } else {
                     $('#error').html('');
-                    $("#createTeam").prop("disabled", false);
+                    $("#createTeam").prop('disabled', false);
                 }
             }
         });
