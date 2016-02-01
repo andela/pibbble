@@ -245,7 +245,7 @@ small {
 }
 
 .show:hover{
-    background-color: lightblue;
+    background-color: #5bc0de;
 }
 
 .badge {
@@ -280,4 +280,58 @@ a.full:hover {
 .error_msg {
     float: right;
     color: red;
+}
+
+.navbar-content {
+    padding: 15px;
+}
+
+.navbar-links {
+    display: inline-block;
+    color: #999999;
+    font-size: 14px;
+}
+
+.all-teams li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: #000;
+    margin-right: 20px;
+}
+
+.all-teams {
+    background-color: #ccc;
+    color: #fff;
+    font-size: 11px;
+    border-radius: 0px;
+}
+
+.all-teams:hover {
+    background-color: #5bc0de;
+}
+
+ul {
+    margin: 0 0 0 -40px;
+}
+
+.count {
+    font-weight: 500;
+    color: #444444;
+}
+
+.criteria {
+    font-weight: 400;
+    color: #999999;
+}
+
+.name {
+    color: #fff;
+}
+
+.caret_color {
+    color: #999999;
 }

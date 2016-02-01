@@ -51,7 +51,9 @@
                 <h4>What is your development team working on?</h4>
                 <p>Promote your team and its work, build a following for your products, and hire developers.</p>
                 <hr>
-                <div>{{ $errors->first('name') }}</div>
+                @if ($errors->has('name'))
+                    <span class="help-block">{{ $errors->first('name') }}</span>
+                @endif
                 <form role="form" method="post" action="/teams/new">
                   <div class="form-group">
                     <label for="name">Team Name:</label><span id="error" class="error_msg"></span>

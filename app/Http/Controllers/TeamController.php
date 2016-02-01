@@ -3,7 +3,6 @@
 namespace Pibbble\Http\Controllers;
 
 use Auth;
-use Redirect;
 use Pibbble\Team;
 use Illuminate\Http\Request;
 use Pibbble\Http\Requests;
@@ -68,7 +67,7 @@ class TeamController extends Controller
 
             return redirect()->to('/teams/'.$org.'/invite');
         } catch (QueryException $e) {
-            return Redirect::back()->withInput(['name' => 'You can\'t do that bullshit']);
+            return redirect()->back()->withInput(['name' => $e->getMessage()]);
         }
     }
 
@@ -78,9 +77,9 @@ class TeamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        return view('teams.dashboard');
     }
 
     /**
