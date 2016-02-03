@@ -63,6 +63,9 @@ Route::controllers([
     'password' => 'Auth\PasswordController',
 ]);
 
+// Hire a user
+Route::post('hireme', 'ProfileController@hireUser');
+
 // Gets users' profiles
 Route::get('{username}', [
     'uses' => 'ProfileController@show',
@@ -81,8 +84,6 @@ Route::get('/followers/{id}', 'ProfileController@getFollowers');
 //Get Followers route
 Route::get('/follows/{id}', 'ProfileController@getFollows');
 
-// Hire a user
-Route::post('hireme', 'ProfileController@hireUser');
 
 // To reset user's password
 Route::get('/password/email', 'Auth\PasswordController@getEmail');
