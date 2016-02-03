@@ -4,6 +4,7 @@ namespace Pibbble\Http\Controllers;
 
 use DB;
 use Auth;
+use Mail;
 use Cloudder;
 use Redirect;
 use Pibbble\User;
@@ -181,8 +182,14 @@ class ProfileController extends Controller
      * Send email to user when hired
      * @return [type] [description]
      */
-    public function hireUser()
+    public function hireUser(Request $request)
     {
-        echo 'Here';
+        $user = User::find($request->input('id'));
+        $user->message = $request->message;
+
+        Mail::send('emails.hireme', ['user' => $user], function ($m) use ($user) {
+            $m->from(Auth::user()->email, Auth::user()->username);
+            $m->to($user->email, $user->name)->subject('Hire Request from Pibbble');
+        });
     }
 }
