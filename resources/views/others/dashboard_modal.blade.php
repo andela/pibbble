@@ -26,6 +26,13 @@
               <div>Please log in to contact developer.</div>
           @endif
           <div class="modal-footer">
+          <div class='emailInfo alert alert-info' id='emailInfoDiv'>
+                {{ $user->username }} will be notified shortly.
+              <i class="fa fa-circle-o-notch fa-spin"></i>
+          </div>
+          <div class='emailResponse alert alert-success'>
+              {{$user->username}} has been notified with your message. You can close this dialog.
+          </div>
             <button type="button" id="hireme" data-id="{{ $user->id }}" class="btn btn-primary">Send</button>
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
