@@ -49,7 +49,7 @@ class ProfileController extends Controller
 
         $this->validate($request, [
             'username' => 'required|unique:users,username,'.Auth::user()->id,
-            'email'    => 'required|unique:users,email,'.Auth::user()->id
+            'email'    => 'required|unique:users,email,'.Auth::user()->id,
         ]);
 
         User::find(Auth::user()->id)->updateProfile($input);
@@ -179,7 +179,7 @@ class ProfileController extends Controller
     }
 
     /**
-     * Send email to user when hired
+     * Send email to user when hired.
      * @return [type] [description]
      */
     public function hireUser(Request $request)
