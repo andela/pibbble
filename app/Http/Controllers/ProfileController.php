@@ -176,4 +176,13 @@ class ProfileController extends Controller
 
         return response()->json($followers);
     }
+
+    /**
+     * Send email to user when hired
+     * @return [type] [description]
+     */
+    public function hireUser()
+    {
+        echo 'Here';
+    }
 }
