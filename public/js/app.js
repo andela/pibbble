@@ -112,6 +112,10 @@ jQuery( document ).ready(function( $ ){
                 }
             });
         });
+
+        $('#hireme').click(function() {
+            console.log('Working');
+        });;
     }
 );
 
