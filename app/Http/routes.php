@@ -84,7 +84,6 @@ Route::get('/followers/{id}', 'ProfileController@getFollowers');
 //Get Followers route
 Route::get('/follows/{id}', 'ProfileController@getFollows');
 
-
 // To reset user's password
 Route::get('/password/email', 'Auth\PasswordController@getEmail');
 Route::post('/password/email', 'Auth\PasswordController@postEmail');
