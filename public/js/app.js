@@ -114,7 +114,18 @@ jQuery( document ).ready(function( $ ){
         });
 
         $('#hireme').click(function() {
-            console.log('Working');
+            var token = $('#_token').val();
+            var message = $('#message').val();
+            var id = $(this).attr('data-id');
+
+            if (message.trim() == '') {
+                alert('You can\'t send an empty message');
+                return;
+            }
+
+            $.post('/hireme', { _token: token, message: message, id: id }, function(data) {
+                $('#myHire').modal('hide');
+            });
         });;
     }
 );
