@@ -125,8 +125,11 @@ jQuery( document ).ready(function( $ ){
                 return;
             }
 
+            $('#emailInfoDiv').removeClass('emailInfo');
+
             $.post('/hireme', data, function() {
-                $('#myHire').modal('hide');
+                $('#emailInfoDiv').addClass('emailInfo');
+                $('.emailResponse').removeClass('emailResponse');
             });
         });
     }
