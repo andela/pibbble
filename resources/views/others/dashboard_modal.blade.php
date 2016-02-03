@@ -25,7 +25,7 @@
               <div>Please log in to contact developer.</div>
           @endif
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Send</button>
+            <button type="button" id="hireme" class="btn btn-primary">Send</button>
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
       </div>
