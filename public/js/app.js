@@ -114,19 +114,21 @@ jQuery( document ).ready(function( $ ){
         });
 
         $('#hireme').click(function() {
-            var token = $('#_token').val();
-            var message = $('#message').val();
-            var id = $(this).attr('data-id');
+            var data = {
+                _token: $('#_token').val();,
+                message: $('#message').val();,
+                id: $(this).attr('data-id')
+            }
 
-            if (message.trim() == '') {
-                alert('You can\'t send an empty message');
+            if (data.message.trim() === '') {
+                window.alert('You can\'t send an empty message');
                 return;
             }
 
-            $.post('/hireme', { _token: token, message: message, id: id }, function(data) {
+            $.post('/hireme', data, function() {
                 $('#myHire').modal('hide');
             });
-        });;
+        });
     }
 );
 
