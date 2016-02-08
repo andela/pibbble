@@ -4,6 +4,7 @@ namespace Pibbble\Http\Controllers;
 
 use DB;
 use Auth;
+use Mail;
 use Cloudder;
 use Redirect;
 use Pibbble\User;
@@ -48,6 +49,7 @@ class ProfileController extends Controller
 
         $this->validate($request, [
             'username' => 'required|unique:users,username,'.Auth::user()->id,
+            'email'    => 'required|unique:users,email,'.Auth::user()->id,
         ]);
 
         User::find(Auth::user()->id)->updateProfile($input);
@@ -174,5 +176,20 @@ class ProfileController extends Controller
         }
 
         return response()->json($followers);
+    }
+
+    /**
+     * Send email to user when hired.
+     * @return [type] [description]
+     */
+    public function hireUser(Request $request)
+    {
+        $user = User::find($request->input('id'));
+        $user->message = $request->message;
+
+        Mail::send('emails.hireme', ['user' => $user], function ($m) use ($user) {
+            $m->from(Auth::user()->email, Auth::user()->username);
+            $m->to($user->email, $user->name)->subject('Hire Request from Pibbble');
+        });
     }
 }

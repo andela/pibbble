@@ -63,6 +63,9 @@ Route::controllers([
     'password' => 'Auth\PasswordController',
 ]);
 
+// Hire a user
+Route::post('hireme', 'ProfileController@hireUser');
+
 // Gets users' profiles
 Route::get('{username}', [
     'uses' => 'ProfileController@show',

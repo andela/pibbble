@@ -112,6 +112,26 @@ jQuery( document ).ready(function( $ ){
                 }
             });
         });
+
+        $('#hireme').click(function() {
+            var data = {
+                _token: $('#_token').val(),
+                message: $('#message').val(),
+                id: $(this).attr('data-id')
+            };
+
+            if (data.message.trim() === '') {
+                window.alert('You can\'t send an empty message');
+                return;
+            }
+
+            $('#emailInfoDiv').removeClass('emailInfo');
+
+            $.post('/hireme', data, function() {
+                $('#emailInfoDiv').addClass('emailInfo');
+                $('.emailResponse').removeClass('emailResponse');
+            });
+        });
     }
 );
 
