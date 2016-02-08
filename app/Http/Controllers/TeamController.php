@@ -3,6 +3,7 @@
 namespace Pibbble\Http\Controllers;
 
 use Auth;
+use Pibbble\User;
 use Pibbble\Team;
 use Illuminate\Http\Request;
 use Pibbble\Http\Requests;
@@ -43,6 +44,14 @@ class TeamController extends Controller
         return view('teams.invite', ['team' => $team]);
     }
 
+    /**
+     * Get all users as json for an invites list suggestion
+     * @return json allusers with their id's
+     */
+    public function invites()
+    {
+        return User::all();
+    }
     /**
      * Store a newly created resource in storage.
      *
