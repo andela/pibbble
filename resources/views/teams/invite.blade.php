@@ -73,3 +73,6 @@
     </div>
 </div>
 @endsection
+@section('custom_js')
+    <script src={{ load_asset('js/invite.js') }}></script>
+@endsection
