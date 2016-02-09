@@ -3,6 +3,7 @@
 namespace Pibbble\Http\Controllers;
 
 use Auth;
+use Mail;
 use Pibbble\User;
 use Pibbble\Team;
 use Illuminate\Http\Request;
@@ -58,6 +59,19 @@ class TeamController extends Controller
 
         return $users;
     }
+
+    public function sendInvite($team, $id)
+    {
+        $user = User::find($id);
+        $team = Team::where('name', $team)->first();
+
+        Mail::send('emails.teaminvite', compact('user', 'team'), function ($m) use ($user, $team) {
+            $m->from(Auth::user()->email, Auth::user()->username);
+            $m->to($user->email, $user->name);
+            $m->subject('Invitation to join Team '. $team->name .' at Pibbble');
+        });
+    }
+
     /**
      * Store a newly created resource in storage.
      *
