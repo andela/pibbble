@@ -60,6 +60,10 @@ class TeamController extends Controller
         return $users;
     }
 
+    /**
+     * Send an invite to a user and add them to a team
+     *
+     */
     public function sendInvite($team, $id)
     {
         $user = User::find($id);
@@ -70,6 +74,8 @@ class TeamController extends Controller
             $m->to($user->email, $user->name);
             $m->subject('Invitation to join Team '. $team->name .' at Pibbble');
         });
+
+        $user->teams()->save($team);
     }
 
     /**
