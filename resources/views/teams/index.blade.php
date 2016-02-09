@@ -17,7 +17,7 @@
             <div class="col-sm-5">
                 <span class="pull-left"><img src="http://placehold.it/90x90" class="team-pix"></span>
                 <span class="meta-body">
-                    <b>{{ $team->name }} </b> <span class="hire-icon"><i class="fa fa-envelope hire"></i></span><br>
+                    <b><a href="{{ url('/teams/'.$team->name.'/dashboard')}}">{{ $team->name }} </a></b> <span class="hire-icon"><i class="fa fa-envelope hire"></i></span><br>
                     <span class="meta-body loc">Lagos, Nigeria</span>
                     <span class="meta-body">
                         <br><small>ui, ux, android, games </small>
