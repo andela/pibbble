@@ -50,7 +50,13 @@ class TeamController extends Controller
      */
     public function invites()
     {
-        return User::all();
+        $users = User::all(['id', 'username as name']);
+
+        for ($i = 0; $i < count($users); $i++) {
+            $users[$i]->avatar = $users[$i]->getAvatar();
+        }
+
+        return $users;
     }
     /**
      * Store a newly created resource in storage.
