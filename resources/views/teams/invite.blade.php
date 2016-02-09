@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="{{ load_asset('css/teams.css') }}">
 @endsection
 
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -24,6 +25,7 @@
                                 <small>Set up a personal account</small>
                             </span>
                         </td>
+
                         <td width="250px" class="fair-white">
                             <span id="facheck"><i class="fa fa-check fa-3x"></i></span>
                             <span id="oro">
@@ -46,6 +48,7 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                   <div class="form-group">
                     <label for="name">Search by username or email address:</label>
+
                     <input type="text" class="form-control typeahead" autocomplete="off" id="name" name="name" data-team={{ $team->name }}>
                   </div>
                 </form>
@@ -60,7 +63,7 @@
                 </div>
 
                 <br>
-                <a href="/{{ $team->name }}" class="btn btn-third btn-lg">Finish</a>
+                <a href="{{ url('/team/'.$team->name.'/dashboard') }}" class="btn btn-third btn-lg">Finish</a>
             </div>
         </div>
         <div class="col-sm-4">
