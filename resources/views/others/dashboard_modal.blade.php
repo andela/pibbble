@@ -16,6 +16,7 @@
             <p>To:     <img class="avatar" src="{{ $user->getAvatar() }}" /> {{ $user->username }}
 
             <hr>
+            <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
             <div class="form-group">
                 <label for="message"><span class="glyphicon glyphicon-envelope"></span> Type Message Here</label>
                 <textarea type="text" class="form-control" id="message" placeholder="Mail to"></textarea>
@@ -25,7 +26,14 @@
               <div>Please log in to contact developer.</div>
           @endif
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Send</button>
+          <div class='emailInfo alert alert-info' id='emailInfoDiv'>
+                {{ $user->username }} will be notified shortly.
+              <i class="fa fa-circle-o-notch fa-spin"></i>
+          </div>
+          <div class='emailResponse alert alert-success'>
+              {{$user->username}} has been notified with your message. You can close this dialog.
+          </div>
+            <button type="button" id="hireme" data-id="{{ $user->id }}" class="btn btn-primary">Send</button>
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
       </div>
