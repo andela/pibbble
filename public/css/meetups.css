@@ -4,19 +4,23 @@
   background-color: #CCCCCC;
   margin-top: -20px;
 }
+
 .cover-bwords {
   font-size: 300%;
   color: white;
   margin-left: 7%;
 }
+
 .cover-swords {
   font-size: 105%;
   color: white;
   margin-left: 7%;
   margin-bottom: -2px;
   padding-top: 7px;
+  color: #666666;
 }
-.meetup-form {
+
+.meetup-form, .meetup-faq-section {
   margin-top: -27px;
   margin-left: 16%;
   height: 725px;
@@ -27,32 +31,48 @@
   background-color: white;
   padding: 1%;
 }
+
 .input-field {
   height: 45px;
   width: 55%;
   margin-top: 2px;
   border-radius: 4px;
 }
+
 .date-input {
   height: 45px;
   width: 27%;
   margin-top: 2px;
   border-radius: 4px;
 }
+
 .textarea-field {
   border-radius: 4px;
   resize: none;
   width: 55%;
 }
+
 .custom-label {
   text-align: left;
 }
+
 .form-text {
   font-size: 120%;
   margin-top: 2%;
   margin-bottom: 2%;
   margin-left: 2%;
 }
-.meetupfaq {
-  margin: 2% 0% 2% 2%;
+
+.meetup-faq-intro {
+  margin: 0px 0px 30px;
+  padding: 0px 0px 20px;
+  border-bottom: 2px solid #eee;
+  font-size: 1.3em;
+}
+
+.meetup-faq {
+  font-size: 1.3em;
+  margin: 30px;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0px 0px 10px 0px;
 }
