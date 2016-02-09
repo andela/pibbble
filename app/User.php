@@ -128,6 +128,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      */
     public function teams()
     {
-        return $this->hasMany('Pibbble/Team');
+        return $this->belongsToMany('Pibbble\Team', 'team_members', 'user_id', 'team_id')->withTimestamps();
     }
 }
