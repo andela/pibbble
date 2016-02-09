@@ -34,6 +34,7 @@ Route::group(['prefix' => 'teams'], function () {
     Route::get('/new', ['uses' => 'TeamController@create', 'middleware' => 'auth']);
     Route::get('/invites', ['uses' => 'TeamController@invites', 'middleware' => 'auth']);
     Route::get('/{team}/invite', 'TeamController@invite');
+    Route::get('/{team}/invite/{id}', ['uses' => 'TeamController@sendInvite', 'middleware' => 'auth']);
     Route::post('/new', ['uses' => 'TeamController@store', 'as' => 'teams.create']);
     Route::get('/dashboard', ['uses' => 'TeamController@show']);
 });
