@@ -17,6 +17,10 @@ class CreateTeamsTable extends Migration
             $table->string('name')->unique();
             $table->string('email');
             $table->string('plan');
+            $table->string('avatar')->nullable();
+            $table->string('location')->nullable();
+            $table->string('bio')->nullable();
+            $table->string('skills')->nullable();
             $table->integer('user_id')->unsigned();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
