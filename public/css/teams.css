@@ -93,9 +93,9 @@ table {
     opacity: 1;
 }
 
-.form-control {
+/*.form-control {
     width: 100%;
-}
+}*/
 
 .btn-second:not(.btn-link):not(.btn-flat) {
     background-color: #C3C3C0;
@@ -334,4 +334,21 @@ ul {
 
 .caret_color {
     color: #999999;
+}
+
+option {
+    font-weight: normal;
+    display: block;
+    white-space: pre;
+    min-height: 1.2em;
+    padding: 0px 2px 1px;
+}
+
+.team-actions {
+    margin-bottom: 10px;
+}
+
+.img {
+    display: table;
+    margin: 0 auto;
 }
