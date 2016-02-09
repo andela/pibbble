@@ -23,7 +23,7 @@ class Team extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'plan'];
+    protected $fillable = ['name', 'email', 'plan', 'avatar', 'location', 'bio', 'skills'];
 
     /**
      * one to one relationship
