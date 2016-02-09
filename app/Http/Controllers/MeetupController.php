@@ -21,6 +21,16 @@ class MeetupController extends Controller
     }
 
     /**
+     * Returns FAQ page for meetups
+     *
+     * @return FAQ view
+     */
+    public function faq()
+    {
+        return view('meetups.faq');
+    }
+
+    /**
      * Creates and stores new meetups.
      * Redirects to another page on successful creation.
      * Then sends an email alerting admin of the creation.

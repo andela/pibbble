@@ -4,7 +4,7 @@
 @section('content')
 <div class="" style="min-height: 420px">
     <div class="cover-bg">
-        <p class="cover-swords" style="color: #666666;"><strong>HANG OUT WITH OTHER DEVELOPERS</strong></p>
+        <p class="cover-swords"><strong>HANG OUT WITH OTHER DEVELOPERS</strong></p>
         <p class="cover-bwords"><strong>Host a Meetup</strong></p>
     </div>
     <div class="meetup-form">
@@ -13,7 +13,7 @@
                 <h3 class="form-text">Want to host a Pibbble meetup? Here's how..</h3>
                 <h3><i class="fa fa-question-circle meetupfaq"></i> Read our Meetup FAQ.</h3>
                 <p style="padding-left:28px;">You have questions, we have answers. The best way to learn more about hosting
-                    Pibbble Meetups is to read <a href="" >our FAQ.</a><p>
+                    Pibbble Meetups is to read <a href="faq" >our FAQ.</a><p>
                 <form action="/meetup/new" method="POST" class="">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="container">

@@ -40,6 +40,9 @@ Route::post('/meetup/new', [
   'middleware' => ['auth']
 ]);
 
+// Gets meetup FAQ page
+Route::get('/meetup/faq', 'MeetupController@faq');
+
 //Dashboard Route
 Route::get('/dashboard', ['middleware' => 'auth', 'uses' => 'ProjectController@index']);
 
