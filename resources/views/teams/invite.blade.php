@@ -46,16 +46,19 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                   <div class="form-group">
                     <label for="name">Search by username or email address:</label>
-                    <input type="text" class="form-control" id="name" name="name">
+                    <input type="text" class="form-control typeahead" autocomplete="off" id="name" name="name" data-team={{ $team->name }}>
                   </div>
                 </form>
                 <hr class="team-line">
-                <div class="team-item">
-                    <a href="{{ route('userprofile', $team->user->username) }}"><img src="{{ $team->user->getAvatar()}}"></a>
-                    <div class="team-name">
-                        <b><a href="{{ route('userprofile', $team->user->username) }}">{{ $team->user->username }}</a></b>
+                <div class="invitees">
+                    <div class="team-item">
+                        <a href="{{ route('userprofile', $team->user->username) }}"><img src="{{ $team->user->getAvatar()}}"></a>
+                        <div class="team-name">
+                            <b><a href="{{ route('userprofile', $team->user->username) }}">{{ $team->user->username }}</a></b>
+                        </div>
                     </div>
                 </div>
+
                 <br>
                 <a href="/{{ $team->name }}" class="btn btn-third btn-lg">Finish</a>
             </div>
