@@ -38,4 +38,13 @@ class Team extends Model
     {
         return $this->hasMany('Pibbble\Project');
     }
+
+    /**
+     * Return top three projects of teams
+     * @return [type] [description]
+     */
+    public function topThree()
+    {
+        return $this->projects()->latest()->limit(3)->get();
+    }
 }
