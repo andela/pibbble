@@ -27,7 +27,7 @@
                 <a href="#" class="btn btn-primary btn-small hire">Hire Us</a>
                 <button id="followTeam" class="btn btn-primary">Follow</button>
                 <button id="uploadTeam" data-toggle="modal" data-target="#myUpload" class="btn btn-primary">Upload Team Project</button>
-                <button class="btn"><i class="fa fa-cog"></i></button>
+                <a href="{{ url('/teams/'.$team->name.'/settings') }}" class="btn btn-primary hire"><i class="fa fa-cog"></i></a>
             </div>
         </div>
     </nav>
