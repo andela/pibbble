@@ -28,16 +28,16 @@ Route::get('/timeframe', ['uses' => 'PagesController@getTimeframeLinks', 'as' =>
 Route::get('/meetup/new', [
   'uses' => 'MeetupController@index',
   'as' => 'meetup-form',
-  'middleware' => ['auth']
+  'middleware' => ['auth'],
 ]);
 
-/**
+/*
  * Creates new Events
  */
 Route::post('/meetup/new', [
   'uses' => 'MeetupController@create',
   'as' => 'meetup',
-  'middleware' => ['auth']
+  'middleware' => ['auth'],
 ]);
 
 // Gets meetup FAQ page
