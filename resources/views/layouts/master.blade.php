@@ -28,8 +28,7 @@
     <script src="{{ load_asset('/js/auth.js') }}"></script>
     <script type="text/javascript" src="{{ load_asset('/js/app.js') }}"></script>
     <script src="{{ load_asset('/components/bootstrap-3.3.5-dist/js/bootstrap.min.js') }}"></script>
-    <script src="{{ load_asset('/js/jquery.datetimepicker.full.min.js') }}"></script>
-    <script src="{{ load_asset('/js/jquery.datetimepicker.js') }}"></script>
     <script src="{{ load_asset('/components/mui-0.1.22-rc1/js/mui.min.js') }}"></script>
+    @yield('scripts')
   </body>
 </html>
