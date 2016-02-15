@@ -116,7 +116,7 @@ class TeamController extends Controller
     public function show($team)
     {
         $team = Team::where('name', $team)->first();
-        $projects = Project::where('team_id', $team->id)->orderBy('created_at', 'desc')->with('projectLikes')->with('comments')->paginate(12);
+        $projects = $team->projects()->orderBy('created_at', 'desc')->with('projectLikes')->with('comments')->paginate(12);
 
         return view('teams.dashboard', compact('team', 'projects'));
     }
