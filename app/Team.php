@@ -47,4 +47,13 @@ class Team extends Model
     {
         return $this->projects()->latest()->limit(3)->get();
     }
+
+    public function updateProfile($formData)
+    {
+        foreach ($formData as $key => $value) {
+            $this->$key = $value;
+        }
+
+        $this->save();
+    }
 }
