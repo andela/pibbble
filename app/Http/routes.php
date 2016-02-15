@@ -39,6 +39,7 @@ Route::group(['prefix' => 'teams'], function () {
 
     Route::get('/{team}/dashboard', ['uses' => 'TeamController@show']);
     Route::get('/{team}/settings', ['uses' => 'TeamController@edit']);
+    Route::post('/{team}/settings', ['uses' => 'TeamController@update']);
 });
 
 /**
