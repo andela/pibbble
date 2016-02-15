@@ -2,6 +2,7 @@
 
 namespace Pibbble;
 
+use DB;
 use Illuminate\Database\Eloquent\Model;
 
 class Team extends Model
@@ -62,5 +63,14 @@ class Team extends Model
         $this->avatar = $img;
 
         $this->save();
+    }
+
+    public static function checkUserInTeam($team_id, $user_id)
+    {
+        $team = DB::table('team_members')->where('team_id', $team_id)->where('user_id', $user_id)->get();
+        if ($team) {
+            return true;
+        }
+        return false;
     }
 }
