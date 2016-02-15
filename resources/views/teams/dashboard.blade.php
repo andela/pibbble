@@ -36,11 +36,11 @@
             <img class="img team-pix" src="http://placehold.it/100x100">
         </div>
         <div class="row col-md-12">
-            <h2 class="img">Team name</h2>
-            <h4 class="img hire">Nairobi Kenya</h4>
-            <h5 class="img">Lorem Ipsum quote about this awesome team. Will probably limit the number of comments. Let me make this a little longer</h5>
+            <h2 class="img">{{ $team->name }}</h2>
+            <h4 class="img hire">{{ $team->location }}</h4>
+            <h5 class="img">{{ $team->bio }}</h5>
         </div>
-        @include('others.projects_grid');
+        @include('others.projects_grid')
     </div>
     @include('teams.dashboard_modal')
 @endsection
