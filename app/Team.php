@@ -56,4 +56,11 @@ class Team extends Model
 
         $this->save();
     }
+
+    public function updateAvatar($img)
+    {
+        $this->avatar = $img;
+
+        $this->save();
+    }
 }
