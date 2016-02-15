@@ -127,9 +127,10 @@ class TeamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($name)
     {
-        //
+        $team = Team::where('name', $name)->first();
+        return view('teams.edit', compact('team'));
     }
 
     /**
