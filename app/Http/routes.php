@@ -50,6 +50,8 @@ Route::get('/dashboard', ['middleware' => 'auth', 'uses' => 'ProjectController@i
 
 //Project routes using resource
 Route::resource('projects', 'ProjectController');
+Route::post('projects/new/{team}', 'ProjectController@storeteam');
+
 Route::get('projects/meta/{id}', ['uses' => 'ProjectController@getMetaAsJSON', 'as' => 'getMetaAsJSON']);
 // Confirm before delete
 Route::get('project/confirm/{id}', 'ProjectController@confirm');
