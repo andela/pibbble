@@ -4,6 +4,7 @@ namespace Pibbble\Http\Controllers;
 
 use Auth;
 use Cloudder;
+use Pibbble\Team;
 use Pibbble\User;
 use Pibbble\Project;
 use Illuminate\Http\Request;
@@ -108,6 +109,46 @@ class ProjectController extends Controller
         $project->save();
 
         return redirect()->to('/projects')->with('info', 'Your Project has been created successfully');
+    }
+
+    /**
+     * Store Team projects
+     * @return [type] [description]
+     */
+    public function storeteam(Request $request, $team)
+    {
+        if ($request->ajax()) {
+            $this->validate($request, [
+                'project_url'    => 'required|unique:projects|validurl',
+            ]);
+
+            return;
+        }
+
+        $this->validate($request, [
+            'name'          => 'required|min:1',
+            'description'   => 'required|min:15',
+            'technologies'  => 'required',
+            'project_url'    => 'required|unique:projects|url',
+        ]);
+
+        $team = Team::where('name', $team)->first();
+
+        $getScreenshotName = $this->convertUrlToPng($request);
+        $this->saveToCloud($getScreenshotName);
+
+        $project = new Project;
+        $project->user_id = Auth::user()->id;
+        $project->team_id = $team->id;
+        $project->projectname = $request->input('name');
+        $project->description = $request->input('description');
+        $project->technologies = $request->input('technologies');
+        $project->image_url = $this->finalUrl;
+        $project->project_url = $request->input('project_url');
+
+        $project->save();
+
+        return redirect()->to('/teams/'.$team->name.'/dashboard')->with('info', 'Your Project has been created successfully');
     }
 
     /**
