@@ -1,7 +1,11 @@
 @extends('layouts.master')
-@section('title', 'Team Profile Update')
+@section('title', 'Team Settings')
 
+@section('custom-css')
+<link rel="stylesheet" href="{{ load_asset('css/teams.css') }}">
+@endsection
 @section('content')
+@include('teams.navbar')
 <div>
     @if(session('status'))
         <div class="alert alert-success" style="text-align: center; margin-top: -20px;">
