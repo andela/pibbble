@@ -101,6 +101,7 @@ class TeamController extends Controller
             $team->user_id = Auth::user()->id;
 
             $team->save();
+            Auth::user()->teams()->save($team);
 
             return redirect()->to('/teams/'.$org.'/invite');
         } catch (QueryException $e) {
