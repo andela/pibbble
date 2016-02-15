@@ -18,9 +18,9 @@
                 <span class="pull-left"><img src="http://placehold.it/90x90" class="team-pix"></span>
                 <span class="meta-body">
                     <b><a href="{{ url('/teams/'.$team->name.'/dashboard')}}">{{ $team->name }} </a></b> <span class="hire-icon"><i class="fa fa-envelope hire"></i></span><br>
-                    <span class="meta-body loc">Lagos, Nigeria</span>
+                    <span class="meta-body loc">{{ $team->location }}</span>
                     <span class="meta-body">
-                        <br><small>ui, ux, android, games </small>
+                        <br><small>{{ $team->skills }}</small>
                     </span>
                     <ul>
                         <li class="stat-shots" style="padding-left:10px;">
@@ -37,9 +37,9 @@
             </div>
             <div class="col-sm-7 hidden-xs">
                 <div class="row">
-                    <div class="col-sm-4"><a href=""><img src="http://placehold.it/120x90"></a></div>
-                    <div class="col-sm-4"><a href=""><img src="http://placehold.it/120x90"></a></div>
-                    <div class="col-sm-4"><a href=""><img src="http://placehold.it/120x90"></a></div>
+                @foreach($team->topThree() as $project)
+                    <div class="col-sm-4"><a href=""><img width="120" height="90" src="{{ $project->image_url }}"></a></div>
+                @endforeach
                 </div>
             </div>
         </div>
