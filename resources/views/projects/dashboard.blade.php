@@ -59,10 +59,11 @@
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myBio"><span class="glyphicon glyphicon-eye-open"></span> Bio</button>
                                 </div>
                             @endcan
+
                             @can('users-can-see', $user->id)
                                 <div class="btn-group pull-right">
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myBio"><i class="fa fa-user fa-lg"></i> Bio</button>
-                                    <button type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-log-in" onclick="change()" type="button" value="Follow" id="myButton1"></span> Follow</button>
+                                    <button type="button" id="followButton" data-id="{{ $user->id }}" class="btn btn-primary btn-sm">{{ $user->checkFollow() ? 'Following' : 'Follow' }}</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#mySkills"><i class="fa fa-archive fa-lg"></i> Skills</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myHire"><i class="fa fa-phone fa-lg"></i> Hire Me</button>
                                 </div>
