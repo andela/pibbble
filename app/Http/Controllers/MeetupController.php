@@ -3,7 +3,9 @@
 namespace Pibbble\Http\Controllers;
 
 use Auth;
+use Mail;
 use Pibbble\Meetup;
+use Pibbble\User;
 use Pibbble\Http\Requests;
 use Illuminate\Http\Request;
 use Pibbble\Http\Controllers\Controller;
@@ -45,8 +47,27 @@ class MeetupController extends Controller
         $meetup->phone_no = $request->phone_no;
         $meetup->user_id = Auth::user()->id;
 
-        $meetup->save();
+        if ($meetup->save()) {
+            $this->sendEmailOnMeetupCreation($meetup);
+        }
 
         return redirect()->back();
+    }
+
+    public function sendEmailOnMeetupCreation(Meetup $meetup)
+    {
+        $user = Auth::user();
+        $meetupDetails = [
+            'city'              => $meetup->city,
+            'date'              => $meetup->event_date,
+            'details'           => $meetup->event_details,
+            'organiserAddress'  => $meetup->organizer_address,
+            'phoneNumber'       => $meetup->phone_no
+        ];
+
+        Mail::send('emails.meetup-created', compact('user', 'meetupDetails'), function ($m) use ($user) {
+            $m->from($user->email, $user->username);
+            $m->to($user->email, $user->name)->subject('Your Pibble Meetup has been created (Test)');
+        });        
     }
 }
