@@ -24,12 +24,9 @@
                 </ul>
             </div>
             <div class="pull-right team-actions">
-                <select name="" id="">
-                    <option value="">Team Shots</option>
-                    <option value="">Personal Shots</option>
-                </select>
                 <a href="#" class="btn btn-primary btn-small hire">Hire Us</a>
                 <button id="followTeam" class="btn btn-primary">Follow</button>
+                <button id="uploadTeam" data-toggle="modal" data-target="#myUpload" class="btn btn-primary">Upload Team Project</button>
                 <button class="btn"><i class="fa fa-cog"></i></button>
             </div>
         </div>
@@ -43,5 +40,7 @@
             <h4 class="img hire">Nairobi Kenya</h4>
             <h5 class="img">Lorem Ipsum quote about this awesome team. Will probably limit the number of comments. Let me make this a little longer</h5>
         </div>
+        @include('others.projects_grid');
     </div>
+    @include('teams.dashboard_modal')
 @endsection
