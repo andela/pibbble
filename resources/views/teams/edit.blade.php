@@ -66,7 +66,7 @@
         </form>
     </div>
     <div class="col-md-5">
-        <form method="POST" action="teams/avatar/setting" enctype="multipart/form-data">
+        <form method="POST" action="{{ url('teams/'.$team->name.'/avatar/') }}" enctype="multipart/form-data">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div style="margin: 10px;">
                 <div><b>Avatar</b></div>
