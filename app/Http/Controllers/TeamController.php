@@ -112,9 +112,10 @@ class TeamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($team)
     {
-        return view('teams.dashboard');
+        $team = Team::where('name', $team)->first();
+        return view('teams.dashboard', compact('team'));
     }
 
     /**
