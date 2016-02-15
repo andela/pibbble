@@ -4,6 +4,7 @@ namespace Pibbble\Http\Controllers;
 
 use Auth;
 use Mail;
+use Cloudder;
 use Pibbble\User;
 use Pibbble\Team;
 use Pibbble\Project;
@@ -156,7 +157,7 @@ class TeamController extends Controller
     /**
      *  Posts image update request.
      */
-    public function postAvatarSetting(Request $request, $name)
+    public function updateAvatar(Request $request, $name)
     {
         if ($request->hasFile('avatar')) {
             $img = $request->file('avatar');
