@@ -6,6 +6,7 @@ use Auth;
 use Mail;
 use Pibbble\User;
 use Pibbble\Team;
+use Pibbble\Project;
 use Illuminate\Http\Request;
 use Pibbble\Http\Requests;
 use Illuminate\Database\QueryException;
@@ -115,7 +116,9 @@ class TeamController extends Controller
     public function show($team)
     {
         $team = Team::where('name', $team)->first();
-        return view('teams.dashboard', compact('team'));
+        $projects = Project::where('team_id', $team->id)->orderBy('created_at', 'desc')->with('projectLikes')->with('comments')->paginate(12);
+
+        return view('teams.dashboard', compact('team', 'projects'));
     }
 
     /**
