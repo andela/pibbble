@@ -134,15 +134,44 @@ class TeamController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Posts form request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  Request $request
+     * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $name)
     {
-        //
+        $input = $request->except('_token', 'url');
+        $team = Team::where('name', $name)->first();
+
+        $this->validate($request, [
+            'email'    => 'required',
+        ]);
+
+        $team->updateProfile($input);
+
+        return redirect('/teams/'.$team->name.'/dashboard')->with('status', 'You have successfully updated your profile.');
+    }
+
+    /**
+     *  Posts image update request.
+     */
+    public function postAvatarSetting(Request $request, $name)
+    {
+        if ($request->hasFile('avatar')) {
+            $img = $request->file('avatar');
+
+            Cloudder::upload($img);
+            $imgurl = Cloudder::getResult()['url'];
+
+            $team = Team::where('name', $name)->first();
+
+            $team->updateAvatar($imgurl);
+
+            return redirect('/teams/'.$team->name.'/dashboard')->with('status', 'Avatar updated successfully.');
+        } else {
+            return redirect('/teams/'.$team->name.'/settings')->with('status', 'Please select an image.');
+        }
     }
 
     /**
