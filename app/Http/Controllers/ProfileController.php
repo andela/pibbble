@@ -149,8 +149,9 @@ class ProfileController extends Controller
         }
 
         $data = [
-            "follows" => $followers
+            'follows' => $followers,
         ];
+
         return response()->json($data);
     }
 
@@ -191,8 +192,8 @@ class ProfileController extends Controller
         }
 
         $data = [
-            "follows" => $follows,
-            "teamFollows" => $teamFollows
+            'follows' => $follows,
+            'teamFollows' => $teamFollows,
         ];
 
         return response()->json($data);

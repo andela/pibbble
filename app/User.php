@@ -122,7 +122,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     /**
-     * Team membership relationship for user
+     * Team membership relationship for user.
      */
     public function teams()
     {
@@ -130,7 +130,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     /**
-     * Teams followed relationship for user
+     * Teams followed relationship for user.
      */
     public function teamFollows()
     {

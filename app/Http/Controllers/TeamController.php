@@ -8,11 +8,8 @@ use Mail;
 use Cloudder;
 use Pibbble\User;
 use Pibbble\Team;
-use Pibbble\Project;
 use Illuminate\Http\Request;
-use Pibbble\Http\Requests;
 use Illuminate\Database\QueryException;
-use Pibbble\Http\Controllers\Controller;
 
 class TeamController extends Controller
 {
@@ -46,12 +43,11 @@ class TeamController extends Controller
         $team = Team::where('name', $name)->first();
         $members = $team->members()->get();
 
-
         return view('teams.invite', compact('team', 'members'));
     }
 
     /**
-     * Get all users as json for an invites list suggestion
+     * Get all users as json for an invites list suggestion.
      * @return json allusers with their id's
      */
     public function invites()
@@ -66,8 +62,7 @@ class TeamController extends Controller
     }
 
     /**
-     * Send an invite to a user and add them to a team
-     *
+     * Send an invite to a user and add them to a team.
      */
     public function sendInvite($team, $id)
     {
@@ -77,7 +72,7 @@ class TeamController extends Controller
         Mail::send('emails.teaminvite', compact('user', 'team'), function ($m) use ($user, $team) {
             $m->from(Auth::user()->email, Auth::user()->username);
             $m->to($user->email, $user->name);
-            $m->subject('Invitation to join Team '. $team->name .' at Pibbble');
+            $m->subject('Invitation to join Team '.$team->name.' at Pibbble');
         });
 
         $team->members()->save($user);
@@ -98,9 +93,9 @@ class TeamController extends Controller
 
         try {
             $team = new Team;
-            $org = $team->name  = $request->input('name');
+            $org = $team->name = $request->input('name');
             $team->email = $request->input('email');
-            $team->plan  = $request->input('options');
+            $team->plan = $request->input('options');
             $team->user_id = Auth::user()->id;
 
             $team->save();
@@ -135,6 +130,7 @@ class TeamController extends Controller
     public function edit($name)
     {
         $team = Team::where('name', $name)->first();
+
         return view('teams.edit', compact('team'));
     }
 
@@ -192,13 +188,14 @@ class TeamController extends Controller
 
             return redirect()->to('/teams');
         }
+
         return response('Unauthorized', 401);
     }
 
     /**
-     * Check name availabilty
+     * Check name availabilty.
      * @param  Request $request
-     * @return integer
+     * @return int
      */
     public function checkName(Request $request)
     {
@@ -210,8 +207,8 @@ class TeamController extends Controller
     }
 
     /**
-     * Follow a team
-     * @param  integer $id id of the team being followed
+     * Follow a team.
+     * @param  int $id id of the team being followed
      * @return json     follow count for the team
      */
     public function follow($id)
@@ -228,17 +225,18 @@ class TeamController extends Controller
     }
 
     /**
-     * Unfollow a team
-     * @param  integer $id id of the team being unfollowed
+     * Unfollow a team.
+     * @param  int $id id of the team being unfollowed
      * @return json     follow count for the team
      */
     public function unfollow($id)
     {
         if (Auth::check()) {
             $results = DB::delete('delete from team_follows where user_id = ? and team_id = ?', [Auth::user()->id, $id]);
-                $team = TEAM::find($id);
-                $count = $team->followers()->count();
-                return response()->json($count);
+            $team = TEAM::find($id);
+            $count = $team->followers()->count();
+
+            return response()->json($count);
         }
 
         return response('Unauthorized', 401);

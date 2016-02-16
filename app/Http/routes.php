@@ -44,7 +44,7 @@ Route::group(['prefix' => 'teams'], function () {
     Route::get('/delete/{id}', ['uses' => 'TeamController@destroy']);
 });
 
-/**
+/*
  * Gets Events creation page
  */
 Route::get('/meetup', [
