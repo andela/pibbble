@@ -139,7 +139,7 @@ class TeamController extends Controller
     }
 
     /**
-     * Posts form request.
+     * Posts team settings/details.
      *
      * @param  Request $request
      * @return Response
@@ -159,7 +159,7 @@ class TeamController extends Controller
     }
 
     /**
-     *  Posts image update request.
+     *  Posts team avatar update request.
      */
     public function updateAvatar(Request $request, $name)
     {
@@ -209,6 +209,11 @@ class TeamController extends Controller
         }
     }
 
+    /**
+     * Folloe a team
+     * @param  integer $id id of the team being followed
+     * @return json     follow count for the team
+     */
     public function follow($id)
     {
         if (Auth::check()) {
@@ -222,6 +227,11 @@ class TeamController extends Controller
         return response('Unauthorized', 401);
     }
 
+    /**
+     * Unfollow a team
+     * @param  integer $id id of the team being unfollowed
+     * @return json     follow count for the team
+     */
     public function unfollow($id)
     {
         if (Auth::check()) {
@@ -236,7 +246,7 @@ class TeamController extends Controller
 
     /**
      * Send email to team when hired.
-     * @return [type] [description]
+     * @return void
      */
     public function hireTeam(Request $request)
     {
