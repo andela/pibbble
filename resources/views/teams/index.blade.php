@@ -24,13 +24,10 @@
                     </span>
                     <ul>
                         <li class="stat-shots" style="padding-left:10px;">
-                            <a href="#">464<span class="meta">shots</span></a>
+                            <a href="#">{{ $team->projects()->count() }}<span class="meta">projects</span></a>
                         </li>
                         <li class="stat-shots">
-                            <a href="#">54,201<span class="meta">followers</span></a>
-                        </li>
-                        <li>
-                            <i class="fa fa-plus-square fa-2x"></i>
+                            <a href="#">{{ $team->followers()->count() }}<span class="meta">followers</span></a>
                         </li>
                     </ul>
                 </span>
