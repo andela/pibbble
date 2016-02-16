@@ -3,6 +3,7 @@
 namespace Pibbble;
 
 use DB;
+use Auth;
 use Illuminate\Database\Eloquent\Model;
 
 class Team extends Model
@@ -89,5 +90,16 @@ class Team extends Model
     public function followers()
     {
         return $this->belongsToMany('Pibbble\User', 'team_follows', 'team_id', 'user_id')->withTimestamps();
+    }
+
+    public function checkFollow()
+    {
+        $follow = $this->followers()->find(Auth::user()->id);
+
+        if ($follow) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
