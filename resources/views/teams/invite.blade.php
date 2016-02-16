@@ -49,7 +49,7 @@
                   <div class="form-group">
                     <label for="name">Search by username or email address:</label>
 
-                    <input type="text" class="form-control typeahead" autocomplete="off" id="name" name="name" data-team={{ $team->name }}>
+                    <input type="text" class="form-control typeahead" autocomplete="off" id="name" name="name" data-team="{{ $team->name }}">
                   </div>
                 </form>
                 <hr class="team-line">
