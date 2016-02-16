@@ -148,7 +148,10 @@ class ProfileController extends Controller
             }
         }
 
-        return response()->json($followers);
+        $data = [
+            "follows" => $followers
+        ];
+        return response()->json($data);
     }
 
     /**
@@ -156,7 +159,8 @@ class ProfileController extends Controller
      */
     public function getFollows($id)
     {
-        $follows = User::find($id)->follows()->get();
+        $user = User::find($id);
+        $follows = $user->follows()->get();
 
         for ($i = 0; $i < count($follows); $i++) {
             $follows[$i]->avatar = $follows[$i]->getAvatar();
@@ -175,7 +179,23 @@ class ProfileController extends Controller
             }
         }
 
-        return response()->json($follows);
+        $teamFollows = $user->teamFollows()->get();
+
+        for ($i = 0; $i < count($teamFollows); $i++) {
+            $teamFollows[$i]->checkFollow = false;
+            $teamFollows[$i]->avatar = $teamFollows[$i]->getAvatar();
+
+            if (Auth::check()) {
+                $teamFollows[$i]->checkFollow = $teamFollows[$i]->checkFollow();
+            }
+        }
+
+        $data = [
+            "follows" => $follows,
+            "teamFollows" => $teamFollows
+        ];
+
+        return response()->json($data);
     }
 
     /**
