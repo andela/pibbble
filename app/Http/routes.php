@@ -97,6 +97,7 @@ Route::get('{username}', [
 
 //Follow team route
 Route::get('/follow/team/{id}', 'TeamController@follow');
+Route::get('/unfollow/team/{id}', 'TeamController@unfollow');
 
 // Follow user route
 Route::get('/follow/{id}/{me}', 'ProfileController@followUser');
