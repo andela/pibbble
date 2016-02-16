@@ -34,8 +34,8 @@ class ProjectController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $user->following = $user->follows()->get();
-        $user->followers = $user->followers()->get();
+        $user->countFollowing = $user->follows()->count() + $user->teamFollows()->count();
+        $user->countFollowers = $user->followers()->count();
         $user->me = true;
 
         $projects = Project::orderBy('created_at', 'desc')->personal()->get();
