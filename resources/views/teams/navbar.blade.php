@@ -14,7 +14,7 @@
                 <a href="#" class="btn btn-primary btn-small hire">Hire Us</a>
                 @endcan
 
-                <button id="followTeam" data-id="{{ $team->id }}" class="btn btn-primary">Follow</button>
+                <button id="followTeam" data-id="{{ $team->id }}" class="btn btn-primary">{{ $team->checkFollow() ? 'Following' : 'Follow' }}</button>
 
                 @can('user-in-team-can-see', $team->id)
                     <button id="uploadTeam" data-toggle="modal" data-target="#myUpload" class="btn btn-primary">Upload Team Project</button>
