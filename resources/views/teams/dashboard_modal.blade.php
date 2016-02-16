@@ -1,3 +1,46 @@
+<!-- Hire Us modal-->
+<div class="modal fade" id="hireTeam" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+          @if(Auth::user())
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Contact {{ $team->name }} about Work</h4>
+          </div>
+          <div class="modal-body">
+            <p>From:   <img class="avatar" src="{{ Auth::user()->getAvatar() }}" /> {{ Auth::user()->username }}
+
+            <hr>
+            <p>To:     <img class="avatar" src="{{ $team->getAvatar() }}" /> {{ $team->name }}
+
+            <hr>
+            <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
+            <div class="form-group">
+                <label for="message"><span class="glyphicon glyphicon-envelope"></span> Type Message Here</label>
+                <textarea type="text" class="form-control" id="message" placeholder="Mail to"></textarea>
+            </div>
+          </div>
+          @else
+              <div>Please log in to contact developer.</div>
+          @endif
+          <div class="modal-footer">
+          <div class='emailInfo alert alert-info' id='emailInfoDiv'>
+                {{ $team->name }} will be notified shortly.
+              <i class="fa fa-circle-o-notch fa-spin"></i>
+          </div>
+          <div class='emailResponse alert alert-success'>
+              {{ $team->name }} has been notified with your message. You can close this dialog.
+          </div>
+            <button type="button" id="hireus" data-id="{{ $team->id }}" class="btn btn-primary">Send</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
 <div class="modal fade" id="myUpload" role="dialog">
     <div class="modal-dialog">
 
