@@ -36,6 +36,10 @@ class Team extends Model
         return $this->belongsTo('Pibbble\User');
     }
 
+    /**
+     * Team projects relationship
+     * @return eloquent relationship
+     */
     public function projects()
     {
         return $this->hasMany('Pibbble\Project');
@@ -50,6 +54,9 @@ class Team extends Model
         return $this->projects()->latest()->limit(3)->get();
     }
 
+    /**
+     * update team profile
+     */
     public function updateProfile($formData)
     {
         foreach ($formData as $key => $value) {
@@ -59,6 +66,9 @@ class Team extends Model
         $this->save();
     }
 
+    /**
+     * Update team avatar
+     */
     public function updateAvatar($img)
     {
         $this->avatar = $img;
@@ -66,16 +76,21 @@ class Team extends Model
         $this->save();
     }
 
+    /**
+     * Check if a user is in a team
+     */
     public static function checkUserInTeam($team_id, $user_id)
     {
         $team = DB::table('team_members')->where('team_id', $team_id)->where('user_id', $user_id)->get();
         if ($team) {
             return true;
         }
+
         return false;
     }
 
     /**
+     * Team members relationship
      * @return string
      */
     public function members()
@@ -84,7 +99,7 @@ class Team extends Model
     }
 
     /**
-     * Defines follow relationship.
+     * Defines team followers relationship.
      * @return follow relationship
      */
     public function followers()
@@ -92,6 +107,10 @@ class Team extends Model
         return $this->belongsToMany('Pibbble\User', 'team_follows', 'team_id', 'user_id')->withTimestamps();
     }
 
+    /**
+     * Check if logged in user follows team
+     * @return bool
+     */
     public function checkFollow()
     {
         $follow = $this->followers()->find(Auth::user()->id);

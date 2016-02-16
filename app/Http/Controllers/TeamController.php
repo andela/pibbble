@@ -210,7 +210,7 @@ class TeamController extends Controller
     }
 
     /**
-     * Folloe a team
+     * Follow a team
      * @param  integer $id id of the team being followed
      * @return json     follow count for the team
      */
