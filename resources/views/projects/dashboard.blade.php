@@ -85,9 +85,9 @@
                         </div>
                         <div class="panel-body">
                             <span id="me" data-me="{{ $user->me }}"></span>
-                            <a href="#" id="followsLink" data-url="/follows/{{ $user->id }}">Following <span class="badge pull-right" id="followsSpan">{{ $user->following->count() }}</span></a>
+                            <a href="#" id="followsLink" data-url="/follows/{{ $user->id }}">Following <span class="badge pull-right" id="followsSpan">{{ $user->countFollowing }}</span></a>
                             <hr>
-                            <a href="#" id="followersLink" data-url="/followers/{{ $user->id }}">Followers <span class="badge pull-right" id="followersSpan">{{ $user->followers->count() }}</span></a>
+                            <a href="#" id="followersLink" data-url="/followers/{{ $user->id }}">Followers <span class="badge pull-right" id="followersSpan">{{ $user->countFollowers }}</span></a>
                             <hr>
                             <p>Projects <span class="badge pull-right">{{ $user->projects->count() }}</span></p>
                         </div>
