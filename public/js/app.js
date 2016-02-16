@@ -114,6 +114,13 @@ jQuery( document ).ready(function( $ ){
             });
         });
 
+        $('#followTeam').click(function() {
+            var id = $(this).attr('data-id');
+            $.getJSON('/follow/team/' + id, function(data) {
+                $('#followersCount').html(data);
+            })
+        });
+
         $('#hireme').click(function() {
             var data = {
                 _token: $('#_token').val(),
