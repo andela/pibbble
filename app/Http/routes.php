@@ -47,8 +47,23 @@ Route::group(['prefix' => 'teams'], function () {
 /*
  * Gets Events creation page
  */
-Route::get('/meetup', [
-  'uses' => 'MeetupController@index', 'as' => 'meetup-form', ]);
+Route::get('/meetup/new', [
+  'uses' => 'MeetupController@index',
+  'as' => 'meetup-form',
+  'middleware' => ['auth'],
+]);
+
+/*
+ * Creates new Events
+ */
+Route::post('/meetup/new', [
+  'uses' => 'MeetupController@create',
+  'as' => 'meetup',
+  'middleware' => ['auth'],
+]);
+
+// Gets meetup FAQ page
+Route::get('/meetup/faq', 'MeetupController@faq');
 
 //Dashboard Route
 Route::get('/dashboard', ['middleware' => 'auth', 'uses' => 'ProjectController@index']);

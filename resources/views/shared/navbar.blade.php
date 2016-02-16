@@ -34,10 +34,10 @@
               </ul>
             </li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Meet Ups<span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Meetups<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="#">All</a></li>
-                <li><a href="{{ url('/meetup') }}">Host a Meetup</a></li>
+                <li><a href="{{ url('/meetup/new') }}">Host a Meetup</a></li>
               </ul>
             </li>
         </ul>
@@ -64,5 +64,3 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-<script src="{{ load_asset('/js/auth.js') }}"></script>
-<script type="text/javascript" src="{{ load_asset('/js/app.js') }}"></script>

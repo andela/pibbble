@@ -22,6 +22,8 @@ jQuery( document ).ready(function( $ ){
         });
         $('.comment-btn').on('click', makeComment);
 
+        $('#datetimepicker').datetimepicker();
+
         $('#followsLink, #followersLink').click(function(e) {
             e.preventDefault();
             var url = $(this).attr('data-url');

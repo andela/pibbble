@@ -2,7 +2,7 @@
 @section('title', 'Search Result')
 
 @section('content')
-<div class="search" style="min-height: 426px">
+<div class="search" style="min-height: 445px">
     <div class="nav navbar-center" style="background-color: #FFCCCC; margin-top: -28px">
         <h3 style="color: #F05A5A">SEARCH RESULTS</h3>
     </div>
