@@ -38,7 +38,7 @@ jQuery( document ).ready(function( $ ){
 
                     var html = '';
 
-                    data.forEach(function(user) {
+                    data.follows.forEach(function(user) {
                         html += '<div class="row follows">';
                         html += '<div class="col-md-9">';
                         html += '<img align="left"';
@@ -62,6 +62,33 @@ jQuery( document ).ready(function( $ ){
                         html += '</div>';
                         html += '</div>';
                     });
+
+                    if (typeof data.teamFollows !== 'undefined')
+                    {
+                        data.teamFollows.forEach(function(team) {
+                            html += '<div class="row follows">';
+                            html += '<div class="col-md-9">';
+                            html += '<img align="left"';
+                            html += ' class="img-circle img-responsive" src="';
+                            html += team.avatar;
+                            html += '" alt="Profile image" border-radius="100%">';
+                            html += '<span><a href="/teams/';
+                            html += team.name;
+                            html += '/dashboard">';
+                            html += team.name;
+                            html += '</a></span>';
+                            html += '</div>';
+                            html += '<div class="col-md-3">';
+                            html += '<button ';
+                            html += ' data-id="';
+                            html += team.id;
+                            html += '" class="btn btn-primary follow">';
+                            html += team.checkFollow ? 'Following' : 'Follow';
+                            html += '</button>';
+                            html += '</div>';
+                            html += '</div>';
+                        });
+                    }
 
                     modal.find('.modal-body').html(html);
 
