@@ -54,12 +54,14 @@
                 </form>
                 <hr class="team-line">
                 <div class="invitees">
-                    <div class="team-item">
-                        <a href="{{ route('userprofile', $team->user->username) }}"><img src="{{ $team->user->getAvatar()}}"></a>
-                        <div class="team-name">
-                            <b><a href="{{ route('userprofile', $team->user->username) }}">{{ $team->user->username }}</a></b>
+                    @foreach($members as $member)
+                        <div class="team-item">
+                            <a href="{{ route('userprofile', $member->username) }}"><img src="{{ $member->getAvatar()}}"></a>
+                            <div class="team-name">
+                                <b><a href="{{ route('userprofile', $member->username) }}">{{ $member->username }}</a></b>
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
 
                 <br>
