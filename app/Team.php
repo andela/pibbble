@@ -102,4 +102,22 @@ class Team extends Model
             return false;
         }
     }
+
+    /**
+     * Get the avatar from gravatar.
+     * @return string
+     */
+    private function getAvatarFromGravatar()
+    {
+        return 'http://www.gravatar.com/avatar/'.md5(strtolower(trim('random'))).'?d=mm&s=500';
+    }
+
+    /**
+     * Get avatar from the model.
+     * @return string
+     */
+    public function getAvatar()
+    {
+        return (! is_null($this->avatar)) ? $this->avatar : $this->getAvatarFromGravatar();
+    }
 }
