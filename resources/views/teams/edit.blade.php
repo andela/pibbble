@@ -75,7 +75,7 @@
             <div style="margin: 10px;">
                 <div><b>Avatar</b></div>
                 <br>
-                <img src="{{ $team->getAvatar }}" height="125" width="125"/>
+                <img src="{{ $team->getAvatar() }}" height="125" width="125"/>
                 <input type="file" name="avatar" size="30"></input>
                 <div>
                     <br>
