@@ -45,7 +45,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         $gate->define('user-not-in-team-can-see', function ($user, $team_id) {
-            return !Team::checkUserInTeam($team_id, $user->id);
+            return ! Team::checkUserInTeam($team_id, $user->id);
         });
     }
 }

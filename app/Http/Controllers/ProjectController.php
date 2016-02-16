@@ -112,7 +112,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Store Team projects
+     * Store Team projects.
      * @return [type] [description]
      */
     public function storeteam(Request $request, $team)

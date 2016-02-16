@@ -28,7 +28,7 @@ class Team extends Model
     protected $fillable = ['name', 'email', 'plan', 'avatar', 'location', 'bio', 'skills'];
 
     /**
-     * one to one relationship
+     * one to one relationship.
      * @return string
      */
     public function user()
@@ -37,7 +37,7 @@ class Team extends Model
     }
 
     /**
-     * Team projects relationship
+     * Team projects relationship.
      * @return eloquent relationship
      */
     public function projects()
@@ -46,7 +46,7 @@ class Team extends Model
     }
 
     /**
-     * Return top three projects of teams
+     * Return top three projects of teams.
      * @return [type] [description]
      */
     public function topThree()
@@ -55,7 +55,7 @@ class Team extends Model
     }
 
     /**
-     * update team profile
+     * update team profile.
      */
     public function updateProfile($formData)
     {
@@ -67,7 +67,7 @@ class Team extends Model
     }
 
     /**
-     * Update team avatar
+     * Update team avatar.
      */
     public function updateAvatar($img)
     {
@@ -77,7 +77,7 @@ class Team extends Model
     }
 
     /**
-     * Check if a user is in a team
+     * Check if a user is in a team.
      */
     public static function checkUserInTeam($team_id, $user_id)
     {
@@ -90,7 +90,7 @@ class Team extends Model
     }
 
     /**
-     * Team members relationship
+     * Team members relationship.
      * @return string
      */
     public function members()
@@ -108,7 +108,7 @@ class Team extends Model
     }
 
     /**
-     * Check if logged in user follows team
+     * Check if logged in user follows team.
      * @return bool
      */
     public function checkFollow()
