@@ -21,6 +21,7 @@
                 @endcan
 
                 @can('owner-can-see', $team->user_id)
+                    <a id="uploadTeam" href="{{ url('/teams/'.$team->name.'/invite') }}" class="btn btn-primary">Invite</a>
                     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-cog"></i></button>
                   <ul class="ddColor dropdown-menu" role="menu" aria-labelledby="menu1">
                     <li role="presentation" class="dashboard-item"><a role="menuitem" tabindex="-1" href="{{ url('/teams/'.$team->name.'/settings') }}">Settings </a></li>
