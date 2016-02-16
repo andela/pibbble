@@ -168,7 +168,7 @@ jQuery( document ).ready(function( $ ){
         //     })
         // });
 
-        $('#hireme').click(function() {
+        $('#hireme, #hireus').click(function() {
             var data = {
                 _token: $('#_token').val(),
                 message: $('#message').val(),
@@ -182,7 +182,9 @@ jQuery( document ).ready(function( $ ){
 
             $('#emailInfoDiv').removeClass('emailInfo');
 
-            $.post('/hireme', data, function() {
+            var link = $(this).attr('id');
+
+            $.post('/' + link , data, function() {
                 $('#emailInfoDiv').addClass('emailInfo');
                 $('.emailResponse').removeClass('emailResponse');
             });
