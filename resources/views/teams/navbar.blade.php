@@ -21,7 +21,11 @@
                 @endcan
 
                 @can('owner-can-see', $team->user_id)
-                    <a href="{{ url('/teams/'.$team->name.'/settings') }}" class="btn btn-primary hire"><i class="fa fa-cog"></i></a>
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-cog"></i></button>
+                  <ul class="ddColor dropdown-menu" role="menu" aria-labelledby="menu1">
+                    <li role="presentation" class="dashboard-item"><a role="menuitem" tabindex="-1" href="{{ url('/teams/'.$team->name.'/settings') }}">Settings </a></li>
+                    <li role="presentation" class="profile-item"><a data-toggle="modal" data-target="#deleteModal" role="menuitem" tabindex="-1" href="#">Delete Team</a></li>
+                  </ul>
                 @endcan
             </div>
         </div>
