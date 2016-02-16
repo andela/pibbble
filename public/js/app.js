@@ -110,13 +110,15 @@ jQuery( document ).ready(function( $ ){
             }
         });
 
-        $(document).on('mouseleave', '#followButton, .follow, .teamFollow', function() {
-            if ($(this).html() !== 'Follow') {
-                $(this).html('Following');
+        $(document).on('mouseleave', '#followButton, .follow, .teamFollow',
+            function() {
+                if ($(this).html() !== 'Follow') {
+                    $(this).html('Following');
+                }
+                $(this).removeClass('btn-danger');
+                $(this).addClass('btn-primary');
             }
-            $(this).removeClass('btn-danger');
-            $(this).addClass('btn-primary');
-        });
+        );
 
         $(document).on('click', '#followButton, .follow', function() {
             var id = $(this).attr('data-id');

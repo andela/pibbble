@@ -1,6 +1,5 @@
 var input = $('.typeahead');
 var team = input.attr('data-team');
-var invites = [];
 $.getJSON('/teams/invites', function (data) {
     input.typeahead({
             source: data,
@@ -9,7 +8,7 @@ $.getJSON('/teams/invites', function (data) {
 });
 
 input.change(function() {
-    var current = input.typeahead("getActive");
+    var current = input.typeahead('getActive');
     var html = '';
     html += '<div class="team-item">';
     html += '<a href="/' + current.name + '">';
@@ -27,9 +26,5 @@ input.change(function() {
 
     input.val('');
 
-    $.getJSON('/teams/' + team + '/invite/' + current.id, function(data) {
-        console.log(data);
-    }, function(error) {
-        console.log(error);
-    });
+    $.getJSON('/teams/' + team + '/invite/' + current.id, function(data){}});
 });
