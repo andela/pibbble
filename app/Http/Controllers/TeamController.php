@@ -200,4 +200,16 @@ class TeamController extends Controller
             return 200;
         }
     }
+
+    public function follow($id)
+    {
+        if (Auth::check()) {
+            $team = Team::find($id);
+            $team->followers()->save(Auth::user());
+            $count = $team->followers()->count();
+            return response()->json($count);
+        }
+
+        return response('Unauthorized.', 401);
+    }
 }
