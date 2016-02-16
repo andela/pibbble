@@ -114,12 +114,32 @@ jQuery( document ).ready(function( $ ){
             });
         });
 
-        $('#followTeam').click(function() {
+        $(document).on('click', '#followTeam, .teamFollow', function() {
             var id = $(this).attr('data-id');
-            $.getJSON('/follow/team/' + id, function(data) {
+            var text = $(this).text();
+            var url;
+
+            if (text == 'Following' || text == 'Unfollow') {
+                url = '/unfollow/team/' + id;
+                $(this).text('Follow');
+            } else {
+                url = '/follow/team/' + id;
+                $(this).text('Following');
+            }
+
+            //console.log(url);
+
+            $.getJSON(url, function(data) {
                 $('#followersCount').html(data);
-            })
+            });
         });
+
+        // $('#followTeam').click(function() {
+        //     var id = $(this).attr('data-id');
+        //     $.getJSON('/follow/team/' + id, function(data) {
+        //         $('#followersCount').html(data);
+        //     })
+        // });
 
         $('#hireme').click(function() {
             var data = {
