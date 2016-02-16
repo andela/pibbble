@@ -41,6 +41,7 @@ Route::group(['prefix' => 'teams'], function () {
     Route::get('/{team}/settings', ['uses' => 'TeamController@edit']);
     Route::post('/{team}/settings', ['uses' => 'TeamController@update']);
     Route::post('/{team}/avatar', ['uses' => 'TeamController@updateAvatar']);
+    Route::get('/delete/{id}', ['uses' => 'TeamController@destroy']);
 });
 
 /**
