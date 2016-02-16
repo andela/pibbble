@@ -2,6 +2,7 @@
 
 namespace Pibbble\Http\Controllers;
 
+use DB;
 use Auth;
 use Mail;
 use Cloudder;
@@ -207,9 +208,22 @@ class TeamController extends Controller
             $team = Team::find($id);
             $team->followers()->save(Auth::user());
             $count = $team->followers()->count();
+
             return response()->json($count);
         }
 
-        return response('Unauthorized.', 401);
+        return response('Unauthorized', 401);
+    }
+
+    public function unfollow($id)
+    {
+        if (Auth::check()) {
+            $results = DB::delete('delete from team_follows where user_id = ? and team_id = ?', [Auth::user()->id, $id]);
+                $team = TEAM::find($id);
+                $count = $team->followers()->count();
+                return response()->json($count);
+        }
+
+        return response('Unauthorized', 401);
     }
 }
