@@ -63,7 +63,7 @@
                 </div>
 
                 <br>
-                <a href="{{ url('/teams/'.$team->name.'/dashboard') }}" class="btn btn-third btn-lg">Finish</a>
+                <a href="{{ url('/teams/'.$team->name.'/settings') }}" class="btn btn-third btn-lg">Finish</a>
             </div>
         </div>
         <div class="col-sm-4">
