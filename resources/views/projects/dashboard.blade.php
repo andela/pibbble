@@ -1,7 +1,6 @@
 @extends('layouts.master')
 @section('title', 'Projects')
-Dashboard
-@endsection
+
 
 @section('custom-css')
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
@@ -55,23 +54,24 @@ Dashboard
                             </div>
                             @can('owner-can-see', $user->id)
                                 <div class="btn-group pull-right">
-                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myUpload"><span class="glyphicon glyphicon-cloud-upload"></span> Upload</button>
-                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#mySkills"><span class="glyphicon glyphicon-folder-open"></span> Skills</button>
+                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myUpload"><i class="fa fa-cloud-upload fa-lg"></i> Upload</button>
+                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#mySkills"><i class="fa fa-archive fa-lg"></i> Skills</button>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myBio"><span class="glyphicon glyphicon-eye-open"></span> Bio</button>
                                 </div>
                             @endcan
+
                             @can('users-can-see', $user->id)
                                 <div class="btn-group pull-right">
-                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myBio"><span class="glyphicon glyphicon-eye-open"></span> Bio</button>
+                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myBio"><i class="fa fa-user fa-lg"></i> Bio</button>
                                     <button type="button" id="followButton" data-id="{{ $user->id }}" class="btn btn-primary btn-sm">{{ $user->checkFollow() ? 'Following' : 'Follow' }}</button>
-                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#mySkills"><span class="glyphicon glyphicon-folder-open"></span> Skills</button>
-                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myHire"><span class="glyphicon glyphicon-user"></span> Hire Me</button>
+                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#mySkills"><i class="fa fa-archive fa-lg"></i> Skills</button>
+                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myHire"><i class="fa fa-phone fa-lg"></i> Hire Me</button>
                                 </div>
                             @endcan
                             @if(! Auth::check())
                                 <div class="btn-group pull-right">
-                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myBio"><span class="glyphicon glyphicon-eye-open"></span> Bio</button>
-                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#mySkills"><span class="glyphicon glyphicon-folder-open"></span> Skills</button>
+                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myBio"><i class="fa fa-user fa-lg"></i> Bio</button>
+                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#mySkills"><i class="fa fa-archive fa-lg"></i> Skills</button>
                                 </div>
                             @endif
                     </div>
@@ -85,9 +85,9 @@ Dashboard
                         </div>
                         <div class="panel-body">
                             <span id="me" data-me="{{ $user->me }}"></span>
-                            <a href="#" id="followsLink" data-url="/follows/{{ $user->id }}">Following <span class="badge pull-right" id="followsSpan">{{ $user->following->count() }}</span></a>
+                            <a href="#" id="followsLink" data-url="/follows/{{ $user->id }}">Following <span class="badge pull-right" id="followsSpan">{{ $user->countFollowing }}</span></a>
                             <hr>
-                            <a href="#" id="followersLink" data-url="/followers/{{ $user->id }}">Followers <span class="badge pull-right" id="followersSpan">{{ $user->followers->count() }}</span></a>
+                            <a href="#" id="followersLink" data-url="/followers/{{ $user->id }}">Followers <span class="badge pull-right" id="followersSpan">{{ $user->countFollowers }}</span></a>
                             <hr>
                             <p>Projects <span class="badge pull-right">{{ $user->projects->count() }}</span></p>
                         </div>

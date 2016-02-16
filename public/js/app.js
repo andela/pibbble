@@ -1,6 +1,7 @@
 function showLoader()
 {
     document.getElementById('form-load-img').style.display = 'block';
+    document.body.style.cursor = 'wait';
 }
 
 
@@ -39,7 +40,7 @@ jQuery( document ).ready(function( $ ){
 
                     var html = '';
 
-                    data.forEach(function(user) {
+                    data.follows.forEach(function(user) {
                         html += '<div class="row follows">';
                         html += '<div class="col-md-9">';
                         html += '<img align="left"';
@@ -64,6 +65,33 @@ jQuery( document ).ready(function( $ ){
                         html += '</div>';
                     });
 
+                    if (typeof data.teamFollows !== 'undefined')
+                    {
+                        data.teamFollows.forEach(function(team) {
+                            html += '<div class="row follows">';
+                            html += '<div class="col-md-9">';
+                            html += '<img align="left"';
+                            html += ' class="img-circle img-responsive" src="';
+                            html += team.avatar;
+                            html += '" alt="Profile image" border-radius="100%">';
+                            html += '<span><a href="/teams/';
+                            html += team.name;
+                            html += '/dashboard">';
+                            html += team.name;
+                            html += '</a></span>';
+                            html += '</div>';
+                            html += '<div class="col-md-3">';
+                            html += '<button ';
+                            html += ' data-id="';
+                            html += team.id;
+                            html += '" class="btn btn-primary follow">';
+                            html += team.checkFollow ? 'Following' : 'Follow';
+                            html += '</button>';
+                            html += '</div>';
+                            html += '</div>';
+                        });
+                    }
+
                     modal.find('.modal-body').html(html);
 
                 });
@@ -72,7 +100,7 @@ jQuery( document ).ready(function( $ ){
             });
         });
 
-        $(document).on('mouseenter', '#followButton, .follow', function() {
+        $(document).on('mouseenter', '#followButton, .follow, .teamFollow', function() {
             var text = $(this).text();
 
             if (text == 'Following') {
@@ -82,13 +110,15 @@ jQuery( document ).ready(function( $ ){
             }
         });
 
-        $(document).on('mouseleave', '#followButton, .follow', function() {
-            if ($(this).html() !== 'Follow') {
-                $(this).html('Following');
+        $(document).on('mouseleave', '#followButton, .follow, .teamFollow',
+            function() {
+                if ($(this).html() !== 'Follow') {
+                    $(this).html('Following');
+                }
+                $(this).removeClass('btn-danger');
+                $(this).addClass('btn-primary');
             }
-            $(this).removeClass('btn-danger');
-            $(this).addClass('btn-primary');
-        });
+        );
 
         $(document).on('click', '#followButton, .follow', function() {
             var id = $(this).attr('data-id');
@@ -115,7 +145,34 @@ jQuery( document ).ready(function( $ ){
             });
         });
 
-        $('#hireme').click(function() {
+        $(document).on('click', '#followTeam, .teamFollow', function() {
+            var id = $(this).attr('data-id');
+            var text = $(this).text();
+            var url;
+
+            if (text == 'Following' || text == 'Unfollow') {
+                url = '/unfollow/team/' + id;
+                $(this).text('Follow');
+            } else {
+                url = '/follow/team/' + id;
+                $(this).text('Following');
+            }
+
+            //console.log(url);
+
+            $.getJSON(url, function(data) {
+                $('#followersCount').html(data);
+            });
+        });
+
+        // $('#followTeam').click(function() {
+        //     var id = $(this).attr('data-id');
+        //     $.getJSON('/follow/team/' + id, function(data) {
+        //         $('#followersCount').html(data);
+        //     })
+        // });
+
+        $('#hireme, #hireus').click(function() {
             var data = {
                 _token: $('#_token').val(),
                 message: $('#message').val(),
@@ -129,7 +186,9 @@ jQuery( document ).ready(function( $ ){
 
             $('#emailInfoDiv').removeClass('emailInfo');
 
-            $.post('/hireme', data, function() {
+            var link = $(this).attr('id');
+
+            $.post('/' + link , data, function() {
                 $('#emailInfoDiv').addClass('emailInfo');
                 $('.emailResponse').removeClass('emailResponse');
             });

@@ -18,12 +18,12 @@
     <link href="{{ load_asset('/css/developers-list.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ load_asset('/css/jquery.datetimepicker.css') }}" rel="stylesheet" type="text/css">
     @yield('custom-css')
-    @yield('custom_js')
   </head>
   <body>
     @include('shared.navbar')
     @yield('content')
     @include('shared.footer')
+    @yield('custom_js')
     <script src="{{ load_asset('/js/jquery-2.1.4.min.js') }}"></script>
     <script src="{{ load_asset('/js/auth.js') }}"></script>
     <script type="text/javascript" src="{{ load_asset('/js/app.js') }}"></script>
