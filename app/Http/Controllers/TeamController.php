@@ -44,8 +44,10 @@ class TeamController extends Controller
     public function invite($name)
     {
         $team = Team::where('name', $name)->first();
+        $members = $team->members()->get();
 
-        return view('teams.invite', ['team' => $team]);
+
+        return view('teams.invite', compact('team', 'members'));
     }
 
     /**
