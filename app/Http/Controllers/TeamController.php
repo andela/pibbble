@@ -226,4 +226,19 @@ class TeamController extends Controller
 
         return response('Unauthorized', 401);
     }
+
+    /**
+     * Send email to team when hired.
+     * @return [type] [description]
+     */
+    public function hireTeam(Request $request)
+    {
+        $team = Team::find($request->input('id'));
+        $team->message = $request->message;
+
+        Mail::send('emails.hireteam', ['team' => $team], function ($m) use ($team) {
+            $m->from(Auth::user()->email, Auth::user()->username);
+            $m->to($team->email, $team->name)->subject('Team Hire Request from Pibbble');
+        });
+    }
 }
