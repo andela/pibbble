@@ -15,7 +15,7 @@
         @foreach($teams as $team)
         <div class="row under">
             <div class="col-sm-5">
-                <span class="pull-left"><img width="90" height="90" src="{{ $team->avatar }}" class="team-pix"></span>
+                <span class="pull-left"><img width="90" height="90" src="{{ $team->getAvatar() }}" class="team-pix"></span>
                 <span class="meta-body">
                     <b><a href="{{ url('/teams/'.$team->name.'/dashboard')}}">{{ $team->name }} </a></b> <span class="hire-icon"><i class="fa fa-envelope hire"></i></span><br>
                     <span class="meta-body loc">{{ $team->location }}</span>
