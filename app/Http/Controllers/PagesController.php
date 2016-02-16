@@ -2,6 +2,7 @@
 
 namespace Pibbble\Http\Controllers;
 
+use Pibbble\User;
 use Carbon\Carbon;
 use Pibbble\Project;
 use Pibbble\ProjectLikes;
@@ -118,10 +119,12 @@ class PagesController extends Controller
         return view('developers', ['users' => $users]);
     }
 
-    public function developerProject()
+    public function developerProject($param)
     {
-        // $project = Project::where('id', '=', 7)->get();
-        // $project = Project::where('id', 7)->first();
-        // return view('project_details', ['project' => $project]);
+        $id = explode('-', $param)[0];
+
+        $project = Project::where('id', $id)->first();
+
+        return view('project_details', ['project' => $project]);
     }
 }
