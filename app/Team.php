@@ -75,6 +75,14 @@ class Team extends Model
     }
 
     /**
+     * @return string
+     */
+    public function members()
+    {
+        return $this->belongsToMany('Pibbble\User', 'team_members', 'team_id', 'user_id')->withTimestamps();
+    }
+
+    /**
      * Defines follow relationship.
      * @return follow relationship
      */

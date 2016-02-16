@@ -77,7 +77,7 @@ class TeamController extends Controller
             $m->subject('Invitation to join Team '. $team->name .' at Pibbble');
         });
 
-        $user->teams()->save($team);
+        $team->members()->save($user);
     }
 
     /**
@@ -101,7 +101,7 @@ class TeamController extends Controller
             $team->user_id = Auth::user()->id;
 
             $team->save();
-            Auth::user()->teams()->save($team);
+            $team->members()->save(Auth::user());
 
             return redirect()->to('/teams/'.$org.'/invite');
         } catch (QueryException $e) {
