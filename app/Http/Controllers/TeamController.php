@@ -185,7 +185,12 @@ class TeamController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (Auth::check()) {
+            Team::destroy($id);
+
+            return redirect()->to('/teams');
+        }
+        return response('Unauthorized', 401);
     }
 
     /**
