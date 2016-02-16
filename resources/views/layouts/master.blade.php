@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href="{{ load_asset('/components/bootstrap-3.3.5-dist/css/bootstrap.min.css') }}" rel="stylesheet">
 
-    <script src="{{ load_asset('/js/jquery-2.1.4.min.js') }}"></script>
-    <script src="{{ load_asset('/components/bootstrap-3.3.5-dist/js/bootstrap.min.js') }}"></script>
-    <script src="{{ load_asset('/components/mui-0.1.22-rc1/js/mui.min.js') }}"></script>
     <link href="{{ load_asset('/css/roboto.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ load_asset('/css/ripples.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ load_asset('/css/display.css') }}" rel="stylesheet" type="text/css">
@@ -19,6 +16,7 @@
     <link href="{{ load_asset('/css/meetups.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ load_asset('/css/profile-style.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ load_asset('/css/developers-list.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ load_asset('/css/jquery.datetimepicker.css') }}" rel="stylesheet" type="text/css">
     @yield('custom-css')
     @yield('custom_js')
   </head>
@@ -26,5 +24,11 @@
     @include('shared.navbar')
     @yield('content')
     @include('shared.footer')
+    <script src="{{ load_asset('/js/jquery-2.1.4.min.js') }}"></script>
+    <script src="{{ load_asset('/js/auth.js') }}"></script>
+    <script type="text/javascript" src="{{ load_asset('/js/app.js') }}"></script>
+    <script src="{{ load_asset('/components/bootstrap-3.3.5-dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ load_asset('/components/mui-0.1.22-rc1/js/mui.min.js') }}"></script>
+    @yield('scripts')
   </body>
 </html>

@@ -2,7 +2,13 @@
 
 namespace Pibbble\Http\Controllers;
 
+use Auth;
+use Mail;
+use Pibbble\Meetup;
+use Pibbble\User;
+use Pibbble\Http\Requests;
 use Illuminate\Http\Request;
+use Pibbble\Http\Controllers\Controller;
 
 class MeetupController extends Controller
 {
@@ -13,72 +19,58 @@ class MeetupController extends Controller
      */
     public function index()
     {
-        return view('Meetups.index');
+        return view('meetups.index');
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Returns FAQ page for meetups
      *
-     * @return \Illuminate\Http\Response
+     * @return FAQ view
      */
-    public function create()
+    public function faq()
     {
-        //
+        return view('meetups.faq');
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * Creates and stores new meetups.
+     * Redirects to another page on successful creation.
+     * Then sends an email alerting admin of the creation.
      */
-    public function store(Request $request)
+    public function create(Request $request, Meetup $meetup)
     {
-        //
+
+        $meetup->city = $request->city;
+        $meetup->event_date = $request->event_date;
+        $meetup->event_details = $request->event_details;
+        $meetup->organizer_address = $request->organizer_address;
+        $meetup->phone_no = $request->phone_no;
+        $meetup->user_id = Auth::user()->id;
+
+        if ($meetup->save()) {
+            $this->sendEmailOnMeetupCreation($meetup);
+        }
+
+        return redirect()->back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function sendEmailOnMeetupCreation(Meetup $meetup)
     {
-        //
-    }
+        $user = Auth::user();
+        $meetupDetails = [
+            'city'              => $meetup->city,
+            'date'              => $meetup->event_date,
+            'details'           => $meetup->event_details,
+            'organiserAddress'  => $meetup->organizer_address,
+            'phoneNumber'       => $meetup->phone_no,
+        ];
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        $recipients = explode(', ', env('ADMIN_EMAILS'));
+        $recipients[] = $user->email;
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        Mail::send('emails.meetup-created', compact('user', 'meetupDetails'), function ($message) use ($user, $recipients) {
+            $message->from($user->email, $user->username);
+            $message->to($recipients)->subject('Your Pibble Meetup has been created');
+        });        
     }
 }
