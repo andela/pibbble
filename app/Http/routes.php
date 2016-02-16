@@ -89,7 +89,10 @@ Route::controllers([
 // Hire a user
 Route::post('hireme', 'ProfileController@hireUser');
 
-// Gets users' profiles
+// Hire a team
+Route::post('hireus', 'TeamController@hireTeam');
+
+// Gets users' profile
 Route::get('{username}', [
     'uses' => 'ProfileController@show',
     'as'   => 'userprofile',
