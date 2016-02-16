@@ -71,7 +71,7 @@ jQuery( document ).ready(function( $ ){
             });
         });
 
-        $(document).on('mouseenter', '#followButton, .follow', function() {
+        $(document).on('mouseenter', '#followButton, .follow, .teamFollow', function() {
             var text = $(this).text();
 
             if (text == 'Following') {
@@ -81,7 +81,7 @@ jQuery( document ).ready(function( $ ){
             }
         });
 
-        $(document).on('mouseleave', '#followButton, .follow', function() {
+        $(document).on('mouseleave', '#followButton, .follow, .teamFollow', function() {
             if ($(this).html() !== 'Follow') {
                 $(this).html('Following');
             }
