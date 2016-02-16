@@ -11,7 +11,7 @@
             <div class="pull-right team-actions">
 
                 @can('user-not-in-team-can-see', $team->id)
-                <a href="#" class="btn btn-primary btn-small hire">Hire Us</a>
+                <button class="btn btn-primary btn-small hire" data-toggle="modal" data-target="#hireTeam">Hire Us</button>
                 @endcan
 
                 <button id="followTeam" data-id="{{ $team->id }}" class="btn btn-primary teamFollow">{{ $team->checkFollow() ? 'Following' : 'Follow' }}</button>
