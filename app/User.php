@@ -120,4 +120,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
             return false;
         }
     }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
 }
