@@ -3,9 +3,9 @@
             <div class="pull-left">
                 <ul class="navbar-links">
                     <li><a href="" class="all-teams badge"><span class="name">{{ $team->name }}</span></a></li>
-                    <li><a href=""><span class="count"> {{ $team->projects()->count() }}  </span><span class="criteria"> Projects</span></a></li>
-                    <li><a href=""><span class="count" id="followersCount">{{ $team->followers()->count() }}  </span><span class="criteria"> Followers</span></a></li>
-                    <li><a href=""><span class="count">{{ $team->members()->count() }}  </span><span class="criteria"> Members</span></a></li>
+                    <li><span class="count"> {{ $team->projects()->count() }}  </span><span class="criteria"> Projects</span></li>
+                    <li><span class="count" id="followersCount">{{ $team->followers()->count() }}  </span><span class="criteria"> Followers</span></li>
+                    <li><span class="count">{{ $team->members()->count() }}  </span><span class="criteria"> Members</span></li>
                 </ul>
             </div>
             <div class="pull-right team-actions">
