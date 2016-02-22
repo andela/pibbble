@@ -26,5 +26,5 @@ input.change(function() {
 
     input.val('');
 
-    $.getJSON('/teams/' + team + '/invite/' + current.id, function(data){}});
+    $.getJSON('/teams/' + team + '/invite/' + current.id);
 });
