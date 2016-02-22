@@ -260,6 +260,7 @@ class TeamController extends Controller
     public function fromEmail($id)
     {
         $team = Team::findOrFail($id);
+
         return redirect('/teams/'.$team->name.'/dashboard');
     }
 }
