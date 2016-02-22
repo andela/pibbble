@@ -169,7 +169,7 @@ class TeamController extends Controller
 
             $team->updateAvatar($imgurl);
 
-            return redirect('/teams/'.$team->name.'/dashboard')->with('status', 'Avatar updated successfully.');
+            return redirect('/teams/'.$team->name.'/settings')->with('status', 'Avatar updated successfully.');
         } else {
             return redirect('/teams/'.$team->name.'/settings')->with('status', 'Please select an image.');
         }
