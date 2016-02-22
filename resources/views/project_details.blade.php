@@ -1,22 +1,18 @@
-<?php //dd($project); ?>
-
 @extends('layouts.master')
-@section('title', 'Developers')
+@section('title', 'Developer Project')
 
 @section('content')
-    <?php
-        $likesValueOnThumbnail = 'proj_'.$project->id.'_thumb_likes';
-        $likesValueOnModal = 'proj_'.$project->id.'_modal_likes';
-        $modalLikesLink = 'proj_'.$project->id.'_modal_like_link';
-        $viewsValueOnThumbnail = 'proj_'.$project->id.'_thumb_views';
-        $viewsValueOnModal = 'proj_'.$project->id.'_modal_views';
-    ?>
+    <script src="{{ load_asset('/js/like.js') }}"></script>
+    <script src="{{ load_asset('/js/view.js') }}"></script>
 
-    <div class="modal fade-lg" id="{{ $project->id }}" role="dialog">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
+    @include('shared.project_details_vars')
+
+    <div class="fade-lg" id="{{ $project->id }}" role="dialog">
+        <div class="container-fluid">
+            <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-9" style="border: 0px solid gray;">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <br />
                     <h3 class="modal-title">{{ $project->projectname }}</h3>
                     <p>by <a href="{{ route('userprofile', $project->user->username) }}" class="no-decoration">{{ $project->user->username }}</a></p>
@@ -35,7 +31,7 @@
                                     <i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->projectLikes->count() }}&nbsp;Likes
                                 @endif
                             </p>
-                            <p><i class='fa fa-eye'></i>&nbsp;<span id="{{ $viewsValueOnModal }}">{{ $project->views }}</span>&nbsp;Views</p>
+                            <p><i class='fa fa-eye'></i>&nbsp;<span>{{ $project->views }}</span>&nbsp;Views</p>
                         </div>
                     </div>
                     <br clear="left">
@@ -73,9 +69,8 @@
                         </form>
                     </div>
                 @endcan
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
-                </div>
+            </div>
+            <div class="col-sm-1"></div>
             </div>
         </div>
     </div>
