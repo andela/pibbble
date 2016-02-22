@@ -14,7 +14,9 @@
                 <button class="btn btn-primary btn-small hire" data-toggle="modal" data-target="#hireTeam">Hire Us</button>
                 @endcan
 
+                @if(! Auth::guest())
                 <button id="followTeam" data-id="{{ $team->id }}" class="btn btn-primary teamFollow">{{ $team->checkFollow() ? 'Following' : 'Follow' }}</button>
+                @endif
 
                 @can('user-in-team-can-see', $team->id)
                     <button id="uploadTeam" data-toggle="modal" data-target="#myUpload" class="btn btn-primary">Upload Team Project</button>
