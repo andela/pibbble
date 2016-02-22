@@ -256,4 +256,10 @@ class TeamController extends Controller
             $m->to($team->email, $team->name)->subject('Team Hire Request from Pibbble');
         });
     }
+
+    public function fromEmail($id)
+    {
+        $team = Team::findOrFail($id);
+        return redirect('/teams/'.$team->name.'/dashboard');
+    }
 }
