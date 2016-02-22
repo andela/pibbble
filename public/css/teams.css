@@ -292,6 +292,10 @@ a.full:hover {
     font-size: 14px;
 }
 
+.navbar-links  li {
+    margin-right: 5px;
+}
+
 .all-teams li a {
     text-decoration: none;
     color: #fff;
