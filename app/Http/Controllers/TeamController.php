@@ -52,7 +52,7 @@ class TeamController extends Controller
      */
     public function invites()
     {
-        $users = User::all(['id', 'username as name']);
+        $users = User::all(['id', 'username as name', 'avatar']);
 
         for ($i = 0; $i < count($users); $i++) {
             $users[$i]->avatar = $users[$i]->getAvatar();
