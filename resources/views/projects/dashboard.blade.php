@@ -118,3 +118,6 @@
     @include('others.dashboard_modal')
 </div>
 @endsection
+@section('sripts')
+    <script src="/js/project_upload.js"></script>
+@endsection

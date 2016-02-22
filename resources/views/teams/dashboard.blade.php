@@ -21,3 +21,6 @@
     </div>
     @include('teams.dashboard_modal')
 @endsection
+@section('sripts')
+    <script src="/js/project_upload.js"></script>
+@endsection
