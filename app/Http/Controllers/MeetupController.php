@@ -49,9 +49,8 @@ class MeetupController extends Controller
 
         if ($meetup->save()) {
             $this->sendEmailOnMeetupCreation($meetup);
+            return redirect('/meetup/faq')->with('success', 'Your meetup creation was successful. A confirmation email will be sent to you on approval.');
         }
-
-        return redirect()->back();
     }
 
     public function sendEmailOnMeetupCreation(Meetup $meetup)

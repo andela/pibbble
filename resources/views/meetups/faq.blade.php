@@ -1,7 +1,12 @@
 @extends('layouts.master')
 @section('title', 'Meetups FAQ')
-@section('content')
 
+@section('content')
+@if (session('success'))
+    <div class="alert alert-success" style="text-align: center; margin-top: -20px;">
+        {{ session('success') }}
+    </div>
+@endif
 <div class="faq" style="min-height: 420px">
     <div class="cover-bg">
         <p class="cover-swords"><strong>HANG OUT WITH OTHER DEVELOPERS</strong></p>
