@@ -20,6 +20,7 @@ class CreateMeetupsTable extends Migration
             $table->string('event_date');
             $table->string('organizer_address');
             $table->string('phone_no');
+            $table->boolean('approved');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
