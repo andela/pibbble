@@ -46,12 +46,14 @@ class MeetupController extends Controller
         $meetup->organizer_address = $request->organizer_address;
         $meetup->phone_no = $request->phone_no;
         $meetup->user_id = Auth::user()->id;
+        $meetup->approved = false;
 
         if ($meetup->save()) {
             $this->sendEmailOnMeetupCreation($meetup);
+            return redirect('/meetup/faq')->with('success', 'Your meetup creation was successful. A confirmation email will be sent to you on approval.');
         }
 
-        return redirect()->back();
+        return redirect('/meetup/new')->with('failed', 'Your meetup creation failed. Please check your values or notify an administrator.');
     }
 
     public function sendEmailOnMeetupCreation(Meetup $meetup)
