@@ -3,6 +3,11 @@
 
 @section('content')
 <div style="min-height: 420px">
+    @if (session('failed'))
+        <div class="alert alert-danger" style="text-align: center; margin-top: -20px;">
+            {{ session('failed') }}
+        </div>
+    @endif
     <div class="cover-bg">
         <p class="cover-swords"><strong>HANG OUT WITH OTHER DEVELOPERS</strong></p>
         <p class="cover-bwords"><strong>Host a Meetup</strong></p>
