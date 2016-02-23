@@ -5,8 +5,6 @@
     <script src="{{ load_asset('/js/like.js') }}"></script>
     <script src="{{ load_asset('/js/view.js') }}"></script>
 
-    @include('shared.project_details_vars')
-
     <div class="fade-lg" id="{{ $project->id }}" role="dialog">
         <div class="container-fluid">
             <div class="row">
@@ -23,9 +21,9 @@
                         <div class="modal-right">
                             <p>
                                 @if(Auth::user())
-                                    <a href="#" id="{{ $modalLikesLink }}" onclick="like({{ $project->id }}, {{ $project->projectLikes->count() }}, '{{ $likesValueOnModal }}', '{{ $likesValueOnThumbnail }}', '{{ $modalLikesLink }}');">
+                                    <a href="#" id="{{ 'like_link_'.$project->id }}" onclick="like({{ $project->id }}, {{ $project->projectLikes->count() }}, '{{ 'modal_likes_'.$project->id }}', '', '{{ 'like_link_'.$project->id }}');">
                                         <i class='fa fa-thumbs-o-up'></i>
-                                        <span id="{{ $likesValueOnModal }}">{{ $project->projectLikes->count() }}</span>&nbsp;Likes
+                                        <span id="{{ 'modal_likes_'.$project->id }}">{{ $project->projectLikes->count() }}</span>&nbsp;Likes
                                     </a>
                                 @else
                                     <i class='fa fa-thumbs-o-up'></i>&nbsp;{{ $project->projectLikes->count() }}&nbsp;Likes
