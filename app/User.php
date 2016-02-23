@@ -120,4 +120,20 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
             return false;
         }
     }
+
+    /**
+     * Team membership relationship for user.
+     */
+    public function teams()
+    {
+        return $this->belongsToMany('Pibbble\Team', 'team_members', 'user_id', 'team_id')->withTimestamps();
+    }
+
+    /**
+     * Teams followed relationship for user.
+     */
+    public function teamFollows()
+    {
+        return $this->belongsToMany('Pibbble\Team', 'team_follows', 'user_id', 'team_id')->withTimestamps();
+    }
 }

@@ -18,7 +18,6 @@
     <link href="{{ load_asset('/css/developers-list.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ load_asset('/css/jquery.datetimepicker.css') }}" rel="stylesheet" type="text/css">
     @yield('custom-css')
-    @yield('custom_js')
   </head>
   <body>
     @include('shared.navbar')

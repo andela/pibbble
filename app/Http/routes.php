@@ -22,6 +22,29 @@ Route::get('/developers/projects/{param}', 'PagesController@developerProject');
 Route::get('/sort', ['uses' => 'PagesController@getLinks', 'as' => 'sort']);
 Route::get('/timeframe', ['uses' => 'PagesController@getTimeframeLinks', 'as' => 'timeframe']);
 
+Route::post('/checkName', ['uses' => 'TeamController@checkName']);
+/*
+|------------------------------------------------------------------------------
+| Team routes
+|------------------------------------------------------------------------------
+*/
+
+Route::group(['prefix' => 'teams'], function () {
+    Route::get('/', 'TeamController@index');
+    Route::get('/new', ['uses' => 'TeamController@create', 'middleware' => 'auth']);
+    Route::get('/invites', ['uses' => 'TeamController@invites', 'middleware' => 'auth']);
+    Route::get('/{team}/invite', 'TeamController@invite');
+    Route::get('/{team}/invite/{id}', ['uses' => 'TeamController@sendInvite', 'middleware' => 'auth']);
+    Route::post('/new', ['uses' => 'TeamController@store', 'as' => 'teams.create']);
+
+    Route::get('/dashboard/{id}', ['uses' => 'TeamController@fromEmail']);
+    Route::get('/{team}/dashboard', ['uses' => 'TeamController@show']);
+    Route::get('/{team}/settings', ['uses' => 'TeamController@edit']);
+    Route::post('/{team}/settings', ['uses' => 'TeamController@update']);
+    Route::post('/{team}/avatar', ['uses' => 'TeamController@updateAvatar']);
+    Route::get('/delete/{id}', ['uses' => 'TeamController@destroy']);
+});
+
 /*
  * Gets Events creation page
  */
@@ -48,6 +71,8 @@ Route::get('/dashboard', ['middleware' => 'auth', 'uses' => 'ProjectController@i
 
 //Project routes using resource
 Route::resource('projects', 'ProjectController');
+Route::post('projects/new/{team}', 'ProjectController@storeteam');
+
 Route::get('projects/meta/{id}', ['uses' => 'ProjectController@getMetaAsJSON', 'as' => 'getMetaAsJSON']);
 // Confirm before delete
 Route::get('project/confirm/{id}', 'ProjectController@confirm');
@@ -81,11 +106,18 @@ Route::controllers([
 // Hire a user
 Route::post('hireme', 'ProfileController@hireUser');
 
-// Gets users' profiles
+// Hire a team
+Route::post('hireus', 'TeamController@hireTeam');
+
+// Gets users' profile
 Route::get('{username}', [
     'uses' => 'ProfileController@show',
     'as'   => 'userprofile',
 ]);
+
+//Follow team route
+Route::get('/follow/team/{id}', 'TeamController@follow');
+Route::get('/unfollow/team/{id}', 'TeamController@unfollow');
 
 // Follow user route
 Route::get('/follow/{id}/{me}', 'ProfileController@followUser');
