@@ -45,7 +45,6 @@
     <div class="modal-dialog">
 
       <!-- Modal content-->
-      <script src="/js/project_upload.js"></script>
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -76,11 +75,6 @@
             </div>
             <div class="form-group">
               <label for="upload"><span class="glyphicon glyphicon-upload"></span> URL</label><br />
-              <!-- <select name="url_prefix" class="form-control" required style="width: 80px; display: inline;">
-                <option></option>
-                <option>http://</option>
-                <option>https://</option>
-              </select> -->
               <input type="text" name="project_url" class="form-control" id="upload" placeholder="e.g http://www.example.com" required pattern="https?://.+">
               @if ($errors->has('project_url'))
                     <span class="help-block">{{ $errors->first('project_url') }}</span>

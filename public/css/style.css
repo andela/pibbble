@@ -1,12 +1,13 @@
 html {
-    height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
     background-color: #eee;
     margin: 0;
     padding: 0;
-    height: 100%;
+    margin-bottom: 200px;
 }
 
 a {
@@ -160,6 +161,7 @@ a:hover {
     color: gray;
     font-size: 12px;
     font-family: arial;
+    position: absolute;
     bottom: 0;
 }
 
