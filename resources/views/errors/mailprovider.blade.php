@@ -2,8 +2,6 @@
 
 @section('title', 'MailProvider Error')
 
-@endsection
-
 @section('content')
 
     <div class="error404">
