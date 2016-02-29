@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class ProjectTest extends TestCase
 {
     protected $baseUrl = 'http://localhost';
+
     /**
      * Test for commenting on project
      *
@@ -29,5 +30,24 @@ class ProjectTest extends TestCase
                     );
         $this->assertEquals(200, $response->status());
         $this->seeInDatabase('project_comments', ['comment' => $comment]);
+    }
+
+    /**
+     * Test for liking a project on project
+     *
+     * @return void
+     */
+    public function testLikingAProject()
+    {
+        $user = factory(Pibbble\User::class)->create();
+        $project = factory(Pibbble\Project::class)->create();
+
+        $response = $this->actingAs($user)
+                    ->call(
+                        'GET',
+                        '/project/like/'.$project->id
+                    );
+        $this->assertEquals(200, $response->status());
+        $this->seeInDatabase('projects_likes', ['user_id' => $user->id, 'project_id' => $project->id]);
     }
 }
