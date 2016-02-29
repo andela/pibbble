@@ -23,9 +23,13 @@
             <exclude>
                 <directory>app/Http/Middleware</directory>
                 <directory>app/Console/Commands</directory>
-                <direcroty>app/Events</direcroty>
+                <directory>app/Events</directory>
                 <directory>app/Exceptions</directory>
+                <directory>app/Jobs</directory>
                 <file>app/Http/Kernel.php</file>
+                <file>app/Http/Controllers/Controller.php</file>
+                <file>app/Http/Requests/Request.php</file>
+                <file>app/Tag.php</file>
             </exclude>
         </whitelist>
     </filter>
