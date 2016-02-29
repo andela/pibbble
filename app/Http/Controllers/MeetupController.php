@@ -67,12 +67,12 @@ class MeetupController extends Controller
             'phoneNumber'       => $meetup->phone_no,
         ];
 
-        $recipients = explode(', ', env('ADMIN_EMAILS'));
-        $recipients[] = $user->email;
+        $admins = explode(', ', env('ADMIN_EMAILS'));
 
-        Mail::send('emails.meetup-created', compact('user', 'meetupDetails'), function ($message) use ($user, $recipients) {
-            $message->from($user->email, $user->username);
-            $message->to($recipients)->subject('Your Pibble Meetup has been created');
+        Mail::send('emails.meetup-created', compact('user', 'meetupDetails'), function ($message) use ($user, $admins) {
+            $message->from(env('MAIL_USERNAME'), "Pibble Team");
+            $message->to($user->email)->subject('Your Pibble Meetup has been created');
+            $message->cc($admins);
         });
     }
 }
