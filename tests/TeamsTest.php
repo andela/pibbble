@@ -33,5 +33,10 @@ class TeamsTest extends TestCase
         $this->actingAs($user)
             ->visit('teams/new')
             ->type('Dream Team', 'name')
+            ->type('ganga.chris@gmail.com', 'email')
+            ->select('Basic', 'options')
+            ->press('Create team')
+            ->seeInDatabase('teams', ['name' => 'Dream Team'])
+            ->seePageIs('teams/Dream Team/invite');
     }
 }
