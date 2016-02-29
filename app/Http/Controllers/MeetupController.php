@@ -33,7 +33,7 @@ class MeetupController extends Controller
     /**
      * Creates and stores new meetups.
      * Redirects to another page on successful creation.
-     * Then sends an email alerting admin of the creation.
+     * Then sends an email alerting admins of the creation.
      */
     public function create(Request $request, Meetup $meetup)
     {
@@ -46,9 +46,11 @@ class MeetupController extends Controller
 
         if ($meetup->save()) {
             $this->sendEmailOnMeetupCreation($meetup);
-        }
+            $message = 'Your meetup creation was successful. '
+                .'A confirmation email will be sent to you on approval.';
 
-        return redirect()->back();
+            return redirect('/meetup/faq')->with('success', $message);
+        }
     }
 
     public function sendEmailOnMeetupCreation(Meetup $meetup)
@@ -62,12 +64,12 @@ class MeetupController extends Controller
             'phoneNumber'       => $meetup->phone_no,
         ];
 
-        $recipients = explode(', ', env('ADMIN_EMAILS'));
-        $recipients[] = $user->email;
+        $admins = explode(', ', env('ADMIN_EMAILS'));
 
-        Mail::send('emails.meetup-created', compact('user', 'meetupDetails'), function ($message) use ($user, $recipients) {
-            $message->from($user->email, $user->username);
-            $message->to($recipients)->subject('Your Pibble Meetup has been created');
+        Mail::send('emails.meetup-created', compact('user', 'meetupDetails'), function ($message) use ($user, $admins) {
+            $message->from(env('MAIL_USERNAME'), "Pibble Team");
+            $message->to($user->email)->subject('Your Pibble Meetup has been created');
+            $message->cc($admins);
         });
     }
 }
