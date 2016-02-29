@@ -1,8 +1,6 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class TeamsTest extends TestCase
 {
@@ -11,7 +9,7 @@ class TeamsTest extends TestCase
     protected $baseUrl = 'http://localhost';
 
     /**
-     * Test for viewing teams page
+     * Test for viewing teams page.
      *
      * @return void
      */
