@@ -33,6 +33,6 @@ $factory->define(Pibbble\Project::class, function (Faker\Generator $faker) {
         'technologies'  => 'Javascript',
         'project_url'   => $faker->url,
         'image_url'     => $faker->url,
-        'user_id'       => 1
+        'user_id'       => 1,
     ];
 });
