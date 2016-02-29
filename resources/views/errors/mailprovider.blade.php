@@ -1,8 +1,6 @@
-@extends('master')
+@extends('layouts.master')
 
 @section('title', 'MailProvider Error')
-
-@endsection
 
 @section('content')
 

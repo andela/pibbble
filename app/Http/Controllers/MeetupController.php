@@ -6,9 +6,7 @@ use Auth;
 use Mail;
 use Pibbble\Meetup;
 use Pibbble\User;
-use Pibbble\Http\Requests;
 use Illuminate\Http\Request;
-use Pibbble\Http\Controllers\Controller;
 
 class MeetupController extends Controller
 {
@@ -23,7 +21,7 @@ class MeetupController extends Controller
     }
 
     /**
-     * Returns FAQ page for meetups
+     * Returns FAQ page for meetups.
      *
      * @return FAQ view
      */
@@ -39,7 +37,6 @@ class MeetupController extends Controller
      */
     public function create(Request $request, Meetup $meetup)
     {
-
         $meetup->city = $request->city;
         $meetup->event_date = $request->event_date;
         $meetup->event_details = $request->event_details;

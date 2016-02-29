@@ -30,8 +30,8 @@ class ProfileController extends Controller
     public function show($username)
     {
         $user = User::findByUsernameOrFail($username);
-        $user->following = $user->follows()->get();
-        $user->followers = $user->followers()->get();
+        $user->countFollowing = $user->follows()->count() + $user->teamFollows()->count();
+        $user->countFollowers = $user->followers()->count();
         $user->me = false;
 
         return view('projects.dashboard', ['user' => $user]);
@@ -148,7 +148,11 @@ class ProfileController extends Controller
             }
         }
 
-        return response()->json($followers);
+        $data = [
+            'follows' => $followers,
+        ];
+
+        return response()->json($data);
     }
 
     /**
@@ -156,26 +160,43 @@ class ProfileController extends Controller
      */
     public function getFollows($id)
     {
-        $followers = User::find($id)->follows()->get();
+        $user = User::find($id);
+        $follows = $user->follows()->get();
 
-        for ($i = 0; $i < count($followers); $i++) {
-            $followers[$i]->avatar = $followers[$i]->getAvatar();
-            $followers[$i]->checkFollow = false;
-            $followers[$i]->me = false;
+        for ($i = 0; $i < count($follows); $i++) {
+            $follows[$i]->avatar = $follows[$i]->getAvatar();
+            $follows[$i]->checkFollow = false;
+            $follows[$i]->me = false;
 
             if (Auth::check()) {
-                $followers[$i]->checkFollow = $followers[$i]->checkFollow();
-                $followers[$i]->me = false;
+                $follows[$i]->checkFollow = $follows[$i]->checkFollow();
+                $follows[$i]->me = false;
 
-                if ($followers[$i]->id == Auth::user()->id) {
-                    $followers[$i]->me = true;
+                if ($follows[$i]->id == Auth::user()->id) {
+                    $follows[$i]->me = true;
                 }
             } else {
-                $followers[$i]->me = true;
+                $follows[$i]->me = true;
             }
         }
 
-        return response()->json($followers);
+        $teamFollows = $user->teamFollows()->get();
+
+        for ($i = 0; $i < count($teamFollows); $i++) {
+            $teamFollows[$i]->checkFollow = false;
+            $teamFollows[$i]->avatar = $teamFollows[$i]->getAvatar();
+
+            if (Auth::check()) {
+                $teamFollows[$i]->checkFollow = $teamFollows[$i]->checkFollow();
+            }
+        }
+
+        $data = [
+            'follows' => $follows,
+            'teamFollows' => $teamFollows,
+        ];
+
+        return response()->json($data);
     }
 
     /**
