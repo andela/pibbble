@@ -20,10 +20,13 @@
     <filter>
         <whitelist>
             <directory suffix=".php">app/</directory>
-            <exlude>
+            <exclude>
                 <directory>app/Http/Middleware</directory>
+                <directory>app/Console/Commands</directory>
+                <direcroty>app/Events</direcroty>
+                <directory>app/Exceptions</directory>
                 <file>app/Http/Kernel.php</file>
-            </exlude>
+            </exclude>
         </whitelist>
     </filter>
     <php>

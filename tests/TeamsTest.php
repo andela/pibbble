@@ -23,8 +23,15 @@ class TeamsTest extends TestCase
 
     public function testCreateTeamsWithoutAuth()
     {
-        //$user = factory(Pibbble\User::class)->create();
         $this->visit('teams/new')
             ->seePageIs('/auth/login');
+    }
+
+    public function testCreateTeams()
+    {
+        $user = factory(Pibbble\User::class)->create();
+        $this->actingAs($user)
+            ->visit('teams/new')
+            ->type('Dream Team', 'name')
     }
 }
