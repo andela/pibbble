@@ -1,7 +1,7 @@
 ## Pibbble
 
 [![Build Status](https://travis-ci.org/andela/pibbble.svg)](https://travis-ci.org/andela/pibbble)
-[![Coverage Status](https://coveralls.io/repos/github/andela/pibbble/badge.svg?branch=staging)](https://coveralls.io/github/andela/pibbble?branch=staging)
+[![Coverage Status](https://coveralls.io/repos/andela/pibbble/badge.svg?branch=%28detached+from+f19f951%29&service=github)](https://coveralls.io/github/andela/pibbble?branch=%28detached+from+f19f951%29)
 
 Pibbble is a web application developed with the Laravel framework. It is a show and tell for developers who would like to showcase their side projects for fellow developers, investors and other software enthusiasts.
 
