@@ -1,15 +1,12 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ProjectTest extends TestCase
 {
     protected $baseUrl = 'http://localhost';
 
     /**
-     * Test for commenting on project
+     * Test for commenting on project.
      *
      * @return void
      */
@@ -33,7 +30,7 @@ class ProjectTest extends TestCase
     }
 
     /**
-     * Test for liking a project on project
+     * Test for liking a project on project.
      *
      * @return void
      */
@@ -61,19 +58,18 @@ class ProjectTest extends TestCase
     }
 
     /**
-     * Test for viewing a project on project
+     * Test for viewing a project on project.
      *
      * @return void
      */
-
     public function testViewProject()
     {
         $user = factory(Pibbble\User::class)->create();
         $project = factory(Pibbble\Project::class)->create();
 
         $this->visit('/project/view/'.$project->id)
-            ->seeInDatabase('projects', ['id' => 1,'views' => 1])
+            ->seeInDatabase('projects', ['id' => 1, 'views' => 1])
             ->visit('/project/view/'.$project->id)
-            ->seeInDatabase('projects', ['id' => 1,'views' => 2]);
+            ->seeInDatabase('projects', ['id' => 1, 'views' => 2]);
     }
 }
