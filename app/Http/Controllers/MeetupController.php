@@ -67,7 +67,7 @@ class MeetupController extends Controller
         $admins = explode(', ', env('ADMIN_EMAILS'));
 
         Mail::send('emails.meetup-created', compact('user', 'meetupDetails'), function ($message) use ($user, $admins) {
-            $message->from(env('MAIL_USERNAME'), "Pibble Team");
+            $message->from(env('MAIL_USERNAME'), 'Pibble Team');
             $message->to($user->email)->subject('Your Pibble Meetup has been created');
             $message->cc($admins);
         });
