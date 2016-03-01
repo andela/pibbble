@@ -25,10 +25,12 @@
               </ul>
             </li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Teams<span class="caret"></span></a>
+              <a href="/teams" class="dropdown-toggle" data-toggle="dropdown">Teams<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#">All</a></li>
+                <li><a href="{{ url('/teams') }}">All</a></li>
                 <li><a href="#">Now Hiring</a></li>
+                <li class="divider"></li>
+                <li><a href="{{ url('/teams/new') }}">Add your Team</a></li>
               </ul>
             </li>
             <li class="dropdown">

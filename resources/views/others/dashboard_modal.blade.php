@@ -45,7 +45,6 @@
     <div class="modal-dialog">
 
       <!-- Modal content-->
-      <script src="/js/project_upload.js"></script>
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -54,29 +53,29 @@
         <div class="modal-body">
           <form id="uploadForm" role="form-group" method="post" action="{{ route('projects.store') }}" onsubmit="showLoader()">
             <div class="form-group">
-              <label for="name"><span class="glyphicon glyphicon-file"></span> Name</label>
-              <input type="text" name="name" class="form-control" id="name" placeholder="Pibbble" required>
+              <label for="name"><span class="glyphicon glyphicon-file"></span> Project Name</label>
+              <input type="text" name="name" class="form-control" id="name" required>
               @if ($errors->has('name'))
                     <span class="help-block">{{ $errors->first('name') }}</span>
                 @endif
             </div>
             <div class="form-group">
               <label for="description"><span class="glyphicon glyphicon-blackboard"></span> Description</label>
-              <textarea type="text" name="description" class="form-control" id="description" placeholder="A show and tell for Codeweavers" minlength="15"></textarea>
+              <textarea type="text" name="description" class="form-control" id="description" minlength="15"></textarea>
               @if ($errors->has('description'))
                     <span class="help-block">{{ $errors->first('description') }}</span>
                 @endif
             </div>
             <div class="form-group">
               <label for="technologies"><span class="glyphicon glyphicon-cog"></span> Technologies</label>
-              <input type="text" name="technologies" class="form-control" id="technologies" placeholder="PHP, JavaScript, HTML, Firebase." required>
+              <input type="text" name="technologies" class="form-control" id="technologies" required>
               @if ($errors->has('technologies'))
                     <span class="help-block">{{ $errors->first('technologies') }}</span>
                 @endif
             </div>
             <div class="form-group">
-              <label for="upload"><span class="glyphicon glyphicon-upload"></span> Upload</label>
-              <input type="text" name="project_url" class="form-control" id="upload" placeholder="http://www.pibbble.com" required>
+              <label for="upload"><span class="glyphicon glyphicon-upload"></span> URL</label><br />
+              <input type="text" name="project_url" class="form-control" id="upload" placeholder="e.g http://www.example.com" required pattern="https?://.+">
               @if ($errors->has('project_url'))
                     <span class="help-block">{{ $errors->first('project_url') }}</span>
                 @endif

@@ -1,4 +1,4 @@
-function like(projectID, count, likesValueOnModal, likesValueOnThumbnail, modalLikesLink)
+function like(projectID, count, likesValueOnModal, likesValueOnThumbnail, likeLink)
 {
     if (window.XMLHttpRequest) {
         xmlhttp = new XMLHttpRequest();
@@ -13,9 +13,9 @@ function like(projectID, count, likesValueOnModal, likesValueOnThumbnail, modalL
             document.getElementById(likesValueOnModal).innerHTML = likesCount;
 
             if (likesCount <= count) {
-                document.getElementById(modalLikesLink).style.color = "#999";
+                document.getElementById(likeLink).style.color = "#999";
             } else {
-                document.getElementById(modalLikesLink).style.color = "#2296cc";
+                document.getElementById(likeLink).style.color = "#2296cc";
             }
         }
     };

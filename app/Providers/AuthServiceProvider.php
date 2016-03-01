@@ -4,6 +4,7 @@ namespace Pibbble\Providers;
 
 use Auth;
 use Pibbble\Permission;
+use Pibbble\Team;
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -42,6 +43,14 @@ class AuthServiceProvider extends ServiceProvider
 
         $gate->define('approve-meetup', function ($user) {
             return $user->hasRole('meetup-admin');
+        });
+
+        $gate->define('user-in-team-can-see', function ($user, $team_id) {
+            return Team::checkUserInTeam($team_id, $user->id);
+        });
+
+        $gate->define('user-not-in-team-can-see', function ($user, $team_id) {
+            return ! Team::checkUserInTeam($team_id, $user->id);
         });
     }
 }

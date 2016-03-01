@@ -1,8 +1,6 @@
 @extends('layouts.master')
 @section('title', 'Help')
 
-@endsection
-
 @section('custom-css')
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
