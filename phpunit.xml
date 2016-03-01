@@ -20,6 +20,17 @@
     <filter>
         <whitelist>
             <directory suffix=".php">app/</directory>
+            <exclude>
+                <directory>app/Http/Middleware</directory>
+                <directory>app/Console/Commands</directory>
+                <directory>app/Events</directory>
+                <directory>app/Exceptions</directory>
+                <directory>app/Jobs</directory>
+                <file>app/Http/Kernel.php</file>
+                <file>app/Http/Controllers/Controller.php</file>
+                <file>app/Http/Requests/Request.php</file>
+                <file>app/Tag.php</file>
+            </exclude>
         </whitelist>
     </filter>
     <php>
@@ -28,5 +39,6 @@
         <env name="SESSION_DRIVER" value="file"/>
         <env name="QUEUE_DRIVER" value="sync"/>
         <env name="DB_CONNECTION" value="sqlite"/>
+        <env name="ADMIN_EMAILS" value="ganga.chris@gmail.com"/>
     </php>
 </phpunit>
