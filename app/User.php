@@ -121,8 +121,42 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         }
     }
 
+    /**
+    * @return the roles a user belongs to
+    */
     public function roles()
     {
         return $this->belongsToMany(Role::class);
+    }
+
+    /**
+    * @param $role
+    * @return true if the user has the role; false otherwise
+    */
+    public function hasRole($role)
+    {
+        if (is_string($role)) {
+            return $this->roles->contains('name', $role);
+        }
+
+        foreach ($role as $r) {
+            return $this->hasRole($r->name);
+        }
+    }
+
+    /**
+    * @param the role to assign to a user
+    */
+    public function assignRole(Role $role)
+    {
+        return $this->roles->save($role);
+    }
+
+    /**
+    * @param the role to unassign from a user
+    */
+    public function removeRole(Role $role)
+    {
+        return $this->roles->detach($role);
     }
 }
