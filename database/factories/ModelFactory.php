@@ -25,3 +25,14 @@ $factory->define(Pibbble\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(Pibbble\Project::class, function (Faker\Generator $faker) {
+    return [
+        'projectname'   => $faker->name,
+        'description'   => $faker->sentence,
+        'technologies'  => 'Javascript',
+        'project_url'   => $faker->url,
+        'image_url'     => $faker->url,
+        'user_id'       => 1,
+    ];
+});
