@@ -43,6 +43,12 @@ Route::post('/meetup/new', [
 // Gets meetup FAQ page
 Route::get('/meetup/faq', 'MeetupController@faq');
 
+// Gets pending meetups
+Route::get('/meetup/pending', 'MeetupController@getPendingMeetups');
+
+// Gets the page to approve a meetup
+Route::get('/meetup/pending/{id}', 'MeetupController@getPendingMeetup');
+
 //Dashboard Route
 Route::get('/dashboard', ['middleware' => 'auth', 'uses' => 'ProjectController@index']);
 
