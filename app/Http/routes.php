@@ -72,6 +72,9 @@ Route::get('/meetup/pending', 'MeetupController@getPendingMeetups');
 // Gets the page to approve a meetup
 Route::get('/meetup/pending/{id}', 'MeetupController@getPendingMeetup');
 
+// Approve a meetup
+Route::post('/meetup/approve/{id}', 'MeetupController@approve');
+
 //Dashboard Route
 Route::get('/dashboard', ['middleware' => 'auth', 'uses' => 'ProjectController@index']);
 
