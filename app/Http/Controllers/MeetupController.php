@@ -33,7 +33,7 @@ class MeetupController extends Controller
     /**
      * Creates and stores new meetups.
      * Redirects to another page on successful creation.
-     * Then sends an email alerting admin of the creation.
+     * Then sends an email alerting admins of the creation.
      */
     public function create(Request $request, Meetup $meetup)
     {
@@ -47,10 +47,11 @@ class MeetupController extends Controller
 
         if ($meetup->save()) {
             $this->sendEmailOnMeetupCreation($meetup);
-            return redirect('/meetup/faq')->with('success', 'Your meetup creation was successful. A confirmation email will be sent to you on approval.');
-        }
+            $message = 'Your meetup creation was successful. '
+                .'A confirmation email will be sent to you on approval.';
 
-        return redirect('/meetup/new')->with('failed', 'Your meetup creation failed. Please check your values or notify an administrator.');
+            return redirect('/meetup/faq')->with('success', $message);
+        }
     }
 
     public function sendEmailOnMeetupCreation(Meetup $meetup)
@@ -64,12 +65,40 @@ class MeetupController extends Controller
             'phoneNumber'       => $meetup->phone_no,
         ];
 
-        $recipients = explode(', ', env('ADMIN_EMAILS'));
-        $recipients[] = $user->email;
+        $admins = explode(', ', env('ADMIN_EMAILS'));
 
-        Mail::send('emails.meetup-created', compact('user', 'meetupDetails'), function ($message) use ($user, $recipients) {
-            $message->from($user->email, $user->username);
-            $message->to($recipients)->subject('Your Pibble Meetup has been created');
+        Mail::send('emails.meetup-created', compact('user', 'meetupDetails'), function ($message) use ($user, $admins) {
+            $message->from(env('MAIL_USERNAME'), 'Pibble Team');
+            $message->to($user->email)->subject('Your Pibble Meetup has been created');
+            $message->cc($admins);
         });
+    }
+
+    public function getPendingMeetups()
+    {
+        $meetups = Meetup::where('approved', false)->get();
+
+        return view('meetups.pending', ['meetups' => $meetups]);
+    }
+
+    public function getPendingMeetup($id)
+    {
+        $pendingMeetup = Meetup::where('approved', false)->find($id);
+        return view('meetups.pending', ['pendingMeetup' => $pendingMeetup]);
+    }
+
+    public function approve($id)
+    {
+        $pendingMeetup = Meetup::get()->find($id);
+        $pendingMeetup->approved = true;
+        $pendingMeetup->save();
+
+        $success = 'The meetup was successfully approved.';
+
+        return redirect('/meetup/pending/'.$id )
+            ->with([
+                'success' => $success,
+                'pendingMeetup' => $pendingMeetup
+            ]);
     }
 }
