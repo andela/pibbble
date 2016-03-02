@@ -86,3 +86,8 @@
   height: 200px;
   width: 150px;
 }
+
+div.alert-success {
+  text-align: center;
+  margin-top: -20px;
+}
