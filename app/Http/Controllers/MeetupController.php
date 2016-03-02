@@ -84,6 +84,7 @@ class MeetupController extends Controller
     public function getPendingMeetup($id)
     {
         $pendingMeetup = Meetup::where('approved', false)->find($id);
+
         return view('meetups.pending', ['pendingMeetup' => $pendingMeetup]);
     }
 
@@ -95,10 +96,10 @@ class MeetupController extends Controller
 
         $success = 'The meetup was successfully approved.';
 
-        return redirect('/meetup/pending/'.$id )
+        return redirect('/meetup/pending/'.$id)
             ->with([
                 'success' => $success,
-                'pendingMeetup' => $pendingMeetup
+                'pendingMeetup' => $pendingMeetup,
             ]);
     }
 }
