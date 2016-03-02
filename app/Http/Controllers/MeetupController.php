@@ -95,10 +95,10 @@ class MeetupController extends Controller
 
         $success = 'The meetup was successfully approved.';
 
-        return redirect('/meetup/pending/'.$id )
+        return redirect('/meetup/pending/'.$id)
             ->with([
                 'success' => $success,
-                'pendingMeetup' => $pendingMeetup
+                'pendingMeetup' => $pendingMeetup,
             ]);
     }
 }
