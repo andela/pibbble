@@ -76,3 +76,13 @@
   border-bottom: 1px solid #e0e0e0;
   padding: 0px 0px 10px 0px;
 }
+
+.meetup-details {
+  margin-left: 200px;
+  margin-top: 20px;
+}
+
+.meetup-image {
+  height: 200px;
+  width: 150px;
+}
