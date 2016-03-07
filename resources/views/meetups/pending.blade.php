@@ -16,7 +16,9 @@
                         <strong>Details: </strong>{{ $meetup->event_details }}<br>
                         <strong>Organizer Address: </strong>{{ $meetup->organizer_address }}<br>
                         <strong>Phone No: </strong>{{ $meetup->phone_no }}<br>
-                        <a href="pending/{{ $meetup->id }}" class="btn btn-info pull-right">Edit Status</a>
+                        @can('approve-meetup')
+                            <a href="/meetup/pending/{{ $meetup->id }}" class="btn btn-info pull-right">Edit Status</a>
+                        @endcan
                     </div>
                 </div>
             </div><br><br>
@@ -33,10 +35,12 @@
                     <strong>Details: </strong>{{ $pendingMeetup->event_details }}<br>
                     <strong>Organizer Address: </strong>{{ $pendingMeetup->organizer_address }}<br>
                     <strong>Phone No: </strong>{{ $pendingMeetup->phone_no }}<br>
-                    <form id="approveMeetup" role="form" method="POST" action="/meetup/approve/{{ $pendingMeetup->id }}">
-                        {!! csrf_field() !!}
-                        <input class="btn btn-success pull-right" type="submit" value="Approve" />
-                    </form>
+                    @can('approve-meetup')
+                        <form id="approveMeetup" role="form" method="POST" action="/meetup/approve/{{ $pendingMeetup->id }}">
+                            {!! csrf_field() !!}
+                            <input class="btn btn-success pull-right" type="submit" value="Approve" />
+                        </form>
+                    @endcan
                 </div>
             </div>
         </div><br><br>
