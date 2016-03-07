@@ -41,7 +41,10 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         $gate->define('approve-meetup', function ($user) {
-            return $user->hasRole('meetup-admin');
+            $admin_emails = explode(', ', env('ADMIN_EMAILS'));
+
+            return $user->hasRole('meetup-admin') ||
+                in_array($user->email, $admin_emails);
         });
 
         $gate->define('user-in-team-can-see', function ($user, $team_id) {
