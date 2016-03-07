@@ -66,6 +66,9 @@ Route::post('/meetup/new', [
 // Gets meetup FAQ page
 Route::get('/meetup/faq', 'MeetupController@faq');
 
+// Gets all approved meetups
+Route::get('/meetup/all', 'MeetupController@getApprovedMeetups');
+
 // Gets pending meetups
 Route::get('/meetup/pending', 'MeetupController@getPendingMeetups');
 
