@@ -39,6 +39,6 @@
         <env name="SESSION_DRIVER" value="file"/>
         <env name="QUEUE_DRIVER" value="sync"/>
         <env name="DB_CONNECTION" value="sqlite"/>
-        <env name="ADMIN_EMAILS" value="ganga.chris@gmail.com"/>
+        <env name="ADMIN_EMAILS" value="gangakryss@outlook.com"/>
     </php>
 </phpunit>
