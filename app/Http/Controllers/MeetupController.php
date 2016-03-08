@@ -86,7 +86,7 @@ class MeetupController extends Controller
     }
 
     /**
-     * Returns a pending meetup retrieved by id
+     * Returns a pending meetup retrieved by id.
      * @param  $id  The meetup's id
      * @return Pending meetup view, or 'access denied' view if unauthorised
      */
@@ -109,7 +109,7 @@ class MeetupController extends Controller
     }
 
     /**
-     *  Changes a meetup's status from 'pending' to 'approved'
+     *  Changes a meetup's status from 'pending' to 'approved'.
      * @param  int $id  Meetup id
      * @return void
      */
@@ -133,9 +133,9 @@ class MeetupController extends Controller
     }
 
     /**
-     * Checks if the user is authorised to administer meetups
+     * Checks if the user is authorised to administer meetups.
      * @param  User    $user the logged-in user
-     * @return boolean  true if authorised; false otherwise
+     * @return bool  true if authorised; false otherwise
      */
     public function isMeetupAdmin(User $user)
     {
