@@ -12,7 +12,7 @@ class AddApprovedColumnMeetups extends Migration
      */
     public function up()
     {
-        Schema::create('meetups', function (Blueprint $table) {
+        Schema::table('meetups', function (Blueprint $table) {
             $table->boolean('approved');
         });
     }
