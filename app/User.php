@@ -122,17 +122,17 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     /**
-    * @return the roles a user belongs to
-    */
+     * @return the roles a user belongs to
+     */
     public function roles()
     {
         return $this->belongsToMany(Role::class);
     }
 
     /**
-    * @param $role
-    * @return true if the user has the role; false otherwise
-    */
+     * @param $role
+     * @return true if the user has the role; false otherwise
+     */
     public function hasRole($role)
     {
         if (is_string($role)) {
@@ -145,24 +145,24 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     /**
-    * @param the role to assign to a user
-    */
+     * @param the role to assign to a user
+     */
     public function assignRole(Role $role)
     {
         return $this->roles->save($role);
     }
 
     /**
-    * @param the role to unassign from a user
-    */
+     * @param the role to unassign from a user
+     */
     public function removeRole(Role $role)
     {
         return $this->roles->detach($role);
     }
 
-    /** 
-    * Team membership relationship for user.
-    */
+    /**
+     * Team membership relationship for user.
+     */
     public function teams()
     {
         return $this->belongsToMany('Pibbble\Team', 'team_members', 'user_id', 'team_id')->withTimestamps();
